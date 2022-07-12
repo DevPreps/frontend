@@ -1,0 +1,16 @@
+{
+  "name": "web-dev-front-end",
+  "version": "1.0.0",
+  "description": "For the budding developer curious about real world industry experiences",
+  "source": "public/index.html",
+  "scripts": {
+    "start": "parcel public/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-router-dom": "^6.3.0"
+  }
+}

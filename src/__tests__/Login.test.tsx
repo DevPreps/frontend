@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-import NotFound from "../pages/NotFound";
+import Login from "../pages/Login";
 
-describe("Test NotFound Page", function () {
+describe("Test Login Page", function () {
 	it("should be able to render <NotFound />", function () {
-		shallow(<NotFound />);
+		shallow(<Login />);
 	});
 });

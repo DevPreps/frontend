@@ -1,8 +1,12 @@
 export { default as AboutUs } from "./AboutUs";
-export { default as ComposePost } from "./ComposePost";
+export { default as Compose } from "./Compose";
 export { default as Home } from "./Home";
 export { default as NotFound } from "./NotFound";
 export { default as Login } from "./Login";
+export { default as NewGeneralPost } from "./NewGeneralPost";
+export { default as NewInterviewPost } from "./NewInterviewPost";
+export { default as NewLearnPost } from "./NewLearnPost";
+export { default as NewProjectPost } from "./NewProjectPost";
 export { default as Register } from "./Register";
 export { default as MyAccount } from "./MyAccount";
 export { default as Post } from "./Post";

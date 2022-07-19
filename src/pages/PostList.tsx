@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-const PostList = (props: { option: string }) => {
+const PostList = () => {
 	return (
 		<div>
-			PostList {props.option}
+			Post List
 			<Outlet />
 		</div>
 	);

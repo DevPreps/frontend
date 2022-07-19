@@ -57,7 +57,7 @@ The Technologies as seen in package.json:
 
 * Requirements
 
-To run this application it is required that you fire have an up to date version of Node installed and NPM as well. This
+To run this application it is required that you have an up to date version of Node installed and NPM as well. This
 has been tested to work on Windows, Mac and Linux based systems.
 
 To install this app, one must first clone this repoisitory into a folder of their choice, then run

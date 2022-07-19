@@ -16,22 +16,22 @@ describe("<MyAccount /> rendering", () => {
 });
 
 // test component interactions
-describe("<Compose /> interactions", () => {
+describe("<MyAccount /> interactions", () => {
 	const wrapper = shallow(<MyAccount />);
-	// test Home page link
-	it("should redirect to Compose General Post page when General link is clicked", () => {
+	// test My Posts link
+	it("should redirect to My Post page when My Posts link is clicked", () => {
 		expect(wrapper.find("Link").first().prop("to")).toEqual(
 			"/my-account/my-posts"
 		);
 	});
-	// test Learn page link
-	it("should redirect to Compose Interview Post page when Interview link is clicked", () => {
+	// test My Drafts page link
+	it("should redirect to My Drafts page when My Drafts link is clicked", () => {
 		expect(wrapper.find("Link").at(1).prop("to")).toEqual(
 			"/my-account/my-drafts"
 		);
 	});
-	// test Interview page link
-	it("should redirect to Compose Learn Post page when Learn link is clicked", () => {
+	// test My Bookmarks page link
+	it("should redirect to My Bookmarks page when My Bookmarks link is clicked", () => {
 		expect(wrapper.find("Link").at(2).prop("to")).toEqual(
 			"/my-account/my-bookmarks"
 		);

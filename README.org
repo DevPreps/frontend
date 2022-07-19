@@ -58,7 +58,7 @@ has been tested to work on Windows, Mac and Linux based systems.
 
 To install this app, one must first clone this repoisitory into a folder of their choice, then run
 #+BEGIN_SRC bash
-npm install
+npm ci
 #+END_SRC
 From here you can now launch a development server to see the application running on your local machine:
 #+BEGIN_SRC bash

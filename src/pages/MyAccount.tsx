@@ -1,7 +1,13 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 const MyAccount = () => {
-	return <div>MyAccount</div>;
+	return (
+		<div>
+			MyAccount
+			<Outlet />
+		</div>
+	);
 };
 
 export default MyAccount;

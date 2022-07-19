@@ -1,7 +1,8 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import {
 	AboutUs,
+	ComposePost,
 	Home,
 	MyAccount,
 	Login,
@@ -10,22 +11,26 @@ import {
 	PostList,
 	Register,
 } from "./pages/index";
-
+import { TopNav } from "./components/index";
 export default function App() {
 	return (
-		<BrowserRouter>
+		<>
 			<Routes>
 				<Route path="/" element={<Home />}>
 					<Route path="about" element={<AboutUs />} />
-					<Route path="myaccount" element={<MyAccount />} />
+					<Route path="myaccount" element={<MyAccount />}>
+						<Route path="saved" element={<PostList option="saved" />} />
+						<Route path="my-posts" element={<PostList option="my-posts" />} />
+					</Route>
 					<Route path="register" element={<Register />} />
 					<Route path="login" element={<Login />} />
-					<Route path="posts" element={<PostList />}>
-						<Route path="post" element={<Post />} />
+					<Route path="posts" element={<PostList option="category" />}>
+						<Route path="compose" element={<ComposePost />} />
 					</Route>
+					<Route path="posts/:category/:post-title" element={<Post />} />
 				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>
-		</BrowserRouter>
+		</>
 	);
 }

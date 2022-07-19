@@ -1,4 +1,5 @@
 export { default as AboutUs } from "./AboutUs";
+export { default as ComposePost } from "./ComposePost";
 export { default as Home } from "./Home";
 export { default as NotFound } from "./NotFound";
 export { default as Login } from "./Login";

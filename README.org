@@ -1,6 +1,10 @@
-#+title: Readme
+#+title: DevPreps
 
-* DevPreps
+* Table of Contents :toc:
+- [[#purpose][Purpose]]
+- [[#technology][Technology]]
+- [[#requirements][Requirements]]
+- [[#scripts-from-packagejson][Scripts from package.json]]
 
 * Purpose
 
@@ -65,7 +69,7 @@ From here you can now launch a development server to see the application running
 npm run start
 #+END_SRC
 
-* Script from package.json
+* Scripts from package.json
 
 #+BEGIN_SRC json
 "scripts": {

@@ -30,7 +30,7 @@
 	},
 	"scripts": {
 		"start": "parcel public/index.html",
-		"format:write": "npx prettier --write .",
+		"format": "npx prettier --write .",
         "format:check": "npx prettier --check .",
 		"build": "parcel build public/index.html",
 		"lint": "eslint --fix --ignore-path .gitignore .",

@@ -9,5 +9,6 @@ export { default as NewLearnPost } from "./NewLearnPost";
 export { default as NewProjectPost } from "./NewProjectPost";
 export { default as Register } from "./Register";
 export { default as MyAccount } from "./MyAccount";
+export { default as PersonalInfo } from "./PersonalInfo";
 export { default as Post } from "./Post";
 export { default as PostList } from "./PostList";

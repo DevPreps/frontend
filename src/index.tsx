@@ -9,12 +9,12 @@ import ReactDOM from "react-dom";
 // alterations to this code to work.
 
 ReactDOM.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<Routes>
-				<Route path="*" element={<App />} />
-			</Routes>
-		</BrowserRouter>
-	</React.StrictMode>,
-	document.getElementById("root")
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path="*" element={<App />} />
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById("root")
 );

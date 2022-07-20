@@ -1,0 +1,119 @@
+#+title: DevPreps
+
+* Table of Contents :toc:
+- [[#purpose][Purpose]]
+- [[#technology][Technology]]
+- [[#requirements][Requirements]]
+- [[#scripts-from-packagejson][Scripts from package.json]]
+
+* Purpose
+
+DevPreps is made by developers for developers. The goal is to make a website collaboratively with the
+end result being a website where young and up-coming web developers may post interview recounts, project ideas,
+general discussions and learning content while at the same time consuming posts from others for their own benefit.
+
+* Technology
+The main things to note about our stack for DevPreps is that this is a TypeScript using React v17 application
+using Material UI as our layout framework and Jest + Enzyme as our testing suite.
+
+The Technologies as seen in package.json:
+#+BEGIN_SRC json
+"dependencies": {
+	"@emotion/react": "^11.9.3",
+	"@emotion/styled": "^11.9.3",
+	"@mui/material": "^5.9.0",
+	"axios": "^0.27.2",
+	"react": "^17.0.2",
+	"react-dom": "^17.0.2",
+	"react-router-dom": "^6.3.0"
+},
+"devDependencies": {
+	"@types/enzyme": "^3.10.12",
+	"@types/jest": "^28.1.5",
+	"@types/react": "^17.0.47",
+	"@types/react-dom": "^18.0.6",
+	"@types/react-router-dom": "^5.3.3",
+	"@typescript-eslint/eslint-plugin": "^5.30.6",
+	"@typescript-eslint/parser": "^5.30.6",
+	"@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+	"enzyme": "^3.11.0",
+	"eslint": "^8.19.0",
+	"eslint-ci": "^1.0.0",
+	"eslint-config-prettier": "^8.5.0",
+	"eslint-config-standard": "^17.0.0",
+	"eslint-plugin-import": "^2.26.0",
+	"eslint-plugin-n": "^15.2.4",
+	"eslint-plugin-promise": "^6.0.0",
+	"eslint-plugin-react": "^7.30.1",
+	"jest": "^28.1.2",
+	"parcel": "^2.6.2",
+	"prettier": "^2.7.1",
+	"process": "^0.11.10",
+	"ts-jest": "^28.0.5",
+	"ts-node": "^10.8.2",
+	"typescript": "^4.7.4"
+}
+#+END_SRC
+
+* Requirements
+
+To run this application it is required that you have an up to date version of Node installed and NPM as well. This
+has been tested to work on Windows, Mac and Linux based systems.
+
+To install this app, one must first clone this repoisitory into a folder of their choice, then run
+#+BEGIN_SRC bash
+npm ci
+#+END_SRC
+From here you can now launch a development server to see the application running on your local machine:
+#+BEGIN_SRC bash
+npm run start
+#+END_SRC
+
+* Scripts from package.json
+
+#+BEGIN_SRC json
+"scripts": {
+	"start": "parcel public/index.html",
+	"format": "npx prettier --write .",
+	"build": "parcel build public/index.html",
+	"lint": "eslint --fix --ignore-path .gitignore .",
+	"test": "jest --ci --reporters=default --coverage",
+	"check": "tsc --noEmit",
+	"ci": "npm run format && npm run lint && npm run build && npm run test"
+},
+#+END_SRC
+
+This is the script to launch the development server in a hot-reload state
+#+BEGIN_SRC bash
+npm run start
+#+END_SRC
+
+This script runs "prettier" in order to check the format of the code and automatically adjust it based on a predefined standard
+#+BEGIN_SRC bash
+npm run format
+#+END_SRC
+
+This script minifies our code and builds a production ready version of our application
+#+BEGIN_SRC bash
+npm run build
+#+END_SRC
+
+This script runs "ESLint" on our code in order to check that proper formatting has been practiced and alerts the user of any syntax errors
+#+BEGIN_SRC bash
+npm run lint
+#+END_SRC
+
+This script runs all test that Jest + Enzyme can find in the project
+#+BEGIN_SRC bash
+npm run test
+#+END_SRC
+
+This script uses the TypeScript Compiler to check the types of our code and alerts the user if there are any issues with the types
+#+BEGIN_SRC bash
+npm run check
+#+END_SRC
+
+This script is our local CI/CD script that runs the linter, the type checker, the code formatter, the test and the build script all in one
+#+BEGIN_SRC bash
+npm run ci
+#+END_SRC

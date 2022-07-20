@@ -32,12 +32,11 @@
     "scripts": {
         "start": "parcel public/index.html",
         "format": "npx prettier --write .",
-        "format:check": "npx prettier --check .",
         "build": "parcel build public/index.html",
         "lint": "eslint --fix --ignore-path .gitignore .",
         "test": "jest --ci --reporters=default --coverage",
         "check": "tsc --noEmit",
-        "ci": "npm run format:check && npm run lint && npm run build && npm run test"
+        "ci": "npm run format && npm run lint && npm run build && npm run test"
     },
     "author": "",
     "license": "ISC",

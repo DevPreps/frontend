@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MyAccount from "../MyAccount";
+import MyAccount from "../myAccount/MyAccount";
 
 // test component rendering
 describe("<MyAccount /> rendering", () => {

@@ -3,8 +3,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-// import reusable form input components
-import { SelectInput, TagsInput, TextFieldInput } from "./FormInput";
+// import reusable form input component
+import { SelectInput, TextFieldInput } from "./FormInput";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -14,7 +14,6 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-// import MUI icons
 import AddIcon from "@mui/icons-material/Add";
 
 // Define Yup validation schema, will be updated later
@@ -22,11 +21,11 @@ const validationSchema = yup.object().shape({
     category: yup.string().required(),
     title: yup.string().required(),
     description: yup.string().required(),
-    tags: yup.array().required(),
+    tags: yup.string().required(),
 });
 
-const NewGeneralPost = () => {
-    // tags and categories, (will be updated later)
+const NewLearnPost = () => {
+    // tag and category options (will be updated later)
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];
 
@@ -52,11 +51,10 @@ const NewGeneralPost = () => {
         category: string;
         title: string;
         description: string;
-        tags: string[];
+        tags: string;
         options: string[];
         rows: number;
     }
-    
     // handle form submission
     const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
         console.log("data", data);
@@ -121,12 +119,12 @@ const NewGeneralPost = () => {
                         rows={8}
                     />
                     {/* post tags   */}
-                    <TagsInput
+                    <SelectInput
                         control={control}
                         error={errors.tags}
                         helperText="choose tags for you post"
                         name="tags"
-                        tags={tagOptions}
+                        options={tagOptions}
                     />
                     {/* publish and save to draft buttons   */}
                     <Stack direction="row" spacing={2}>
@@ -160,4 +158,4 @@ const style: object = {
     p: 4,
 };
 
-export default NewGeneralPost;
+export default NewLearnPost;

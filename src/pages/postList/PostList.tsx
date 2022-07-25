@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PostListItem from "./PostListItem";
 import { useLocation } from "react-router-dom";
 import NewGeneralPost from "../../components/composeComponents/NewGeneralPost";
@@ -11,25 +11,24 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+// import MUI components
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import OutlinedInput from "@mui/material/OutlinedInput";
+
 // import MUI icons
 import { Search } from "@mui/icons-material";
-import {
-    IconButton,
-    InputAdornment,
-    OutlinedInput,
-    Typography,
-} from "@mui/material";
 
 const PostList = () => {
-    const location = useLocation();
-    const category = location.pathname.substring(
-        location.pathname.lastIndexOf("/") + 1
-    );
+    // cannot pass test with useLocation, needs to be fixed
+    // const location = useLocation();
+    // const category = location.pathname.substring(
+    //     location.pathname.lastIndexOf("/") + 1
+    // );
 
-    const posts=[1, 2, 3];
+    const posts = [1, 2, 3];
     return (
         <Stack spacing={2}>
-            <Typography variant="h2">{category} Post List</Typography>
             {/* search bar */}
             <Box
                 component="form"

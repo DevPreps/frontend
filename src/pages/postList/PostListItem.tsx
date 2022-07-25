@@ -12,7 +12,6 @@ import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 
 // import MUI Icons
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import AddCommentIcon from "@mui/icons-material/AddComment";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";

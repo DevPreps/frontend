@@ -9,8 +9,8 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
 // MUI icons
-import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AddComment from "./AddComment";
 
 // Defined an interface properites

@@ -9,8 +9,8 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
 // MUI icons
-import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AddComment from "./AddComment";
 
 // Defined an interface properites
@@ -20,11 +20,11 @@ export interface InterviewPost {
 		u_username: string;
 		date: string;
 		job_title: string;
-        p_company_name: string;
-        p_city: string;
-        position_level: string;
+		p_company_name: string;
+		p_city: string;
+		position_level: string;
 		p_description: string;
-        job_ads_url: string;
+		job_ads_url: string;
 	};
 }
 
@@ -36,19 +36,19 @@ const InterviewPost = () => {
 		u_username: "Judy",
 		date: "July/2022",
 		job_title: "Full Stack Developer",
-        p_company_name: "NTT",
-        p_city: "Brisbane.City",
-        position_level: "Junior",
-		p_description:"Experience with JS, HTML and CSS",
-        job_ads_url: "https://www.seek.com.au/job/57838262?type=standard#sol=77dd4a4fc54f8f5290feaacef771c75f70cff84c",
-			
+		p_company_name: "NTT",
+		p_city: "Brisbane.City",
+		position_level: "Junior",
+		p_description: "Experience with JS, HTML and CSS",
+		job_ads_url:
+			"https://www.seek.com.au/job/57838262?type=standard#sol=77dd4a4fc54f8f5290feaacef771c75f70cff84c",
 	};
 
 	return (
 		<Box>
 			<Box>
 				<Paper sx={{ m: 1 }} elevation={0}>
-					<Box sx={{ display: "flex", flexDirection: "row", width: "100%"}}>
+					<Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
 						<Avatar
 							src={interviewPost.avatar}
 							alt="avatar"
@@ -89,4 +89,4 @@ const InterviewPost = () => {
 	);
 };
 
-export default InterviewPost
+export default InterviewPost;

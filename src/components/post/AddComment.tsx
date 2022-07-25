@@ -52,14 +52,14 @@ const AddComment = () => {
 			>
 				<Box sx={{ ...style, width: 250, mt: 10, ml: 10 }}>
 					<form>
-					<TextField
-				id="outlined-multiline-static"
-				label="Leave your comment"
-				variant="filled"
-				multiline
-				rows={5}
-				sx={{ width: "80%", mt: 2 }}
-			/>
+						<TextField
+							id="outlined-multiline-static"
+							label="Leave your comment"
+							variant="filled"
+							multiline
+							rows={5}
+							sx={{ width: "80%", mt: 2 }}
+						/>
 						{/* <TextField label="Type your reply"></TextField> */}
 					</form>
 

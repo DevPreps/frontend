@@ -3,6 +3,7 @@ import {
     Controller,
     FieldError,
     FieldValues,
+    Merge,
     UseControllerProps,
 } from "react-hook-form";
 
@@ -13,12 +14,12 @@ import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import OutlinedInput from "@mui/material/OutlinedInput"
+import OutlinedInput from "@mui/material/OutlinedInput";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
 interface Props<T> extends UseControllerProps<T> {
-    error?: FieldError | undefined;
+    error?: Merge<FieldError, FieldError[]> | undefined;
     options?: string[];
     helperText?: string;
     rows?: number;
@@ -101,13 +102,13 @@ export const TagsInput = <T extends FieldValues>({
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
     const MenuProps = {
-    PaperProps: {
-        style: {
-        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 250,
-        marginTop: 20,
+        PaperProps: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+                marginTop: 20,
+            },
         },
-    },
     };
     const [selectTags, setSelectTags] = useState<string[]>([]);
     const handleChange = (event: SelectChangeEvent<typeof selectTags>) => {
@@ -135,28 +136,35 @@ export const TagsInput = <T extends FieldValues>({
                         onChange={handleChange}
                         defaultValue={[]}
                         {...field}
-                        input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                        input={
+                            <OutlinedInput
+                                id="select-multiple-chip"
+                                label="Chip"
+                            />
+                        }
                         renderValue={(selected) => (
-                            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                            {selected.map((value) => (
-                                <Chip key={value} label={value} />
-                            ))}
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    flexWrap: "wrap",
+                                    gap: 0.5,
+                                }}
+                            >
+                                {selected.map((value) => (
+                                    <Chip key={value} label={value} />
+                                ))}
                             </Box>
-                         )}
+                        )}
                         MenuProps={MenuProps}
-                        >
-                    
+                    >
                         {tags?.map((tag) => (
                             <MenuItem key={tag} value={tag}>
                                 {tag}
                             </MenuItem>
                         ))}
                         {selectTags.map((tag) => (
-                            <MenuItem
-                            key={tag}
-                            value={tag}
-                            >
-                            {tag}
+                            <MenuItem key={tag} value={tag}>
+                                {tag}
                             </MenuItem>
                         ))}
                     </Select>

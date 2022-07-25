@@ -56,7 +56,7 @@ const NewGeneralPost = () => {
         options: string[];
         rows: number;
     }
-    
+
     // handle form submission
     const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
         console.log("data", data);

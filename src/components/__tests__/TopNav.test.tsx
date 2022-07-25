@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import TopNav from "../components/TopNav";
+import TopNav from "../TopNav";
 
 // TODOs: need to figure out the wrapper type before using the following beforeEach code block
 // let wrapper;

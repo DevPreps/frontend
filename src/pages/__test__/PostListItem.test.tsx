@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import PostListItem from "../pages/PostListComponents/PostListItem";
+import PostListItem from "../postList/PostListItem";
 // test component rendering
 describe("<PostListItem /> rendering", () => {
     const wrapper = shallow(<PostListItem />);

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Register from "../pages/Register";
+import Register from "../Register";
 
 describe("Test Register Page", () => {
     it("should be able to render <Register />", () => {

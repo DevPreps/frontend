@@ -4,7 +4,6 @@ import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -16,6 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import AddCommentIcon from "@mui/icons-material/AddComment";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 // import MUI colors
 import { grey, red } from "@mui/material/colors";
@@ -34,17 +34,21 @@ const PostListItem = () => {
     const post: PostProps["post"] = {
         date: "22-07-2022",
         description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint, placeat veritatis vel fuga nisi quas rerum ut voluptatem! Nisi odio quidem dolorum distinctio magnam aperiam.",
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
         image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
         imageLabel: "image text",
         title: "Post Title",
     };
-
     return (
-        // <Grid item xs={12}>
         <CardActionArea component="a" href="#">
             <Card sx={{ display: "flex" }}>
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                    }}
+                >
                     <CardContent sx={{ flex: 1 }}>
                         <Typography variant="h5" fontWeight="700">
                             {post.title}
@@ -72,8 +76,9 @@ const PostListItem = () => {
                         </IconButton>
 
                         <IconButton aria-label="add to favorites">
-                            <FavoriteIcon />
+                            <FavoriteBorderIcon />
                         </IconButton>
+                        <span>18</span>
                         <IconButton aria-label="add to favorites">
                             <BookmarkAddIcon />
                         </IconButton>
@@ -90,7 +95,6 @@ const PostListItem = () => {
                 />
             </Card>
         </CardActionArea>
-        // </Grid>
     );
 };
 

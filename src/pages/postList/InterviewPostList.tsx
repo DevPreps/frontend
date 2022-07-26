@@ -2,7 +2,7 @@ import React from "react";
 
 // import Post List components
 import PostList from "./postListComponents/PostList";
-import NewInterviewPost from "./composeComponents/NewInterviewPost";
+import NewInterviewPost from "./composePost/CreateInterviewPost";
 
 // import MUI components
 import Stack from "@mui/material/Stack";

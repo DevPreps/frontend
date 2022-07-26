@@ -1,7 +1,7 @@
 import React from "react";
 
-const NewInterviewPost = () => {
+const CreateLearnPost = () => {
     return <div>Create New Interview Post Modal</div>;
 };
 
-export default NewInterviewPost;
+export default CreateLearnPost;

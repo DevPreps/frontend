@@ -1,12 +1,15 @@
 import React from "react";
-import { mount, shallow } from "enzyme";
-import NewGeneralPost from "../NewGeneralPost";
+import { shallow } from "enzyme";
+import GeneralPostForm from "../GeneralPostForm";
+import { IFormInputs } from "../IFormInputs";
 
 // test rendering
-describe("Test Compose New General Post page", () => {
-    const wrapper = shallow(<NewGeneralPost />);
+describe("Test GeneralPost Form component", () => {
+    const onSubmit = (data: IFormInputs) => console.log(data);
 
-    it("should be able to render <NewGeneralPost />", () => {
+    const wrapper = shallow(<GeneralPostForm onSubmit={onSubmit} />);
+
+    it("should be able to render <GeneralPostForm />", () => {
         wrapper;
     });
 

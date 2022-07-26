@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import SearchBar from "./postListComponents/SearchBar";
 import Typography from "@mui/material/Typography";
-import NewLearnPost from "./composeComponents/NewLearnPost";
+import NewLearnPost from "./composePost/CreateLearnPost";
 const LearnPostList = () => {
     return (
         <Stack spacing={2}>

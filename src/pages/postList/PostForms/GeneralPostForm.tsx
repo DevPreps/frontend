@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,9 +15,7 @@ import {
 // Import MUI components
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 
 // Define Yup validation schema, will be updated later
 const validationSchema = yup.object().shape({
@@ -28,10 +26,9 @@ const validationSchema = yup.object().shape({
 });
 interface Props {
     onSubmit: SubmitHandler<IFormInputs>;
-    handleClose: (e: MouseEventHandler<HTMLAnchorElement>) => void;
 }
 
-const GeneralPostForm = ({ onSubmit, handleClose }: Props) => {
+const GeneralPostForm = ({ onSubmit }: Props) => {
     // tags and categories, (will be updated later)
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];
@@ -45,16 +42,7 @@ const GeneralPostForm = ({ onSubmit, handleClose }: Props) => {
         resolver: yupResolver(validationSchema),
     });
     return (
-        <Box component="form" sx={style.form} onSubmit={handleSubmit(onSubmit)}>
-            {/* Modal Title */}
-            <Typography
-                id="modal-modal-title"
-                variant="h5"
-                align="center"
-                sx={style.title}
-            >
-                COMPOSE A GENERAL POST
-            </Typography>
+        <Box component="form" onSubmit={handleSubmit(onSubmit)}>
             {/* post category */}
             <SelectInput
                 control={control}
@@ -105,21 +93,6 @@ const GeneralPostForm = ({ onSubmit, handleClose }: Props) => {
     );
 };
 const style = {
-    form: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: "90%",
-        maxWidth: 800,
-        bgcolor: "background.paper",
-        border: "2px solid #000",
-        boxShadow: 24,
-        p: 4,
-    },
-    title: {
-        mb: 2,
-    },
     publishBtn: {
         mr: 2,
     },

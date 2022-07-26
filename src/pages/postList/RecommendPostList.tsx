@@ -2,7 +2,7 @@ import React from "react";
 
 // import Post List components
 import PostList from "./postListComponents/PostList";
-import NewGeneralPost from "./composeComponents/NewGeneralPost";
+import CreateGeneralPost from "./composePost/CreateGeneralPost";
 
 // import MUI components
 import Stack from "@mui/material/Stack";
@@ -19,7 +19,7 @@ const RecommendPostList = () => {
             {/* search bar */}
             <SearchBar />
             <PostList>
-                <NewGeneralPost />
+                <CreateGeneralPost />
             </PostList>
             {/* load more button */}
         </Stack>

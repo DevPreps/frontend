@@ -2,7 +2,7 @@ import React from "react";
 
 // import Post List components
 import PostList from "./postListComponents/PostList";
-import NewProjectPost from "./composeComponents/NewProjectPost";
+import NewProjectPost from "./composePost/CreateProjectPost";
 
 // import MUI components
 import Stack from "@mui/material/Stack";

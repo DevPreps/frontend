@@ -40,19 +40,13 @@ const PostListItem = () => {
     };
     return (
         <CardActionArea component="a" href="#">
-            <Card sx={{ display: "flex" }}>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        width: "100%",
-                    }}
-                >
-                    <CardContent sx={{ flex: 1 }}>
-                        <Typography variant="h5" fontWeight="700">
+            <Card sx={style.card}>
+                <Box sx={style.box}>
+                    <CardContent sx={style.cardContent}>
+                        <Typography variant="h5" sx={style.title}>
                             {post.title}
                         </Typography>
-                        <Typography variant="subtitle1" color={grey[700]}>
+                        <Typography variant="subtitle1" sx={style.date}>
                             {post.date}
                         </Typography>
                         <Typography variant="subtitle1" paragraph>
@@ -60,16 +54,13 @@ const PostListItem = () => {
                         </Typography>
                     </CardContent>
                     <CardActions disableSpacing>
-                        <Avatar
-                            sx={{ bgcolor: red[500], mx: 2 }}
-                            aria-label="Post Item"
-                        >
+                        <Avatar sx={style.avatar} aria-label="Post Item">
                             R
                         </Avatar>
                         <Typography>Username</Typography>
                         <IconButton
                             aria-label="add to favorites"
-                            sx={{ ml: "auto" }}
+                            sx={style.addBtn}
                         >
                             <AddCommentIcon />
                         </IconButton>
@@ -85,10 +76,7 @@ const PostListItem = () => {
                 </Box>
                 <CardMedia
                     component="img"
-                    sx={{
-                        width: 240,
-                        display: { xs: "none", sm: "block" },
-                    }}
+                    sx={style.image}
                     image={post.image}
                     alt={post.imageLabel}
                 />
@@ -96,5 +84,39 @@ const PostListItem = () => {
         </CardActionArea>
     );
 };
+
+const style = {
+    addBtn: {
+        ml: "auto",
+    },
+    avatar: {
+        bgcolor: red[500],
+        mx: 2,
+    },
+    box: {
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+    },
+    card: {
+        display: "flex",
+    },
+    cardContent: {
+        flex: 1,
+    },
+    date: {
+        color: grey[700],
+    },
+    image: {
+        width: 240,
+        display: {
+            xs: "none",
+            sm: "block",
+        },
+    },
+    title: {
+        fontWeight: 700,
+    },
+} as const;
 
 export default PostListItem;

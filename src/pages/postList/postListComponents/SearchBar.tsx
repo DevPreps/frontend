@@ -12,20 +12,8 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import { Search } from "@mui/icons-material";
 const SearchBar = () => {
     return (
-        <Box
-            component="form"
-            sx={{
-                display: "flex",
-                width: "100%",
-                my: "2",
-            }}
-            noValidate
-            autoComplete="off"
-        >
-            <FormControl
-                variant="outlined"
-                sx={{ width: "100%", maxWidth: 500 }}
-            >
+        <Box component="form" sx={style.form} noValidate autoComplete="off">
+            <FormControl variant="outlined" sx={style.formControl}>
                 <InputLabel htmlFor="outlined-adornment-search">
                     Search
                 </InputLabel>
@@ -44,5 +32,17 @@ const SearchBar = () => {
         </Box>
     );
 };
+
+const style = {
+    form: {
+        display: "flex",
+        width: "100%",
+        my: "2",
+    },
+    formControl: {
+        width: "100%",
+        maxWidth: 500,
+    },
+} as const;
 
 export default SearchBar;

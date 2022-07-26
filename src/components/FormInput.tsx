@@ -99,16 +99,6 @@ export const TagsInput = <T extends FieldValues>({
     name,
     tags,
 }: Props<T>) => {
-    const ITEM_HEIGHT = 48;
-    const ITEM_PADDING_TOP = 8;
-    const MenuProps = {
-        PaperProps: {
-            style: {
-                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-                width: 250,
-            },
-        },
-    };
     const [selectTags, setSelectTags] = useState<string[]>([]);
     const handleChange = (event: SelectChangeEvent<typeof selectTags>) => {
         const {
@@ -142,13 +132,7 @@ export const TagsInput = <T extends FieldValues>({
                             />
                         }
                         renderValue={(selected) => (
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    flexWrap: "wrap",
-                                    gap: 0.5,
-                                }}
-                            >
+                            <Box sx={style.box}>
                                 {selected.map((value) => (
                                     <Chip key={value} label={value} />
                                 ))}
@@ -175,3 +159,22 @@ export const TagsInput = <T extends FieldValues>({
         />
     );
 };
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
+    },
+};
+
+const style = {
+    box: {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 0.5,
+    },
+} as const;

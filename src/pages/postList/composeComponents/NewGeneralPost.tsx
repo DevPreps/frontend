@@ -4,7 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // import reusable form input components
-import { SelectInput, TagsInput, TextFieldInput } from "./FormInput";
+import {
+    SelectInput,
+    TagsInput,
+    TextFieldInput,
+} from "../../../components/FormInput";
 
 // import form data interface
 import { IFormInputs } from "./IFormInputs";
@@ -46,7 +50,7 @@ const NewGeneralPost = () => {
         resolver: yupResolver(validationSchema),
     });
 
-    // open and close function
+    // open and close modal function
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -73,7 +77,7 @@ const NewGeneralPost = () => {
                 {/* compose post form */}
                 <Box
                     component="form"
-                    sx={style}
+                    sx={style.form}
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     {/* close button */}
@@ -85,7 +89,7 @@ const NewGeneralPost = () => {
                         id="modal-modal-title"
                         variant="h5"
                         align="center"
-                        sx={{ mb: 2 }}
+                        sx={style.title}
                     >
                         COMPOSE A GENERAL POST
                     </Typography>
@@ -122,11 +126,12 @@ const NewGeneralPost = () => {
                         tags={tagOptions}
                     />
                     {/* publish and save to draft buttons   */}
-                    <Stack direction="row" spacing={2}>
+                    <Stack direction="row">
                         <Button
                             variant="contained"
                             type="submit"
                             color="success"
+                            sx={style.publishBtn}
                         >
                             PUBLISH
                         </Button>
@@ -140,17 +145,25 @@ const NewGeneralPost = () => {
     );
 };
 
-const style: object = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "90%",
-    maxWidth: 800,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-};
+const style = {
+    form: {
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: "90%",
+        maxWidth: 800,
+        bgcolor: "background.paper",
+        border: "2px solid #000",
+        boxShadow: 24,
+        p: 4,
+    },
+    title: {
+        mb: 2,
+    },
+    publishBtn: {
+        mr: 2,
+    },
+} as const;
 
 export default NewGeneralPost;

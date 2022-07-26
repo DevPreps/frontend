@@ -11,7 +11,7 @@ import {
 } from "../../../components/FormInput";
 
 // import form data interface
-import { IFormInputs } from "./IFormInputs";
+import { IFormInputs } from "../PostForms/IFormInputs";
 
 // Import MUI components
 import Box from "@mui/material/Box";

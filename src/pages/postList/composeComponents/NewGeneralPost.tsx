@@ -1,55 +1,21 @@
 import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
-// import reusable form input components
-import {
-    SelectInput,
-    TagsInput,
-    TextFieldInput,
-} from "../../../components/FormInput";
+import { SubmitHandler } from "react-hook-form";
 
 // import form data interface
-import { IFormInputs } from "./IFormInputs";
+import { IFormInputs } from "../PostForms/IFormInputs";
 
 // Import MUI components
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 
 // import MUI icons
 import AddIcon from "@mui/icons-material/Add";
-
-// Define Yup validation schema, will be updated later
-const validationSchema = yup.object().shape({
-    category: yup.string().required(),
-    title: yup.string().required(),
-    description: yup.string().required(),
-    tags: yup.array().required(),
-});
+import GeneralPostForm from "../PostForms/GeneralPostForm";
 
 const NewGeneralPost = () => {
-    // tags and categories, (will be updated later)
-    const tagOptions = ["frontend", "backend", "fullstack", "database"];
-    const categoryOptions = ["learn", "interview", "project", "general"];
-
     // state management
     const [open, setOpen] = useState(false);
-
-    // react hook form
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IFormInputs>({
-        // mode: "onChange",
-        resolver: yupResolver(validationSchema),
-    });
-
     // open and close modal function
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -74,96 +40,20 @@ const NewGeneralPost = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                {/* compose post form */}
-                <Box
-                    component="form"
-                    sx={style.form}
-                    onSubmit={handleSubmit(onSubmit)}
-                >
+                <>
                     {/* close button */}
                     <Grid container justifyContent="flex-end">
                         <Button onClick={handleClose}>X</Button>
                     </Grid>
-                    {/* Modal Title */}
-                    <Typography
-                        id="modal-modal-title"
-                        variant="h5"
-                        align="center"
-                        sx={style.title}
-                    >
-                        COMPOSE A GENERAL POST
-                    </Typography>
-                    {/* post category */}
-                    <SelectInput
-                        control={control}
-                        error={errors.category}
-                        helperText="Choose a category for your post"
-                        name="category"
-                        options={categoryOptions}
+                    {/* compose post form */}
+                    <GeneralPostForm
+                        onSubmit={onSubmit}
+                        handleClose={handleClose}
                     />
-                    {/* post title */}
-                    <TextFieldInput
-                        control={control}
-                        error={errors.title}
-                        helperText="Post title"
-                        name="title"
-                        rows={1}
-                    />
-                    {/* post content                    */}
-                    <TextFieldInput
-                        control={control}
-                        error={errors.description}
-                        helperText="Post content"
-                        name="description"
-                        rows={8}
-                    />
-                    {/* post tags   */}
-                    <TagsInput
-                        control={control}
-                        error={errors.tags}
-                        helperText="choose tags for you post"
-                        name="tags"
-                        tags={tagOptions}
-                    />
-                    {/* publish and save to draft buttons   */}
-                    <Stack direction="row">
-                        <Button
-                            variant="contained"
-                            type="submit"
-                            color="success"
-                            sx={style.publishBtn}
-                        >
-                            PUBLISH
-                        </Button>
-                        <Button variant="contained" type="submit">
-                            SAVE TO DRAFT
-                        </Button>
-                    </Stack>
-                </Box>
+                </>
             </Modal>
         </div>
     );
 };
-
-const style = {
-    form: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: "90%",
-        maxWidth: 800,
-        bgcolor: "background.paper",
-        border: "2px solid #000",
-        boxShadow: 24,
-        p: 4,
-    },
-    title: {
-        mb: 2,
-    },
-    publishBtn: {
-        mr: 2,
-    },
-} as const;
 
 export default NewGeneralPost;

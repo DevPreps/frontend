@@ -6,6 +6,9 @@ import * as yup from "yup";
 // import reusable form input components
 import { SelectInput, TagsInput, TextFieldInput } from "./FormInput";
 
+// import form data interface
+import { IFormInputs } from "./IFormInputs";
+
 // Import MUI components
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -46,16 +49,6 @@ const NewGeneralPost = () => {
     // open and close function
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-    // interface for form object
-    interface IFormInputs {
-        category: string;
-        title: string;
-        description: string;
-        tags: string[];
-        options: string[];
-        rows: number;
-    }
 
     // handle form submission
     const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {

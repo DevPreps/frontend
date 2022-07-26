@@ -4,7 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // import reusable form input component
-import { SelectInput, TextFieldInput } from "./FormInput";
+import { SelectInput, TagsInput, TextFieldInput } from "./FormInput";
+
+// import form data interface
+import { IFormInputs } from "./IFormInputs";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -21,7 +24,7 @@ const validationSchema = yup.object().shape({
     category: yup.string().required(),
     title: yup.string().required(),
     description: yup.string().required(),
-    tags: yup.string().required(),
+    tags: yup.array().required(),
 });
 
 const NewLearnPost = () => {
@@ -46,15 +49,6 @@ const NewLearnPost = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    // interface for form object
-    interface IFormInputs {
-        category: string;
-        title: string;
-        description: string;
-        tags: string;
-        options: string[];
-        rows: number;
-    }
     // handle form submission
     const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
         console.log("data", data);
@@ -119,12 +113,12 @@ const NewLearnPost = () => {
                         rows={8}
                     />
                     {/* post tags   */}
-                    <SelectInput
+                    <TagsInput
                         control={control}
                         error={errors.tags}
                         helperText="choose tags for you post"
                         name="tags"
-                        options={tagOptions}
+                        tags={tagOptions}
                     />
                     {/* publish and save to draft buttons   */}
                     <Stack direction="row" spacing={2}>

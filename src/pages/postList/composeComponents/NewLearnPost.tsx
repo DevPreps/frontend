@@ -86,7 +86,7 @@ const NewLearnPost = () => {
                         align="center"
                         sx={{ mb: 2 }}
                     >
-                        COMPOSE A GENERAL POST
+                        COMPOSE A LEARN POST
                     </Typography>
                     {/* post category */}
                     <SelectInput

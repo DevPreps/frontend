@@ -9,5 +9,5 @@ export { default as NotFound } from "./NotFound";
 export { default as PersonalInfo } from "./myAccount/PersonalInfo";
 export { default as Post } from "./Post";
 export { default as ProjectPostList } from "./postList/ProjectPostList";
-export { default as RecommendPostList } from "./postList/InterviewPostList";
+export { default as RecommendPostList } from "./postList/RecommendPostList";
 export { default as Register } from "./Register";

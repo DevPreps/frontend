@@ -1,7 +1,7 @@
 import React from "react";
 
 const NewInterviewPost = () => {
-    return <div>New Interview Post</div>;
+    return <div>Create New Interview Post Modal</div>;
 };
 
 export default NewInterviewPost;

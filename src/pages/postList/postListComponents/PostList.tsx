@@ -2,6 +2,7 @@ import React from "react";
 import PostListItem from "./PostListItem";
 
 // import MUI components
+import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 // import Post List components
@@ -20,6 +21,8 @@ const PostList: React.FC = ({ children }) => {
             {posts.map((post) => (
                 <PostListItem key={post} />
             ))}
+            {/* load more button */}
+            <Button>Load More</Button>
         </>
     );
 };

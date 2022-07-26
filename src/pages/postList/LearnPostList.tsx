@@ -13,7 +13,9 @@ const LearnPostList = () => {
     return (
         <Stack spacing={2}>
             {/* the following title just show which page is rendered, will be deleted later */}
-            <Typography variant="h3"> Learn Post List</Typography>
+            <Typography variant="h3">
+                Learn Post List (This title will be deleted)
+            </Typography>
             {/* search bar */}
             <SearchBar />
             <PostList>

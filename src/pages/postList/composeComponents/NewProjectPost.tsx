@@ -1,7 +1,7 @@
 import React from "react";
 
 const NewProjectPost = () => {
-    return <div>New Projects Post</div>;
+    return <div>Create New Projects Post Modal</div>;
 };
 
 export default NewProjectPost;

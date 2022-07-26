@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // import reusable form input component
-import { SelectInput, TagsInput, TextFieldInput } from "./FormInput";
+import { SelectInput, TagsInput, TextFieldInput } from "../../../components/FormInput";
 
 // import form data interface
 import { IFormInputs } from "./IFormInputs";

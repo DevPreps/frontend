@@ -13,7 +13,8 @@ import Typography from "@mui/material/Typography";
 const GeneralPostList = () => {
     return (
         <Stack spacing={2}>
-            <Typography> General Post List</Typography>
+            {/* the following title just show which page is rendered, will be deleted later */}
+            <Typography variant="h3"> General Post List</Typography>
             {/* search bar */}
             <SearchBar />
             <PostList>

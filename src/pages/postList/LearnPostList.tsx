@@ -12,7 +12,8 @@ import NewLearnPost from "./composeComponents/NewLearnPost";
 const LearnPostList = () => {
     return (
         <Stack spacing={2}>
-            <Typography> Learn Post List</Typography>
+            {/* the following title just show which page is rendered, will be deleted later */}
+            <Typography variant="h3"> Learn Post List</Typography>
             {/* search bar */}
             <SearchBar />
             <PostList>

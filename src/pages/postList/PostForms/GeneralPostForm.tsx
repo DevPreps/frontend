@@ -62,9 +62,9 @@ const GeneralPostForm = ({ onSubmit }: Props) => {
             {/* post content                    */}
             <TextFieldInput
                 control={control}
-                error={errors.description}
+                error={errors.content}
                 helperText="Post content"
-                name="description"
+                name="content"
                 rows={8}
             />
             {/* post tags   */}

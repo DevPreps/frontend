@@ -76,6 +76,9 @@ const style = {
         border: "2px solid #000",
         boxShadow: 24,
         p: 4,
+        // allow scroll
+        overflowY: "scroll",
+        maxHeight: "85%",
     },
     title: {
         mb: 2,

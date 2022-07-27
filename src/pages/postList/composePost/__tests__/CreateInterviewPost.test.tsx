@@ -1,9 +1,16 @@
 import React from "react";
 import { shallow } from "enzyme";
-import NewInterviewPost from "../CreateInterviewPost";
+import CreateInterviewPost from "../CreateInterviewPost";
 
 describe("Test Compose New Interview Post page", () => {
-    it("should be able to render <NewInterviewPost />", () => {
-        shallow(<NewInterviewPost />);
+    const wrapper = shallow(<CreateInterviewPost />);
+
+    it("should be able to render  CreateInterviewPost />", () => {
+        console.log(wrapper.debug());
+        wrapper;
+    });
+
+    it("should contain InterviewPostForm component />", () => {
+        expect(wrapper.find("InterviewPostForm").length).toBe(1);
     });
 });

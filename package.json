@@ -37,7 +37,6 @@
         "test": "jest --ci --reporters=default --coverage",
         "check": "tsc --noEmit",
         "serve": "serve -s dist",
-        "heroku-postbuild": "parcel build public/index.html && serve -s dist",
         "ci": "npm run format && npm run lint && npm run build && npm run test"
     },
     "author": "",

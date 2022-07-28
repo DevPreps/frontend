@@ -20,6 +20,7 @@
         ],
         "testPathIgnorePatterns": [
             "/node_modules/",
+            "/node_modules/(?!(vest|@hookform/resolvers/yup))",
             "/dist/",
             "/.log/",
             "/.parcel-cache/",
@@ -45,7 +46,7 @@
     "dependencies": {
         "@emotion/react": "^11.9.3",
         "@emotion/styled": "^11.9.3",
-        "@hookform/resolvers": "^2.9.6",
+        "@hookform/resolvers": "^2.9.7",
         "@mui/icons-material": "^5.8.4",
         "@mui/material": "^5.9.1",
         "axios": "^0.27.2",
@@ -53,9 +54,9 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-hook-form": "^7.33.1",
-        "yup": "^0.32.11",
         "react-router-dom": "^6.3.0",
-        "serve": "^14.0.1"
+        "serve": "^14.0.1",
+        "yup": "^0.32.11"
     },
     "devDependencies": {
         "@types/enzyme": "^3.10.12",

@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // import form data interface
-import { IFormInputs } from "./IFormInputs";
+import { InterviewFormInputs } from "./IFormInputs";
 // import reusable form input components
 import {
     SelectInput,
@@ -30,7 +30,7 @@ const validationSchema = yup.object().shape({
     tags: yup.array().required(),
 });
 interface Props {
-    onSubmit: SubmitHandler<IFormInputs>;
+    onSubmit: SubmitHandler<InterviewFormInputs>;
 }
 
 const InterviewPostForm = ({ onSubmit }: Props) => {
@@ -43,7 +43,7 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
         "Full Stack Developer",
         "Software Engineer",
     ];
-    const FormDefaultValues: IFormInputs = {
+    const FormDefaultValues: InterviewFormInputs = {
         category: "interview",
         title: "",
         companyName: "",
@@ -59,7 +59,7 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormInputs>({
+    } = useForm<InterviewFormInputs>({
         // mode: "onChange",
         defaultValues: FormDefaultValues,
         resolver: yupResolver(validationSchema),

@@ -1,5 +1,5 @@
 // interface for form object
-export interface IFormInputs {
+export interface InterviewFormInputs {
     category: string;
     title: string;
     content: string;
@@ -7,6 +7,14 @@ export interface IFormInputs {
     city: string;
     jobTitle: string;
     position: string;
+    tags: string[];
+    options?: string[];
+    rows?: number;
+}
+export interface IGeneralFormInputs {
+    category: string;
+    title: string;
+    content: string;
     tags: string[];
     options?: string[];
     rows?: number;

@@ -33,7 +33,7 @@ export const TextFieldInput = <T extends FieldValues>({
     helperText,
     name,
     rows = 1,
-    type = "text",
+    // type = "text",
 }: Props<T>) => {
     return (
         <Controller
@@ -48,7 +48,7 @@ export const TextFieldInput = <T extends FieldValues>({
                     multiline
                     rows={rows}
                     {...field}
-                    type={type}
+                    type="password"
                     helperText={error?.message || helperText}
                 />
             )}

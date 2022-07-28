@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // import form data interface
-import { IFormInputs } from "./IFormInputs";
+import { IGeneralFormInputs } from "./IFormInputs";
 // import reusable form input components
 import {
     SelectInput,
@@ -25,31 +25,22 @@ const validationSchema = yup.object().shape({
     tags: yup.array().required(),
 });
 interface Props {
-    onSubmit: SubmitHandler<IFormInputs>;
+    onSubmit: SubmitHandler<IGeneralFormInputs>;
+    formDefaultValues: IGeneralFormInputs;
 }
 
-const GeneralPostForm = ({ onSubmit }: Props) => {
+const GeneralPostForm = ({ onSubmit,formDefaultValues }: Props) => {
     // tags and categories, (will be updated later)
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];
-    const FormDefaultValues: IFormInputs = {
-        category: "general",
-        title: "",
-        companyName: "",
-        city: "",
-        jobTitle: "",
-        position: "",
-        content: "",
-        tags: [],
-    };
     // react hook form
     const {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormInputs>({
+    } = useForm<IGeneralFormInputs>({
         // mode: "onChange",
-        defaultValues: FormDefaultValues,
+        defaultValues: formDefaultValues,
         resolver: yupResolver(validationSchema),
     });
     return (

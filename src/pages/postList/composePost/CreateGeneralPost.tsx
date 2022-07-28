@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
 // import form data interface
-import { IFormInputs } from "../PostForms/IFormInputs";
+import { IGeneralFormInputs } from "../PostForms/IFormInputs";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -16,6 +16,12 @@ import AddIcon from "@mui/icons-material/Add";
 import GeneralPostForm from "../PostForms/GeneralPostForm";
 
 const CreateGeneralPost = () => {
+    const formDefaultValues: IGeneralFormInputs = {
+        category: "general",
+        title: "",
+        content: "",
+        tags: [],
+    };
     // state management
     const [open, setOpen] = useState(false);
     // open and close modal function
@@ -23,7 +29,7 @@ const CreateGeneralPost = () => {
     const handleClose = () => setOpen(false);
 
     // handle form submission
-    const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
+    const onSubmit: SubmitHandler<IGeneralFormInputs> = (data: IGeneralFormInputs) => {
         console.log("data", data);
     };
 
@@ -57,7 +63,7 @@ const CreateGeneralPost = () => {
                         COMPOSE A GENERAL POST
                     </Typography>
                     {/* compose post form */}
-                    <GeneralPostForm onSubmit={onSubmit} />
+                    <GeneralPostForm formDefaultValues={formDefaultValues} onSubmit={onSubmit} />
                 </Box>
             </Modal>
         </div>

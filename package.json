@@ -1,78 +1,85 @@
 {
-	"name": "dev_prep_frontend",
-	"version": "1.0.0",
-	"description": "For the budding developer curious about real world industry experiences",
-	"source": "public/index.html",
-	"jest": {
-		"verbose": true,
-		"preset": "ts-jest",
-		"transform": {
-			"^.+\\.tsx?$": "ts-jest"
-		},
-		"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-		"moduleFileExtensions": [
-			"ts",
-			"tsx",
-			"js",
-			"jsx",
-			"json",
-			"node"
-		],
-		"testPathIgnorePatterns": [
-			"/node_modules/",
-			"/dist/",
-			"/.log/",
-			"/.parcel-cache/",
-			"/.github/"
-		],
-		"setupFilesAfterEnv": [
-			"<rootDir>src/setupTests.ts"
-		]
-	},
-	"scripts": {
-		"start": "parcel public/index.html",
-		"format": "npx prettier --write .",
-		"build": "parcel build public/index.html",
-		"lint": "eslint --fix --ignore-path .gitignore .",
-		"test": "jest --ci --reporters=default --coverage",
-		"check": "tsc --noEmit",
-		"ci": "npm run format && npm run lint && npm run build && npm run test"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"@emotion/react": "^11.9.3",
-		"@emotion/styled": "^11.9.3",
-		"@mui/material": "^5.9.0",
-		"axios": "^0.27.2",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"react-router-dom": "^6.3.0"
-	},
-	"devDependencies": {
-		"@types/enzyme": "^3.10.12",
-		"@types/jest": "^28.1.5",
-		"@types/react": "^17.0.47",
-		"@types/react-dom": "^18.0.6",
-		"@types/react-router-dom": "^5.3.3",
-		"@typescript-eslint/eslint-plugin": "^5.30.6",
-		"@typescript-eslint/parser": "^5.30.6",
-		"@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
-		"enzyme": "^3.11.0",
-		"eslint": "^8.19.0",
-		"eslint-ci": "^1.0.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-config-standard": "^17.0.0",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-n": "^15.2.4",
-		"eslint-plugin-promise": "^6.0.0",
-		"eslint-plugin-react": "^7.30.1",
-		"jest": "^28.1.2",
-		"parcel": "^2.6.2",
-		"prettier": "^2.7.1",
-		"process": "^0.11.10",
-		"ts-jest": "^28.0.5",
-		"ts-node": "^10.8.2",
-		"typescript": "^4.7.4"
-	}
+    "name": "dev_prep_frontend",
+    "version": "1.0.0",
+    "description": "For the budding developer curious about real world industry experiences",
+    "source": "public/index.html",
+    "jest": {
+        "verbose": true,
+        "preset": "ts-jest",
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ],
+        "testPathIgnorePatterns": [
+            "/node_modules/",
+            "/dist/",
+            "/.log/",
+            "/.parcel-cache/",
+            "/.github/"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>src/setupTests.ts"
+        ]
+    },
+    "scripts": {
+        "start": "parcel public/index.html",
+        "format": "npx prettier --write .",
+        "build": "parcel build public/index.html",
+        "lint": "eslint --fix --ignore-path .gitignore .",
+        "test": "jest --ci --reporters=default --coverage",
+        "check": "tsc --noEmit",
+        "serve": "serve -s dist",
+        "heroku-postbuild": "parcel build public/index.html && serve -s dist",
+        "ci": "npm run format && npm run lint && npm run build && npm run test"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@emotion/react": "^11.9.3",
+        "@emotion/styled": "^11.9.3",
+        "@hookform/resolvers": "^2.9.6",
+        "@mui/icons-material": "^5.8.4",
+        "@mui/material": "^5.9.1",
+        "axios": "^0.27.2",
+        "parcel": "^2.6.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-hook-form": "^7.33.1",
+        "yup": "^0.32.11",
+        "react-router-dom": "^6.3.0",
+        "serve": "^14.0.1"
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.10.12",
+        "@types/jest": "^28.1.5",
+        "@types/react": "^17.0.47",
+        "@types/react-dom": "^18.0.6",
+        "@types/react-router-dom": "^5.3.3",
+        "@typescript-eslint/eslint-plugin": "^5.30.6",
+        "@typescript-eslint/parser": "^5.30.6",
+        "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+        "enzyme": "^3.11.0",
+        "eslint": "^8.19.0",
+        "eslint-ci": "^1.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-n": "^15.2.4",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react": "^7.30.1",
+        "jest": "^28.1.2",
+        "prettier": "^2.7.1",
+        "process": "^0.11.10",
+        "ts-jest": "^28.0.5",
+        "ts-node": "^10.8.2",
+        "typescript": "^4.7.4"
+    }
 }

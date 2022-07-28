@@ -32,6 +32,16 @@ const GeneralPostForm = ({ onSubmit }: Props) => {
     // tags and categories, (will be updated later)
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];
+    const FormDefaultValues: IFormInputs = {
+        category: "general",
+        title: "",
+        companyName: "",
+        city: "",
+        jobTitle: "",
+        position: "",
+        content: "",
+        tags: [],
+    };
     // react hook form
     const {
         control,
@@ -39,6 +49,7 @@ const GeneralPostForm = ({ onSubmit }: Props) => {
         formState: { errors },
     } = useForm<IFormInputs>({
         // mode: "onChange",
+        defaultValues: FormDefaultValues,
         resolver: yupResolver(validationSchema),
     });
     return (
@@ -57,7 +68,6 @@ const GeneralPostForm = ({ onSubmit }: Props) => {
                 error={errors.title}
                 helperText="Post title"
                 name="title"
-                rows={1}
             />
             {/* post content                    */}
             <TextFieldInput

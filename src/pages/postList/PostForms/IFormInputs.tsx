@@ -8,6 +8,6 @@ export interface IFormInputs {
     jobTitle: string;
     position: string;
     tags: string[];
-    options: string[];
-    rows: number;
+    options?: string[];
+    rows?: number;
 }

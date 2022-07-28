@@ -24,6 +24,7 @@ interface Props<T> extends UseControllerProps<T> {
     helperText?: string;
     rows?: number;
     tags?: string[];
+    type?: string;
 }
 // reusable TextField Input
 export const TextFieldInput = <T extends FieldValues>({
@@ -31,7 +32,8 @@ export const TextFieldInput = <T extends FieldValues>({
     error,
     helperText,
     name,
-    rows,
+    rows = 1,
+    type = "text",
 }: Props<T>) => {
     return (
         <Controller
@@ -42,11 +44,11 @@ export const TextFieldInput = <T extends FieldValues>({
                     id={`${name}-input`}
                     label={name}
                     variant="outlined"
-                    defaultValue=""
                     fullWidth
                     multiline
                     rows={rows}
                     {...field}
+                    type={type}
                     helperText={error?.message || helperText}
                 />
             )}
@@ -73,7 +75,6 @@ export const SelectInput = <T extends FieldValues>({
                         labelId={`${name}-select-label`}
                         id={`${name}-input`}
                         label={name}
-                        defaultValue=""
                         {...field}
                     >
                         {options.map((option) => (
@@ -123,7 +124,6 @@ export const TagsInput = <T extends FieldValues>({
                         id={`${name}-input`}
                         label={name}
                         onChange={handleChange}
-                        defaultValue={[]}
                         {...field}
                         input={
                             <OutlinedInput
@@ -133,12 +133,12 @@ export const TagsInput = <T extends FieldValues>({
                         }
                         renderValue={(selected) => (
                             <Box sx={style.box}>
-                                {selected.map((value) => (
+                                {selected.map((value: string) => (
                                     <Chip key={value} label={value} />
                                 ))}
                             </Box>
                         )}
-                        MenuProps={MenuProps}
+                        MenuProps={style.menuProps}
                     >
                         {tags?.map((tag) => (
                             <MenuItem key={tag} value={tag}>
@@ -162,19 +162,18 @@ export const TagsInput = <T extends FieldValues>({
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
-
 const style = {
     box: {
         display: "flex",
         flexWrap: "wrap",
         gap: 0.5,
+    },
+    menuProps: {
+        PaperProps: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+            },
+        },
     },
 } as const;

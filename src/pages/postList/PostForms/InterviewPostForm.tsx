@@ -43,6 +43,16 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
         "Full Stack Developer",
         "Software Engineer",
     ];
+    const FormDefaultValues: IFormInputs = {
+        category: "interview",
+        title: "",
+        companyName: "",
+        city: "",
+        jobTitle: "",
+        position: "",
+        content: "",
+        tags: [],
+    };
 
     // react hook form
     const {
@@ -51,6 +61,7 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
         formState: { errors },
     } = useForm<IFormInputs>({
         // mode: "onChange",
+        defaultValues: FormDefaultValues,
         resolver: yupResolver(validationSchema),
     });
 
@@ -71,7 +82,7 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
                 error={errors.title}
                 helperText="Post title"
                 name="title"
-                rows={1}
+                type="password"
             />
             <Grid container>
                 <Grid xs={12} md={6}>
@@ -81,7 +92,7 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
                         error={errors.companyName}
                         helperText="companyName"
                         name="companyName"
-                        rows={1}
+                        type="password"
                     />
                 </Grid>
                 <Grid xs={12} md={6} sx={style.city}>
@@ -91,7 +102,6 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
                         error={errors.city}
                         helperText="city"
                         name="city"
-                        rows={1}
                     />
                 </Grid>
             </Grid>
@@ -103,7 +113,6 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
                         error={errors.jobTitle}
                         helperText="jobTitle"
                         name="jobTitle"
-                        rows={1}
                     />
                 </Grid>
                 <Grid xs={12} sm={6} sx={style.position}>

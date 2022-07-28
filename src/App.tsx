@@ -2,13 +2,17 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
     AboutUs,
+    GeneralPostList,
     Home,
-    MyAccount,
+    InterviewPostList,
+    LearnPostList,
     Login,
+    MyAccount,
     NotFound,
     PersonalInfo,
+    ProjectPostList,
+    RecommendPostList,
     Post,
-    PostList,
     Register,
 } from "./pages/index";
 
@@ -19,19 +23,28 @@ export default function App() {
                 {/* Navbar and Footer Component will be inside Home component */}
                 <Route path="/" element={<Home />}>
                     {/* This will render the recommend post list in Home page as the default. */}
-                    <Route index element={<PostList />} />
+                    <Route index element={<RecommendPostList />} />
                     <Route path="register" element={<Register />} />
                     <Route path="login" element={<Login />} />
                     <Route path="about-us" element={<AboutUs />} />
-                    <Route path="posts/:category" element={<PostList />} />
+                    <Route path="posts/general" element={<GeneralPostList />} />
+                    <Route
+                        path="posts/interview"
+                        element={<InterviewPostList />}
+                    />
+                    <Route path="posts/learn" element={<LearnPostList />} />
+                    <Route path="posts/project" element={<ProjectPostList />} />
                     <Route path="posts/:category/:postid" element={<Post />} />
                     {/* side bar will be inside <MyAccount /> */}
                     <Route path="my-account/:id" element={<MyAccount />}>
                         <Route index element={<PersonalInfo />} />
                         {/* These 3 post List could be a separate PostList component or use the same PostList component with interview/learn/projects/discussions */}
-                        <Route path="my-posts" element={<PostList />} />
-                        <Route path="my-bookmarks" element={<PostList />} />
-                        <Route path="my-drafts" element={<PostList />} />
+                        <Route path="my-posts" element={<GeneralPostList />} />
+                        <Route
+                            path="my-bookmarks"
+                            element={<GeneralPostList />}
+                        />
+                        <Route path="my-drafts" element={<GeneralPostList />} />
                     </Route>
                 </Route>
                 <Route path="*" element={<NotFound />} />

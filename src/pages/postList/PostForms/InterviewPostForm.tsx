@@ -75,7 +75,7 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                 name="title"
             />
             <Grid container>
-                <Grid xs={12} md={6}>
+                <Grid item xs={12} md={6}>
                     {/* companyName */}
                     <TextFieldInput
                         control={control}
@@ -95,7 +95,7 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                 </Grid>
             </Grid>
             <Grid container>
-                <Grid xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                     {/* job title */}
                     <TextFieldInput
                         control={control}
@@ -104,7 +104,7 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                         name="jobTitle"
                     />
                 </Grid>
-                <Grid xs={12} sm={6} sx={style.position}>
+                <Grid item xs={12} sm={6} sx={style.position}>
                     {/* position */}
                     <SelectInput
                         control={control}

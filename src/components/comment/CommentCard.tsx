@@ -1,6 +1,6 @@
 import React from "react";
 
-// MUI UI/UX styles
+// MUI UI/UX style
 import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";

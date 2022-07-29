@@ -2,11 +2,16 @@ import React from "react";
 import { shallow } from "enzyme";
 import GeneralPostForm from "../GeneralPostForm";
 import { IGeneralFormInputs } from "../IFormInputs";
-import {generalFormDefaultValues} from "./mockPost";
+import { generalFormDefaultValues } from "../mockPost";
 // test rendering
 describe("Test GeneralPost Form component", () => {
     const onSubmit = (data: IGeneralFormInputs) => console.log(data);
-    const wrapper = shallow(<GeneralPostForm onSubmit={onSubmit} formDefaultValues={generalFormDefaultValues} />);
+    const wrapper = shallow(
+        <GeneralPostForm
+            onSubmit={onSubmit}
+            formDefaultValues={generalFormDefaultValues}
+        />
+    );
     // should render the whole component
     it("should be able to render <GeneralPostForm />", () => {
         console.log(wrapper.debug());

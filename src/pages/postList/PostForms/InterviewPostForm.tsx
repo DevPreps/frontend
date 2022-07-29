@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // import form data interface
-import { InterviewFormInputs } from "./IFormInputs";
+import { IInterviewFormInputs } from "./IFormInputs";
 // import reusable form input components
 import {
     SelectInput,
@@ -30,10 +30,11 @@ const validationSchema = yup.object().shape({
     tags: yup.array().required(),
 });
 interface Props {
-    onSubmit: SubmitHandler<InterviewFormInputs>;
+    onSubmit: SubmitHandler<IInterviewFormInputs>;
+    formDefaultValues: IInterviewFormInputs;
 }
 
-const InterviewPostForm = ({ onSubmit }: Props) => {
+const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
     // tags and categories, (will be updated later)
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];
@@ -43,25 +44,15 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
         "Full Stack Developer",
         "Software Engineer",
     ];
-    const FormDefaultValues: InterviewFormInputs = {
-        category: "interview",
-        title: "",
-        companyName: "",
-        city: "",
-        jobTitle: "",
-        position: "",
-        content: "",
-        tags: [],
-    };
 
     // react hook form
     const {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<InterviewFormInputs>({
+    } = useForm<IInterviewFormInputs>({
         // mode: "onChange",
-        defaultValues: FormDefaultValues,
+        defaultValues: formDefaultValues,
         resolver: yupResolver(validationSchema),
     });
 
@@ -82,7 +73,6 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
                 error={errors.title}
                 helperText="Post title"
                 name="title"
-                type="password"
             />
             <Grid container>
                 <Grid xs={12} md={6}>
@@ -92,7 +82,6 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
                         error={errors.companyName}
                         helperText="companyName"
                         name="companyName"
-                        type="password"
                     />
                 </Grid>
                 <Grid xs={12} md={6} sx={style.city}>
@@ -126,6 +115,7 @@ const InterviewPostForm = ({ onSubmit }: Props) => {
                     />
                 </Grid>
             </Grid>
+            {/* TODO - add rich-text editor */}
             {/* post content                    */}
             <TextFieldInput
                 control={control}

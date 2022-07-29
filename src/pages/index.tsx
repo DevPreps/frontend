@@ -5,6 +5,7 @@ export { default as InterviewPostList } from "./postList/InterviewPostList";
 export { default as LearnPostList } from "./postList/LearnPostList";
 export { default as Login } from "./Login";
 export { default as MyAccount } from "./myAccount/MyAccount";
+export { default as MyPostList } from "./postList/MyPostList";
 export { default as NotFound } from "./NotFound";
 export { default as PersonalInfo } from "./myAccount/PersonalInfo";
 export { default as Post } from "./Post";

@@ -29,7 +29,9 @@ const CreateGeneralPost = () => {
     const handleClose = () => setOpen(false);
 
     // handle form submission
-    const onSubmit: SubmitHandler<IGeneralFormInputs> = (data: IGeneralFormInputs) => {
+    const onSubmit: SubmitHandler<IGeneralFormInputs> = (
+        data: IGeneralFormInputs
+    ) => {
         console.log("data", data);
     };
 
@@ -63,7 +65,10 @@ const CreateGeneralPost = () => {
                         COMPOSE A GENERAL POST
                     </Typography>
                     {/* compose post form */}
-                    <GeneralPostForm formDefaultValues={formDefaultValues} onSubmit={onSubmit} />
+                    <GeneralPostForm
+                        formDefaultValues={formDefaultValues}
+                        onSubmit={onSubmit}
+                    />
                 </Box>
             </Modal>
         </div>

@@ -29,7 +29,7 @@ interface Props {
     formDefaultValues: IGeneralFormInputs;
 }
 
-const GeneralPostForm = ({ onSubmit,formDefaultValues }: Props) => {
+const GeneralPostForm = ({ onSubmit, formDefaultValues }: Props) => {
     // tags and categories, (will be updated later)
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];

@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
 // import form data interface
-import { IInterviewFormInputs } from "../PostForms/IFormInputs";
+import { IGeneralFormInputs } from "../PostForms/IFormInputs";
+
+// import form
+import GeneralPostForm from "../PostForms/GeneralPostForm";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -12,17 +15,13 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 
 // import MUI icons
-import AddIcon from "@mui/icons-material/Add";
-import InterviewPostForm from "../PostForms/InterviewPostForm";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 
-const CreateInterviewPost = () => {
-    const formDefaultValues: IInterviewFormInputs = {
-        category: "interview",
+const UpdateGeneralPost = () => {
+    // TODO - useState and useEffect to fetch defaultValue from backend.
+    const formDefaultValues: IGeneralFormInputs = {
+        category: "general",
         title: "test title",
-        companyName: "test company",
-        city: "Brisbane",
-        jobTitle: "test job title",
-        position: "Front End Developer",
         content: "test content",
         tags: ["frontend", "backend"],
     };
@@ -33,22 +32,18 @@ const CreateInterviewPost = () => {
     const handleClose = () => setOpen(false);
 
     // handle form submission
-    const onSubmit: SubmitHandler<IInterviewFormInputs> = (
-        data: IInterviewFormInputs
+    const onSubmit: SubmitHandler<IGeneralFormInputs> = (
+        data: IGeneralFormInputs
     ) => {
         console.log("data", data);
     };
 
     return (
         <div>
-            <Button
-                variant="contained"
-                startIcon={<AddIcon />}
-                onClick={handleOpen}
-            >
-                Compose
+            <Button startIcon={<BorderColorIcon />} onClick={handleOpen}>
+                Edit
             </Button>
-            {/* compose post modal*/}
+            {/* update post modal*/}
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"
@@ -66,10 +61,13 @@ const CreateInterviewPost = () => {
                         align="center"
                         sx={style.title}
                     >
-                        COMPOSE A INTERVIEW POST
+                        EDIT A GENERAL POST
                     </Typography>
-                    {/* compose post form */}
-                    <InterviewPostForm onSubmit={onSubmit} formDefaultValues={formDefaultValues}/>
+                    {/* update post form */}
+                    <GeneralPostForm
+                        formDefaultValues={formDefaultValues}
+                        onSubmit={onSubmit}
+                    />
                 </Box>
             </Modal>
         </div>
@@ -97,4 +95,4 @@ const style = {
     },
 } as const;
 
-export default CreateInterviewPost;
+export default UpdateGeneralPost;

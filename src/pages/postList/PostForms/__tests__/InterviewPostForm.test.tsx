@@ -1,12 +1,18 @@
 import React from "react";
 import { shallow } from "enzyme";
 import InterviewPostForm from "../InterviewPostForm";
-import { IFormInputs } from "../IFormInputs";
+import { IInterviewFormInputs } from "../IFormInputs";
+import { interviewFormDefaultValues } from "../mockPost";
 
 // test rendering
 describe("Test InterviewPost Form component", () => {
-    const onSubmit = (data: IFormInputs) => console.log(data);
-    const wrapper = shallow(<InterviewPostForm onSubmit={onSubmit} />);
+    const onSubmit = (data: IInterviewFormInputs) => console.log(data);
+    const wrapper = shallow(
+            <InterviewPostForm 
+            onSubmit={onSubmit}
+            formDefaultValues={interviewFormDefaultValues}
+        />
+        );
 
     // should render the whole component
     it("should be able to render <InterviewPostForm />", () => {

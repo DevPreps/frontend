@@ -4,6 +4,9 @@ import { SubmitHandler } from "react-hook-form";
 // import form data interface
 import { IInterviewFormInputs } from "../PostForms/IFormInputs";
 
+// import form
+import InterviewPostForm from "../PostForms/InterviewPostForm";
+
 // Import MUI components
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -12,10 +15,10 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 
 // import MUI icons
-import AddIcon from "@mui/icons-material/Add";
-import InterviewPostForm from "../PostForms/InterviewPostForm";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 
-const CreateInterviewPost = () => {
+const UpdateInterviewPost = () => {
+    // TODO - useState and useEffect to fetch defaultValue from backend.
     const formDefaultValues: IInterviewFormInputs = {
         category: "interview",
         title: "test title",
@@ -41,14 +44,10 @@ const CreateInterviewPost = () => {
 
     return (
         <div>
-            <Button
-                variant="contained"
-                startIcon={<AddIcon />}
-                onClick={handleOpen}
-            >
-                Compose
+            <Button startIcon={<BorderColorIcon />} onClick={handleOpen}>
+                Edit
             </Button>
-            {/* compose post modal*/}
+            {/* update post modal*/}
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"
@@ -60,16 +59,20 @@ const CreateInterviewPost = () => {
                         <Button onClick={handleClose}>X</Button>
                     </Grid>
                     {/* Modal Title */}
+                    {/* TODO - title will be changed to "EDIT" */}
                     <Typography
                         id="modal-modal-title"
                         variant="h5"
                         align="center"
                         sx={style.title}
                     >
-                        COMPOSE A INTERVIEW POST
+                        EDIT AN INTERVIEW POST
                     </Typography>
-                    {/* compose post form */}
-                    <InterviewPostForm onSubmit={onSubmit} formDefaultValues={formDefaultValues}/>
+                    {/* update post form */}
+                    <InterviewPostForm
+                        formDefaultValues={formDefaultValues}
+                        onSubmit={onSubmit}
+                    />
                 </Box>
             </Modal>
         </div>
@@ -97,4 +100,4 @@ const style = {
     },
 } as const;
 
-export default CreateInterviewPost;
+export default UpdateInterviewPost;

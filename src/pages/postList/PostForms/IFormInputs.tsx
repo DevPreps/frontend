@@ -1,5 +1,5 @@
 // interface for form object
-export interface InterviewFormInputs {
+export interface IInterviewFormInputs {
     category: string;
     title: string;
     content: string;

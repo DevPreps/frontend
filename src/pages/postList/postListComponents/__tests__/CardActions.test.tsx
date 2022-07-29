@@ -7,12 +7,13 @@ describe("<AuthorCardActions /> rendering", () => {
     const wrapper = shallow(<AuthorCardActions />);
     // test if AuthorCardActions component renders
     it("should be able to render <AuthorCardActions />", () => {
+        console.log(wrapper.debug());
         wrapper;
     });
 
-    // test if UpdateGeneralPost Modal renders
-    it("should contain UpdateGeneralPost Modal />", () => {
-        expect(wrapper.find("UpdateGeneralPost").length).toBe(1);
+    // test if UpdateInterviewPost Modal renders
+    it("should contain UpdateInterviewPost Modal />", () => {
+        expect(wrapper.find("UpdateInterviewPost").length).toBe(1);
     });
 });
 

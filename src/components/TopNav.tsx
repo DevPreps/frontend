@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TopNav = () => {
+    // TODO user will be changed to a global state
+    const user = {
+        userId: 1
+    }
     return (
         <nav style={{ display: "flex", flexDirection: "column" }}>
             <Link to="/">Home</Link>
@@ -11,7 +15,7 @@ const TopNav = () => {
             <Link to="/posts/general">General</Link>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
-            <Link to="/my-account">My Account</Link>
+            <Link to={`/my-account/${user.userId}`}>My Account</Link>
             <Link to="/about-us">About Us</Link>
         </nav>
     );

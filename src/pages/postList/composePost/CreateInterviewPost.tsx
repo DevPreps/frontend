@@ -69,7 +69,10 @@ const CreateInterviewPost = () => {
                         COMPOSE A INTERVIEW POST
                     </Typography>
                     {/* compose post form */}
-                    <InterviewPostForm onSubmit={onSubmit} formDefaultValues={formDefaultValues}/>
+                    <InterviewPostForm
+                        onSubmit={onSubmit}
+                        formDefaultValues={formDefaultValues}
+                    />
                 </Box>
             </Modal>
         </div>

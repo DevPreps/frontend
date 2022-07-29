@@ -2,7 +2,6 @@ import React from "react";
 
 // import create post modal
 import PostListItem from "./postListComponents/PostListItem";
-import SearchBar from "./postListComponents/SearchBar";
 import SortMenu from "./postListComponents/SortMenu";
 import { UserCardActions } from "./postListComponents/CardActions";
 

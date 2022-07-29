@@ -33,8 +33,8 @@ export const TextFieldInput = <T extends FieldValues>({
     helperText,
     name,
     rows = 1,
-    // type = "text",
-}: Props<T>) => {
+}: // type = "text",
+Props<T>) => {
     return (
         <Controller
             name={name}

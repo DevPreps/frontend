@@ -44,12 +44,17 @@ const UpdateInterviewPost = () => {
 
     return (
         <div>
-            <Button startIcon={<BorderColorIcon />} onClick={handleOpen}>
+            <Button
+                className="editPostBtn"
+                startIcon={<BorderColorIcon />}
+                onClick={handleOpen}
+            >
                 Edit
             </Button>
             {/* update post modal*/}
             <Modal
                 open={open}
+                className="editPostModal"
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >

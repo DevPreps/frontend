@@ -8,11 +8,11 @@ import { interviewFormDefaultValues } from "../mockPost";
 describe("Test InterviewPost Form component", () => {
     const onSubmit = (data: IInterviewFormInputs) => console.log(data);
     const wrapper = shallow(
-            <InterviewPostForm 
+        <InterviewPostForm
             onSubmit={onSubmit}
             formDefaultValues={interviewFormDefaultValues}
         />
-        );
+    );
 
     // should render the whole component
     it("should be able to render <InterviewPostForm />", () => {

@@ -20,7 +20,7 @@ import { useTheme } from "@mui/material/styles";
 import { styled } from "@mui/material/styles";
 import { themeBreak } from "./ThemeHandler";
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+export const ColorModeContext = React.createContext({ toggleColorMode: () => {""} });
 // Desktop Nav
 const Responsive = styled("div")(() => ({
     padding: themeBreak.spacing(1),

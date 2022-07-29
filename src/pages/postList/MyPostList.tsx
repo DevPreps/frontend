@@ -1,33 +1,29 @@
 import React from "react";
 
-// import create post modal
-import PostListItem from "./postListComponents/PostListItem";
-import SearchBar from "./postListComponents/SearchBar";
-import SortMenu from "./postListComponents/SortMenu";
-import { UserCardActions } from "./postListComponents/CardActions";
-
 // import MUI components
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import SortMenu from "./postListComponents/SortMenu";
+import PostListItem from "./postListComponents/PostListItem";
+import Button from "@mui/material/Button";
+import { AuthorCardActions } from "./postListComponents/CardActions";
 
-const RecommendPostList = () => {
-    // TODO - posts will be updated with useState and useEffect
+const MyPostList = () => {
     const posts = [1, 2, 3];
     return (
         <Stack spacing={2}>
             {/* the following title just show which page is rendered, will be deleted later */}
-            <Typography variant="h3">
-                Recommend Post List (This title will be deleted)
+            <Typography variant="h5">
+                Published Posts (This title will be deleted)
             </Typography>
-            {/* compose button and sort menu */}
+            {/* sortMenu  */}
             <Stack direction="row">
                 <SortMenu />
             </Stack>
             {/* post list */}
             {posts.map((post) => (
                 <PostListItem key={post}>
-                    <UserCardActions />
+                    <AuthorCardActions />
                 </PostListItem>
             ))}
             {/* load more button */}
@@ -36,4 +32,4 @@ const RecommendPostList = () => {
     );
 };
 
-export default RecommendPostList;
+export default MyPostList;

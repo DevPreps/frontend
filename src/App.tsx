@@ -8,6 +8,7 @@ import {
     LearnPostList,
     Login,
     MyAccount,
+    MyPostList,
     NotFound,
     PersonalInfo,
     ProjectPostList,
@@ -39,7 +40,7 @@ export default function App() {
                     <Route path="my-account/:id" element={<MyAccount />}>
                         <Route index element={<PersonalInfo />} />
                         {/* These 3 post List could be a separate PostList component or use the same PostList component with interview/learn/projects/discussions */}
-                        <Route path="my-posts" element={<GeneralPostList />} />
+                        <Route path="my-posts" element={<MyPostList />} />
                         <Route
                             path="my-bookmarks"
                             element={<GeneralPostList />}

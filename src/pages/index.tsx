@@ -1,0 +1,13 @@
+export { default as AboutUs } from "./AboutUs";
+export { default as Home } from "./Home";
+export { default as GeneralPostList } from "./postList/GeneralPostList";
+export { default as InterviewPostList } from "./postList/InterviewPostList";
+export { default as LearnPostList } from "./postList/LearnPostList";
+export { default as Login } from "./Login";
+export { default as MyAccount } from "./myAccount/MyAccount";
+export { default as NotFound } from "./NotFound";
+export { default as PersonalInfo } from "./myAccount/PersonalInfo";
+export { default as Post } from "./Post";
+export { default as ProjectPostList } from "./postList/ProjectPostList";
+export { default as RecommendPostList } from "./postList/RecommendPostList";
+export { default as Register } from "./Register";

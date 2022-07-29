@@ -34,7 +34,7 @@ const Responsive = styled("div")(() => ({
         display: "flex",
     },
 }));
-// Hamburger Nav 
+// Mobile Nav 
 const SmallView = styled("div")(() => ({
     padding: themeBreak.spacing(1),
     [themeBreak.breakpoints.down("sm")]: {
@@ -52,8 +52,6 @@ interface Props {
      */
     window?: () => Window;
 }
-// Hamburger Menu Size
-const drawerWidth = 180;
 export default function TopNav (props: Props) {
     // Get Current MUI Theme    
     const theme = useTheme();   
@@ -81,7 +79,6 @@ export default function TopNav (props: Props) {
     // Theme Switch Icon Changes Based on Theme
     const toggleButton = (
         <IconButton
-            sx={{ ml: 1 }}
             onClick={colorMode.toggleColorMode}
             color="inherit"
         >
@@ -94,14 +91,14 @@ export default function TopNav (props: Props) {
     );
     // Hamburger Menu Content
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
+        <Box onClick={handleDrawerToggle} sx={style.textCenter}>
+            <Typography variant="h6" sx={style.margin.drawerTitle}>
                 DevPrep
             </Typography>
             <Divider />
             <List>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemButton sx={style.textCenter}>
                         <ListItemText
                             primary={
                                 <Link style={Links} to="/posts/general">
@@ -112,7 +109,7 @@ export default function TopNav (props: Props) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemButton sx={style.textCenter}>
                         <ListItemText
                             primary={
                                 <Link style={Links} to="/posts/learn">
@@ -123,7 +120,7 @@ export default function TopNav (props: Props) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemButton sx={style.textCenter}>
                         <ListItemText
                             primary={
                                 <Link style={Links} to="/posts/interview">
@@ -134,7 +131,7 @@ export default function TopNav (props: Props) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemButton sx={style.textCenter}>
                         <ListItemText
                             primary={
                                 <Link style={Links} to="/posts/project">
@@ -145,7 +142,7 @@ export default function TopNav (props: Props) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemButton sx={style.textCenter}>
                         <ListItemText
                             primary={
                                 <Link style={Links} to="/login">
@@ -156,7 +153,7 @@ export default function TopNav (props: Props) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemButton sx={style.textCenter}>
                         <ListItemText
                             primary={
                                 <Link style={Links} to="/register">
@@ -167,7 +164,7 @@ export default function TopNav (props: Props) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemButton sx={style.textCenter}>
                         <ListItemText
                             primary={
                                 <Link style={Links} to="/my-account/1">
@@ -190,43 +187,23 @@ export default function TopNav (props: Props) {
                 <Container maxWidth="xl">
                     <Toolbar
                         disableGutters
-                        sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                        }}
+                        sx={style.flexSpace.between}
                     >
                         <Typography
                             variant="h6"
                             noWrap
                             component="a"
                             href="/"
-                            sx={{
-                                display: { xs: "none", md: "flex" },
-                                mr: 2,
-                                fontFamily: "monospace",
-                                fontWeight: 700,
-                                letterSpacing: ".2rem",
-                                color: "inherit",
-                                textDecoration: "none",
-                            }}
+                            sx={{...style.typography, ...style.typography.medium}}
                         >
                             DevPrep + LOGO
                         </Typography>
                         <Typography
                             variant="h6"
                             noWrap
-                            component="a"
+                            component="a"   
                             href="/"
-                            sx={{
-                                display: { xs: "flex", md: "none" },
-                                mr: 2,
-                                flexGrow: 1,
-                                fontFamily: "monospace",
-                                fontWeight: 700,
-                                letterSpacing: ".2rem",
-                                color: "inherit",
-                                textDecoration: "none",
-                            }}
+                            sx={{...style.typography, ...style.typography.small}}
                         >
                             LOGO
                         </Typography>
@@ -236,8 +213,7 @@ export default function TopNav (props: Props) {
                             {toggleButton}
                         </Box>
                         <IconButton
-                            sx={{ ml: .5 }}
-                            color="inherit"
+                            sx={style.margin.iconBtn}
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
@@ -246,12 +222,7 @@ export default function TopNav (props: Props) {
                         </IconButton>
                         </SmallView>
                         <Responsive>
-                            <Box
-                                sx={{
-                                    flexGrow: 1,
-                                    justifyContent: "flex-end",
-                                }}
-                            >
+                            <Box>
                                 <Button>
                                     <Link style={Links} to="/posts/general">
                                         General
@@ -304,12 +275,7 @@ export default function TopNav (props: Props) {
                     ModalProps={{
                         keepMounted: true, // Better open performance on mobile.
                     }}
-                    sx={{
-                        "& .MuiDrawer-paper": {
-                            boxSizing: "border-box",
-                            width: drawerWidth,
-                        },
-                    }}
+                    sx={style.drawerContent}
                 >
                     {drawer}
                 </Drawer>
@@ -318,3 +284,39 @@ export default function TopNav (props: Props) {
         </>
     );
 };
+
+const style = {
+    textCenter: {
+        textAlign: "center"
+    },
+    margin: {
+        iconBtn: { ml: .5 },
+        drawerTitle: { my: 2 }
+    },
+    flexSpace: {
+        between: {
+            justifyContent: "space-between",
+        }
+    },
+    drawerContent: {
+        "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: 180,
+        },
+    },
+    typography: {        
+        mr: 2,
+        flexGrow: 1,
+        fontFamily: "monospace",
+        fontWeight: 700,
+        letterSpacing: ".2rem",
+        color: "inherit",
+        textDecoration: "none",        
+        small: {
+            display: { xs: "flex", md: "none" },
+        },
+        medium: {
+            display: { xs: "none", md: "flex" },
+        }
+    },
+}

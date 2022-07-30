@@ -42,7 +42,7 @@ const CommentCard = () => {
                             src={commentItem.avatar}
                             alt="avatar"
                             sx={styles.avatar}
-                        ></Avatar>
+                        />
                         <CardContent>{commentItem.u_username}</CardContent>
                         <CardContent>{commentItem.date}</CardContent>
                     </Box>
@@ -51,10 +51,7 @@ const CommentCard = () => {
                     </Box>
                     <Box sx={styles.btnBox}>
                         <AddComment />
-                        <IconButton>
-                            {" "}
-                            <ReportProblemIcon />{" "}
-                        </IconButton>
+                        <IconButton><ReportProblemIcon /></IconButton>
                     </Box>
                 </Box>
             </Card>

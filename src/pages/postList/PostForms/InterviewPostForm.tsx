@@ -1,5 +1,5 @@
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -27,7 +27,7 @@ const validationSchema = yup.object().shape({
     jobTitle: yup.string().required(),
     position: yup.string().required(),
     content: yup.string().required(),
-    tags: yup.array().required(),
+    tags: yup.array().min(1).required(),
 });
 interface Props {
     onSubmit: SubmitHandler<IInterviewFormInputs>;
@@ -35,7 +35,7 @@ interface Props {
 }
 
 const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
-    // tags and categories, (will be updated later)
+    // TODO - tags,categories and positions will be updated later
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];
     const positionOptions = [
@@ -44,113 +44,89 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
         "Full Stack Developer",
         "Software Engineer",
     ];
-
     // react hook form
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IInterviewFormInputs>({
+    const methods = useForm<IInterviewFormInputs>({
         // mode: "onChange",
         defaultValues: formDefaultValues,
         resolver: yupResolver(validationSchema),
     });
+    const { handleSubmit } = methods;
 
     return (
-        <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-            {/* post category */}
-            <SelectInput
-                control={control}
-                error={errors.category}
-                helperText="Choose a category for your post"
-                name="category"
-                options={categoryOptions}
-            />
+        // form provider will pass the control and errors to form input and can be used in testing full render of reusable input components
+        <FormProvider {...methods}>
+            <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+                {/* post category */}
+                <SelectInput
+                    helperText="Choose a category for your post"
+                    name="category"
+                    options={categoryOptions}
+                />
 
-            {/* post title */}
-            <TextFieldInput
-                control={control}
-                error={errors.title}
-                helperText="Post title"
-                name="title"
-            />
-            <Grid container>
-                <Grid item xs={12} md={6}>
-                    {/* companyName */}
-                    <TextFieldInput
-                        control={control}
-                        error={errors.companyName}
-                        helperText="companyName"
-                        name="companyName"
-                    />
+                {/* post title */}
+                <TextFieldInput helperText="Post title" name="title" />
+                <Grid container>
+                    <Grid item xs={12} md={6}>
+                        {/* companyName */}
+                        <TextFieldInput
+                            helperText="companyName"
+                            name="companyName"
+                        />
+                    </Grid>
+                    <Grid item xs={12} md={6} sx={style.city}>
+                        {/* city */}
+                        <TextFieldInput helperText="city" name="city" />
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={6} sx={style.city}>
-                    {/* city */}
-                    <TextFieldInput
-                        control={control}
-                        error={errors.city}
-                        helperText="city"
-                        name="city"
-                    />
+                <Grid container>
+                    <Grid item xs={12} sm={6}>
+                        {/* job title */}
+                        <TextFieldInput helperText="jobTitle" name="jobTitle" />
+                    </Grid>
+                    <Grid item xs={12} sm={6} sx={style.position}>
+                        {/* position */}
+                        <SelectInput
+                            helperText="Choose a position for your interview"
+                            name="position"
+                            options={positionOptions}
+                        />
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item xs={12} sm={6}>
-                    {/* job title */}
-                    <TextFieldInput
-                        control={control}
-                        error={errors.jobTitle}
-                        helperText="jobTitle"
-                        name="jobTitle"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} sx={style.position}>
-                    {/* position */}
-                    <SelectInput
-                        control={control}
-                        error={errors.position}
-                        helperText="Choose a position for your interview"
-                        name="position"
-                        options={positionOptions}
-                    />
-                </Grid>
-            </Grid>
-            {/* TODO - add rich-text editor */}
-            {/* post content                    */}
-            <TextFieldInput
-                control={control}
-                error={errors.content}
-                helperText="Post content"
-                name="content"
-                rows={8}
-            />
+                {/* TODO - add rich-text editor */}
+                {/* post content                    */}
+                <TextFieldInput
+                    helperText="Post content"
+                    name="content"
+                    multiline
+                    rows={8}
+                />
 
-            {/* post tags   */}
-            <TagsInput
-                control={control}
-                error={errors.tags}
-                helperText="choose tags for you post"
-                name="tags"
-                tags={tagOptions}
-            />
+                {/* post tags   */}
+                <TagsInput
+                    helperText="choose tags for you post"
+                    name="tags"
+                    tags={tagOptions}
+                />
 
-            {/* publish and save to draft buttons   */}
-            <Stack direction="row">
-                <Button
-                    variant="contained"
-                    type="submit"
-                    color="success"
-                    sx={style.publishBtn}
-                >
-                    PUBLISH
-                </Button>
-                <Button variant="contained" type="submit">
-                    SAVE TO DRAFT
-                </Button>
-            </Stack>
-        </Box>
+                {/* publish and save to draft buttons   */}
+                <Stack direction="row">
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        color="success"
+                        sx={style.publishBtn}
+                    >
+                        PUBLISH
+                    </Button>
+                    <Button variant="contained" type="submit">
+                        SAVE TO DRAFT
+                    </Button>
+                </Stack>
+            </Box>
+        </FormProvider>
     );
 };
+
 const style = {
     city: {
         paddingLeft: { md: 1 },

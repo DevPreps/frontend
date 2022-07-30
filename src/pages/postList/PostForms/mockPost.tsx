@@ -7,7 +7,7 @@ export const generalFormDefaultValues: IGeneralFormInputs = {
     tags: [],
 };
 
-export const interviewFormDefaultValues: IInterviewFormInputs = {
+export const composeInterviewFormDefaultValues: IInterviewFormInputs = {
     category: "general",
     title: "",
     companyName: "",
@@ -16,4 +16,15 @@ export const interviewFormDefaultValues: IInterviewFormInputs = {
     position: "",
     content: "",
     tags: [],
+};
+
+const interviewPostDefaultValues: IInterviewFormInputs = {
+    category: "interview",
+    title: "test title",
+    companyName: "test company",
+    city: "Brisbane",
+    jobTitle: "test job title",
+    position: "Front End Developer",
+    content: "test content",
+    tags: ["frontend", "backend"],
 };

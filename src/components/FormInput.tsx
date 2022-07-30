@@ -5,6 +5,7 @@ import {
     FieldValues,
     Merge,
     UseControllerProps,
+    useFormContext,
 } from "react-hook-form";
 
 // Import MUI components
@@ -22,34 +23,39 @@ interface Props<T> extends UseControllerProps<T> {
     error?: Merge<FieldError, FieldError[]> | undefined;
     options?: string[];
     helperText?: string;
+    multiline?: boolean;
     rows?: number;
     tags?: string[];
     type?: string;
 }
 // reusable TextField Input
 export const TextFieldInput = <T extends FieldValues>({
-    control,
-    error,
     helperText,
     name,
+    multiline = false,
     rows = 1,
-}: // type = "text",
-Props<T>) => {
+    type = "text",
+}: Props<T>) => {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
     return (
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
                 <TextField
+                    error={errors.hasOwnProperty(name)}
                     id={`${name}-input`}
                     label={name}
                     variant="outlined"
+                    multiline={multiline}
                     fullWidth
-                    multiline
                     rows={rows}
                     {...field}
-                    type="password"
-                    helperText={error?.message || helperText}
+                    type={type}
+                    helperText={errors[name]?.message || helperText}
                 />
             )}
         />
@@ -58,18 +64,20 @@ Props<T>) => {
 
 // reusable Select Input
 export const SelectInput = <T extends FieldValues>({
-    control,
-    error,
     helperText,
     name,
     options,
 }: Props<T>) => {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
     return (
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth>
+                <FormControl fullWidth error={errors.hasOwnProperty(name)}>
                     <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
                     <Select
                         labelId={`${name}-select-label`}
@@ -84,7 +92,7 @@ export const SelectInput = <T extends FieldValues>({
                         ))}
                     </Select>
                     <FormHelperText>
-                        {error?.message || helperText}
+                        {errors[name]?.message || helperText}
                     </FormHelperText>
                 </FormControl>
             )}
@@ -94,8 +102,6 @@ export const SelectInput = <T extends FieldValues>({
 
 // reusable Tags Input (multi select)
 export const TagsInput = <T extends FieldValues>({
-    control,
-    error,
     helperText,
     name,
     tags,
@@ -110,13 +116,16 @@ export const TagsInput = <T extends FieldValues>({
             typeof value === "string" ? value.split(",") : value
         );
     };
-
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
     return (
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth>
+                <FormControl fullWidth error={errors.hasOwnProperty(name)}>
                     <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
                     <Select
                         multiple
@@ -152,7 +161,7 @@ export const TagsInput = <T extends FieldValues>({
                         ))}
                     </Select>
                     <FormHelperText>
-                        {error?.message || helperText}
+                        {errors[name]?.message || helperText}
                     </FormHelperText>
                 </FormControl>
             )}
@@ -160,6 +169,37 @@ export const TagsInput = <T extends FieldValues>({
     );
 };
 
+// reusable TextField Input
+export const TfiTest = <T extends FieldValues>({
+    helperText,
+    name,
+    rows = 1,
+}: // type = "text",
+Props<T>) => {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
+    return (
+        <Controller
+            name={name}
+            control={control}
+            render={({ field }) => (
+                <TextField
+                    id={`${name}-input`}
+                    label={name}
+                    variant="outlined"
+                    fullWidth
+                    multiline
+                    rows={rows}
+                    {...field}
+                    type="password"
+                    helperText={errors[name]?.message || helperText}
+                />
+            )}
+        />
+    );
+};
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const style = {

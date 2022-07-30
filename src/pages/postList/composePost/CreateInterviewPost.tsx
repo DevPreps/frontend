@@ -16,15 +16,16 @@ import AddIcon from "@mui/icons-material/Add";
 import InterviewPostForm from "../PostForms/InterviewPostForm";
 
 const CreateInterviewPost = () => {
+    // default values for the form
     const formDefaultValues: IInterviewFormInputs = {
-        category: "interview",
-        title: "test title",
-        companyName: "test company",
-        city: "Brisbane",
-        jobTitle: "test job title",
-        position: "Front End Developer",
-        content: "test content",
-        tags: ["frontend", "backend"],
+        category: "general",
+        title: "",
+        companyName: "",
+        city: "",
+        jobTitle: "",
+        position: "",
+        content: "",
+        tags: [],
     };
     // state management
     const [open, setOpen] = useState(false);

@@ -1,5 +1,5 @@
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
     category: yup.string().required(),
     title: yup.string().required(),
     content: yup.string().required(),
-    tags: yup.array().required(),
+    tags: yup.array().min(1).required(),
 });
 interface Props {
     onSubmit: SubmitHandler<IGeneralFormInputs>;
@@ -30,67 +30,57 @@ interface Props {
 }
 
 const GeneralPostForm = ({ onSubmit, formDefaultValues }: Props) => {
-    // tags and categories, (will be updated later)
+    // TODO - tags and categories, will be updated later
     const tagOptions = ["frontend", "backend", "fullstack", "database"];
     const categoryOptions = ["learn", "interview", "project", "general"];
     // react hook form
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IGeneralFormInputs>({
+    const methods = useForm<IGeneralFormInputs>({
         // mode: "onChange",
         defaultValues: formDefaultValues,
         resolver: yupResolver(validationSchema),
     });
+    const { handleSubmit } = methods;
     return (
-        <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-            {/* post category */}
-            <SelectInput
-                control={control}
-                error={errors.category}
-                helperText="Choose a category for your post"
-                name="category"
-                options={categoryOptions}
-            />
-            {/* post title */}
-            <TextFieldInput
-                control={control}
-                error={errors.title}
-                helperText="Post title"
-                name="title"
-            />
-            {/* post content                    */}
-            <TextFieldInput
-                control={control}
-                error={errors.content}
-                helperText="Post content"
-                name="content"
-                rows={8}
-            />
-            {/* post tags   */}
-            <TagsInput
-                control={control}
-                error={errors.tags}
-                helperText="choose tags for you post"
-                name="tags"
-                tags={tagOptions}
-            />
-            {/* publish and save to draft buttons   */}
-            <Stack direction="row">
-                <Button
-                    variant="contained"
-                    type="submit"
-                    color="success"
-                    sx={style.publishBtn}
-                >
-                    PUBLISH
-                </Button>
-                <Button variant="contained" type="submit">
-                    SAVE TO DRAFT
-                </Button>
-            </Stack>
-        </Box>
+        // form provider will pass the control and errors to form input and can be used in testing full render of reusable input components
+        <FormProvider {...methods}>
+            <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+                {/* post category */}
+                <SelectInput
+                    helperText="Choose a category for your post"
+                    name="category"
+                    options={categoryOptions}
+                />
+                {/* post title */}
+                <TextFieldInput helperText="Post title" name="title" />
+                {/* post content                    */}
+                <TextFieldInput
+                    helperText="Post content"
+                    name="content"
+                    multiline
+                    rows={8}
+                />
+                {/* post tags   */}
+                <TagsInput
+                    helperText="choose tags for you post"
+                    name="tags"
+                    tags={tagOptions}
+                />
+                {/* publish and save to draft buttons   */}
+                <Stack direction="row">
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        color="success"
+                        sx={style.publishBtn}
+                    >
+                        PUBLISH
+                    </Button>
+                    <Button variant="contained" type="submit">
+                        SAVE TO DRAFT
+                    </Button>
+                </Stack>
+            </Box>
+        </FormProvider>
     );
 };
 const style = {

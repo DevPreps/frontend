@@ -16,6 +16,8 @@ import AddIcon from "@mui/icons-material/Add";
 import GeneralPostForm from "../PostForms/GeneralPostForm";
 
 const CreateGeneralPost = () => {
+    // set defaultValues for the form, so that the form values can be populated when editing a post
+    // default value is a prop for GeneralPostForm
     const formDefaultValues: IGeneralFormInputs = {
         category: "general",
         title: "",

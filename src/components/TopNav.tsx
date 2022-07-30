@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const TopNav = () => {
     // TODO user will be changed to a global state
     const user = {
-        userId: 1
-    }
+        userId: 1,
+    };
     return (
         <nav style={{ display: "flex", flexDirection: "column" }}>
             <Link to="/">Home</Link>

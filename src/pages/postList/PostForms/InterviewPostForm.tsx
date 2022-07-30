@@ -5,6 +5,10 @@ import * as yup from "yup";
 
 // import form data interface
 import { IInterviewFormInputs } from "./IFormInputs";
+
+// import tags and categories
+import { categoryOptions, positionOptions, tagOptions } from "../../../data";
+
 // import reusable form input components
 import {
     SelectInput,
@@ -35,15 +39,6 @@ interface Props {
 }
 
 const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
-    // TODO - tags,categories and positions will be updated later
-    const tagOptions = ["frontend", "backend", "fullstack", "database"];
-    const categoryOptions = ["learn", "interview", "project", "general"];
-    const positionOptions = [
-        "Front End Developer",
-        "Back End Developer",
-        "Full Stack Developer",
-        "Software Engineer",
-    ];
     // react hook form
     const methods = useForm<IInterviewFormInputs>({
         // mode: "onChange",

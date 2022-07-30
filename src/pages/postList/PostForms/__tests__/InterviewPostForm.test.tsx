@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import InterviewPostForm from "../InterviewPostForm";
 import { IInterviewFormInputs } from "../IFormInputs";
-import { interviewFormDefaultValues } from "../mockPost";
+import { interviewPostDefaultValues } from "../mockPost";
 
 // test rendering
 describe("Test InterviewPost Form component", () => {
@@ -10,7 +10,7 @@ describe("Test InterviewPost Form component", () => {
     const wrapper = shallow(
         <InterviewPostForm
             onSubmit={onSubmit}
-            formDefaultValues={interviewFormDefaultValues}
+            formDefaultValues={interviewPostDefaultValues}
         />
     );
 

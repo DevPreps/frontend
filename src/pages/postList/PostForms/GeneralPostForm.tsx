@@ -5,6 +5,10 @@ import * as yup from "yup";
 
 // import form data interface
 import { IGeneralFormInputs } from "./IFormInputs";
+
+// import tags and categories
+import { categoryOptions, tagOptions } from "../../../data";
+
 // import reusable form input components
 import {
     SelectInput,
@@ -24,15 +28,13 @@ const validationSchema = yup.object().shape({
     content: yup.string().required(),
     tags: yup.array().min(1).required(),
 });
+
 interface Props {
     onSubmit: SubmitHandler<IGeneralFormInputs>;
     formDefaultValues: IGeneralFormInputs;
 }
 
 const GeneralPostForm = ({ onSubmit, formDefaultValues }: Props) => {
-    // TODO - tags and categories, will be updated later
-    const tagOptions = ["frontend", "backend", "fullstack", "database"];
-    const categoryOptions = ["learn", "interview", "project", "general"];
     // react hook form
     const methods = useForm<IGeneralFormInputs>({
         // mode: "onChange",

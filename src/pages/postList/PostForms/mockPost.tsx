@@ -18,7 +18,7 @@ export const composeInterviewFormDefaultValues: IInterviewFormInputs = {
     tags: [],
 };
 
-const interviewPostDefaultValues: IInterviewFormInputs = {
+export const interviewPostDefaultValues: IInterviewFormInputs = {
     category: "interview",
     title: "test title",
     companyName: "test company",

@@ -169,37 +169,6 @@ export const TagsInput = <T extends FieldValues>({
     );
 };
 
-// reusable TextField Input
-export const TfiTest = <T extends FieldValues>({
-    helperText,
-    name,
-    rows = 1,
-}: // type = "text",
-Props<T>) => {
-    const {
-        control,
-        formState: { errors },
-    } = useFormContext();
-    return (
-        <Controller
-            name={name}
-            control={control}
-            render={({ field }) => (
-                <TextField
-                    id={`${name}-input`}
-                    label={name}
-                    variant="outlined"
-                    fullWidth
-                    multiline
-                    rows={rows}
-                    {...field}
-                    type="password"
-                    helperText={errors[name]?.message || helperText}
-                />
-            )}
-        />
-    );
-};
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const style = {

@@ -56,7 +56,7 @@ describe("<TopNav /> interactions", () => {
     });
     // test My Account page link
     it("should redirect to My Account page when My Account link is clicked", () => {
-        expect(wrapper.find("Link").at(7).prop("to")).toEqual("/my-account");
+        expect(wrapper.find("Link").at(7).prop("to")).toEqual("/my-account/1");
     });
     // test About Us page link
     it("should redirect to About US page when About Us link is clicked", () => {

@@ -4,6 +4,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Stack/Typography";
 
 //import Post content and comments list files
 import Comments from "../comment/Comments";
@@ -11,10 +12,10 @@ import PostCard from "./postComponents/PostCard";
 
 const PostView = () => {
     return (
-        <div>
-            <h1 style={{ color: "blue" }}>
+        <>
+            <Typography variant="h3">
                 Post View (This title will be delete)
-            </h1>
+            </Typography>
             <Grid container>
                 <Grid item xs={12} sm={2}></Grid>
                 <Grid item xs={12} sm={8}>
@@ -26,7 +27,7 @@ const PostView = () => {
                 </Grid>
                 <Grid item xs={12} sm={4}></Grid>
             </Grid>
-        </div>
+        </>
     );
 };
 export default PostView;

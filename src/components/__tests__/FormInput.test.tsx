@@ -20,7 +20,7 @@ describe("should be able to render <TextFieldInput />", () => {
         </WrapperForm>
     );
     it("should be able to render <TextFieldInput />", () => {
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
         wrapper;
     });
 
@@ -54,7 +54,7 @@ describe("should be able to render <SelectInput />", () => {
         </WrapperForm>
     );
     it("should be able to render the whole component", () => {
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
         wrapper;
     });
 
@@ -92,7 +92,6 @@ describe("should be able to render <TagsInput />", () => {
         </WrapperForm>
     );
     it("should be able to render the whole component", () => {
-        console.log(wrapper.debug());
         wrapper;
     });
 

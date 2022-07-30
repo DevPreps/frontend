@@ -7,7 +7,7 @@ describe("Test Update General Post page", () => {
     const wrapper = shallow(<UpdateGeneralPost />);
 
     it("should be able to render  UpdateGeneralPost />", () => {
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
         wrapper;
     });
 

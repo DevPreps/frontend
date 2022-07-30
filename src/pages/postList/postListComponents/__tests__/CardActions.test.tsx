@@ -7,7 +7,7 @@ describe("<AuthorCardActions /> rendering", () => {
     const wrapper = shallow(<AuthorCardActions />);
     // test if AuthorCardActions component renders
     it("should be able to render <AuthorCardActions />", () => {
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
         wrapper;
     });
 

@@ -7,7 +7,6 @@ describe("<MyPostList /> rendering", () => {
     const wrapper = shallow(<MyPostList />);
     // test if MyPostList component renders
     it("should be able to render <MyPostList />", () => {
-        console.log(wrapper.debug());
         wrapper;
     });
     it("should contain PostListItem />", () => {

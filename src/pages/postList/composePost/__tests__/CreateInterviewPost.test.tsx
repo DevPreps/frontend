@@ -6,7 +6,7 @@ describe("Test Compose New Interview Post page", () => {
     const wrapper = shallow(<CreateInterviewPost />);
 
     it("should be able to render  CreateInterviewPost />", () => {
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
         wrapper;
     });
 

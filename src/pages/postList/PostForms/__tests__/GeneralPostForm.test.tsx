@@ -14,7 +14,7 @@ describe("Test GeneralPost Form component", () => {
     );
     // should render the whole component
     it("should be able to render <GeneralPostForm />", () => {
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
         wrapper;
     });
 

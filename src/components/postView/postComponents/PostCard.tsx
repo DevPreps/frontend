@@ -26,7 +26,7 @@ export interface PostDetail {
 }
 
 const PostCard = () => {
-    // Add attributes to the properites and passed into components
+    // It is dummy data and will change
     const postDetail: PostDetail["postDetail"] = {
         imageUrl:
             "https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1",

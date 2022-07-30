@@ -1,15 +1,20 @@
 import React from "react";
 
 // import Post List components
-import PostList from "./postListComponents/PostList";
-import NewProjectPost from "./composePost/CreateProjectPost";
+import CreateProjectPost from "./composePost/CreateProjectPost";
+import PostListItem from "./postListComponents/PostListItem";
+import SearchBar from "./postListComponents/SearchBar";
+import SortMenu from "./postListComponents/SortMenu";
+import { UserCardActions } from "./postListComponents/CardActions";
 
 // import MUI components
+import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import SearchBar from "./postListComponents/SearchBar";
 import Typography from "@mui/material/Typography";
 
 const ProjectPostList = () => {
+    // TODO - posts will be updated with useState and useEffect
+    const posts = [1, 2, 3];
     return (
         <Stack spacing={2}>
             {/* the following title just show which page is rendered, will be deleted later */}
@@ -18,9 +23,18 @@ const ProjectPostList = () => {
             </Typography>
             {/* search bar */}
             <SearchBar />
-            <PostList>
-                <NewProjectPost />
-            </PostList>
+            <Stack direction="row">
+                <CreateProjectPost />
+                <SortMenu />
+            </Stack>
+            {/* post list */}
+            {posts.map((post) => (
+                <PostListItem key={post}>
+                    <UserCardActions />
+                </PostListItem>
+            ))}
+            {/* load more button */}
+            <Button>Load More</Button>
         </Stack>
     );
 };

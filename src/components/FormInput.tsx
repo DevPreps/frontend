@@ -5,6 +5,7 @@ import {
     FieldValues,
     Merge,
     UseControllerProps,
+    useFormContext,
 } from "react-hook-form";
 
 // Import MUI components
@@ -22,32 +23,39 @@ interface Props<T> extends UseControllerProps<T> {
     error?: Merge<FieldError, FieldError[]> | undefined;
     options?: string[];
     helperText?: string;
+    multiline?: boolean;
     rows?: number;
     tags?: string[];
+    type?: string;
 }
 // reusable TextField Input
 export const TextFieldInput = <T extends FieldValues>({
-    control,
-    error,
     helperText,
     name,
-    rows,
+    multiline = false,
+    rows = 1,
+    type = "text",
 }: Props<T>) => {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
     return (
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
                 <TextField
+                    error={errors.hasOwnProperty(name)}
                     id={`${name}-input`}
                     label={name}
                     variant="outlined"
-                    defaultValue=""
+                    multiline={multiline}
                     fullWidth
-                    multiline
                     rows={rows}
                     {...field}
-                    helperText={error?.message || helperText}
+                    type={type}
+                    helperText={errors[name]?.message || helperText}
                 />
             )}
         />
@@ -56,24 +64,25 @@ export const TextFieldInput = <T extends FieldValues>({
 
 // reusable Select Input
 export const SelectInput = <T extends FieldValues>({
-    control,
-    error,
     helperText,
     name,
     options,
 }: Props<T>) => {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
     return (
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth>
+                <FormControl fullWidth error={errors.hasOwnProperty(name)}>
                     <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
                     <Select
                         labelId={`${name}-select-label`}
                         id={`${name}-input`}
                         label={name}
-                        defaultValue=""
                         {...field}
                     >
                         {options.map((option) => (
@@ -83,7 +92,7 @@ export const SelectInput = <T extends FieldValues>({
                         ))}
                     </Select>
                     <FormHelperText>
-                        {error?.message || helperText}
+                        {errors[name]?.message || helperText}
                     </FormHelperText>
                 </FormControl>
             )}
@@ -93,8 +102,6 @@ export const SelectInput = <T extends FieldValues>({
 
 // reusable Tags Input (multi select)
 export const TagsInput = <T extends FieldValues>({
-    control,
-    error,
     helperText,
     name,
     tags,
@@ -109,13 +116,16 @@ export const TagsInput = <T extends FieldValues>({
             typeof value === "string" ? value.split(",") : value
         );
     };
-
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
     return (
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth>
+                <FormControl fullWidth error={errors.hasOwnProperty(name)}>
                     <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
                     <Select
                         multiple
@@ -123,7 +133,6 @@ export const TagsInput = <T extends FieldValues>({
                         id={`${name}-input`}
                         label={name}
                         onChange={handleChange}
-                        defaultValue={[]}
                         {...field}
                         input={
                             <OutlinedInput
@@ -133,12 +142,12 @@ export const TagsInput = <T extends FieldValues>({
                         }
                         renderValue={(selected) => (
                             <Box sx={style.box}>
-                                {selected.map((value) => (
+                                {selected.map((value: string) => (
                                     <Chip key={value} label={value} />
                                 ))}
                             </Box>
                         )}
-                        MenuProps={MenuProps}
+                        MenuProps={style.menuProps}
                     >
                         {tags?.map((tag) => (
                             <MenuItem key={tag} value={tag}>
@@ -152,7 +161,7 @@ export const TagsInput = <T extends FieldValues>({
                         ))}
                     </Select>
                     <FormHelperText>
-                        {error?.message || helperText}
+                        {errors[name]?.message || helperText}
                     </FormHelperText>
                 </FormControl>
             )}
@@ -162,19 +171,18 @@ export const TagsInput = <T extends FieldValues>({
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
-
 const style = {
     box: {
         display: "flex",
         flexWrap: "wrap",
         gap: 0.5,
+    },
+    menuProps: {
+        PaperProps: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+            },
+        },
     },
 } as const;

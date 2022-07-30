@@ -25,7 +25,7 @@ describe("<MyAccount /> interactions", () => {
     // test My Posts link
     it("should redirect to My Post page when My Posts link is clicked", () => {
         expect(wrapper.find("Link").at(1).prop("to")).toEqual(
-            "/my-account/my-posts"
+            "/my-account/1/my-posts"
         );
     });
     // test My Drafts page link

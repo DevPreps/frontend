@@ -67,7 +67,9 @@ const PostCard = () => {
                         </Typography>
                     </Box>
                     <Box sx={styles.iconsBtnBox}>
-                        <IconButton><BookmarkAddOutlinedIcon /></IconButton>
+                        <IconButton>
+                            <BookmarkAddOutlinedIcon />
+                        </IconButton>
                         <IconButton>
                             <FavoriteBorderIcon />
                         </IconButton>

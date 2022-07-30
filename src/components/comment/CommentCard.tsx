@@ -51,7 +51,9 @@ const CommentCard = () => {
                     </Box>
                     <Box sx={styles.btnBox}>
                         <AddComment />
-                        <IconButton><ReportProblemIcon /></IconButton>
+                        <IconButton>
+                            <ReportProblemIcon />
+                        </IconButton>
                     </Box>
                 </Box>
             </Card>

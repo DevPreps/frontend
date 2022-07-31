@@ -1,4 +1,4 @@
-import { PaletteMode, ThemeOptions } from "@mui/material";
+import { PaletteMode, ThemeOptions } from "@mui/material"; // TypeScript Types
 // An interface that defines object parameters
 interface ThemeColor {
     default: string;
@@ -28,6 +28,15 @@ export const baseTheme = (mode: PaletteMode) => {
             fontFamily: ["Nunito Sans", "sans-serif"].join(","),
             button: {
                 textTransform: "capitalize",
+            },
+        },
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 640,
+                md: 900,
+                lg: 1200,
+                xl: 1536,
             },
         },
         palette: {

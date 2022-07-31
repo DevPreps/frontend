@@ -17,33 +17,8 @@ import Drawer from "@mui/material/Drawer";
 import LightMode from "@mui/icons-material/LightModeOutlined";
 import DarkMode from "@mui/icons-material/DarkModeOutlined";
 import { useTheme } from "@mui/material/styles";
-import { styled } from "@mui/material/styles";
-import { themeBreak } from "./ThemeHandler";
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export const ColorModeContext = React.createContext({ toggleColorMode: () => {""} });
-// Desktop Nav
-const Responsive = styled("div")(() => ({
-    padding: themeBreak.spacing(1),
-    display: "none",
-    // Match [sm, md)
-    //       [600px, 900px)
-    [themeBreak.breakpoints.between("sm", "md")]: {
-        display: "flex",
-    },
-    [themeBreak.breakpoints.up("md")]: {
-        display: "flex",
-    },
-}));
-// Mobile Nav 
-const SmallView = styled("div")(() => ({
-    padding: themeBreak.spacing(1),
-    [themeBreak.breakpoints.down("sm")]: {
-        display: "flex",
-    },
-    [themeBreak.breakpoints.up("sm")]: {
-        display: "none",
-    },
-}));
 
 interface Props {
     /**
@@ -89,6 +64,38 @@ export default function TopNav (props: Props) {
             )}
         </IconButton>
     );
+
+    const navLinks = [
+        {
+            to: "/posts/general",
+            text: "General"
+        },
+        {
+            to: "/posts/learn",
+            text: "Learn"
+        },
+        {
+            to: "/posts/interview",
+            text: "Interview"
+        },
+        {
+            to: "/posts/project",
+            text: "Project"
+        },
+        {
+            to: "/login",
+            text: "SignIn"
+        },
+        {
+            to: "/register",
+            text: "SignUp"
+        },
+        {
+            to: "/my-account/1",
+            text: "Profile"
+        }
+    ]
+
     // Hamburger Menu Content
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={style.textCenter}>
@@ -97,83 +104,19 @@ export default function TopNav (props: Props) {
             </Typography>
             <Divider />
             <List>
-                <ListItem disablePadding>
-                    <ListItemButton sx={style.textCenter}>
-                        <ListItemText
-                            primary={
-                                <Link style={Links} to="/posts/general">
-                                    General
-                                </Link>
-                            }
-                        />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton sx={style.textCenter}>
-                        <ListItemText
-                            primary={
-                                <Link style={Links} to="/posts/learn">
-                                    Learn
-                                </Link>
-                            }
-                        />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton sx={style.textCenter}>
-                        <ListItemText
-                            primary={
-                                <Link style={Links} to="/posts/interview">
-                                    Interview
-                                </Link>
-                            }
-                        />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton sx={style.textCenter}>
-                        <ListItemText
-                            primary={
-                                <Link style={Links} to="/posts/project">
-                                    Project
-                                </Link>
-                            }
-                        />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton sx={style.textCenter}>
-                        <ListItemText
-                            primary={
-                                <Link style={Links} to="/login">
-                                    SignIn
-                                </Link>
-                            }
-                        />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton sx={style.textCenter}>
-                        <ListItemText
-                            primary={
-                                <Link style={Links} to="/register">
-                                    SignUp
-                                </Link>
-                            }
-                        />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton sx={style.textCenter}>
-                        <ListItemText
-                            primary={
-                                <Link style={Links} to="/my-account/1">
-                                    Profile
-                                </Link>
-                            }
-                        />
-                    </ListItemButton>
-                </ListItem>
+                { navLinks?.map((link, index) => (
+                    <ListItem disablePadding key={index}>
+                        <ListItemButton sx={style.textCenter}>
+                            <ListItemText
+                                primary={
+                                    <Link style={Links} to={link.to}>
+                                        {link.text}
+                                    </Link>
+                                }
+                            />
+                        </ListItemButton>
+                    </ListItem>
+                ))}                
             </List>
         </Box>
     );
@@ -208,64 +151,31 @@ export default function TopNav (props: Props) {
                             LOGO
                         </Typography>
                         
-                        <SmallView>
-                        <Box>                                
+                        <Box sx={{...style.typography.small, ...style.mobileView}}>                                
                             {toggleButton}
                         </Box>
                         <IconButton
-                            sx={style.margin.iconBtn}
+                            sx={{...style.margin.iconBtn, ...style.mobileView}}
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
                         >
                             <MenuIcon />
                         </IconButton>
-                        </SmallView>
-                        <Responsive>
-                            <Box>
-                                <Button>
-                                    <Link style={Links} to="/posts/general">
-                                        General
-                                    </Link>
-                                </Button>
-                                <Button>
-                                    <Link style={Links} to="/posts/learn">
-                                        Learn
-                                    </Link>
-                                </Button>
-                                <Button>
-                                    <Link style={Links} to="/posts/interview">
-                                        Interview
-                                    </Link>
-                                </Button>
-                                <Button>
-                                    <Link style={Links} to="/posts/project">
-                                        Project
-                                    </Link>
-                                </Button>
-                                <Button>
-                                    <Link style={Links} to="/login">
-                                        SignIn
-                                    </Link>
-                                </Button>
-                                <Button>
-                                    <Link style={Links} to="/register">
-                                        SignUp
-                                    </Link>
-                                </Button>
-                                <Button>
-                                    <Link style={Links} to="/my-account/1">
-                                        Profile
-                                    </Link>
-                                </Button>
+                            <Box sx={style.desktopView}>
+                                { navLinks?.map((link, index) => (
+                                    <Button key={index}>
+                                        <Link style={Links} to={link.to}>
+                                            {link.text}
+                                        </Link>
+                                    </Button>
+                                ))}
                                 {toggleButton}
                             </Box>
-                        </Responsive>
                     </Toolbar>
                 </Container>
             </AppBar>
-            <SmallView>
-            <Box component="nav">
+            <Box component="nav" sx={style.mobileView}>
                 <Drawer
                     anchor={"right"}
                     container={container}
@@ -280,7 +190,6 @@ export default function TopNav (props: Props) {
                     {drawer}
                 </Drawer>
             </Box>
-            </SmallView>
         </>
     );
 };
@@ -309,7 +218,7 @@ const style = {
         flexGrow: 1,
         fontFamily: "monospace",
         fontWeight: 700,
-        letterSpacing: ".2rem",
+        letterSpacing: ".2rem", 
         color: "inherit",
         textDecoration: "none",        
         small: {
@@ -319,4 +228,10 @@ const style = {
             display: { xs: "none", md: "flex" },
         }
     },
+    desktopView: {
+        display: { xs: "none", sm: "flex", md: "flex"},
+    },
+    mobileView: {
+        display: { xs: "flex", sm: "none"},
+    }
 }

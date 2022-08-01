@@ -4,7 +4,9 @@ interface ThemeColor {
     default: string;
     paper: string;
     text: string;
+    variant: string;
 }
+
 //Toggle the color scheme between light and dark mode
 export const baseTheme = (mode: PaletteMode) => {
     let themeColor: ThemeColor;
@@ -13,6 +15,7 @@ export const baseTheme = (mode: PaletteMode) => {
             default: "#F3FFDE",
             paper: "#F3FFDE",
             text: "#191919",
+            variant: "contained"
         };
     } else {
         // Defind the dark theme color
@@ -20,6 +23,7 @@ export const baseTheme = (mode: PaletteMode) => {
             default: "#232726",
             paper: "#232726",
             text: "#F3FFDE",
+            variant: "contained"
         };
     }
     // allow configuration using `theme`
@@ -33,7 +37,7 @@ export const baseTheme = (mode: PaletteMode) => {
         breakpoints: {
             values: {
                 xs: 0,
-                sm: 640,
+                sm: 685,
                 md: 900,
                 lg: 1200,
                 xl: 1536,
@@ -55,8 +59,20 @@ export const baseTheme = (mode: PaletteMode) => {
                 primary: themeColor.text,
             },
         },
+        components: {
+            MuiCssBaseline: {
+                styleOverrides: {
+                    body: {
+                        transition: "all 0.5s ease-in-out",
+                    },
+                    "header a, .MuiBox-root a": {
+                        color: themeColor.text,
+                        textDecoration: "none",
+                        fontWeight: 700,
+                    },
+                },
+            },
+        },
     };
-
     return theme;
 };
-  

@@ -14,38 +14,42 @@ describe("<ThemeHandler /> rendering", () => {
     });
 });
 
-const fakeLocalStorage = (function() {
-    let store :any= {};
-  
+const fakeLocalStorage = (function () {
+    let store: any = {};
+
     return {
-      getItem: function(key: string | number) {
-        return store[key] || null;
-      },
-      setItem: function(key: string | number, value: { toString: () => any; }) {
-        store[key] = value.toString();
-      },
-      removeItem: function(key: string | number) {
-        delete store[key];
-      },
-      clear: function() {
-        store = {};
-      }
+        getItem: function (key: string | number) {
+            return store[key] || null;
+        },
+        setItem: function (
+            key: string | number,
+            value: { toString: () => any }
+        ) {
+            store[key] = value.toString();
+        },
+        removeItem: function (key: string | number) {
+            delete store[key];
+        },
+        clear: function () {
+            store = {};
+        },
     };
-  })();
+})();
 
-
-  Object.defineProperty(window, "localStorage", {
-    value: fakeLocalStorage
-  });
+Object.defineProperty(window, "localStorage", {
+    value: fakeLocalStorage,
+});
 
 describe("storage", () => {
     beforeAll(() => {
-      Object.defineProperty(window, "localStorage", {
-        value: fakeLocalStorage,
-      });
+        Object.defineProperty(window, "localStorage", {
+            value: fakeLocalStorage,
+        });
     });
-  
-    it("Get Localstorage", () => {  
-        expect(window.localStorage.getItem("colorMode")).toEqual( window.localStorage.getItem("colorMode") as "light" | "dark");
+
+    it("Get Localstorage", () => {
+        expect(window.localStorage.getItem("colorMode")).toEqual(
+            window.localStorage.getItem("colorMode") as "light" | "dark"
+        );
     });
 });

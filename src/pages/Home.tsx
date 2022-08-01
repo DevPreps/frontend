@@ -1,10 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import ThemeHandler from "../components/ThemeHandler";
+import { TopNav } from "../components";
+
 const Home = () => {
     return (
         <div>
-            <ThemeHandler/>
+            <TopNav />
             <h1>Home</h1>
             <Outlet />
         </div>

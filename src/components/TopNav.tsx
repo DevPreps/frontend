@@ -1,211 +1,117 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+// Import MUI Components
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Container from "@mui/material/Container";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import LightMode from "@mui/icons-material/LightModeOutlined";
-import DarkMode from "@mui/icons-material/DarkModeOutlined";
-import { useTheme } from "@mui/material/styles";
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-export const ColorModeContext = React.createContext({ toggleColorMode: () => {""} });
+import Toolbar from "@mui/material/Toolbar";
 
-interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won"t need it on your project.
-     */
-    window?: () => Window;
-}
-export default function TopNav (props: Props) {
-    // Get Current MUI Theme    
-    const theme = useTheme();   
-    const colorMode = React.useContext(ColorModeContext); 
-    const LinkColorSwitch = (
-        theme.palette.mode === "dark" ? (
-            "#F3FFDE"
-        ) : (
-            "#191919"
-        )
-    )
-    
-    const Links = {
-        color: LinkColorSwitch,
-        textDecoration: "none",
-        fontWeight: 700,
-    };
+// Import Navbar Related Components
+import Logo from "./LogoNav";
+import SideNav from "./SideNav";
+import ThemeToggler from "./ThemeToggler";
 
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+declare module "@mui/material/Button" {
+    interface ButtonVariantOverrides {
+           customVariant: true,
+           container: true
+    }
+ }
 
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
-    // Theme Switch Icon Changes Based on Theme
-    const toggleButton = (
-        <IconButton
-            onClick={colorMode.toggleColorMode}
-            color="inherit"
-        >
-            {theme.palette.mode === "dark" ? (
-                <LightMode />
-            ) : (
-                <DarkMode />
-            )}
-        </IconButton>
-    );
-
+export default function TopNav() {
     const navLinks = [
         {
             to: "/posts/general",
-            text: "General"
+            text: "General",
         },
         {
             to: "/posts/learn",
-            text: "Learn"
+            text: "Learn",
         },
         {
             to: "/posts/interview",
-            text: "Interview"
+            text: "Interview",
         },
         {
             to: "/posts/project",
-            text: "Project"
+            text: "Project",
         },
+    ];
+
+    const groupNavLinks = [        
         {
             to: "/login",
-            text: "SignIn"
+            text: "SignIn",
         },
         {
             to: "/register",
-            text: "SignUp"
+            text: "SignUp",
         },
         {
             to: "/my-account/1",
-            text: "Profile"
-        }
+            text: "Profile",
+        },
     ]
 
-    // Hamburger Menu Content
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={style.textCenter}>
-            <Typography variant="h6" sx={style.margin.drawerTitle}>
-                DevPrep
-            </Typography>
-            <Divider />
-            <List>
-                { navLinks?.map((link, index) => (
-                    <ListItem disablePadding key={index}>
-                        <ListItemButton sx={style.textCenter}>
-                            <ListItemText
-                                primary={
-                                    <Link style={Links} to={link.to}>
-                                        {link.text}
-                                    </Link>
-                                }
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                ))}                
-            </List>
-        </Box>
-    );
-
-    const container =
-        window !== undefined ? () => window().document.body : undefined;
-    
     return (
         <>
-            <AppBar position="fixed">
+            <AppBar position="sticky">
                 <Container maxWidth="xl">
-                    <Toolbar
-                        disableGutters
-                        sx={style.flexSpace.between}
-                    >
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{...style.typography, ...style.typography.medium}}
-                        >
-                            DevPrep + LOGO
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"   
-                            href="/"
-                            sx={{...style.typography, ...style.typography.small}}
-                        >
-                            LOGO
-                        </Typography>
-                        
-                        <Box sx={{...style.typography.small, ...style.mobileView}}>                                
-                            {toggleButton}
+                    <Toolbar disableGutters sx={style.flexSpace.between}>
+                        <Logo />
+                        <Box sx={style.desktopView}>
+                            {navLinks?.map((link, index) => (
+                                <Button key={index} component={Link} to={link.to}>
+                                    {link.text}
+                                </Button>
+                            ))}
+                            <ButtonGroup sx={style.marginLeft} variant="contained" aria-label="outlined primary button group">
+                            {groupNavLinks?.map((link, index) => (
+                                <Button key={index} component={Link} to={link.to}>
+                                    {link.text}
+                                </Button>
+                            ))}
+                            </ButtonGroup>
                         </Box>
-                        <IconButton
-                            sx={{...style.margin.iconBtn, ...style.mobileView}}
-                            aria-label="open drawer"
-                            edge="start"
-                            onClick={handleDrawerToggle}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                            <Box sx={style.desktopView}>
-                                { navLinks?.map((link, index) => (
-                                    <Button key={index}>
-                                        <Link style={Links} to={link.to}>
-                                            {link.text}
-                                        </Link>
-                                    </Button>
-                                ))}
-                                {toggleButton}
-                            </Box>
+                        <ThemeToggler />
+                        <SideNav>
+                            {navLinks?.map((link, index) => (
+                                <ListItem disablePadding key={index}>
+                                    <ListItemButton sx={style.textCenter}>
+                                        <ListItemText
+                                            primary={
+                                                <Link to={link.to}>
+                                                    {link.text}
+                                                </Link>
+                                            }
+                                        />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </SideNav>
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Box component="nav" sx={style.mobileView}>
-                <Drawer
-                    anchor={"right"}
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={style.drawerContent}
-                >
-                    {drawer}
-                </Drawer>
-            </Box>
         </>
     );
-};
-
-const style = {
+}
+export const style = {
     textCenter: {
-        textAlign: "center"
+        textAlign: "center",
     },
-    margin: {
-        iconBtn: { ml: .5 },
-        drawerTitle: { my: 2 }
+    marginLeft: {
+        mx: 1
     },
     flexSpace: {
         between: {
             justifyContent: "space-between",
-        }
+        },
     },
     drawerContent: {
         "& .MuiDrawer-paper": {
@@ -213,25 +119,7 @@ const style = {
             width: 180,
         },
     },
-    typography: {        
-        mr: 2,
-        flexGrow: 1,
-        fontFamily: "monospace",
-        fontWeight: 700,
-        letterSpacing: ".2rem", 
-        color: "inherit",
-        textDecoration: "none",        
-        small: {
-            display: { xs: "flex", md: "none" },
-        },
-        medium: {
-            display: { xs: "none", md: "flex" },
-        }
-    },
     desktopView: {
-        display: { xs: "none", sm: "flex", md: "flex"},
+        display: { xs: "none", sm: "flex", md: "flex" },
     },
-    mobileView: {
-        display: { xs: "flex", sm: "none"},
-    }
-}
+};

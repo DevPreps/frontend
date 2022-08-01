@@ -2,7 +2,7 @@ import React from "react";
 
 // import MUI components
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/divider";
+import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 

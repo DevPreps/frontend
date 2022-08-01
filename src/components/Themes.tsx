@@ -4,7 +4,6 @@ interface ThemeColor {
     default: string;
     paper: string;
     text: string;
-    variant: string;
 }
 
 //Toggle the color scheme between light and dark mode
@@ -15,7 +14,6 @@ export const baseTheme = (mode: PaletteMode) => {
             default: "#F3FFDE",
             paper: "#F3FFDE",
             text: "#191919",
-            variant: "contained"
         };
     } else {
         // Defind the dark theme color
@@ -23,7 +21,6 @@ export const baseTheme = (mode: PaletteMode) => {
             default: "#232726",
             paper: "#232726",
             text: "#F3FFDE",
-            variant: "contained"
         };
     }
     // allow configuration using `theme`

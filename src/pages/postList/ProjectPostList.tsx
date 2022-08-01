@@ -7,14 +7,15 @@ import SearchBar from "./postListComponents/SearchBar";
 import SortMenu from "./postListComponents/SortMenu";
 import { UserCardActions } from "./postListComponents/CardActions";
 
+// TODO - posts will be changed to used state and fetched from backend.
+import { posts } from "../../data";
+
 // import MUI components
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 const ProjectPostList = () => {
-    // TODO - posts will be updated with useState and useEffect
-    const posts = [1, 2, 3];
     return (
         <Stack spacing={2}>
             {/* the following title just show which page is rendered, will be deleted later */}
@@ -29,7 +30,7 @@ const ProjectPostList = () => {
             </Stack>
             {/* post list */}
             {posts.map((post) => (
-                <PostListItem key={post}>
+                <PostListItem key={post.id} post={post}>
                     <UserCardActions />
                 </PostListItem>
             ))}

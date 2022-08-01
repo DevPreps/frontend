@@ -21,15 +21,15 @@ interface PostProps {
     };
 }
 
-const PostListItem: React.FC = ({ children }) => {
-    const post: PostProps["post"] = {
-        date: "22-07-2022",
-        description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title",
-    };
+const PostListItem: React.FC<PostProps> = ({ children, post }) => {
+    // const post: PostProps["post"] = {
+    //     date: "22-07-2022",
+    //     description:
+    //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
+    //     image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
+    //     imageLabel: "image text",
+    //     title: "Post Title",
+    // };
     return (
         <CardActionArea component="a" href="#">
             <Card sx={style.card}>

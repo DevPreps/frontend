@@ -1,15 +1,20 @@
-import { Divider, Stack, Typography } from "@mui/material";
+import React from "react";
+
+// import MUI components
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/divider";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+
+// import MUI colors
 import {
     blue,
-    green,
     grey,
     lightGreen,
     purple,
     red,
     yellow,
 } from "@mui/material/colors";
-import Container from "@mui/material/Container";
-import React from "react";
 
 const Heroes = () => {
     return (

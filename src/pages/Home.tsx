@@ -4,11 +4,12 @@ import TopNav from "../components/TopNav";
 
 // import MUI components
 import Container from "@mui/material/Container";
+import Heroes from "../components/Heroes";
 const Home = () => {
     return (
         <Container maxWidth="xl">
             <TopNav />
-            <h1>Home</h1>
+            <Heroes />
             <Outlet />
         </Container>
     );

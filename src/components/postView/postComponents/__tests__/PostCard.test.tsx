@@ -6,6 +6,6 @@ import PostCard from "../PostCard";
 describe("Test PostCard render", () => {
     it("PostCard child component should be able to render", () => {
         const wrapper = shallow(<PostCard />);
-        expect(wrapper.find({ children: "AddComment" }));
+        expect(wrapper.find({ children: "<AddComment />" }));
     });
 });

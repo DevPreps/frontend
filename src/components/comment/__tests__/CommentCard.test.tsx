@@ -12,6 +12,6 @@ import CommentCard from "../CommentCard";
 describe("Test CommentCard render", () => {
     it("CommentCard child component should be able to render", () => {
         const wrapper = shallow(<CommentCard />);
-        expect(wrapper.find({ children: "AddComment" }));
+        expect(wrapper.find({ children: "<AddComment />" }));
     });
 });

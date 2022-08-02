@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
 import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
@@ -71,13 +71,12 @@ export default function TopNav() {
                                     {link.text}
                                 </Button>
                             ))}
-                            <ButtonGroup sx={style.marginLeft} variant="contained" aria-label="outlined primary button group">
+                            <Divider orientation="vertical" variant="middle" flexItem />
                             {groupNavLinks?.map((link, index) => (
                                 <Button key={index} component={Link} to={link.to}>
                                     {link.text}
                                 </Button>
                             ))}
-                            </ButtonGroup>
                         </Box>
                         <ThemeToggler />
                         <SideNav>
@@ -105,8 +104,8 @@ export const style = {
     textCenter: {
         textAlign: "center",
     },
-    marginLeft: {
-        mx: 1
+    buttonGroup: {
+        mx: .4,
     },
     flexSpace: {
         between: {

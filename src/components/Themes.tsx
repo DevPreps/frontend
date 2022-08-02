@@ -26,7 +26,7 @@ export const baseTheme = (mode: PaletteMode) => {
     // allow configuration using `theme`
     const theme: ThemeOptions = {
         typography: {
-            fontFamily: ["Nunito Sans", "sans-serif"].join(","),
+            fontFamily: "monospace, sans-serif",
             button: {
                 textTransform: "capitalize",
             },
@@ -34,8 +34,8 @@ export const baseTheme = (mode: PaletteMode) => {
         breakpoints: {
             values: {
                 xs: 0,
-                sm: 685,
-                md: 900,
+                sm: 650,
+                md: 910,
                 lg: 1200,
                 xl: 1536,
             },
@@ -55,6 +55,7 @@ export const baseTheme = (mode: PaletteMode) => {
             text: {
                 primary: themeColor.text,
             },
+            divider: themeColor.text,
         },
         components: {
             MuiCssBaseline: {

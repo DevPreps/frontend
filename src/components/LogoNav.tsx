@@ -24,7 +24,6 @@ const style = {
     typography: {
         mr: 2,
         flexGrow: 1,
-        fontFamily: "monospace",
         fontWeight: 700,
         letterSpacing: ".2rem",
         textDecoration: "none",

@@ -25,7 +25,7 @@ export interface CommentProps {
 }
 
 const CommentCard = () => {
-    // Add attributes to the properites and passed into components
+    // It is dummy data and will change
     const commentItem: CommentProps["commentItem"] = {
         avatar: "https://images.pexels.com/photos/3775087/pexels-photo-3775087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         u_username: "Sammi",

@@ -93,6 +93,19 @@ export default function TopNav() {
                                     </ListItemButton>
                                 </ListItem>
                             ))}
+                            {groupNavLinks?.map((link, index) => (
+                                <ListItem disablePadding key={index}>
+                                    <ListItemButton sx={style.textCenter}>
+                                        <ListItemText
+                                            primary={
+                                                <Link to={link.to}>
+                                                    {link.text}
+                                                </Link>
+                                            }
+                                        />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
                         </SideNav>
                     </Toolbar>
                 </Container>

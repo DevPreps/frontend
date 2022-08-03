@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+
+// import MUI components
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -10,22 +11,17 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import ListItemText from "@mui/material/ListItemText";
-
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-
-import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
-import DraftsIcon from "@mui/icons-material/Drafts";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import LogoutIcon from "@mui/icons-material/Logout";
-import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
+import ListItemText from "@mui/material/ListItemText";
+import Toolbar from "@mui/material/Toolbar";
+
+// import MUI icons
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { keyframes } from "@emotion/react";
+import DraftsIcon from "@mui/icons-material/Drafts";
+import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
@@ -36,7 +32,7 @@ const MyAccount = () => {
     const sidebarLinks = [
         {
             to: `/my-account/${currentUser.userId}`,
-            text: "Personal Info",
+            text: "My Profile",
             icon: <AccountBoxIcon />,
         },
         {
@@ -66,7 +62,11 @@ const MyAccount = () => {
             <List>
                 {sidebarLinks.map((link) => (
                     <ListItem key={link.text} disablePadding>
-                        <ListItemButton component={Link} to={link.to}>
+                        <ListItemButton
+                            component={Link}
+                            to={link.to}
+                            data-testid={link.text}
+                        >
                             <ListItemIcon>{link.icon}</ListItemIcon>
                             <ListItemText primary={link.text} />
                         </ListItemButton>
@@ -104,14 +104,9 @@ const MyAccount = () => {
                 }}
                 aria-label="my account folders"
             >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Drawer
                     // variant="temporary"
                     open={open}
-                    onClose={handleDrawerToggle}
-                    // ModalProps={{
-                    //   keepMounted: true, // Better open performance on mobile.
-                    // }}
                     variant="persistent"
                     anchor="left"
                     sx={{
@@ -123,32 +118,32 @@ const MyAccount = () => {
                 >
                     {drawer}
                 </Drawer>
-                {/* <Divider orientation="vertical" sx={{position: "relative",}}> */}
-                <IconButton
-                    color="error"
-                    aria-label="open drawer"
-                    edge="start"
-                    onClick={handleDrawerToggle}
-                    sx={{
-                        position: "absolute",
-                        zIndex: 1201,
-                        ...(!open
-                            ? {
-                                  right: {
-                                      xs: "-10px",
-                                  },
-                              }
-                            : {
-                                  right: {
-                                      xs: "-180px",
-                                      md: 0,
-                                  },
-                              }),
-                    }}
-                >
-                    {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
-                </IconButton>
-                {/* </Divider> */}
+                <Divider orientation="vertical" sx={{ position: "relative" }}>
+                    <IconButton
+                        color="error"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{
+                            position: "absolute",
+                            zIndex: 1201,
+                            ...(!open
+                                ? {
+                                      right: {
+                                          xs: "-10px",
+                                      },
+                                  }
+                                : {
+                                      right: {
+                                          xs: "-180px",
+                                          md: 0,
+                                      },
+                                  }),
+                        }}
+                    >
+                        {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
+                    </IconButton>
+                </Divider>
             </Box>
             {/* <Box
                 component="main"
@@ -163,19 +158,6 @@ const MyAccount = () => {
         </Box>
     );
 };
-
-// const MyAccount = () => {
-//     return (
-//         <div style={{ display: "flex", flexDirection: "column" }}>
-//             MyAccount
-//             <Link to="/my-account">PersonalInfo</Link>
-//             <Link to="/my-account/1/my-posts">My Posts</Link>
-//             <Link to="/my-account/my-drafts">My Drafts</Link>
-//             <Link to="/my-account/my-bookmarks">My Bookmarks</Link>
-//             <Outlet />
-//         </div>
-//     );
-// };
 
 const drawerWidth = 240;
 export default MyAccount;

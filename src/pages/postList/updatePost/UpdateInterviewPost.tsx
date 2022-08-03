@@ -54,7 +54,6 @@ const UpdateInterviewPost = () => {
             {/* update post modal*/}
             <Modal
                 open={open}
-                className="editPostModal"
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >

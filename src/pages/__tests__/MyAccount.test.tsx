@@ -3,41 +3,44 @@ import { shallow } from "enzyme";
 import MyAccount from "../myAccount/MyAccount";
 
 // test component rendering
+const currentUser = { userId: "1" };
+const sidebarLinks = [
+    {
+        to: `/my-account/${currentUser.userId}`,
+        text: "My Profile",
+    },
+    {
+        to: `/my-account/${currentUser.userId}/my-posts`,
+        text: "My Posts",
+    },
+    {
+        to: `/my-account/${currentUser.userId}/my-drafts`,
+        text: "My Drafts",
+    },
+    {
+        to: `/my-account/${currentUser.userId}/my-bookmarks`,
+        text: "My Bookmarks",
+    },
+];
 describe("<MyAccount /> rendering", () => {
     const wrapper = shallow(<MyAccount />);
-    // test if the Compose component renders
-    it("should be able to render <MyAccount />", () => {
-        wrapper;
-    });
-    // test if there are 9 Link elements
-    it("should render 4 Links", () => {
-        expect(wrapper.find("Link")).toHaveLength(4);
+
+    // the links in sidebarLinks should be rendered
+    it("should render the links in sidebarLinks", () => {
+        sidebarLinks.map((link) =>
+            expect(
+                wrapper.find({ "data-testid": link.text }).prop("to")
+            ).toEqual(link.to)
+        );
     });
 });
 
 // test component interactions
-describe("<MyAccount /> interactions", () => {
-    const wrapper = shallow(<MyAccount />);
-    // test PersonalInfo page link
-    it("should redirect to My Personal Info page when My Personal Info link is clicked", () => {
-        expect(wrapper.find("Link").at(0).prop("to")).toEqual("/my-account");
-    });
-    // test My Posts link
-    it("should redirect to My Post page when My Posts link is clicked", () => {
-        expect(wrapper.find("Link").at(1).prop("to")).toEqual(
-            "/my-account/1/my-posts"
-        );
-    });
-    // test My Drafts page link
-    it("should redirect to My Drafts page when My Drafts link is clicked", () => {
-        expect(wrapper.find("Link").at(2).prop("to")).toEqual(
-            "/my-account/my-drafts"
-        );
-    });
-    // test My Bookmarks page link
-    it("should redirect to My Bookmarks page when My Bookmarks link is clicked", () => {
-        expect(wrapper.find("Link").at(3).prop("to")).toEqual(
-            "/my-account/my-bookmarks"
-        );
-    });
-});
+// describe("<MyAccount /> interactions", () => {
+//     const wrapper = shallow(<MyAccount />);
+//     // test links
+//     it("should redirect to My Personal Info page when My Personal Info link is clicked", () => {
+//         expect(wrapper.find({children: ""}).at(0).prop("to")).toEqual("/my-account");
+//     });
+
+// });

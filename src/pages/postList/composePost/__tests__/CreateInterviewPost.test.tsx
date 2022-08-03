@@ -5,8 +5,8 @@ import CreateInterviewPost from "../CreateInterviewPost";
 describe("Test Compose New Interview Post page", () => {
     const wrapper = shallow(<CreateInterviewPost />);
 
-    it("should contain GeneralPostForm component", () => {
-        expect(wrapper.find("GeneralPostForm").length).toBe(1);
+    it("should contain InterviewPostForm component", () => {
+        expect(wrapper.find("InterviewPostForm").length).toBe(1);
     });
 
     it("should contain Compose button", () => {

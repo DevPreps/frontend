@@ -7,7 +7,7 @@ export { default as Login } from "./Login";
 export { default as MyAccount } from "./myAccount/MyAccount";
 export { default as MyPostList } from "./postList/MyPostList";
 export { default as NotFound } from "./NotFound";
-export { default as PersonalInfo } from "./myAccount/PersonalInfo";
+export { default as PersonalInfo } from "./myAccount/MyProfile";
 export { default as Post } from "./Post";
 export { default as ProjectPostList } from "./postList/ProjectPostList";
 export { default as RecommendPostList } from "./postList/RecommendPostList";

@@ -19,12 +19,13 @@ import {
 const Heroes = () => {
     return (
         <Container maxWidth="xl" sx={style.container}>
-            <Typography variant="h2" sx={style.title}>
-                <span style={style.span}>&lt;h1&gt;</span>Devs Help Devs
+            <Typography variant="h2" sx={style.title} data-testid="hero-title">
+                <span style={style.span}>&lt;h1&gt;</span>
+                Devs Help Devs
                 <span style={style.span}>&lt;/h1&gt;</span>
             </Typography>
             {/* TODO - the content needs to be changed later */}
-            <Typography variant="h6" sx={style.subTitle}>
+            <Typography variant="h6" sx={style.subTitle}  data-testid="hero-subtitle">
                 <span style={style.span}>&lt;p&gt;</span>We are a place where
                 developer share their learning tips and interview experience to
                 help each other grow skills and get job offers

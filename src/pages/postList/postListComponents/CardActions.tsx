@@ -25,15 +25,15 @@ export const UserCardActions = () => {
                 R
             </Avatar>
             <Typography>Username</Typography>
-            <IconButton aria-label="add to favorites" sx={style.addBtn}>
+            <IconButton aria-label="add comment" sx={style.addBtn}>
                 <AddCommentIcon />
             </IconButton>
 
-            <IconButton aria-label="add to favorites" sx={style.likeBtn}>
+            <IconButton aria-label="like the post" sx={style.likeBtn}>
                 <FavoriteBorderIcon />
             </IconButton>
             <span>18</span>
-            <IconButton aria-label="add to favorites">
+            <IconButton aria-label="bookmark">
                 <BookmarkAddIcon />
             </IconButton>
         </CardActions>

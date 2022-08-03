@@ -9,7 +9,6 @@ const Home = () => {
     return (
         <Container maxWidth="xl">
             <TopNav />
-            <Heroes />
             <Outlet />
         </Container>
     );

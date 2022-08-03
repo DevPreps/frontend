@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Heroes} from "./components/index";
 import {
     AboutUs,
     GeneralPostList,
@@ -23,8 +24,16 @@ export default function App() {
             <Routes>
                 {/* Navbar and Footer Component will be inside Home component */}
                 <Route path="/" element={<Home />}>
-                    {/* This will render the recommend post list in Home page as the default. */}
-                    <Route index element={<RecommendPostList />} />
+                    {/* This will render the heroes and recommend post list in Home page as the default. And the Heroes will not be rendered in other routes */}
+                    <Route
+                        index
+                        element={
+                            <>
+                                <Heroes />
+                                <RecommendPostList />
+                            </>
+                        }
+                    />
                     <Route path="register" element={<Register />} />
                     <Route path="login" element={<Login />} />
                     <Route path="about-us" element={<AboutUs />} />

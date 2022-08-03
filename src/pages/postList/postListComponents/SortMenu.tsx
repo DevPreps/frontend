@@ -18,7 +18,7 @@ const SortMenu = () => {
                     <em>Latest</em>
                 </MenuItem>
                 <MenuItem value="likes">Most Likes</MenuItem>
-                <MenuItem value="dk">Most Saved</MenuItem>
+                <MenuItem value="most saved">Most Saved</MenuItem>
             </Select>
         </FormControl>
     );

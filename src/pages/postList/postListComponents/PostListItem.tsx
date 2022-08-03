@@ -22,19 +22,30 @@ interface PostProps {
 }
 
 const PostListItem: React.FC<PostProps> = ({ children, post }) => {
-
     return (
         <CardActionArea component="a" href="#">
             <Card sx={style.card}>
                 <Box sx={style.box}>
                     <CardContent sx={style.cardContent}>
-                        <Typography variant="h5" sx={style.title} data-testid="post-title">
+                        <Typography
+                            variant="h5"
+                            sx={style.title}
+                            data-testid="post-title"
+                        >
                             {post.title}
                         </Typography>
-                        <Typography variant="subtitle1" sx={style.date} data-testid="post-date">
+                        <Typography
+                            variant="subtitle1"
+                            sx={style.date}
+                            data-testid="post-date"
+                        >
                             {post.date}
                         </Typography>
-                        <Typography variant="subtitle1" paragraph data-testid="post-description">
+                        <Typography
+                            variant="subtitle1"
+                            paragraph
+                            data-testid="post-description"
+                        >
                             {post.description}
                         </Typography>
                     </CardContent>

@@ -14,11 +14,6 @@ describe("Test InterviewPost Form component", () => {
         />
     );
 
-    // should render the whole component
-    it("should be able to render <InterviewPostForm />", () => {
-        wrapper;
-    });
-
     it("should have two TextFieldInput", () => {
         expect(wrapper.find("TextFieldInput").length).toBe(5);
     });

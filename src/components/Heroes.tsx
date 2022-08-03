@@ -25,7 +25,11 @@ const Heroes = () => {
                 <span style={style.span}>&lt;/h1&gt;</span>
             </Typography>
             {/* TODO - the content needs to be changed later */}
-            <Typography variant="h6" sx={style.subTitle}  data-testid="hero-subtitle">
+            <Typography
+                variant="h6"
+                sx={style.subTitle}
+                data-testid="hero-subtitle"
+            >
                 <span style={style.span}>&lt;p&gt;</span>We are a place where
                 developer share their learning tips and interview experience to
                 help each other grow skills and get job offers

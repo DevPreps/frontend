@@ -12,11 +12,6 @@ describe("Test GeneralPost Form component", () => {
             formDefaultValues={generalFormDefaultValues}
         />
     );
-    // should render the whole component
-    it("should be able to render <GeneralPostForm />", () => {
-        // console.log(wrapper.debug());
-        wrapper;
-    });
 
     it("should have two TextFieldInput", () => {
         expect(wrapper.find("TextFieldInput").length).toBe(2);

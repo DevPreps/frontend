@@ -6,11 +6,15 @@ describe("Test Heroes page", () => {
     const wrapper = shallow(<Heroes />);
     it("should be able to render the title", () => {
         console.log(wrapper.debug());
-        expect(wrapper.find({"data-testid" : "hero-title"}).exists()).toBe(true)
+        expect(wrapper.find({ "data-testid": "hero-title" }).exists()).toBe(
+            true
+        );
     });
 
     it("should be able to render the subtitle", () => {
         console.log(wrapper.debug());
-        expect(wrapper.find({"data-testid" : "hero-subtitle"}).exists()).toBe(true)
+        expect(wrapper.find({ "data-testid": "hero-subtitle" }).exists()).toBe(
+            true
+        );
     });
 });

@@ -21,7 +21,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -31,31 +31,30 @@ const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
     const currentUser = {
         userId: 1,
-    }
+    };
     const [open, setOpen] = React.useState(true);
-    const sidebarLinks = [        
+    const sidebarLinks = [
         {
             to: `/my-account/${currentUser.userId}`,
             text: "Personal Info",
-            icon:(<AccountBoxIcon />),
+            icon: <AccountBoxIcon />,
         },
         {
             to: `/my-account/${currentUser.userId}/my-posts`,
             text: "My Posts",
-            icon: (<InboxIcon />),
+            icon: <InboxIcon />,
         },
         {
             to: `/my-account/${currentUser.userId}/my-drafts`,
             text: "My Drafts",
-            icon: (<DraftsIcon />)
+            icon: <DraftsIcon />,
         },
         {
             to: `/my-account/${currentUser.userId}/my-bookmarks`,
             text: "My Bookmarks",
-            icon:(<FolderSpecialIcon />
-            )
+            icon: <FolderSpecialIcon />,
         },
-    ]
+    ];
     const handleDrawerToggle = () => {
         setOpen(!open);
     };
@@ -65,12 +64,10 @@ const MyAccount = () => {
             <Toolbar />
             <Divider />
             <List>
-                {sidebarLinks.map((link)=>(
+                {sidebarLinks.map((link) => (
                     <ListItem key={link.text} disablePadding>
                         <ListItemButton component={Link} to={link.to}>
-                            <ListItemIcon>
-                                {link.icon}
-                            </ListItemIcon>
+                            <ListItemIcon>{link.icon}</ListItemIcon>
                             <ListItemText primary={link.text} />
                         </ListItemButton>
                     </ListItem>
@@ -78,7 +75,7 @@ const MyAccount = () => {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <ListItemIcon>
-                            <LogoutIcon/>
+                            <LogoutIcon />
                         </ListItemIcon>
                         <ListItemText primary="logout" />
                     </ListItemButton>
@@ -93,17 +90,17 @@ const MyAccount = () => {
             <Box
                 component="nav"
                 sx={{
-                  position: "relative",
-                   ...(open&&{
-                      flexShrink: {md:0},
-                      width:{
-                        xs:drawerWidth,
-                        xl:0
-                      },
+                    position: "relative",
+                    ...(open && {
+                        flexShrink: { md: 0 },
+                        width: {
+                            xs: drawerWidth,
+                            xl: 0,
+                        },
                     }),
-                  ...(!open&&{
-                    width: "24px",
-                  }),    
+                    ...(!open && {
+                        width: "24px",
+                    }),
                 }}
                 aria-label="my account folders"
             >
@@ -127,25 +124,26 @@ const MyAccount = () => {
                     {drawer}
                 </Drawer>
                 {/* <Divider orientation="vertical" sx={{position: "relative",}}> */}
-            <IconButton
+                <IconButton
                     color="error"
                     aria-label="open drawer"
                     edge="start"
                     onClick={handleDrawerToggle}
-                    sx={{ 
-                      position: "absolute", 
-                      zIndex: 1201 , 
-                      ...(!open ? {
-                        right: {
-                          xs:"-10px"
-                        }} : 
-                        {
-                        right: {
-                            xs:"-180px",
-                            md: 0
-                        }
-                        }
-                      ),
+                    sx={{
+                        position: "absolute",
+                        zIndex: 1201,
+                        ...(!open
+                            ? {
+                                  right: {
+                                      xs: "-10px",
+                                  },
+                              }
+                            : {
+                                  right: {
+                                      xs: "-180px",
+                                      md: 0,
+                                  },
+                              }),
                     }}
                 >
                     {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}

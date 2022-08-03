@@ -3,6 +3,7 @@ import { SubmitHandler } from "react-hook-form";
 
 // import form data interface
 import { IGeneralFormInputs } from "../PostForms/IFormInputs";
+import GeneralPostForm from "../PostForms/GeneralPostForm";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -13,7 +14,6 @@ import Typography from "@mui/material/Typography";
 
 // import MUI icons
 import AddIcon from "@mui/icons-material/Add";
-import GeneralPostForm from "../PostForms/GeneralPostForm";
 
 const CreateGeneralPost = () => {
     // set defaultValues for the form, so that the form values can be populated when editing a post

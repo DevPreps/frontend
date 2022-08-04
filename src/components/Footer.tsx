@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as RouteLink } from "react-router-dom";
 
 // MUI UI/UX styles
 import Box from "@mui/material/Box";
@@ -24,9 +25,18 @@ const Footer = () => {
                         <Grid item xs={12} sm={3} lineHeight={2}>
                             <Box sx={styles.bottomLine}>ABOUT US</Box>
                             <Box>
-                                <Box>Our Story</Box>
+                                <RouteLink
+                                    style={styles.routeLink}
+                                    to="/about-us"
+                                >
+                                    About Us
+                                </RouteLink>
                             </Box>
-                            <Box>Team members</Box>
+                            {/* <Box>
+                                <RouteLink to="/about-us">
+                                    Team members
+                                </RouteLink>
+                            </Box> */}
                         </Grid>
                         <Grid item xs={12} sm={3} lineHeight={2}>
                             <Box sx={styles.bottomLine}>CONTACT</Box>
@@ -34,7 +44,10 @@ const Footer = () => {
                             <Box>
                                 <Link
                                     href="https://github.com/DevPreps"
-                                    color="inherit"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    underline="none"
+                                    sx={styles.muiLink}
                                 >
                                     Github
                                 </Link>
@@ -42,9 +55,24 @@ const Footer = () => {
                         </Grid>
                         <Grid item xs={12} sm={3} lineHeight={2}>
                             <Box sx={styles.bottomLine}>HELP</Box>
-                            <Box>Support</Box>
-                            <Box>Terms</Box>
-                            <Box>Privary</Box>
+                            <Box>
+                                {/* // TODO - the url will be update later. */}
+                                <RouteLink style={styles.routeLink} to="/">
+                                    Support
+                                </RouteLink>
+                            </Box>
+                            <Box>
+                                {/* // TODO - the url will be update later. */}
+                                <RouteLink style={styles.routeLink} to="/">
+                                    Terms
+                                </RouteLink>
+                            </Box>
+                            <Box>
+                                {/* // TODO - the url will be update later. */}
+                                <RouteLink style={styles.routeLink} to="/">
+                                    Privary
+                                </RouteLink>
+                            </Box>
                         </Grid>
                     </Grid>
                     <Box sx={styles.cp_box}>
@@ -92,5 +120,12 @@ const styles = {
             sm: 0,
         },
         color: "black",
+    },
+    muiLink: {
+        color: "white",
+    },
+    routeLink: {
+        color: "white",
+        textDecoration: "none",
     },
 };

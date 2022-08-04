@@ -4,6 +4,7 @@ import React from "react";
 import PostListItem from "../postList/postListComponents/PostListItem";
 import SortMenu from "../postList/postListComponents/SortMenu";
 import { UserCardActions } from "../postList/postListComponents/CardActions";
+
 // TODO - posts will be changed to used state and fetched from backend.
 import { posts } from "../../data";
 

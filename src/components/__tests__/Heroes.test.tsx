@@ -11,7 +11,6 @@ describe("Test Heroes page", () => {
     });
 
     it("should be able to render the subtitle", () => {
-        console.log(wrapper.debug());
         expect(wrapper.find({ "data-testid": "hero-subtitle" }).exists()).toBe(
             true
         );

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
 // import form data interface
-import { IInterviewFormInputs } from "../PostForms/IFormInputs";
+import { IInterviewFormInputs } from "../../../forms/IFormInputs";
 
 // import form
-import InterviewPostForm from "../PostForms/InterviewPostForm";
+import InterviewPostForm from "../../../forms/InterviewPostForm";
 
 // Import MUI components
 import Box from "@mui/material/Box";

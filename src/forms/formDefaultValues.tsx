@@ -1,4 +1,8 @@
-import { IGeneralFormInputs, IInterviewFormInputs } from "./IFormInputs";
+import {
+    IGeneralFormInputs,
+    IInterviewFormInputs,
+    IMyProfileFormInputs,
+} from "./IFormInputs";
 
 export const generalFormDefaultValues: IGeneralFormInputs = {
     category: "general",
@@ -27,4 +31,17 @@ export const interviewPostDefaultValues: IInterviewFormInputs = {
     position: "Front End Developer",
     content: "test content",
     tags: ["frontend", "backend"],
+};
+
+export const myProfileFormDefaultValues: IMyProfileFormInputs = {
+    firstName: "Monica",
+    lastName: "Geller",
+    username: "monica",
+    email: "monica@gmail.com",
+    jobTitle: "Front End Engineer",
+    position: "Front End Developer",
+    city: "Brisbane",
+    imageUrl: "",
+    linkedIn: "",
+    github: "",
 };

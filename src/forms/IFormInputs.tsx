@@ -19,3 +19,16 @@ export interface IGeneralFormInputs {
     options?: string[];
     rows?: number;
 }
+
+export interface IMyProfileFormInputs {
+    firstName?: string;
+    lastName?: string;
+    username: string;
+    email: string;
+    jobTitle?: string;
+    position?: string;
+    city?: string;
+    imageUrl?: string;
+    linkedIn?: string;
+    github?: string;
+}

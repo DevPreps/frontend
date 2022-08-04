@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MyAccount from "../myAccount/MyAccount";
+import MyAccount from "../MyAccount";
 
 // test component rendering
 const currentUser = { userId: "1" };
@@ -11,7 +11,7 @@ const sidebarLinks = [
     },
     {
         to: `/my-account/${currentUser.userId}/my-posts`,
-        text: "My Posts",
+        text: "My Publish",
     },
     {
         to: `/my-account/${currentUser.userId}/my-drafts`,

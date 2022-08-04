@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
 // import form data interface
-import { IInterviewFormInputs } from "../PostForms/IFormInputs";
+import { IInterviewFormInputs } from "../../../forms/IFormInputs";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 
 // import MUI icons
 import AddIcon from "@mui/icons-material/Add";
-import InterviewPostForm from "../PostForms/InterviewPostForm";
+import InterviewPostForm from "../../../forms/InterviewPostForm";
 
 const CreateInterviewPost = () => {
     // default values for the form

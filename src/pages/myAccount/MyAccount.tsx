@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -22,6 +21,8 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import LogoutIcon from "@mui/icons-material/Logout";
+import Fab from "@mui/material/Fab";
+import Container from "@mui/material/Container";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
@@ -37,7 +38,7 @@ const MyAccount = () => {
         },
         {
             to: `/my-account/${currentUser.userId}/my-posts`,
-            text: "My Posts",
+            text: "My Publish",
             icon: <InboxIcon />,
         },
         {
@@ -51,10 +52,6 @@ const MyAccount = () => {
             icon: <FolderSpecialIcon />,
         },
     ];
-    const handleDrawerToggle = () => {
-        setOpen(!open);
-    };
-
     const drawer = (
         <div>
             <Toolbar />
@@ -83,81 +80,70 @@ const MyAccount = () => {
             </List>
         </div>
     );
+    const handleDrawerToggle = () => {
+        setOpen(!open);
+    };
+    // styles. As 'open' will be used for conditional styling, so style needs to be placed inside this component
+    const drawerWidth = 240;
+    const styles = {
+        box: {
+            position: {
+                xs: open ? "absolute" : "static",
+                md: open ? "static" : "absolute",
+                xl: "absolute",
+            },
+            width: open ? drawerWidth : 0,
+            left: 0,
+        },
+        container: { display: "flex" },
+        divider: {
+            height: "100vh",
+            position: "absolute",
+            top: 0,
+            zIndex: 1201,
+            left: open ? "209px" : "-10px",
+            // ...(!open &&{left: "-10px"}),
+            // ...(open && {left: "209px"})
+        },
+        drawer: {
+            "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+            },
+        },
+    } as const;
 
     return (
-        <Box sx={{ display: "flex" }}>
+        <Container maxWidth="xl" sx={styles.container}>
             {/* <CssBaseline /> */}
+            <Divider orientation="vertical" sx={styles.divider}>
+                <Fab
+                    size="small"
+                    color="primary"
+                    aria-label="drawer-toggle"
+                    onClick={handleDrawerToggle}
+                >
+                    {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
+                </Fab>
+            </Divider>
+
             <Box
                 component="nav"
-                sx={{
-                    position: "relative",
-                    ...(open && {
-                        flexShrink: { md: 0 },
-                        width: {
-                            xs: drawerWidth,
-                            xl: 0,
-                        },
-                    }),
-                    ...(!open && {
-                        width: "24px",
-                    }),
-                }}
+                sx={styles.box}
                 aria-label="my account folders"
             >
                 <Drawer
-                    // variant="temporary"
                     open={open}
                     variant="persistent"
                     anchor="left"
-                    sx={{
-                        "& .MuiDrawer-paper": {
-                            boxSizing: "border-box",
-                            width: drawerWidth,
-                        },
-                    }}
+                    sx={styles.drawer}
                 >
                     {drawer}
                 </Drawer>
-                <Divider orientation="vertical" sx={{ position: "relative" }}>
-                    <IconButton
-                        color="error"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{
-                            position: "absolute",
-                            zIndex: 1201,
-                            ...(!open
-                                ? {
-                                      right: {
-                                          xs: "-10px",
-                                      },
-                                  }
-                                : {
-                                      right: {
-                                          xs: "-180px",
-                                          md: 0,
-                                      },
-                                  }),
-                        }}
-                    >
-                        {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
-                    </IconButton>
-                </Divider>
             </Box>
-            {/* <Box
-                component="main"
-                sx={{
-                    // flexGrow: 1,
-                    p: 3,
-                    // width: { sm: `calc(100% - ${drawerWidth}px)` },
-                }}
-            >
-            </Box> */}
             <Outlet />
-        </Box>
+        </Container>
     );
 };
 
-const drawerWidth = 240;
 export default MyAccount;

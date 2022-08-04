@@ -1,24 +1,25 @@
 import React from "react";
 import { shallow } from "enzyme";
-import GeneralPostForm from "../GeneralPostForm";
-import { IGeneralFormInputs } from "../IFormInputs";
-import { generalFormDefaultValues } from "../mockPost";
+import InterviewPostForm from "../InterviewPostForm";
+import { IInterviewFormInputs } from "../IFormInputs";
+import { interviewPostDefaultValues } from "../formDefaultValues";
+
 // test rendering
-describe("Test GeneralPost Form component", () => {
-    const onSubmit = (data: IGeneralFormInputs) => console.log(data);
+describe("Test InterviewPost Form component", () => {
+    const onSubmit = (data: IInterviewFormInputs) => console.log(data);
     const wrapper = shallow(
-        <GeneralPostForm
+        <InterviewPostForm
             onSubmit={onSubmit}
-            formDefaultValues={generalFormDefaultValues}
+            formDefaultValues={interviewPostDefaultValues}
         />
     );
 
     it("should have two TextFieldInput", () => {
-        expect(wrapper.find("TextFieldInput").length).toBe(2);
+        expect(wrapper.find("TextFieldInput").length).toBe(5);
     });
 
     it("should have 1 SelectInput", () => {
-        expect(wrapper.find("SelectInput").length).toBe(1);
+        expect(wrapper.find("SelectInput").length).toBe(2);
     });
 
     it("should have 1 TagsInput", () => {
@@ -33,6 +34,26 @@ describe("Test GeneralPost Form component", () => {
     // should have input with name "category"
     it("should have input with name category", () => {
         expect(wrapper.find({ name: "category" }).length).toBe(1);
+    });
+
+    // should have input with name "companyName"
+    it("should have input with name companyName", () => {
+        expect(wrapper.find({ name: "companyName" }).length).toBe(1);
+    });
+
+    // should have input with name "city"
+    it("should have input with name city", () => {
+        expect(wrapper.find({ name: "city" }).length).toBe(1);
+    });
+
+    // should have input with name "jobTitle"
+    it("should have input with name jobTitle", () => {
+        expect(wrapper.find({ name: "jobTitle" }).length).toBe(1);
+    });
+
+    // should have input with name "position"
+    it("should have input with name position", () => {
+        expect(wrapper.find({ name: "position" }).length).toBe(1);
     });
 
     // should have input with name "content"

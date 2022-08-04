@@ -9,9 +9,11 @@ import {
     LearnPostList,
     Login,
     MyAccount,
-    MyPostList,
+    MyBookmarks,
+    MyDrafts,
+    MyPublish,
     NotFound,
-    PersonalInfo,
+    MyProfile,
     ProjectPostList,
     RecommendPostList,
     Post,
@@ -47,14 +49,11 @@ export default function App() {
                     <Route path="posts/:category/:postid" element={<Post />} />
                     {/* side bar will be inside <MyAccount /> */}
                     <Route path="my-account/:id" element={<MyAccount />}>
-                        <Route index element={<PersonalInfo />} />
+                        <Route index element={<MyProfile />} />
                         {/* These 3 post List could be a separate PostList component or use the same PostList component with interview/learn/projects/discussions */}
-                        <Route path="my-posts" element={<MyPostList />} />
-                        <Route
-                            path="my-bookmarks"
-                            element={<GeneralPostList />}
-                        />
-                        <Route path="my-drafts" element={<GeneralPostList />} />
+                        <Route path="my-posts" element={<MyPublish />} />
+                        <Route path="my-bookmarks" element={<MyBookmarks />} />
+                        <Route path="my-drafts" element={<MyDrafts />} />
                     </Route>
                 </Route>
                 <Route path="*" element={<NotFound />} />

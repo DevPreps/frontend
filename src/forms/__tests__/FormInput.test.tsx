@@ -6,7 +6,7 @@ import { mount } from "enzyme";
 import { TextFieldInput, SelectInput, TagsInput } from "../FormInput";
 import { categoryOptions, tagOptions } from "../../data";
 import { useForm, FormProvider } from "react-hook-form";
-import { IGeneralFormInputs } from "../../pages/postList/PostForms/IFormInputs";
+import { IGeneralFormInputs } from "../IFormInputs";
 
 const formDefaultValues: IGeneralFormInputs = {
     category: "general",
@@ -25,7 +25,11 @@ const WrapperForm: React.FC = ({ children }) => {
 describe("should be able to render <TextFieldInput />", () => {
     const wrapper = mount(
         <WrapperForm>
-            <TextFieldInput name="test" helperText="help text" />
+            <TextFieldInput
+                name="test"
+                helperText="help text"
+                required={false}
+            />
         </WrapperForm>
     );
 

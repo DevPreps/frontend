@@ -20,19 +20,23 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
 interface Props<T> extends UseControllerProps<T> {
+    disabled?: boolean;
     error?: Merge<FieldError, FieldError[]> | undefined;
     options?: string[];
     helperText?: string;
     multiline?: boolean;
+    required?: boolean;
     rows?: number;
     tags?: string[];
     type?: string;
 }
 // reusable TextField Input
 export const TextFieldInput = <T extends FieldValues>({
+    disabled = false,
     helperText,
     name,
     multiline = false,
+    required = true,
     rows = 1,
     type = "text",
 }: Props<T>) => {
@@ -46,14 +50,16 @@ export const TextFieldInput = <T extends FieldValues>({
             control={control}
             render={({ field }) => (
                 <TextField
+                    variant="standard"
+                    fullWidth
                     error={errors.hasOwnProperty(name)}
+                    disabled={disabled}
+                    {...field}
                     id={`${name}-input`}
                     label={name}
-                    variant="outlined"
                     multiline={multiline}
-                    fullWidth
+                    required={required}
                     rows={rows}
-                    {...field}
                     type={type}
                     helperText={errors[name]?.message || helperText}
                 />
@@ -64,6 +70,7 @@ export const TextFieldInput = <T extends FieldValues>({
 
 // reusable Select Input
 export const SelectInput = <T extends FieldValues>({
+    disabled = false,
     helperText,
     name,
     options,
@@ -80,9 +87,11 @@ export const SelectInput = <T extends FieldValues>({
                 <FormControl fullWidth error={errors.hasOwnProperty(name)}>
                     <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
                     <Select
+                        disabled={disabled}
                         labelId={`${name}-select-label`}
                         id={`${name}-input`}
                         label={name}
+                        variant="standard"
                         {...field}
                     >
                         {options.map((option) => (

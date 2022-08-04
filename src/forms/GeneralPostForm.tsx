@@ -69,7 +69,7 @@ const GeneralPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                         variant="contained"
                         type="submit"
                         color="success"
-                        sx={style.publishBtn}
+                        sx={styles.publishBtn}
                     >
                         PUBLISH
                     </Button>
@@ -81,7 +81,7 @@ const GeneralPostForm = ({ onSubmit, formDefaultValues }: Props) => {
         </FormProvider>
     );
 };
-const style = {
+const styles = {
     publishBtn: {
         mr: 2,
     },

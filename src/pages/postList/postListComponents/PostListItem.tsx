@@ -24,19 +24,19 @@ interface PostProps {
 const PostListItem: React.FC<PostProps> = ({ children, post }) => {
     return (
         <CardActionArea component="a" href="#">
-            <Card sx={style.card}>
-                <Box sx={style.box}>
-                    <CardContent sx={style.cardContent}>
+            <Card sx={styles.card}>
+                <Box sx={styles.box}>
+                    <CardContent sx={styles.cardContent}>
                         <Typography
                             variant="h5"
-                            sx={style.title}
+                            sx={styles.title}
                             data-testid="post-title"
                         >
                             {post.title}
                         </Typography>
                         <Typography
                             variant="subtitle1"
-                            sx={style.date}
+                            sx={styles.date}
                             data-testid="post-date"
                         >
                             {post.date}
@@ -53,7 +53,7 @@ const PostListItem: React.FC<PostProps> = ({ children, post }) => {
                 </Box>
                 <CardMedia
                     component="img"
-                    sx={style.image}
+                    sx={styles.image}
                     image={post.image}
                     alt={post.imageLabel}
                 />
@@ -62,7 +62,7 @@ const PostListItem: React.FC<PostProps> = ({ children, post }) => {
     );
 };
 
-const style = {
+const styles = {
     box: {
         display: "flex",
         flexDirection: "column",

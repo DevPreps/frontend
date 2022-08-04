@@ -18,52 +18,52 @@ import {
 
 const Heroes = () => {
     return (
-        <Container maxWidth="xl" sx={style.container}>
-            <Typography variant="h2" sx={style.title} data-testid="hero-title">
-                <span style={style.span}>&lt;h1&gt;</span>
+        <Container maxWidth="xl" sx={styles.container}>
+            <Typography variant="h2" sx={styles.title} data-testid="hero-title">
+                <span style={styles.span}>&lt;h1&gt;</span>
                 Devs Help Devs
-                <span style={style.span}>&lt;/h1&gt;</span>
+                <span style={styles.span}>&lt;/h1&gt;</span>
             </Typography>
             {/* TODO - the content needs to be changed later */}
             <Typography
                 variant="h6"
-                sx={style.subTitle}
+                sx={styles.subTitle}
                 data-testid="hero-subtitle"
             >
-                <span style={style.span}>&lt;p&gt;</span>We are a place where
+                <span style={styles.span}>&lt;p&gt;</span>We are a place where
                 developer share their learning tips and interview experience to
                 help each other grow skills and get job offers
-                <span style={style.span}>&lt;/p&gt;</span>
+                <span style={styles.span}>&lt;/p&gt;</span>
             </Typography>
             <Stack direction="row" spacing={2}>
-                <Typography variant="subtitle1" sx={style.learn}>
+                <Typography variant="subtitle1" sx={styles.learn}>
                     Learn Tips
                 </Typography>
                 <Divider
                     orientation="vertical"
                     variant="middle"
                     flexItem
-                    sx={style.divider}
+                    sx={styles.divider}
                 />
-                <Typography variant="subtitle1" sx={style.interview}>
+                <Typography variant="subtitle1" sx={styles.interview}>
                     Interview Questions
                 </Typography>
                 <Divider
                     orientation="vertical"
                     variant="middle"
                     flexItem
-                    sx={style.divider}
+                    sx={styles.divider}
                 />
-                <Typography variant="subtitle1" sx={style.project}>
+                <Typography variant="subtitle1" sx={styles.project}>
                     Open Source Projects
                 </Typography>
                 <Divider
                     orientation="vertical"
                     variant="middle"
                     flexItem
-                    sx={style.divider}
+                    sx={styles.divider}
                 />
-                <Typography variant="subtitle1" sx={style.general}>
+                <Typography variant="subtitle1" sx={styles.general}>
                     Discussions
                 </Typography>
             </Stack>
@@ -71,7 +71,7 @@ const Heroes = () => {
     );
 };
 
-const style = {
+const styles = {
     container: {
         background: grey[900],
         display: "flex",

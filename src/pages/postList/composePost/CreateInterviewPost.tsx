@@ -55,7 +55,7 @@ const CreateInterviewPost = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style.modal}>
+                <Box sx={styles.modal}>
                     {/* close button */}
                     <Grid container justifyContent="flex-end">
                         <Button onClick={handleClose}>X</Button>
@@ -65,7 +65,7 @@ const CreateInterviewPost = () => {
                         id="modal-modal-title"
                         variant="h5"
                         align="center"
-                        sx={style.title}
+                        sx={styles.title}
                     >
                         COMPOSE A INTERVIEW POST
                     </Typography>
@@ -80,7 +80,7 @@ const CreateInterviewPost = () => {
     );
 };
 
-const style = {
+const styles = {
     modal: {
         position: "absolute",
         top: "50%",

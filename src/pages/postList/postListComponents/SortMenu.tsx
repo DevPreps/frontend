@@ -7,7 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 const SortMenu = () => {
     return (
-        <FormControl sx={style} size="small">
+        <FormControl sx={styles} size="small">
             <InputLabel id="demo-select-small">Sort</InputLabel>
             <Select
                 labelId="demo-select-small"
@@ -24,7 +24,7 @@ const SortMenu = () => {
     );
 };
 
-const style: object = {
+const styles: object = {
     ml: "auto",
     minWidth: 120,
 };

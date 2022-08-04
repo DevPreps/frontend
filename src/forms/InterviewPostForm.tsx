@@ -64,7 +64,7 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                             name="companyName"
                         />
                     </Grid>
-                    <Grid item xs={12} md={6} sx={style.city}>
+                    <Grid item xs={12} md={6} sx={styles.city}>
                         {/* city */}
                         <TextFieldInput helperText="city" name="city" />
                     </Grid>
@@ -74,7 +74,7 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                         {/* job title */}
                         <TextFieldInput helperText="jobTitle" name="jobTitle" />
                     </Grid>
-                    <Grid item xs={12} sm={6} sx={style.position}>
+                    <Grid item xs={12} sm={6} sx={styles.position}>
                         {/* position */}
                         <SelectInput
                             helperText="Choose a position for your interview"
@@ -105,7 +105,7 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                         variant="contained"
                         type="submit"
                         color="success"
-                        sx={style.publishBtn}
+                        sx={styles.publishBtn}
                     >
                         PUBLISH
                     </Button>
@@ -118,7 +118,7 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
     );
 };
 
-const style = {
+const styles = {
     city: {
         paddingLeft: { md: 1 },
     },

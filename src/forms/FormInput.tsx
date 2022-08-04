@@ -150,13 +150,13 @@ export const TagsInput = <T extends FieldValues>({
                             />
                         }
                         renderValue={(selected) => (
-                            <Box sx={style.box}>
+                            <Box sx={styles.box}>
                                 {selected.map((value: string) => (
                                     <Chip key={value} label={value} />
                                 ))}
                             </Box>
                         )}
-                        MenuProps={style.menuProps}
+                        MenuProps={styles.menuProps}
                     >
                         {tags?.map((tag) => (
                             <MenuItem key={tag} value={tag}>
@@ -180,7 +180,7 @@ export const TagsInput = <T extends FieldValues>({
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const style = {
+const styles = {
     box: {
         display: "flex",
         flexWrap: "wrap",

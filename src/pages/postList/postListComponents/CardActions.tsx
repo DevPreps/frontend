@@ -21,15 +21,15 @@ import { red } from "@mui/material/colors";
 export const UserCardActions = () => {
     return (
         <CardActions disableSpacing>
-            <Avatar sx={style.avatar} aria-label="Post Item">
+            <Avatar sx={styles.avatar} aria-label="Post Item">
                 R
             </Avatar>
             <Typography>Username</Typography>
-            <IconButton aria-label="add comment" sx={style.addBtn}>
+            <IconButton aria-label="add comment" sx={styles.addBtn}>
                 <AddCommentIcon />
             </IconButton>
 
-            <IconButton aria-label="like the post" sx={style.likeBtn}>
+            <IconButton aria-label="like the post" sx={styles.likeBtn}>
                 <FavoriteBorderIcon />
             </IconButton>
             <span>18</span>
@@ -50,14 +50,14 @@ export const AuthorCardActions = () => {
             ) : (
                 <UpdateGeneralPost />
             )}
-            <Button startIcon={<DeleteForeverIcon />} sx={style.deleteBtn}>
+            <Button startIcon={<DeleteForeverIcon />} sx={styles.deleteBtn}>
                 DELETE
             </Button>
         </CardActions>
     );
 };
 
-const style = {
+const styles = {
     addBtn: {
         ml: "auto",
     },

@@ -1,16 +1,18 @@
 import React from "react";
 import { shallow } from "enzyme";
 import PostView from "../PostView";
+import PostCard from "../postComponents/PostCard";
+import Comments from "../../comment/Comments";
 
 // test component rendering
-describe("Test PostView render", () => {
-    it("PostView child PostCard component should be able to render", () => {
-        const wrapper = shallow(<PostView />);
-        expect(wrapper.find({ children: "<PostCard />" }));
+describe("Test PostView component", () => {
+    const wrapper = shallow(<PostView />);
+
+    it("Should be able to render PostCard component", () => {
+        expect(wrapper.containsMatchingElement(<PostCard />)).toEqual(true);
     });
 
-    it("PostView child component Comments should be able to render", () => {
-        const wrapper = shallow(<PostView />);
-        expect(wrapper.find({ children: "<Comments />" }));
+    it("Should be able to render Comments component", () => {
+        expect(wrapper.containsMatchingElement(<Comments />)).toEqual(true);
     });
 });

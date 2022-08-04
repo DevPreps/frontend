@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import CommentCard from "../CommentCard";
+import AddComment from "../AddComment";
 
 // describe("<CommentCard /> rendering", () => {
 //     const wrapper = shallow(<CommentCard />);
@@ -9,9 +10,9 @@ import CommentCard from "../CommentCard";
 //     });
 // });
 
-describe("Test CommentCard render", () => {
-    it("CommentCard child component should be able to render", () => {
+describe("Test CommentCard component", () => {
+    it("Should be able to render AddComment component", () => {
         const wrapper = shallow(<CommentCard />);
-        expect(wrapper.find({ children: "<AddComment />" }));
+        expect(wrapper.containsMatchingElement(<AddComment />)).toEqual(true);
     });
 });

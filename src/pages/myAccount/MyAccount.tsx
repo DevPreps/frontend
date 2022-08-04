@@ -1,11 +1,13 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Box from "@mui/material/Box";
 
 // import MUI components
 import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
+import Fab from "@mui/material/Fab";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -21,15 +23,13 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import LogoutIcon from "@mui/icons-material/Logout";
-import Fab from "@mui/material/Fab";
-import Container from "@mui/material/Container";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
     const currentUser = {
         userId: 1,
     };
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = useState(true);
     const sidebarLinks = [
         {
             to: `/my-account/${currentUser.userId}`,

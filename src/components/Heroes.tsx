@@ -82,6 +82,18 @@ const styles = {
     divider: {
         borderColor: "white",
     },
+    general: {
+        color: purple["A100"],
+    },
+    interview: {
+        color: blue[200],
+    },
+    learn: {
+        color: red[600],
+    },
+    project: {
+        color: yellow[600],
+    },
     span: {
         color: lightGreen["A700"],
         fontSize: "20px",
@@ -103,19 +115,6 @@ const styles = {
             md: "60px",
         },
         pb: 3,
-    },
-
-    learn: {
-        color: red[600],
-    },
-    interview: {
-        color: blue[200],
-    },
-    project: {
-        color: yellow[600],
-    },
-    general: {
-        color: purple["A100"],
     },
 } as const;
 export default Heroes;

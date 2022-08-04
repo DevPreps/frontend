@@ -15,10 +15,10 @@ import { SelectInput, TagsInput, TextFieldInput } from "./FormInput";
 // Import MUI components
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import { Grid } from "@mui/material";
 
-// Define Yup validation schema, will be updated later
+// TODO - Define Yup validation schema, will be updated later
 const validationSchema = yup.object().shape({
     category: yup.string().required(),
     title: yup.string().required(),
@@ -37,7 +37,6 @@ interface Props {
 const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
     // react hook form
     const methods = useForm<IInterviewFormInputs>({
-        // mode: "onChange",
         defaultValues: formDefaultValues,
         resolver: yupResolver(validationSchema),
     });
@@ -120,10 +119,10 @@ const InterviewPostForm = ({ onSubmit, formDefaultValues }: Props) => {
 
 const styles = {
     city: {
-        paddingLeft: { md: 1 },
+        pl: { md: 1 },
     },
     position: {
-        paddingLeft: { sm: 1 },
+        pl: { sm: 1 },
     },
     publishBtn: {
         mr: 2,

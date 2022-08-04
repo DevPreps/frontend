@@ -17,7 +17,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-// Define Yup validation schema, will be updated later
+// TODO - Define Yup validation schema, will be updated later
 const validationSchema = yup.object().shape({
     category: yup.string().required(),
     title: yup.string().required(),
@@ -33,7 +33,6 @@ interface Props {
 const GeneralPostForm = ({ onSubmit, formDefaultValues }: Props) => {
     // react hook form
     const methods = useForm<IGeneralFormInputs>({
-        // mode: "onChange",
         defaultValues: formDefaultValues,
         resolver: yupResolver(validationSchema),
     });
@@ -50,20 +49,20 @@ const GeneralPostForm = ({ onSubmit, formDefaultValues }: Props) => {
                 />
                 {/* post title */}
                 <TextFieldInput helperText="Post title" name="title" />
-                {/* post content                    */}
+                {/* post content */}
                 <TextFieldInput
                     helperText="Post content"
                     name="content"
                     multiline
                     rows={8}
                 />
-                {/* post tags   */}
+                {/* post tags */}
                 <TagsInput
                     helperText="choose tags for you post"
                     name="tags"
                     tags={tagOptions}
                 />
-                {/* publish and save to draft buttons   */}
+                {/* publish and save to draft buttons */}
                 <Stack direction="row">
                     <Button
                         variant="contained"

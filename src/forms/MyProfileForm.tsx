@@ -12,8 +12,8 @@ import { positionOptions } from "../data";
 
 // Import MUI components
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 
 // TODO - Define Yup validation schema, will be updated later
 const validationSchema = yup.object().shape({

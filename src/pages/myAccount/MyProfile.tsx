@@ -1,10 +1,14 @@
 import React from "react";
-import MyProfileForm from "../../forms/MyProfileForm";
 import { SubmitHandler } from "react-hook-form";
+
+// import form, data interface and form defaultValues
+import MyProfileForm from "../../forms/MyProfileForm";
 import { IMyProfileFormInputs } from "../../forms/IFormInputs";
-import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
 import { myProfileFormDefaultValues } from "../../forms/formDefaultValues";
+
+// import MUI components
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const MyProfile = () => {
     // set defaultValues for the form, so that the form values can be populated when editing a post

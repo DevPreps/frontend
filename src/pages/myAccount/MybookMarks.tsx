@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-const RecommendPostList = () => {
+const MyBookmarks = () => {
     return (
         <Stack spacing={2} sx={{ flexGrow: 1 }}>
             {/* the following title just show which page is rendered, will be deleted later */}
@@ -35,4 +35,4 @@ const RecommendPostList = () => {
     );
 };
 
-export default RecommendPostList;
+export default MyBookmarks;

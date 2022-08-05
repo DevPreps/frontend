@@ -30,7 +30,7 @@ const InterviewPostList = () => {
             </Stack>
             {/* post list */}
             {posts?.map((post) => (
-                <PostListItem key={post.id} post={post}>
+                <PostListItem key={post.postId} post={post}>
                     <UserCardActions />
                 </PostListItem>
             ))}

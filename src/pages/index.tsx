@@ -7,7 +7,7 @@ export { default as Login } from "./Login";
 export { default as MyAccount } from "./myAccount/MyAccount";
 export { default as MyBookmarks } from "./myAccount/MyBookmarks";
 export { default as MyDrafts } from "./myAccount/MyDrafts";
-export { default as MyPublish } from "./myAccount/MyPublish";
+export { default as MyPosts } from "./myAccount/MyPosts";
 export { default as MyProfile } from "./myAccount/MyProfile";
 export { default as NotFound } from "./NotFound";
 export { default as Post } from "./Post";

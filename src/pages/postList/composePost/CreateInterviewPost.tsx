@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
-// import form data interface and validation schema 
+// import form data interface and validation schema
 import { IInterviewFormInputs } from "../../../forms/IFormInputs";
 import { interviewFormSchema } from "../../../forms/validationSchemas";
 
 // import default values for the form
- import { interviewFormDefaultValues } from "../../../forms/formDefaultValues";
+import { interviewFormDefaultValues } from "../../../forms/formDefaultValues";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -20,7 +20,6 @@ import AddIcon from "@mui/icons-material/Add";
 import PostForm from "../../../forms/PostForm";
 
 const CreateInterviewPost = () => {
-
     // state management
     const [open, setOpen] = useState(false);
     // open and close modal function

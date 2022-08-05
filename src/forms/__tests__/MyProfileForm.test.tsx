@@ -1,8 +1,5 @@
-/**
- * @jest-environment jsdom
- */
 import React from "react";
-import { mount, shallow } from "enzyme";
+import { shallow } from "enzyme";
 import MyProfileForm from "../MyProfileForm";
 
 // import form data interface

@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 // TODO - posts will be changed to used state and fetched from backend.
 import { posts } from "../../data";
 
-const MyPublish = () => {
+const MyPosts = () => {
     return (
         <Stack spacing={2} sx={{ flexGrow: 1 }}>
             {/* TODO - the following title just show which page is rendered, will be deleted later */}
@@ -26,7 +26,7 @@ const MyPublish = () => {
             </Stack>
             {/* post list */}
             {posts?.map((post) => (
-                <PostListItem key={post.id} post={post}>
+                <PostListItem key={post.postId} post={post}>
                     <AuthorCardActions />
                 </PostListItem>
             ))}
@@ -36,4 +36,4 @@ const MyPublish = () => {
     );
 };
 
-export default MyPublish;
+export default MyPosts;

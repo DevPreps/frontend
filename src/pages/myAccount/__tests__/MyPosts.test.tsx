@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MyPublish from "../MyPublish";
+import MyPosts from "../MyPosts";
 
 // test component rendering
 describe("<MyPublish /> rendering", () => {
-    const wrapper = shallow(<MyPublish />);
+    const wrapper = shallow(<MyPosts />);
     it("should have a <SortMenu />", () => {
         expect(wrapper.find("SortMenu").exists()).toBe(true);
     });

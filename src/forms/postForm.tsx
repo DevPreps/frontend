@@ -19,9 +19,9 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 
 interface Props {
-    onSubmit: SubmitHandler<IFormInputs>,
-    formDefaultValues: IFormInputs,
-    validationSchema: yup.AnyObjectSchema,
+    onSubmit: SubmitHandler<IFormInputs>;
+    formDefaultValues: IFormInputs;
+    validationSchema: yup.AnyObjectSchema;
 }
 
 const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
@@ -31,35 +31,32 @@ const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
         resolver: yupResolver(validationSchema),
     });
     const { handleSubmit } = methods;
-    
+
     // define interviewItems here to make the conditional render looks clear
-    const interviewItems =  (
+    const interviewItems = (
         <Grid container>
-        <Grid item xs={12} md={6}>
-            {/* companyName */}
-            <TextFieldInput
-                helperText="companyName"
-                name="companyName"
-            />
+            <Grid item xs={12} md={6}>
+                {/* companyName */}
+                <TextFieldInput helperText="companyName" name="companyName" />
+            </Grid>
+            <Grid item xs={12} md={6} sx={styles.city}>
+                {/* city */}
+                <TextFieldInput helperText="city" name="city" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                {/* job title */}
+                <TextFieldInput helperText="jobTitle" name="jobTitle" />
+            </Grid>
+            <Grid item xs={12} sm={6} sx={styles.position}>
+                {/* position */}
+                <SelectInput
+                    helperText="Choose a position for your interview"
+                    name="position"
+                    options={positionOptions}
+                />
+            </Grid>
         </Grid>
-        <Grid item xs={12} md={6} sx={styles.city}>
-            {/* city */}
-            <TextFieldInput helperText="city" name="city" />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-            {/* job title */}
-            <TextFieldInput helperText="jobTitle" name="jobTitle" />
-        </Grid>
-        <Grid item xs={12} sm={6} sx={styles.position}>
-            {/* position */}
-            <SelectInput
-                helperText="Choose a position for your interview"
-                name="position"
-                options={positionOptions}
-            />
-        </Grid>
-    </Grid>
-)
+    );
     return (
         // form provider will pass the control and errors to form input and can be used in testing full render of reusable input components
         <FormProvider {...methods}>
@@ -73,7 +70,7 @@ const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
                 <TextFieldInput helperText="Post title" name="title" />
 
                 {/* only render interview inputs when category==="interview" */}
-                {formDefaultValues.category ==="interview" && interviewItems}
+                {formDefaultValues.category === "interview" && interviewItems}
 
                 {/* TODO - add rich-text editor for post content */}
                 <TextFieldInput
@@ -100,7 +97,7 @@ const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
                         PUBLISH
                     </Button>
                     <Button variant="contained" type="submit">
-                        SAVE TO DRAFT
+                        SAVE AS DRAFT
                     </Button>
                 </Stack>
             </Box>

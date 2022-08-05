@@ -9,7 +9,8 @@ export const positionOptions = [
 ];
 export const posts = [
     {
-        id: 1,
+        postId: "1",
+        userId: "1",
         date: "22-07-2022",
         description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
@@ -18,7 +19,8 @@ export const posts = [
         title: "Post Title 1",
     },
     {
-        id: 2,
+        postId: "2",
+        userId: "1",
         date: "24-07-2022",
         description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
@@ -27,7 +29,8 @@ export const posts = [
         title: "Post Title 2",
     },
     {
-        id: 3,
+        postId: "3",
+        userId: "11",
         date: "26-07-2022",
         description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",

@@ -30,9 +30,9 @@ const Heroes = () => {
                 sx={styles.subTitle}
                 data-testid="hero-subtitle"
             >
-                <span style={styles.span}>&lt;p&gt;</span>We are a place where
-                developer share their learning tips and interview experience to
-                help each other grow skills and get job offers
+                <span style={styles.span}>&lt;p&gt;</span>This is a place where
+                developers share their learning tips and interview experience to
+                help each other grow, gain new skills and get more job offers
                 <span style={styles.span}>&lt;/p&gt;</span>
             </Typography>
             <Stack direction="row" spacing={2}>

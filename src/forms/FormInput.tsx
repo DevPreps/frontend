@@ -15,7 +15,6 @@ import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import Input from "@mui/material/OutlinedInput";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
@@ -85,8 +84,17 @@ export const SelectInput = <T extends FieldValues>({
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth error={errors.hasOwnProperty(name)}  sx={styles.marginY}>
-                    <InputLabel id={`${name}-select-label`} sx={styles.selectLabel}>{name}</InputLabel>
+                <FormControl
+                    fullWidth
+                    error={errors.hasOwnProperty(name)}
+                    sx={styles.marginY}
+                >
+                    <InputLabel
+                        id={`${name}-select-label`}
+                        sx={styles.selectLabel}
+                    >
+                        {name}
+                    </InputLabel>
                     <Select
                         disabled={disabled}
                         labelId={`${name}-select-label`}
@@ -135,7 +143,12 @@ export const TagsInput = <T extends FieldValues>({
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth variant="standard" error={errors.hasOwnProperty(name)} sx={styles.marginY}>
+                <FormControl
+                    fullWidth
+                    variant="standard"
+                    error={errors.hasOwnProperty(name)}
+                    sx={styles.marginY}
+                >
                     <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
                     <Select
                         multiple
@@ -203,5 +216,5 @@ const styles = {
     },
     marginY: {
         my: 2,
-    }
+    },
 } as const;

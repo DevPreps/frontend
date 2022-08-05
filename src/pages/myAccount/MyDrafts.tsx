@@ -26,7 +26,7 @@ const MyDrafts = () => {
             </Stack>
             {/* post list */}
             {posts?.map((post) => (
-                <PostListItem key={post.id} post={post}>
+                <PostListItem key={post.postId} post={post}>
                     <AuthorCardActions />
                 </PostListItem>
             ))}

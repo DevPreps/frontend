@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
-// import form data interface and validation schema 
+// import form data interface and validation schema
 import { IInterviewFormInputs } from "../../../forms/IFormInputs";
 import { interviewFormSchema } from "../../../forms/validationSchemas";
 

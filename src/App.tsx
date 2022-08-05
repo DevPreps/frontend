@@ -11,7 +11,7 @@ import {
     MyAccount,
     MyBookmarks,
     MyDrafts,
-    MyPublish,
+    MyPosts,
     NotFound,
     MyProfile,
     ProjectPostList,
@@ -51,7 +51,7 @@ export default function App() {
                     <Route path="my-account/:id" element={<MyAccount />}>
                         <Route index element={<MyProfile />} />
                         {/* These 3 post List could be a separate PostList component or use the same PostList component with interview/learn/projects/discussions */}
-                        <Route path="my-posts" element={<MyPublish />} />
+                        <Route path="my-posts" element={<MyPosts />} />
                         <Route path="my-bookmarks" element={<MyBookmarks />} />
                         <Route path="my-drafts" element={<MyDrafts />} />
                     </Route>

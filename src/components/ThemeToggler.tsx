@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import IconButton from "@mui/material/IconButton";
+import { useTheme } from "@mui/material/styles";
+import { ColorModeContext } from "../context/appContext";
 // Import MUI Icons
 import DarkMode from "@mui/icons-material/DarkModeOutlined";
 import LightMode from "@mui/icons-material/LightModeOutlined";
-
-import { useTheme } from "@mui/material/styles";
-import { ColorModeContext } from "../context/appContext";
 // Theme Switch Icon Changes Based on Theme
 export default function ThemeToggler() {
-    const colorMode = React.useContext(ColorModeContext);
+    const colorMode = useContext(ColorModeContext).toggleColorMode;
     return (
-        <IconButton color="inherit" onClick={colorMode.toggleColorMode}>
-            {useTheme().palette.mode === "dark" ? <LightMode /> : <DarkMode />}
+        <IconButton className="themeToggle" color="inherit" onClick={() => {colorMode();}}>
+            {useTheme().palette.mode === "dark" ? <DarkMode className="dark" /> : <LightMode className="light" />}
         </IconButton>
     );
 }

@@ -11,7 +11,7 @@ export default function Logo() {
             noWrap
             component="a"
             href="/"
-            sx={{ ...style.typography }}
+            sx={style.typography}
         >
             {useMediaQuery(useTheme().breakpoints.up("md"))
                 ? "DevPrep + LOGO"

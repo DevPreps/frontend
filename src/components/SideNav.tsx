@@ -17,6 +17,7 @@ export default function SideNav({ children }: any) {
     return (
         <>
             <IconButton
+                className="hamburger"
                 sx={{ ...style.margin.iconBtn, ...style.mobileView }}
                 color="inherit"
                 aria-label="open drawer"

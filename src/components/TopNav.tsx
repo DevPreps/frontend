@@ -61,7 +61,7 @@ export default function TopNav() {
 
     return (
         <>
-            <AppBar position="sticky">
+            <AppBar position="sticky" sx={style.overlay}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters sx={style.flexSpace.between}>
                         <Logo />
@@ -85,9 +85,9 @@ export default function TopNav() {
                                     <ListItemButton sx={style.textCenter}>
                                         <ListItemText
                                             primary={
-                                                <Link to={link.to}>
+                                                <Button key={index} component={Link} to={link.to}>
                                                     {link.text}
-                                                </Link>
+                                                </Button>
                                             }
                                         />
                                     </ListItemButton>
@@ -98,9 +98,9 @@ export default function TopNav() {
                                     <ListItemButton sx={style.textCenter}>
                                         <ListItemText
                                             primary={
-                                                <Link to={link.to}>
+                                                <Button key={index} component={Link} to={link.to}>
                                                     {link.text}
-                                                </Link>
+                                                </Button>
                                             }
                                         />
                                     </ListItemButton>
@@ -114,6 +114,9 @@ export default function TopNav() {
     );
 }
 export const style = {
+    overlay: {
+        zIndex: 1210
+    },
     textCenter: {
         textAlign: "center",
     },

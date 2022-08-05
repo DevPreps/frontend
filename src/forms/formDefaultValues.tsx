@@ -34,10 +34,10 @@ export const interviewPostDefaultValues: IInterviewFormInputs = {
 };
 
 export const myProfileFormDefaultValues: IMyProfileFormInputs = {
-    firstName: "Monica",
-    lastName: "Geller",
-    username: "monica",
-    email: "monica@gmail.com",
+    firstName: "Santa",
+    lastName: "Claus",
+    username: "Santa",
+    email: "santa@gmail.com",
     jobTitle: "Front End Engineer",
     position: "Front End Developer",
     city: "Brisbane",

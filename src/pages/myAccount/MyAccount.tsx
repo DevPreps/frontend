@@ -32,7 +32,7 @@ const MyAccount = () => {
     const currentUser = {
         userId: 1,
         username: "Santa",
-        image_url: "https://cdn.pixabay.com/photo/2016/11/15/19/37/noel-1827278_960_720.jpg"
+        imageUrl: "https://cdn.pixabay.com/photo/2016/11/15/19/37/noel-1827278_960_720.jpg"
     };
     const [open, setOpen] = useState(true);
     const sidebarLinks = [
@@ -100,8 +100,8 @@ const MyAccount = () => {
             <Toolbar />
                 {/* username and image */}
                 <Stack direction="row" sx={styles.namebar}>
-                    {currentUser.image_url !== "" ? 
-                    <Avatar alt={currentUser.username} src={currentUser.image_url} sx={styles.avatar} />
+                    {currentUser.imageUrl !== "" ? 
+                    <Avatar alt={currentUser.username} src={currentUser.imageUrl} sx={styles.avatar} />
                     :  
                     <Avatar sx={styles.avatar} aria-label="user image" color={red[500]}>
                         {currentUser.username[0].toUpperCase()}

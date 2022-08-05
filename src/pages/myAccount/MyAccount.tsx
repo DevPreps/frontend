@@ -23,11 +23,16 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Avatar, Stack, Typography } from "@mui/material";
+import { red } from "@mui/material/colors";
+import { flexbox } from "@mui/system";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
     const currentUser = {
         userId: 1,
+        username: "Santa",
+        image_url: "https://cdn.pixabay.com/photo/2016/11/15/19/37/noel-1827278_960_720.jpg"
     };
     const [open, setOpen] = useState(true);
     const sidebarLinks = [
@@ -52,12 +57,63 @@ const MyAccount = () => {
             icon: <FolderSpecialIcon />,
         },
     ];
+        // styles. As 'open' will be used for conditional styling, so the following styles const needs to be placed inside this component
+        const drawerWidth = 240;
+        const styles = {
+            avatar: {
+                bgcolor: red[500],
+                mr: 2,
+            },
+            box: {
+                position: {
+                    xs: open ? "absolute" : "static",
+                    md: open ? "static" : "absolute",
+                    xl: "absolute",
+                },
+                width: open ? drawerWidth : 0,
+                left: 0,
+            },
+            container: { display: "flex" },
+            divider: {
+                height: "100vh",
+                position: "absolute",
+                top: 0,
+                zIndex: 1201,
+                left: open ? "209px" : "-10px",
+            },
+            drawer: {
+                "& .MuiDrawer-paper": {
+                    boxSizing: "border-box",
+                    width: drawerWidth,
+                },
+            },
+            namebar: {
+                pl: 2,
+                mt: 5,
+                mb: 3,
+                display: "flex",
+                alignItems: "center",
+            }
+        } as const;
     const drawer = (
         <div>
             <Toolbar />
+                {/* username and image */}
+                <Stack direction="row" sx={styles.namebar}>
+                    {currentUser.image_url !== "" ? 
+                    <Avatar alt={currentUser.username} src={currentUser.image_url} sx={styles.avatar} />
+                    :  
+                    <Avatar sx={styles.avatar} aria-label="user image" color={red[500]}>
+                        {currentUser.username[0].toUpperCase()}
+                    </Avatar>
+                }
+                    <Typography variant="h6">
+                        {currentUser.username}
+                    </Typography>
+                    </Stack>
             <Divider />
             <List>
-                {sidebarLinks.map((link) => (
+                {sidebarLinks?.map((link) => (
                     <ListItem key={link.text} disablePadding>
                         <ListItemButton
                             component={Link}
@@ -83,35 +139,6 @@ const MyAccount = () => {
     const handleDrawerToggle = () => {
         setOpen(!open);
     };
-    // styles. As 'open' will be used for conditional styling, so style needs to be placed inside this component
-    const drawerWidth = 240;
-    const styles = {
-        box: {
-            position: {
-                xs: open ? "absolute" : "static",
-                md: open ? "static" : "absolute",
-                xl: "absolute",
-            },
-            width: open ? drawerWidth : 0,
-            left: 0,
-        },
-        container: { display: "flex" },
-        divider: {
-            height: "100vh",
-            position: "absolute",
-            top: 0,
-            zIndex: 1201,
-            left: open ? "209px" : "-10px",
-            // ...(!open &&{left: "-10px"}),
-            // ...(open && {left: "209px"})
-        },
-        drawer: {
-            "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-            },
-        },
-    } as const;
 
     return (
         <Container maxWidth="xl" sx={styles.container}>
@@ -145,5 +172,6 @@ const MyAccount = () => {
         </Container>
     );
 };
+
 
 export default MyAccount;

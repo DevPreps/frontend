@@ -27,7 +27,7 @@ describe("<MyAccount /> rendering", () => {
 
     // the links in sidebarLinks should be rendered
     it("should render the links in sidebarLinks", () => {
-        sidebarLinks.map((link) =>
+        sidebarLinks?.map((link) =>
             expect(
                 wrapper.find({ "data-testid": link.text }).prop("to")
             ).toEqual(link.to)

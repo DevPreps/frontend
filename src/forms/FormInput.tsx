@@ -94,7 +94,7 @@ export const SelectInput = <T extends FieldValues>({
                         variant="standard"
                         {...field}
                     >
-                        {options.map((option) => (
+                        {options?.map((option) => (
                             <MenuItem key={option} value={option}>
                                 {option}
                             </MenuItem>
@@ -151,7 +151,7 @@ export const TagsInput = <T extends FieldValues>({
                         }
                         renderValue={(selected) => (
                             <Box sx={styles.box}>
-                                {selected.map((value: string) => (
+                                {selected?.map((value: string) => (
                                     <Chip key={value} label={value} />
                                 ))}
                             </Box>
@@ -163,7 +163,7 @@ export const TagsInput = <T extends FieldValues>({
                                 {tag}
                             </MenuItem>
                         ))}
-                        {selectTags.map((tag) => (
+                        {selectTags?.map((tag) => (
                             <MenuItem key={tag} value={tag}>
                                 {tag}
                             </MenuItem>

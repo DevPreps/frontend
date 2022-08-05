@@ -29,7 +29,7 @@ const ProjectPostList = () => {
                 <SortMenu />
             </Stack>
             {/* post list */}
-            {posts.map((post) => (
+            {posts?.map((post) => (
                 <PostListItem key={post.id} post={post}>
                     <UserCardActions />
                 </PostListItem>

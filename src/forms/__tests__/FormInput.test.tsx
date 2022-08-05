@@ -113,7 +113,6 @@ describe("should be able to render <TagsInput />", () => {
     );
 
     it("should have <TagsInput>", () => {
-        console.log(wrapper.debug());
         expect(wrapper.find("TagsInput").exists()).toBe(true);
     });
 

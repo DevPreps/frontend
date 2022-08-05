@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
-// import form data interface
+// import form data interface and validation schema 
 import { IGeneralFormInputs } from "../../../forms/IFormInputs";
-import GeneralPostForm from "../../../forms/GeneralPostForm";
+import { generalFormSchema } from "../../../forms/validationSchemas";
+
+// import form component and defaultValues
+import PostForm from "../../../forms/PostForm";
+import { generalFormDefaultValues } from "../../../forms/formDefaultValues";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -16,14 +20,6 @@ import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 
 const CreateGeneralPost = () => {
-    // set defaultValues for the form, so that the form values can be populated when editing a post
-    // default value is a prop for GeneralPostForm
-    const formDefaultValues: IGeneralFormInputs = {
-        category: "general",
-        title: "",
-        content: "",
-        tags: [],
-    };
     // state management
     const [open, setOpen] = useState(false);
     // open and close modal function
@@ -67,9 +63,10 @@ const CreateGeneralPost = () => {
                         COMPOSE A GENERAL POST
                     </Typography>
                     {/* compose post form */}
-                    <GeneralPostForm
-                        formDefaultValues={formDefaultValues}
+                    <PostForm
+                        formDefaultValues={generalFormDefaultValues}
                         onSubmit={onSubmit}
+                        validationSchema={generalFormSchema}
                     />
                 </Box>
             </Modal>

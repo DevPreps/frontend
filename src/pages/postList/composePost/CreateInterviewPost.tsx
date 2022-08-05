@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
-// import form data interface
+// import form data interface and validation schema 
 import { IInterviewFormInputs } from "../../../forms/IFormInputs";
+import { interviewFormSchema } from "../../../forms/validationSchemas";
+
+// import default values for the form
+ import { interviewFormDefaultValues } from "../../../forms/formDefaultValues";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -13,20 +17,10 @@ import Typography from "@mui/material/Typography";
 
 // import MUI icons
 import AddIcon from "@mui/icons-material/Add";
-import InterviewPostForm from "../../../forms/InterviewPostForm";
+import PostForm from "../../../forms/PostForm";
 
 const CreateInterviewPost = () => {
-    // default values for the form
-    const formDefaultValues: IInterviewFormInputs = {
-        category: "general",
-        title: "",
-        companyName: "",
-        city: "",
-        jobTitle: "",
-        position: "",
-        content: "",
-        tags: [],
-    };
+
     // state management
     const [open, setOpen] = useState(false);
     // open and close modal function
@@ -70,9 +64,10 @@ const CreateInterviewPost = () => {
                         COMPOSE A INTERVIEW POST
                     </Typography>
                     {/* compose post form */}
-                    <InterviewPostForm
+                    <PostForm
                         onSubmit={onSubmit}
-                        formDefaultValues={formDefaultValues}
+                        formDefaultValues={interviewFormDefaultValues}
+                        validationSchema={interviewFormSchema}
                     />
                 </Box>
             </Modal>

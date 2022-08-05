@@ -5,11 +5,14 @@ import TopNav from "../components/TopNav";
 // import MUI components
 import Container from "@mui/material/Container";
 
+import Footer from "../components/Footer";
+
 const Home = () => {
     return (
         <Container maxWidth="xl">
             <TopNav />
             <Outlet />
+            <Footer />
         </Container>
     );
 };

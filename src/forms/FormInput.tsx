@@ -15,7 +15,7 @@ import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import OutlinedInput from "@mui/material/OutlinedInput";
+import Input from "@mui/material/OutlinedInput";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
@@ -62,6 +62,7 @@ export const TextFieldInput = <T extends FieldValues>({
                     rows={rows}
                     type={type}
                     helperText={errors[name]?.message || helperText}
+                    sx={styles.marginY}
                 />
             )}
         />
@@ -84,8 +85,8 @@ export const SelectInput = <T extends FieldValues>({
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth error={errors.hasOwnProperty(name)}>
-                    <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
+                <FormControl fullWidth error={errors.hasOwnProperty(name)}  sx={styles.marginY}>
+                    <InputLabel id={`${name}-select-label`} sx={styles.selectLabel}>{name}</InputLabel>
                     <Select
                         disabled={disabled}
                         labelId={`${name}-select-label`}
@@ -100,7 +101,7 @@ export const SelectInput = <T extends FieldValues>({
                             </MenuItem>
                         ))}
                     </Select>
-                    <FormHelperText>
+                    <FormHelperText sx={styles.hText}>
                         {errors[name]?.message || helperText}
                     </FormHelperText>
                 </FormControl>
@@ -134,7 +135,7 @@ export const TagsInput = <T extends FieldValues>({
             name={name}
             control={control}
             render={({ field }) => (
-                <FormControl fullWidth error={errors.hasOwnProperty(name)}>
+                <FormControl fullWidth variant="standard" error={errors.hasOwnProperty(name)} sx={styles.marginY}>
                     <InputLabel id={`${name}-select-label`}>{name}</InputLabel>
                     <Select
                         multiple
@@ -143,12 +144,12 @@ export const TagsInput = <T extends FieldValues>({
                         label={name}
                         onChange={handleChange}
                         {...field}
-                        input={
-                            <OutlinedInput
-                                id="select-multiple-chip"
-                                label="Chip"
-                            />
-                        }
+                        // input={
+                        //     <Input
+                        //         id="select-multiple-chip"
+                        //         label="Chip"
+                        //     />
+                        // }
                         renderValue={(selected) => (
                             <Box sx={styles.box}>
                                 {selected?.map((value: string) => (
@@ -169,7 +170,7 @@ export const TagsInput = <T extends FieldValues>({
                             </MenuItem>
                         ))}
                     </Select>
-                    <FormHelperText>
+                    <FormHelperText sx={styles.hText}>
                         {errors[name]?.message || helperText}
                     </FormHelperText>
                 </FormControl>
@@ -186,6 +187,9 @@ const styles = {
         flexWrap: "wrap",
         gap: 0.5,
     },
+    hText: {
+        ml: 0,
+    },
     menuProps: {
         PaperProps: {
             style: {
@@ -194,4 +198,10 @@ const styles = {
             },
         },
     },
+    selectLabel: {
+        left: "-14px",
+    },
+    marginY: {
+        my: 2,
+    }
 } as const;

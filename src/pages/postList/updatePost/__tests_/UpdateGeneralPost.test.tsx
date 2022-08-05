@@ -6,8 +6,8 @@ import UpdateGeneralPost from "../UpdateGeneralPost";
 describe("Test Update General Post page", () => {
     const wrapper = shallow(<UpdateGeneralPost />);
 
-    it("should contain  GeneralPostForm component />", () => {
-        expect(wrapper.find("GeneralPostForm").length).toBe(1);
+    it("should contain PostForm component />", () => {
+        expect(wrapper.find("PostForm").length).toBe(1);
     });
 
     it("should contain Edit button", () => {

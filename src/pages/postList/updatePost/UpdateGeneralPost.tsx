@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
-// import form data interface
+// import form data interface and validation schema 
 import { IGeneralFormInputs } from "../../../forms/IFormInputs";
+import { generalFormSchema } from "../../../forms/validationSchemas";
 
-// import form
-import GeneralPostForm from "../../../forms/GeneralPostForm";
+// import form component
+import PostForm from "../../../forms/PostForm";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -64,9 +65,10 @@ const UpdateGeneralPost = () => {
                         EDIT A GENERAL POST
                     </Typography>
                     {/* update post form */}
-                    <GeneralPostForm
+                    <PostForm
                         formDefaultValues={formDefaultValues}
                         onSubmit={onSubmit}
+                        validationSchema={generalFormSchema}
                     />
                 </Box>
             </Modal>

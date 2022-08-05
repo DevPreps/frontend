@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
-// import form data interface
+// import form data interface and validation schema 
 import { IInterviewFormInputs } from "../../../forms/IFormInputs";
+import { interviewFormSchema } from "../../../forms/validationSchemas";
 
-// import form
-import InterviewPostForm from "../../../forms/InterviewPostForm";
+// import form component
+import PostForm from "../../../forms/PostForm";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -73,9 +74,10 @@ const UpdateInterviewPost = () => {
                         EDIT AN INTERVIEW POST
                     </Typography>
                     {/* update post form */}
-                    <InterviewPostForm
+                    <PostForm
                         formDefaultValues={formDefaultValues}
                         onSubmit={onSubmit}
+                        validationSchema={interviewFormSchema}
                     />
                 </Box>
             </Modal>

@@ -10,8 +10,8 @@ import CreateGeneralPost from "../CreateGeneralPost";
 describe("Test Create General Post page", () => {
     const wrapper = shallow(<CreateGeneralPost />);
 
-    it("should contain GeneralPostForm component", () => {
-        expect(wrapper.find("GeneralPostForm").length).toBe(1);
+    it("should contain PostForm component", () => {
+        expect(wrapper.find("PostForm").length).toBe(1);
     });
 
     it("should contain Compose button", () => {

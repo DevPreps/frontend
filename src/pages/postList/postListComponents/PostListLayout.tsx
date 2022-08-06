@@ -4,23 +4,13 @@ import React from "react";
 import PostListItem from "./PostListItem";
 import SortMenu from "./SortMenu";
 import { AuthorCardActions, UserCardActions } from "./CardActions";
+import { IPost } from "./IPost";
 
 // import MUI components
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import SearchBar from "./SearchBar";
-
-// TODO - post interface, needs to be updated
-interface IPost {
-    postId: string;
-    userId: string;
-    date: string;
-    description: string;
-    image: string;
-    imageLabel: string;
-    title: string;
-}
 
 interface Props {
     posts: IPost[];
@@ -51,7 +41,7 @@ const PostListLayout: React.FC<Props> = ({
             {posts?.map((post) => (
                 <PostListItem key={post.postId} post={post}>
                     {currentUser.userId === post.userId ? (
-                        <AuthorCardActions />
+                        <AuthorCardActions post={post} />
                     ) : (
                         <UserCardActions />
                     )}

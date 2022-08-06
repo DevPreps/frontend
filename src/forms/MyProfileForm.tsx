@@ -97,6 +97,8 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
                         options={positionOptions}
                         required={false}
                         disabled={isDisabled}
+                        // set defaultValue here to disable MUI warning
+                        defaultValue={formDefaultValues["position"]}
                     />
                 </Grid>
                 <Grid item xs={12}>

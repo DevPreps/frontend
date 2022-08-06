@@ -8,7 +8,7 @@ import {
 export const generalFormDefaultValues: IGeneralFormInputs = {
     category: "general",
     title: "",
-    content: "",
+    description: "",
     tags: [],
 };
 
@@ -19,7 +19,7 @@ export const interviewFormDefaultValues: IInterviewFormInputs = {
     city: "",
     jobTitle: "",
     position: "",
-    content: "",
+    description: "",
     tags: [],
 };
 
@@ -30,7 +30,7 @@ export const interviewPostDefaultValues: IInterviewFormInputs = {
     city: "Brisbane",
     jobTitle: "test job title",
     position: "Front End Developer",
-    content: "test content",
+    description: "test content",
     tags: ["frontend", "backend"],
 };
 

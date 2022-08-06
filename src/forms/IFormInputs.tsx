@@ -2,7 +2,7 @@
 export interface IInterviewFormInputs {
     category: string;
     title: string;
-    content: string;
+    description: string;
     companyName: string;
     city: string;
     jobTitle: string;
@@ -14,7 +14,7 @@ export interface IInterviewFormInputs {
 export interface IGeneralFormInputs {
     category: string;
     title: string;
-    content: string;
+    description: string;
     tags: string[];
     options?: string[];
     rows?: number;
@@ -36,7 +36,7 @@ export interface IMyProfileFormInputs {
 export interface IFormInputs {
     category: string;
     title: string;
-    content: string;
+    description: string;
     companyName?: string;
     city?: string;
     jobTitle?: string;

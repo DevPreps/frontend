@@ -4,13 +4,13 @@ import React from "react";
 import PostListLayout from "../postList/postListComponents/PostListLayout";
 
 // TODO - posts will be changed to used state and fetched from backend.
-import { posts } from "../../data";
+import { myPosts } from "../../data";
 
 const MyPosts = () => {
     return (
         <PostListLayout
             title="My Posts"
-            posts={posts}
+            posts={myPosts}
             withSearchBar={false}
         ></PostListLayout>
     );

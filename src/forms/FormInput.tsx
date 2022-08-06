@@ -21,9 +21,10 @@ import TextField from "@mui/material/TextField";
 interface Props<T> extends UseControllerProps<T> {
     disabled?: boolean;
     error?: Merge<FieldError, FieldError[]> | undefined;
-    options?: string[];
     helperText?: string;
     multiline?: boolean;
+    handleChange?: (val: string) => void;
+    options?: string[];
     required?: boolean;
     rows?: number;
     tags?: string[];
@@ -71,8 +72,10 @@ export const TextFieldInput = <T extends FieldValues>({
 // reusable Select Input
 export const SelectInput = <T extends FieldValues>({
     disabled = false,
+    defaultValue,
     helperText,
     name,
+    handleChange = () => void 0,
     options,
 }: Props<T>) => {
     const {
@@ -86,6 +89,7 @@ export const SelectInput = <T extends FieldValues>({
             render={({ field }) => (
                 <FormControl
                     fullWidth
+                    variant="standard"
                     error={errors.hasOwnProperty(name)}
                     sx={styles.marginY}
                 >
@@ -100,8 +104,14 @@ export const SelectInput = <T extends FieldValues>({
                         labelId={`${name}-select-label`}
                         id={`${name}-input`}
                         label={name}
-                        variant="standard"
-                        {...field}
+                        // this is used to update the set category in post form, if user choose interview, the interviewItems will render,
+                        // it would be useful if we only have one compost post component. If we decide to use separate compost post component for each category post, this can be deleted.
+                        onChange={(e) => {
+                            handleChange(e.target.value);
+                            field.onChange;
+                        }}
+                        // set defaultValue here to disable MUI warning
+                        defaultValue={defaultValue}
                     >
                         {options?.map((option) => (
                             <MenuItem key={option} value={option}>
@@ -212,7 +222,7 @@ const styles = {
         },
     },
     selectLabel: {
-        left: "-14px",
+        left: 0,
     },
     marginY: {
         my: 2,

@@ -3,19 +3,20 @@ import { shallow } from "enzyme";
 import CreateGeneralPost from "../CreateGeneralPost";
 
 // test rendering
-describe("Test Create General Post page", () => {
+describe("Test Create General Post modal rendering", () => {
     const wrapper = shallow(<CreateGeneralPost />);
+    console.log(wrapper.debug());
+
+    it("should contain PostModalLayout component", () => {
+        expect(wrapper.find("PostModalLayout").length).toBe(1);
+    });
+
+    it("should contain operation property and equal to COMPOSE", () => {
+        expect(wrapper.find({ operation: "COMPOSE" }).length).toBe(1);
+    });
 
     it("should contain PostForm component", () => {
         expect(wrapper.find("PostForm").length).toBe(1);
-    });
-
-    it("should contain Compose button", () => {
-        expect(wrapper.find({ children: "Compose" }).length).toBe(1);
-    });
-
-    it("should contain Close button", () => {
-        expect(wrapper.find({ children: "X" }).length).toBe(1);
     });
 });
 

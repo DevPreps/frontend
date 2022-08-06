@@ -1,20 +1,17 @@
 import React from "react";
 import { shallow } from "enzyme";
 import UpdateGeneralPost from "../UpdateGeneralPost";
+import { posts } from "../../../../data";
 
 // test rendering
-describe("Test Update General Post page", () => {
-    const wrapper = shallow(<UpdateGeneralPost />);
+describe("Test Update General Post modal", () => {
+    const wrapper = shallow(<UpdateGeneralPost post={posts[0]} />);
 
-    it("should contain PostForm component />", () => {
+    it("should render PostForm component />", () => {
         expect(wrapper.find("PostForm").length).toBe(1);
     });
 
-    it("should contain Edit button", () => {
-        expect(wrapper.find({ children: "Edit" }).length).toBe(1);
-    });
-
-    it("should contain Close button", () => {
-        expect(wrapper.find({ children: "X" }).length).toBe(1);
+    it("should render EDIT button", () => {
+        expect(wrapper.find({ operation: "EDIT" }).length).toBe(1);
     });
 });

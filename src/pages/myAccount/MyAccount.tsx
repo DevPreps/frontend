@@ -57,44 +57,6 @@ const MyAccount = () => {
             icon: <FolderSpecialIcon />,
         },
     ];
-    // styles. As 'open' will be used for conditional styling, so the following styles const needs to be placed inside this component
-    const drawerWidth = 240;
-    const styles = {
-        avatar: {
-            bgcolor: red[500],
-            mr: 2,
-        },
-        box: {
-            position: {
-                xs: open ? "absolute" : "static",
-                md: open ? "static" : "absolute",
-                xl: "absolute",
-            },
-            width: open ? drawerWidth : 0,
-            left: 0,
-        },
-        container: { display: "flex" },
-        divider: {
-            height: "100vh",
-            position: "absolute",
-            top: 0,
-            zIndex: 1201,
-            left: open ? "209px" : "-10px",
-        },
-        drawer: {
-            "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-            },
-        },
-        namebar: {
-            pl: 2,
-            mt: 5,
-            mb: 3,
-            display: "flex",
-            alignItems: "center",
-        },
-    } as const;
 
     const handleDrawerToggle = () => {
         setOpen(!open);
@@ -103,7 +65,10 @@ const MyAccount = () => {
     return (
         <Container maxWidth="xl" sx={styles.container}>
             {/* <CssBaseline /> */}
-            <Divider orientation="vertical" sx={styles.divider}>
+            <Divider
+                orientation="vertical"
+                sx={open ? styles.dividerDrawOpen : styles.dividerDrawClosed}
+            >
                 <Fab
                     size="small"
                     color="primary"
@@ -116,7 +81,7 @@ const MyAccount = () => {
 
             <Box
                 component="nav"
-                sx={styles.box}
+                sx={open ? styles.boxDrawerOpen : styles.boxDrawerClosed}
                 aria-label="my account folders"
             >
                 <Drawer
@@ -134,6 +99,8 @@ const MyAccount = () => {
                                 alt={currentUser.username}
                                 src={currentUser.imageUrl}
                                 sx={styles.avatar}
+                                component={Link}
+                                to="/my-account/${currentUser.userId}"
                             />
                         ) : (
                             <Avatar
@@ -178,5 +145,59 @@ const MyAccount = () => {
         </Container>
     );
 };
+
+// styles
+const drawerWidth = 240;
+const styles = {
+    avatar: {
+        bgcolor: red[500],
+        mr: 2,
+    },
+    boxDrawerClosed: {
+        position: {
+            xs: "static",
+            md: "absolute",
+        },
+        width: 0,
+        left: 0,
+    },
+    boxDrawerOpen: {
+        position: {
+            xs: "absolute",
+            md: "static",
+            xl: "absolute",
+        },
+        width: drawerWidth,
+        left: 0,
+    },
+    container: { display: "flex" },
+    dividerDrawOpen: {
+        height: "100vh",
+        position: "absolute",
+        top: 0,
+        zIndex: 1201,
+        left: "209px",
+    },
+    dividerDrawClosed: {
+        height: "100vh",
+        position: "absolute",
+        top: 0,
+        zIndex: 1201,
+        left: "-10px",
+    },
+    drawer: {
+        "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: drawerWidth,
+        },
+    },
+    namebar: {
+        pl: 2,
+        mt: 5,
+        mb: 3,
+        display: "flex",
+        alignItems: "center",
+    },
+} as const;
 
 export default MyAccount;

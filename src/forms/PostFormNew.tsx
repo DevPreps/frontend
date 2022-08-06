@@ -25,8 +25,11 @@ interface Props {
     validationSchema: yup.AnyObjectSchema;
 }
 
-const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
-    // TODO -
+const PostFormNew = ({
+    formDefaultValues,
+    onSubmit,
+    validationSchema,
+}: Props) => {
     const [category, setCategory] = useState(formDefaultValues.category);
     // react hook form
     const methods = useForm<IFormInputs>({
@@ -34,7 +37,6 @@ const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
         resolver: yupResolver(validationSchema),
     });
     const { handleSubmit } = methods;
-
     return (
         // form provider will pass the control and errors to form input and can be used in testing full render of reusable input components
         <FormProvider {...methods}>
@@ -131,4 +133,4 @@ const styles = {
         mr: 2,
     },
 } as const;
-export default PostForm;
+export default PostFormNew;

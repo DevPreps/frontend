@@ -46,9 +46,9 @@ describe("Test InterviewPost Form component", () => {
         expect(wrapper.find({ name: "position" }).length).toBe(1);
     });
 
-    // should have input with name "content"
-    it("should have input with name content", () => {
-        expect(wrapper.find({ name: "content" }).length).toBe(1);
+    // should have input with name "description"
+    it("should have input with name description", () => {
+        expect(wrapper.find({ name: "description" }).length).toBe(1);
     });
 
     // should have input with name "tags"

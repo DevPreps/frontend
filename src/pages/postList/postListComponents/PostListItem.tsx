@@ -10,15 +10,10 @@ import CardMedia from "@mui/material/CardMedia";
 
 // import MUI colors
 import { grey } from "@mui/material/colors";
+import { IPost } from "./IPost";
 
 interface PostProps {
-    post: {
-        date: string;
-        description: string;
-        image: string;
-        imageLabel: string;
-        title: string;
-    };
+    post: IPost;
 }
 
 const PostListItem: React.FC<PostProps> = ({ children, post }) => {

@@ -4,7 +4,7 @@ import PostListLayout from "../PostListLayout";
 import { posts } from "../../../../data";
 import CreateGeneralPost from "../../composePost/CreateGeneralPost";
 
-describe("Test PostList Page", () => {
+describe("Test PostListLayout component", () => {
     const wrapper = shallow(
         <PostListLayout title="test" posts={posts} withSearchBar={true}>
             <CreateGeneralPost />

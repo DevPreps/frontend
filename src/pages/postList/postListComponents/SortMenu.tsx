@@ -13,6 +13,7 @@ const SortMenu = () => {
                 labelId="demo-select-small"
                 id="demo-select-small"
                 label="Sort"
+                defaultValue="latest"
             >
                 <MenuItem value="latest">
                     <em>Latest</em>

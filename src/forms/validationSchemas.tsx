@@ -4,7 +4,7 @@ import * as yup from "yup";
 export const generalFormSchema = yup.object().shape({
     category: yup.string().required(),
     title: yup.string().required(),
-    content: yup.string().required(),
+    description: yup.string().required(),
     tags: yup.array().min(1).required(),
 });
 
@@ -16,6 +16,6 @@ export const interviewFormSchema = yup.object().shape({
     city: yup.string().required(),
     jobTitle: yup.string().required(),
     position: yup.string().required(),
-    content: yup.string().required(),
+    description: yup.string().required(),
     tags: yup.array().min(1).required(),
 });

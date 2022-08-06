@@ -11,7 +11,7 @@ import { IGeneralFormInputs } from "../IFormInputs";
 const formDefaultValues: IGeneralFormInputs = {
     category: "general",
     title: "",
-    content: "",
+    description: "",
     tags: [],
 };
 const WrapperForm: React.FC = ({ children }) => {

@@ -1,5 +1,6 @@
 import React from "react";
 
+import { IPost } from "./IPost";
 //import MUI components
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -18,6 +19,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 // import MUI colors
 import { red } from "@mui/material/colors";
 
+// define interface for props
+interface Props {
+    post: IPost;
+}
 export const UserCardActions = () => {
     return (
         <CardActions disableSpacing>
@@ -40,15 +45,15 @@ export const UserCardActions = () => {
     );
 };
 
-export const AuthorCardActions = () => {
+export const AuthorCardActions = ({ post }: Props) => {
     // TODO - category will be changed to a prop from post.category
-    const category = "interview";
+
     return (
         <CardActions disableSpacing>
-            {category === "interview" ? (
-                <UpdateInterviewPost />
+            {post.category === "interview" ? (
+                <UpdateInterviewPost post={post} />
             ) : (
-                <UpdateGeneralPost />
+                <UpdateGeneralPost post={post} />
             )}
             <Button startIcon={<DeleteForeverIcon />} sx={styles.deleteBtn}>
                 DELETE
@@ -67,6 +72,7 @@ const styles = {
     },
     deleteBtn: {
         color: red[800],
+        ml: 2,
     },
     likeBtn: {
         color: red[700],

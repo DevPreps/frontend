@@ -5,19 +5,11 @@ import MyDrafts from "../MyDrafts";
 // test component rendering
 describe("<MyDrafts /> rendering", () => {
     const wrapper = shallow(<MyDrafts />);
-    it("should have a <SortMenu />", () => {
-        expect(wrapper.find("SortMenu").exists()).toBe(true);
+    it("should have a title My Drafts", () => {
+        expect(wrapper.find({ title: "My Drafts" }).length).toBe(1);
     });
 
-    it("should contain <PostListItem />", () => {
-        expect(wrapper.find("PostListItem").exists()).toBe(true);
-    });
-
-    it("should contain <AuthorCardActions />", () => {
-        expect(wrapper.find("AuthorCardActions").exists()).toBe(true);
-    });
-
-    it("should contain a Load More Button />", () => {
-        expect(wrapper.find({ children: "Load More" }).length).toBe(1);
+    it("should render PostListLayout component", () => {
+        expect(wrapper.find("PostListLayout").length).toBe(1);
     });
 });

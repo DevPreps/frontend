@@ -5,19 +5,11 @@ import MyBookmarks from "../MyBookmarks";
 // test component rendering
 describe("<MyBookmarks /> rendering", () => {
     const wrapper = shallow(<MyBookmarks />);
-    it("should have a <SortMenu />", () => {
-        expect(wrapper.find("SortMenu").exists()).toBe(true);
+    it("should have a title My Bookmarks", () => {
+        expect(wrapper.find({ title: "My Bookmarks" }).length).toBe(1);
     });
 
-    it("should contain <PostListItem />", () => {
-        expect(wrapper.find("PostListItem").exists()).toBe(true);
-    });
-
-    it("should contain <UserCardActions />", () => {
-        expect(wrapper.find("UserCardActions").exists()).toBe(true);
-    });
-
-    it("should contain a Load More Button />", () => {
-        expect(wrapper.find({ children: "Load More" }).length).toBe(1);
+    it("should render PostListLayout component", () => {
+        expect(wrapper.find("PostListLayout").length).toBe(1);
     });
 });

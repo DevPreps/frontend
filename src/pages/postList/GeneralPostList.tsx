@@ -10,7 +10,7 @@ import { posts } from "../../data";
 const GeneralPostList = () => {
     return (
         <PostListLayout
-            title="General Post List"
+            title="General Posts"
             posts={posts}
             withSearchBar={true}
         >

@@ -51,9 +51,9 @@ const PostListLayout: React.FC<Props> = ({
             {posts?.map((post) => (
                 <PostListItem key={post.postId} post={post}>
                     {currentUser.userId === post.userId ? (
-                        <UserCardActions />
-                    ) : (
                         <AuthorCardActions />
+                    ) : (
+                        <UserCardActions />
                     )}
                 </PostListItem>
             ))}
@@ -64,6 +64,9 @@ const PostListLayout: React.FC<Props> = ({
 };
 
 const styles = {
-    stack: { flexGrow: 1 },
+    stack: {
+        flexGrow: 1,
+        mt: 3,
+    },
 };
 export default PostListLayout;

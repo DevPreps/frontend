@@ -20,10 +20,8 @@ const MyProfile = () => {
     };
 
     return (
-        <Box>
-            <Typography variant="h5" sx={{ py: 3 }}>
-                My Profile
-            </Typography>
+        <Box sx={styles.box}>
+            <Typography variant="h5">My Profile</Typography>
             <MyProfileForm
                 formDefaultValues={myProfileFormDefaultValues}
                 onSubmit={onSubmit}
@@ -32,4 +30,10 @@ const MyProfile = () => {
     );
 };
 
+const styles = {
+    box: {
+        mt: 3,
+        mb: 5,
+    },
+};
 export default MyProfile;

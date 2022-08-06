@@ -5,7 +5,11 @@ import LearnPostList from "../LearnPostList";
 describe("<LearnPostList /> rendering", () => {
     const wrapper = shallow(<LearnPostList />);
     // test if LearnPostList component renders
-    it("should be able to render <LearnPostList />", () => {
-        wrapper;
+    it("should be able to render title Learn Posts", () => {
+        expect(wrapper.find({ title: "Learn Posts" }).length).toBe(1);
+    });
+
+    it("should be able to render CreateLearnPost Modal", () => {
+        expect(wrapper.find("CreateLearnPost").length).toBe(1);
     });
 });

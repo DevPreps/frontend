@@ -5,7 +5,11 @@ import InterviewPostList from "../InterviewPostList";
 describe("<InterviewPostList /> rendering", () => {
     const wrapper = shallow(<InterviewPostList />);
     // test if InterviewPostList component renders
-    it("should be able to render <InterviewPostList />", () => {
-        wrapper;
+    it("should be able to render title Interview Posts", () => {
+        expect(wrapper.find({ title: "Interview Posts" }).length).toBe(1);
+    });
+
+    it("should be able to render CreateInterviewPost Modal", () => {
+        expect(wrapper.find("CreateInterviewPost").length).toBe(1);
     });
 });

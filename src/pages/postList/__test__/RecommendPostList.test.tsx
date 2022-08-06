@@ -5,7 +5,7 @@ import RecommendPostList from "../RecommendPostList";
 describe("<RecommendPostList /> rendering", () => {
     const wrapper = shallow(<RecommendPostList />);
     // test if RecommendPostList component renders
-    it("should be able to render <RecommendPostList />", () => {
-        wrapper;
+    it("should be able to render title Project Posts", () => {
+        expect(wrapper.find({"title": "Recommend Posts"}).length).toBe(1)
     });
 });

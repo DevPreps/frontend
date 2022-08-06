@@ -10,12 +10,12 @@ import { posts } from "../../data";
 const InterviewPostList = () => {
     return (
         <PostListLayout
-        title="Interview Post List"
-        posts={posts}
-        withSearchBar={true}
-    >
-        <CreateInterviewPost />
-    </PostListLayout>
+            title="Interview Posts"
+            posts={posts}
+            withSearchBar={true}
+        >
+            <CreateInterviewPost />
+        </PostListLayout>
     );
 };
 

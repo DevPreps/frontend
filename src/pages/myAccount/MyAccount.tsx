@@ -43,7 +43,7 @@ const MyAccount = () => {
         },
         {
             to: `/my-account/${currentUser.userId}/my-posts`,
-            text: "My Publish",
+            text: "My Posts",
             icon: <InboxIcon />,
         },
         {
@@ -125,55 +125,53 @@ const MyAccount = () => {
                     anchor="left"
                     sx={styles.drawer}
                 >
-                    const drawer = (
-                    <div>
-                        <Toolbar />
-                        {/* username and image */}
-                        <Stack direction="row" sx={styles.namebar}>
-                            {currentUser.imageUrl !== "" ? (
-                                <Avatar
-                                    alt={currentUser.username}
-                                    src={currentUser.imageUrl}
-                                    sx={styles.avatar}
-                                />
-                            ) : (
-                                <Avatar
-                                    sx={styles.avatar}
-                                    aria-label="user image"
-                                    color={red[500]}
+                    {/* <div> */}
+                    <Toolbar />
+                    {/* username and image */}
+                    <Stack direction="row" sx={styles.namebar}>
+                        {currentUser.imageUrl !== "" ? (
+                            <Avatar
+                                alt={currentUser.username}
+                                src={currentUser.imageUrl}
+                                sx={styles.avatar}
+                            />
+                        ) : (
+                            <Avatar
+                                sx={styles.avatar}
+                                aria-label="user image"
+                                color={red[500]}
+                            >
+                                {currentUser.username[0].toUpperCase()}
+                            </Avatar>
+                        )}
+                        <Typography variant="h6">
+                            {currentUser.username}
+                        </Typography>
+                    </Stack>
+                    <Divider />
+                    <List>
+                        {sidebarLinks?.map((link) => (
+                            <ListItem key={link.text} disablePadding>
+                                <ListItemButton
+                                    component={Link}
+                                    to={link.to}
+                                    data-testid={link.text}
                                 >
-                                    {currentUser.username[0].toUpperCase()}
-                                </Avatar>
-                            )}
-                            <Typography variant="h6">
-                                {currentUser.username}
-                            </Typography>
-                        </Stack>
-                        <Divider />
-                        <List>
-                            {sidebarLinks?.map((link) => (
-                                <ListItem key={link.text} disablePadding>
-                                    <ListItemButton
-                                        component={Link}
-                                        to={link.to}
-                                        data-testid={link.text}
-                                    >
-                                        <ListItemIcon>{link.icon}</ListItemIcon>
-                                        <ListItemText primary={link.text} />
-                                    </ListItemButton>
-                                </ListItem>
-                            ))}
-                            <ListItem disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <LogoutIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary="logout" />
+                                    <ListItemIcon>{link.icon}</ListItemIcon>
+                                    <ListItemText primary={link.text} />
                                 </ListItemButton>
                             </ListItem>
-                        </List>
-                    </div>
-                    );
+                        ))}
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <LogoutIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="logout" />
+                            </ListItemButton>
+                        </ListItem>
+                    </List>
+                    {/* </div> */}
                 </Drawer>
             </Box>
             <Outlet />

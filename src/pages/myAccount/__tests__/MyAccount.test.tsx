@@ -11,7 +11,7 @@ const sidebarLinks = [
     },
     {
         to: `/my-account/${currentUser.userId}/my-posts`,
-        text: "My Publish",
+        text: "My Posts",
     },
     {
         to: `/my-account/${currentUser.userId}/my-drafts`,

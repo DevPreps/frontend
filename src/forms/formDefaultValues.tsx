@@ -18,7 +18,7 @@ export const interviewFormDefaultValues: IInterviewFormInputs = {
     companyName: "",
     city: "",
     jobTitle: "",
-    position: "",
+    position: "Front End Developer",
     description: "",
     tags: [],
 };

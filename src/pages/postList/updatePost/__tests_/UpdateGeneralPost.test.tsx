@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import UpdateGeneralPost from "../UpdateGeneralPost";
+import UpdateGeneralPost from "../UpdatePost";
 import { posts } from "../../../../data";
 
 // test rendering

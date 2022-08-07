@@ -2,7 +2,7 @@ import React from "react";
 
 // import Post List component and create post modal
 import PostListLayout from "./postListComponents/PostListLayout";
-import CreateProjectPost from "./composePost/CreateProjectPost";
+import CreatePost from "./composePost/CreatePost";
 
 // TODO - posts will be changed to used state and fetched from backend.
 import { posts } from "../../data";
@@ -14,7 +14,7 @@ const ProjectPostList = () => {
             posts={posts}
             withSearchBar={true}
         >
-            <CreateProjectPost />
+            <CreatePost />
         </PostListLayout>
     );
 };

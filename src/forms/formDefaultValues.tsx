@@ -1,11 +1,12 @@
 import {
+    IFormInputs,
     IGeneralFormInputs,
     IInterviewFormInputs,
     IMyProfileFormInputs,
 } from "./IFormInputs";
 
 // TODO- these default values might need to be updated
-export const generalFormDefaultValues: IGeneralFormInputs = {
+export const generalFormDefaultValues: IFormInputs = {
     category: "general",
     title: "",
     description: "",

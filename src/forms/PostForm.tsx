@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // import form data interface
 import { IFormInputs } from "./IFormInputs";
-
 // import tags and categories
-import { categoryOptions, positionOptions, tagOptions } from "../data";
+import { positionOptions, tagOptions } from "../data";
 
 // import reusable form input components
 import { SelectInput, TagsInput, TextFieldInput } from "./FormInput";
@@ -20,14 +19,13 @@ import Stack from "@mui/material/Stack";
 
 // define interface for props
 interface Props {
+    category: string;
     onSubmit: SubmitHandler<IFormInputs>;
     formDefaultValues: IFormInputs;
     validationSchema: yup.AnyObjectSchema;
 }
 
-const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
-    // TODO -
-    const [category, setCategory] = useState(formDefaultValues.category);
+const PostForm = ({ category, formDefaultValues, onSubmit, validationSchema }: Props) => {
     // react hook form
     const methods = useForm<IFormInputs>({
         defaultValues: formDefaultValues,
@@ -40,18 +38,7 @@ const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
         <FormProvider {...methods}>
             {/* use 'noValidate' to disable native HTML 5 validation */}
             <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-                {/* as different category post has different data interface and validation schema, the user should not be allowed to choose the category here */}
-                <SelectInput
-                    disabled={true}
-                    helperText="Choose a category for your post"
-                    name="category"
-                    options={categoryOptions}
-                    handleChange={setCategory}
-                    defaultValue={formDefaultValues["category"]}
-                />
-
                 <TextFieldInput helperText="Post title" name="title" />
-
                 {/* only render interview inputs when category==="interview" */}
                 {category === "interview" && (
                     <Grid container>
@@ -80,7 +67,7 @@ const PostForm = ({ formDefaultValues, onSubmit, validationSchema }: Props) => {
                                 name="position"
                                 options={positionOptions}
                                 defaultValue={
-                                    formDefaultValues["position"] || ""
+                                    formDefaultValues["position"] || "Full Stack Developer"
                                 }
                             />
                         </Grid>

@@ -2,7 +2,7 @@ import React from "react";
 
 // import Post List component and create post modal
 import PostListLayout from "./postListComponents/PostListLayout";
-import CreateInterviewPost from "./composePost/CreateInterviewPost";
+import CreatePost from "./composePost/CreatePost";
 
 // TODO - posts will be changed to used state and fetched from backend.
 import { posts } from "../../data";
@@ -14,7 +14,7 @@ const InterviewPostList = () => {
             posts={posts}
             withSearchBar={true}
         >
-            <CreateInterviewPost />
+            <CreatePost />
         </PostListLayout>
     );
 };

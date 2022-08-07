@@ -17,13 +17,13 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
+import { categoryOptions } from "../data";
 
 interface Props<T> extends UseControllerProps<T> {
     disabled?: boolean;
     error?: Merge<FieldError, FieldError[]> | undefined;
     helperText?: string;
     multiline?: boolean;
-    handleChange?: (val: string) => void;
     options?: string[];
     required?: boolean;
     rows?: number;
@@ -75,7 +75,6 @@ export const SelectInput = <T extends FieldValues>({
     defaultValue,
     helperText,
     name,
-    handleChange = () => void 0,
     options,
 }: Props<T>) => {
     const {
@@ -104,14 +103,8 @@ export const SelectInput = <T extends FieldValues>({
                         labelId={`${name}-select-label`}
                         id={`${name}-input`}
                         label={name}
-                        // this is used to update the set category in post form, if user choose interview, the interviewItems will render,
-                        // it would be useful if we only have one compost post component. If we decide to use separate compost post component for each category post, this can be deleted.
-                        onChange={(e) => {
-                            handleChange(e.target.value);
-                            field.onChange;
-                        }}
-                        // set defaultValue here to disable MUI warning
                         defaultValue={defaultValue}
+                        {...field}
                     >
                         {options?.map((option) => (
                             <MenuItem key={option} value={option}>
@@ -167,12 +160,6 @@ export const TagsInput = <T extends FieldValues>({
                         label={name}
                         onChange={handleChange}
                         {...field}
-                        // input={
-                        //     <Input
-                        //         id="select-multiple-chip"
-                        //         label="Chip"
-                        //     />
-                        // }
                         renderValue={(selected) => (
                             <Box sx={styles.box}>
                                 {selected?.map((value: string) => (
@@ -201,6 +188,54 @@ export const TagsInput = <T extends FieldValues>({
         />
     );
 };
+
+interface categoryProps {
+    defaultValue: string;
+    disabled?: boolean;
+    helperText: string;
+    setCategory?: React.Dispatch<React.SetStateAction<string>>;
+};
+export const CategoryInput = ({
+    defaultValue="general",
+    disabled=false,
+    helperText,
+    setCategory = ()=> void 0
+}: categoryProps) => {
+    return (
+<FormControl
+    disabled={disabled}
+    fullWidth
+    variant="standard"
+    sx={styles.marginY}
+    >
+    <InputLabel
+        id="category-select-label"
+        sx={styles.selectLabel}
+    >
+        category
+    </InputLabel>
+    <Select
+        labelId="category-select-label"
+        id={"category-input"}
+        label="category"
+        // this is used to update the set category in post form, if user choose interview, the interviewItems will render,
+        // it would be useful if we only have one compost post component. If we decide to use separate compost post component for each category post, this can be deleted.
+        onChange={(e: SelectChangeEvent<string>) => {
+            setCategory(e.target.value)}}
+        // set defaultValue here to disable MUI warning
+        defaultValue={defaultValue}
+    >
+        {categoryOptions?.map((option) => (
+            <MenuItem key={option} value={option}>
+                {option}
+            </MenuItem>
+        ))}
+    </Select>
+    <FormHelperText sx={styles.hText}>
+        {helperText}
+    </FormHelperText>
+</FormControl>)
+}
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

@@ -7,8 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
-import UpdateGeneralPost from "../updatePost/UpdateGeneralPost";
-import UpdateInterviewPost from "../updatePost/UpdateInterviewPost";
+import UpdatePost from "../updatePost/UpdatePost";
 
 // import MUI Icons
 import AddCommentIcon from "@mui/icons-material/AddComment";
@@ -50,11 +49,7 @@ export const AuthorCardActions = ({ post }: Props) => {
 
     return (
         <CardActions disableSpacing>
-            {post.category === "interview" ? (
-                <UpdateInterviewPost post={post} />
-            ) : (
-                <UpdateGeneralPost post={post} />
-            )}
+                <UpdatePost post={post} />
             <Button startIcon={<DeleteForeverIcon />} sx={styles.deleteBtn}>
                 DELETE
             </Button>

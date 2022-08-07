@@ -9,7 +9,7 @@ describe("<InterviewPostList /> rendering", () => {
         expect(wrapper.find({ title: "Interview Posts" }).length).toBe(1);
     });
 
-    it("should be able to render CreateInterviewPost Modal", () => {
-        expect(wrapper.find("CreateInterviewPost").length).toBe(1);
+    it("should be able to render CreatePost Modal", () => {
+        expect(wrapper.find("CreatePost").length).toBe(1);
     });
 });

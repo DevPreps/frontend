@@ -9,7 +9,7 @@ describe("<ProjectPostList /> rendering", () => {
         expect(wrapper.find({ title: "Project Posts" }).length).toBe(1);
     });
 
-    it("should be able to render CreateProjectPost Modal", () => {
-        expect(wrapper.find("CreateProjectPost").length).toBe(1);
+    it("should be able to render CreatePost Modal", () => {
+        expect(wrapper.find("CreatePost").length).toBe(1);
     });
 });

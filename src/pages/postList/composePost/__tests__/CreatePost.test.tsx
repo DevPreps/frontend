@@ -1,12 +1,16 @@
 import React from "react";
 import { shallow } from "enzyme";
-import CreateInterviewPost from "../CreateInterviewPost";
+import CreatePost from "../CreatePost";
 
 describe("Test Compose New Interview Post page", () => {
-    const wrapper = shallow(<CreateInterviewPost />);
+    const wrapper = shallow(<CreatePost />);
 
     it("should contain PostModalLayout component", () => {
         expect(wrapper.find("PostModalLayout").length).toBe(1);
+    });
+
+    it("should contain CategoryInput component", () => {
+        expect(wrapper.find("CategoryInput").length).toBe(1);
     });
 
     it("should contain operation property and equal to COMPOSE", () => {

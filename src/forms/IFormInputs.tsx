@@ -1,4 +1,19 @@
 // interface for form object
+export interface IFormInputs {
+    category: string;
+    title: string;
+    description: string;
+    companyName?: string;
+    city?: string;
+    jobTitle?: string;
+    position?: string;
+    tags?: string[];
+    options?: string[];
+    rows?: number;
+    post?: IPost;
+}
+
+// TODO - IInterviewFormInputs and IGeneralFormInputs are not needed, and might be deleted later
 export interface IInterviewFormInputs {
     category: string;
     title: string;
@@ -11,6 +26,7 @@ export interface IInterviewFormInputs {
     options?: string[];
     rows?: number;
 }
+
 export interface IGeneralFormInputs {
     category: string;
     title: string;
@@ -31,20 +47,6 @@ export interface IMyProfileFormInputs {
     imageUrl?: string;
     linkedIn?: string;
     github?: string;
-}
-
-export interface IFormInputs {
-    category: string;
-    title: string;
-    description: string;
-    companyName?: string;
-    city?: string;
-    jobTitle?: string;
-    position?: string;
-    tags?: string[];
-    options?: string[];
-    rows?: number;
-    post?: IPost;
 }
 
 // TODO - post interface, needs to be updated

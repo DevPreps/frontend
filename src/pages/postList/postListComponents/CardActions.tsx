@@ -49,7 +49,7 @@ export const AuthorCardActions = ({ post }: Props) => {
 
     return (
         <CardActions disableSpacing>
-                <UpdatePost post={post} />
+            <UpdatePost post={post} />
             <Button startIcon={<DeleteForeverIcon />} sx={styles.deleteBtn}>
                 DELETE
             </Button>

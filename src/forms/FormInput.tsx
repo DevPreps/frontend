@@ -19,6 +19,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { categoryOptions } from "../data";
 
+// define interface for props
 interface Props<T> extends UseControllerProps<T> {
     disabled?: boolean;
     error?: Merge<FieldError, FieldError[]> | undefined;
@@ -30,12 +31,13 @@ interface Props<T> extends UseControllerProps<T> {
     tags?: string[];
     type?: string;
 }
+
 // reusable TextField Input
 export const TextFieldInput = <T extends FieldValues>({
     disabled = false,
     helperText,
-    name,
     multiline = false,
+    name,
     required = true,
     rows = 1,
     type = "text",
@@ -44,6 +46,7 @@ export const TextFieldInput = <T extends FieldValues>({
         control,
         formState: { errors },
     } = useFormContext();
+
     return (
         <Controller
             name={name}
@@ -81,6 +84,7 @@ export const SelectInput = <T extends FieldValues>({
         control,
         formState: { errors },
     } = useFormContext();
+
     return (
         <Controller
             name={name}
@@ -103,6 +107,7 @@ export const SelectInput = <T extends FieldValues>({
                         labelId={`${name}-select-label`}
                         id={`${name}-input`}
                         label={name}
+                        // set defaultValue here to fix MUI warning
                         defaultValue={defaultValue}
                         {...field}
                     >
@@ -189,53 +194,51 @@ export const TagsInput = <T extends FieldValues>({
     );
 };
 
+// define interface for props
 interface categoryProps {
     defaultValue: string;
     disabled?: boolean;
     helperText: string;
     setCategory?: React.Dispatch<React.SetStateAction<string>>;
-};
+}
+
+// CategoryInput is used in CreatePost and UpdatePost components
 export const CategoryInput = ({
-    defaultValue="general",
-    disabled=false,
+    defaultValue,
+    disabled = false,
     helperText,
-    setCategory = ()=> void 0
+    setCategory = () => void 0,
 }: categoryProps) => {
     return (
-<FormControl
-    disabled={disabled}
-    fullWidth
-    variant="standard"
-    sx={styles.marginY}
-    >
-    <InputLabel
-        id="category-select-label"
-        sx={styles.selectLabel}
-    >
-        category
-    </InputLabel>
-    <Select
-        labelId="category-select-label"
-        id={"category-input"}
-        label="category"
-        // this is used to update the set category in post form, if user choose interview, the interviewItems will render,
-        // it would be useful if we only have one compost post component. If we decide to use separate compost post component for each category post, this can be deleted.
-        onChange={(e: SelectChangeEvent<string>) => {
-            setCategory(e.target.value)}}
-        // set defaultValue here to disable MUI warning
-        defaultValue={defaultValue}
-    >
-        {categoryOptions?.map((option) => (
-            <MenuItem key={option} value={option}>
-                {option}
-            </MenuItem>
-        ))}
-    </Select>
-    <FormHelperText sx={styles.hText}>
-        {helperText}
-    </FormHelperText>
-</FormControl>)
-}
+        <FormControl
+            disabled={disabled}
+            fullWidth
+            variant="standard"
+            sx={styles.marginY}
+        >
+            <InputLabel id="category-select-label" sx={styles.selectLabel}>
+                category
+            </InputLabel>
+            <Select
+                labelId="category-select-label"
+                id={"category-input"}
+                label="category"
+                onChange={(e: SelectChangeEvent<string>) => {
+                    setCategory(e.target.value);
+                }}
+                // set defaultValue here to fix MUI warning
+                defaultValue={defaultValue}
+            >
+                {categoryOptions?.map((option) => (
+                    <MenuItem key={option} value={option}>
+                        {option}
+                    </MenuItem>
+                ))}
+            </Select>
+            <FormHelperText sx={styles.hText}>{helperText}</FormHelperText>
+        </FormControl>
+    );
+};
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

@@ -1,15 +1,16 @@
 import React from "react";
 import { shallow } from "enzyme";
 import PostForm from "../PostForm";
-import { IInterviewFormInputs } from "../IFormInputs";
+import { IFormInputs } from "../IFormInputs";
 import { interviewFormDefaultValues } from "../formDefaultValues";
 import { interviewFormSchema } from "../validationSchemas";
 
 // test rendering
-describe("Test InterviewPost Form component", () => {
-    const onSubmit = (data: IInterviewFormInputs) => console.log(data);
+describe("Test PostForm component", () => {
+    const onSubmit = (data: IFormInputs) => console.log(data);
     const wrapper = shallow(
         <PostForm
+            category="interview"
             onSubmit={onSubmit}
             formDefaultValues={interviewFormDefaultValues}
             validationSchema={interviewFormSchema}
@@ -19,11 +20,6 @@ describe("Test InterviewPost Form component", () => {
     // should have input with name "title"
     it("should have input with name title", () => {
         expect(wrapper.find({ name: "title" }).length).toBe(1);
-    });
-
-    // should have input with name "category"
-    it("should have input with name category", () => {
-        expect(wrapper.find({ name: "category" }).length).toBe(1);
     });
 
     // should have input with name "companyName"

@@ -9,7 +9,7 @@ describe("<LearnPostList /> rendering", () => {
         expect(wrapper.find({ title: "Learn Posts" }).length).toBe(1);
     });
 
-    it("should be able to render CreateLearnPost Modal", () => {
-        expect(wrapper.find("CreateLearnPost").length).toBe(1);
+    it("should be able to render CreatePost Modal", () => {
+        expect(wrapper.find("CreatePost").length).toBe(1);
     });
 });

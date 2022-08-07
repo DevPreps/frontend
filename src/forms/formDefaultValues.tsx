@@ -1,7 +1,5 @@
 import {
     IFormInputs,
-    IGeneralFormInputs,
-    IInterviewFormInputs,
     IMyProfileFormInputs,
 } from "./IFormInputs";
 
@@ -13,7 +11,7 @@ export const generalFormDefaultValues: IFormInputs = {
     tags: [],
 };
 
-export const interviewFormDefaultValues: IInterviewFormInputs = {
+export const interviewFormDefaultValues: IFormInputs = {
     category: "interview",
     title: "",
     companyName: "",
@@ -24,7 +22,7 @@ export const interviewFormDefaultValues: IInterviewFormInputs = {
     tags: [],
 };
 
-export const interviewPostDefaultValues: IInterviewFormInputs = {
+export const interviewPostDefaultValues: IFormInputs = {
     category: "interview",
     title: "test title",
     companyName: "test company",

@@ -2,12 +2,12 @@ import React from "react";
 import { shallow } from "enzyme";
 import PostListLayout from "../PostListLayout";
 import { posts } from "../../../../data";
-import CreateGeneralPost from "../../composePost/CreateGeneralPost";
+import CreatePost from "../../composePost/CreatePost";
 
 describe("Test PostListLayout component", () => {
     const wrapper = shallow(
         <PostListLayout title="test" posts={posts} withSearchBar={true}>
-            <CreateGeneralPost />
+            <CreatePost />
         </PostListLayout>
     );
 
@@ -17,8 +17,8 @@ describe("Test PostListLayout component", () => {
     it("should be able to render searchBar", () => {
         expect(wrapper.find("SearchBar").length).toBe(1);
     });
-    it("should be able to render CreateGeneralPost", () => {
-        expect(wrapper.find("CreateGeneralPost").length).toBe(1);
+    it("should be able to render CreatePost", () => {
+        expect(wrapper.find("CreatePost").length).toBe(1);
     });
     it("should be able to render SortMenu", () => {
         expect(wrapper.find("SortMenu").length).toBe(1);

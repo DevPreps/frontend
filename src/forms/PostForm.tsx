@@ -25,7 +25,12 @@ interface Props {
     validationSchema: yup.AnyObjectSchema;
 }
 
-const PostForm = ({ category, formDefaultValues, onSubmit, validationSchema }: Props) => {
+const PostForm = ({
+    category,
+    formDefaultValues,
+    onSubmit,
+    validationSchema,
+}: Props) => {
     // react hook form
     const methods = useForm<IFormInputs>({
         defaultValues: formDefaultValues,
@@ -67,14 +72,15 @@ const PostForm = ({ category, formDefaultValues, onSubmit, validationSchema }: P
                                 name="position"
                                 options={positionOptions}
                                 defaultValue={
-                                    formDefaultValues["position"] || "Full Stack Developer"
+                                    formDefaultValues["position"] ||
+                                    "Full Stack Developer"
                                 }
                             />
                         </Grid>
                     </Grid>
                 )}
 
-                {/* TODO - add rich-text editor for post content */}
+                {/* TODO - add rich-text editor for post description */}
                 <TextFieldInput
                     helperText="Post content"
                     name="description"

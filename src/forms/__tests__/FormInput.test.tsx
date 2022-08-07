@@ -3,20 +3,15 @@
  */
 import React from "react";
 import { mount } from "enzyme";
+import { useForm, FormProvider } from "react-hook-form";
 import { TextFieldInput, SelectInput, TagsInput } from "../FormInput";
 import { categoryOptions, tagOptions } from "../../data";
-import { useForm, FormProvider } from "react-hook-form";
 import { IGeneralFormInputs } from "../IFormInputs";
+import { generalFormDefaultValues } from "../formDefaultValues";
 
-const formDefaultValues: IGeneralFormInputs = {
-    category: "general",
-    title: "",
-    description: "",
-    tags: [],
-};
 const WrapperForm: React.FC = ({ children }) => {
     const methods = useForm<IGeneralFormInputs>({
-        defaultValues: formDefaultValues,
+        defaultValues: generalFormDefaultValues,
     });
     return <FormProvider {...methods}>{children}</FormProvider>;
 };

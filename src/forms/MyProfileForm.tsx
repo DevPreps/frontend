@@ -3,8 +3,9 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-// import form data interface
+// import form data interface and validation schema
 import { IMyProfileFormInputs } from "./IFormInputs";
+import {myProfileFormSchema} from "./validationSchemas"
 
 // import reusable form input components and position data
 import { SelectInput, TextFieldInput } from "./FormInput";
@@ -15,20 +16,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 
-// TODO - Define Yup validation schema, will be updated later
-const validationSchema = yup.object().shape({
-    firstName: yup.string(),
-    lastName: yup.string(),
-    username: yup.string().required(),
-    email: yup.string().required(),
-    jobTitle: yup.string(),
-    position: yup.string(),
-    city: yup.string(),
-    linkedIn: yup.string(),
-    github: yup.string(),
-    imageUrl: yup.string(),
-});
-
+// define interface for props
 interface Props {
     onSubmit: SubmitHandler<IMyProfileFormInputs>;
     formDefaultValues: IMyProfileFormInputs;
@@ -39,7 +27,7 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
     // react hook form
     const methods = useForm<IMyProfileFormInputs>({
         defaultValues: formDefaultValues,
-        resolver: yupResolver(validationSchema),
+        resolver: yupResolver(myProfileFormSchema),
     });
     const { handleSubmit } = methods;
     return (

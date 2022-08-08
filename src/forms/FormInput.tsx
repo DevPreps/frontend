@@ -196,7 +196,7 @@ export const TagsInput = <T extends FieldValues>({
 
 // define interface for props
 interface categoryProps {
-    defaultValue: string;
+    category: string;
     disabled?: boolean;
     helperText: string;
     setCategory?: React.Dispatch<React.SetStateAction<string>>;
@@ -204,7 +204,7 @@ interface categoryProps {
 
 // CategoryInput is used in CreatePost and UpdatePost components
 export const CategoryInput = ({
-    defaultValue,
+    category,
     disabled = false,
     helperText,
     setCategory = () => void 0,
@@ -226,8 +226,9 @@ export const CategoryInput = ({
                 onChange={(e: SelectChangeEvent<string>) => {
                     setCategory(e.target.value);
                 }}
+                value={category}
                 // set defaultValue here to fix MUI warning
-                defaultValue={defaultValue}
+                // defaultValue={defaultValue}
             >
                 {categoryOptions?.map((option) => (
                     <MenuItem key={option} value={option}>

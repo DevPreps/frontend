@@ -1,7 +1,4 @@
-import {
-    IFormInputs,
-    IMyProfileFormInputs,
-} from "./IFormInputs";
+import { IFormInputs, IMyProfileFormInputs } from "./IFormInputs";
 
 // TODO- these default values might need to be updated
 export const generalFormDefaultValues: IFormInputs = {

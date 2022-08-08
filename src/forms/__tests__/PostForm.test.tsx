@@ -17,29 +17,13 @@ describe("Test PostForm component", () => {
         />
     );
 
+    it("should contain InterviewItems component", () => {
+        expect(wrapper.find("InterviewItems").length).toBe(1);
+    });
+
     // should have input with name "title"
     it("should have input with name title", () => {
         expect(wrapper.find({ name: "title" }).length).toBe(1);
-    });
-
-    // should have input with name "companyName"
-    it("should have input with name companyName", () => {
-        expect(wrapper.find({ name: "companyName" }).length).toBe(1);
-    });
-
-    // should have input with name "city"
-    it("should have input with name city", () => {
-        expect(wrapper.find({ name: "city" }).length).toBe(1);
-    });
-
-    // should have input with name "jobTitle"
-    it("should have input with name jobTitle", () => {
-        expect(wrapper.find({ name: "jobTitle" }).length).toBe(1);
-    });
-
-    // should have input with name "position"
-    it("should have input with name position", () => {
-        expect(wrapper.find({ name: "position" }).length).toBe(1);
     });
 
     // should have input with name "description"

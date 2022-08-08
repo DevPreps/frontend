@@ -19,7 +19,7 @@ import {
 
 const CreatePost = () => {
     // the category of the post
-    const [category, setCategory] = useState("general");
+    const [category, setCategory] = useState("interview");
     // handle form submission
     const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
         console.log("data", data);
@@ -28,7 +28,7 @@ const CreatePost = () => {
     return (
         <PostModalLayout operation="COMPOSE">
             <CategoryInput
-                defaultValue={category}
+                category={category}
                 helperText="choose a category for your post"
                 setCategory={setCategory}
             />

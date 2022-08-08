@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 
 // import form data interface and validation schema
 import { IMyProfileFormInputs } from "./IFormInputs";
-import {myProfileFormSchema} from "./validationSchemas"
+import { myProfileFormSchema } from "./validationSchemas";
 
 // import reusable form input components and position data
 import { SelectInput, TextFieldInput } from "./FormInput";

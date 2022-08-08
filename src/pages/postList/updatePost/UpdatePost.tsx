@@ -27,7 +27,7 @@ const UpdateGeneralPost = ({ post }: Props) => {
     return (
         <PostModalLayout operation="EDIT">
             <CategoryInput
-                defaultValue={post.category}
+                category={post.category}
                 disabled={true}
                 helperText="The category cannot be changed"
             />

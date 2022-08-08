@@ -11,7 +11,6 @@ const Home = () => {
     return (
         <Container maxWidth="xl">
             <TopNav />
-            <h1>Home</h1>
             <Outlet />
             <Footer />
         </Container>

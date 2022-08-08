@@ -41,7 +41,7 @@ const Contact = () => {
                             <EmailIcon />
                         </ListItemIcon>
                         <Typography variant="subtitle1">
-                            <Button variant="text">
+                            <Button variant="text" href="mailto:devprep@outlook.com.au" target="blank" sx={styles.button}>
                                 devprep@outlook.com.au
                             </Button>
                         </Typography>
@@ -59,7 +59,7 @@ const Contact = () => {
                             >
                                 a bug report
                             </Button>{" "}
-                            in our open source repository
+                            in our GitHub repository
                         </Typography>
                     </ListItem>
                     <ListItem>
@@ -70,6 +70,7 @@ const Contact = () => {
                             variant="text"
                             target="blank"
                             href="https://github.com/DevPreps"
+                            sx={styles.button}
                         >
                             https://github.com/DevPreps
                         </Button>
@@ -79,7 +80,7 @@ const Contact = () => {
                             <SendIcon />
                         </ListItemIcon>
                         <Typography variant="body1">
-                            Send us a message with the form
+                            Send us a message using the form on this page
                         </Typography>
                     </ListItem>
                 </List>
@@ -90,6 +91,9 @@ const Contact = () => {
 };
 
 const styles = {
+    button: {
+        pl: 0,
+    },
     grid: {
         py: 3,
     },

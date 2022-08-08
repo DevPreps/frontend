@@ -2,7 +2,7 @@ import React from "react";
 import { SubmitHandler } from "react-hook-form";
 
 // import ContactForm and form data interface
-import ContactForm from "../forms/contactForm";
+import ContactForm from "../forms/ContactForm";
 import { IContactFormInputs } from "../forms/IFormInputs";
 
 // import MUI component

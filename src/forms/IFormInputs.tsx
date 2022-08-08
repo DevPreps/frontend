@@ -61,3 +61,10 @@ export interface IPost {
     category: string;
     tags: string[];
 }
+
+export interface IContactFormInputs {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+}

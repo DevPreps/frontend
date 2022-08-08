@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { IContactFormInputs } from "./IFormInputs";
 import { contactFormSchema } from "./validationSchemas";
 
-// import reusable form input components and position data
+// import reusable form input components
 import { TextFieldInput } from "./FormInput";
 
 // Import MUI components
@@ -16,14 +16,11 @@ import Grid from "@mui/material/Grid";
 // define interface for props
 interface Props {
     onSubmit: SubmitHandler<IContactFormInputs>;
-    // formDefaultValues: IContactFormInputs;
 }
 
 const ContactForm = ({ onSubmit }: Props) => {
-
     // react hook form
     const methods = useForm<IContactFormInputs>({
-        // defaultValues: formDefaultValues,
         resolver: yupResolver(contactFormSchema),
     });
     const { handleSubmit } = methods;
@@ -71,10 +68,10 @@ const ContactForm = ({ onSubmit }: Props) => {
     );
 };
 const styles = {
-    gridContainer: { 
-        px:2,
-        maxWidth: "800px"
-     },
+    gridContainer: {
+        px: 2,
+        maxWidth: "800px",
+    },
     sendButton: { px: 4 },
 } as const;
 

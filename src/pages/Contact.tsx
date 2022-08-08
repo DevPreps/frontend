@@ -1,39 +1,39 @@
 import React from "react";
 import { SubmitHandler } from "react-hook-form";
 
-// import ContactForm
+// import ContactForm and form data interface
 import ContactForm from "../forms/contactForm";
 import { IContactFormInputs } from "../forms/IFormInputs";
 
 // import MUI component
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import Typography from "@mui/material/Typography";
 
 // import MUI icons
-import EmailIcon from "@mui/icons-material/Email";
 import BugReport from "@mui/icons-material/BugReport";
+import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SendIcon from "@mui/icons-material/Send";
-import { red } from "@mui/material/colors";
 
 const Contact = () => {
     // handle form submission
-    const onSubmit: SubmitHandler<IContactFormInputs> = (data: IContactFormInputs) => {
+    const onSubmit: SubmitHandler<IContactFormInputs> = (
+        data: IContactFormInputs
+    ) => {
         console.log("data", data);
     };
     return (
         <Grid container sx={styles.grid}>
-            {/* <Grid item xs={12} sx={styles.title}>
-
-            </Grid> */}
             <Grid item xs={12} md={6} sx={styles.left}>
-                <Typography variant="h1" sx={styles.title}>Contact Us</Typography>
+                <Typography variant="h1" sx={styles.title}>
+                    Contact Us
+                </Typography>
                 <Typography variant="subtitle1" sx={styles.subtitle}>
-                    Dev Prep would love to hear from you 
+                    Dev Prep would love to hear from you
                 </Typography>
                 <List>
                     <ListItem>
@@ -41,7 +41,9 @@ const Contact = () => {
                             <EmailIcon />
                         </ListItemIcon>
                         <Typography variant="subtitle1">
-                            <Button variant="text">devprep@outlook.com.au</Button> 
+                            <Button variant="text">
+                                devprep@outlook.com.au
+                            </Button>
                         </Typography>
                     </ListItem>
                     <ListItem>
@@ -50,16 +52,26 @@ const Contact = () => {
                         </ListItemIcon>
                         <Typography variant="body1">
                             To report a bug, please create
-                            <Button variant="text" target="blank" href="https://github.com/DevPreps/frontend/issues">a bug report</Button> in our
-                            open source repository
+                            <Button
+                                variant="text"
+                                target="blank"
+                                href="https://github.com/DevPreps/frontend/issues"
+                            >
+                                a bug report
+                            </Button>{" "}
+                            in our open source repository
                         </Typography>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                            <GitHubIcon/>
+                            <GitHubIcon />
                         </ListItemIcon>
-                        <Button variant="text" target="blank" href="https://github.com/DevPreps">
-                        https://github.com/DevPreps
+                        <Button
+                            variant="text"
+                            target="blank"
+                            href="https://github.com/DevPreps"
+                        >
+                            https://github.com/DevPreps
                         </Button>
                     </ListItem>
                     <ListItem>
@@ -72,7 +84,7 @@ const Contact = () => {
                     </ListItem>
                 </List>
             </Grid>
-            <ContactForm onSubmit={onSubmit}/>
+            <ContactForm onSubmit={onSubmit} />
         </Grid>
     );
 };

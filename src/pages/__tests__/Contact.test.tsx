@@ -4,7 +4,7 @@ import Contact from "../Contact";
 
 describe("Test Contact Page", () => {
     const wrapper = shallow(<Contact />);
-    console.log(wrapper.debug());
+    
     it("should be able to render title Contact Us", () => {
         expect(wrapper.find({ children: "Contact Us" }).length).toBe(1);
     });

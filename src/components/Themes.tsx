@@ -31,6 +31,9 @@ export const baseTheme = (mode: PaletteMode) => {
                 textTransform: "capitalize",
             },
         },
+        zIndex: {
+            modal: "1250!important" as any,
+        },
         breakpoints: {
             values: {
                 xs: 0,

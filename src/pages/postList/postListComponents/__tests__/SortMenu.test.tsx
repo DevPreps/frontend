@@ -5,7 +5,13 @@ import SortMenu from "../SortMenu";
 describe("<SortMenu /> rendering", () => {
     const wrapper = shallow(<SortMenu />);
     // test if SortMenu component renders
-    it("should be able to render <SortMenu />", () => {
-        wrapper;
+    it("should contain a Sort label />", () => {
+        expect(wrapper.find({ children: "Sort" }).length).toBe(1);
+    });
+
+    it("should contain latest, likes, most saved MenuItems />", () => {
+        ["latest", "likes", "most saved"].map((item) =>
+            expect(wrapper.find({ value: item }).length).toBe(1)
+        );
     });
 });

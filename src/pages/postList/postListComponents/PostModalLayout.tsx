@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import { SubmitHandler } from "react-hook-form";
-
-// import form data interface
-import { IFormInputs } from "../PostForms/IFormInputs";
 
 // Import MUI components
 import Box from "@mui/material/Box";
@@ -13,19 +9,21 @@ import Typography from "@mui/material/Typography";
 
 // import MUI icons
 import AddIcon from "@mui/icons-material/Add";
-import InterviewPostForm from "../PostForms/InterviewPostForm";
 
-const CreateInterviewPost = () => {
+// define the interface for react props
+interface Props {
+    operation?: "COMPOSE" | "EDIT";
+}
+
+const PostModalLayout: React.FC<Props> = ({
+    children,
+    operation = "COMPOSE",
+}) => {
     // state management
     const [open, setOpen] = useState(false);
     // open and close modal function
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-    // handle form submission
-    const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
-        console.log("data", data);
-    };
 
     return (
         <div>
@@ -33,8 +31,9 @@ const CreateInterviewPost = () => {
                 variant="contained"
                 startIcon={<AddIcon />}
                 onClick={handleOpen}
+                data-testid="composeBtn"
             >
-                Compose
+                {operation}
             </Button>
             {/* compose post modal*/}
             <Modal
@@ -42,7 +41,7 @@ const CreateInterviewPost = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style.modal}>
+                <Box sx={styles.modal}>
                     {/* close button */}
                     <Grid container justifyContent="flex-end">
                         <Button onClick={handleClose}>X</Button>
@@ -52,19 +51,19 @@ const CreateInterviewPost = () => {
                         id="modal-modal-title"
                         variant="h5"
                         align="center"
-                        sx={style.title}
+                        sx={styles.title}
                     >
-                        COMPOSE A INTERVIEW POST
+                        {operation}
                     </Typography>
                     {/* compose post form */}
-                    <InterviewPostForm onSubmit={onSubmit} />
+                    {children}
                 </Box>
             </Modal>
         </div>
     );
 };
 
-const style = {
+const styles = {
     modal: {
         position: "absolute",
         top: "50%",
@@ -85,4 +84,4 @@ const style = {
     },
 } as const;
 
-export default CreateInterviewPost;
+export default PostModalLayout;

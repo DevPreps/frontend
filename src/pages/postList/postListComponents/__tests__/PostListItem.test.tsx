@@ -1,15 +1,29 @@
 import React from "react";
 import { shallow } from "enzyme";
 import PostListItem from "../PostListItem";
+import { posts } from "../../../../data";
 // test component rendering
 describe("<PostListItem /> rendering", () => {
-    const wrapper = shallow(<PostListItem />);
+    const wrapper = shallow(<PostListItem post={posts[0]} />);
     // test if PostListItem component renders
-    it("should be able to render <PostListItem />", () => {
-        wrapper;
+    it("should contain post title", () => {
+        expect(wrapper.find({ "data-testid": "post-title" }).text()).toEqual(
+            posts[0].title
+        );
     });
-    // test if there are 9 Link elements
-    // it("should render 4 Links", () => {
-    //     expect(wrapper.find("Link")).toHaveLength(4);
-    // });
+    it("should contain post date", () => {
+        expect(wrapper.find({ "data-testid": "post-date" }).text()).toEqual(
+            posts[0].date
+        );
+    });
+    it("should contain post content", () => {
+        expect(
+            wrapper.find({ "data-testid": "post-description" }).text()
+        ).toEqual(posts[0].description);
+    });
+    it("should contain post image", () => {
+        expect(wrapper.find({ alt: "image text" }).prop("image")).toEqual(
+            posts[0].image
+        );
+    });
 });

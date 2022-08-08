@@ -1,29 +1,17 @@
 import React from "react";
 
-// import Post List components
-import PostList from "./postListComponents/PostList";
+// import Post List component and create post modal
+import PostListLayout from "./postListComponents/PostListLayout";
+import CreatePost from "./composePost/CreatePost";
 
-// import MUI components
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import SearchBar from "./postListComponents/SearchBar";
-import Typography from "@mui/material/Typography";
-import NewLearnPost from "./composePost/CreateLearnPost";
+// TODO - posts will be changed to used state and fetched from backend.
+import { posts } from "../../data";
+
 const LearnPostList = () => {
     return (
-        <Stack spacing={2}>
-            {/* the following title just show which page is rendered, will be deleted later */}
-            <Typography variant="h3">
-                Learn Post List (This title will be deleted)
-            </Typography>
-            {/* search bar */}
-            <SearchBar />
-            <PostList>
-                <NewLearnPost />
-            </PostList>
-            {/* load more button */}
-            <Button>Load More</Button>
-        </Stack>
+        <PostListLayout title="Learn Posts" posts={posts} withSearchBar={true}>
+            <CreatePost />
+        </PostListLayout>
     );
 };
 

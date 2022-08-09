@@ -9,7 +9,6 @@ import { IContactFormInputs } from "../IFormInputs";
 describe("Test ContactForm component", () => {
     const onSubmit = (data: IContactFormInputs) => console.log(data);
     const wrapper = shallow(<ContactForm onSubmit={onSubmit} />);
-    console.log(wrapper.debug());
 
     it("should have a TextFieldInput for name", () => {
         expect(wrapper.find({ name: "name" }).length).toBe(1);

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 // import ContactForm and form data interface
-import ContactForm from "../forms/contactForm";
+import ContactForm from "../forms/ContactForm";
 import { IContactFormInputs } from "../forms/IFormInputs";
 
 // import MUI component
@@ -19,12 +20,44 @@ import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SendIcon from "@mui/icons-material/Send";
 
+// define message interface
+interface IMessageProps {
+    data: IContactFormInputs;
+}
 const Contact = () => {
-    // handle form submission
+    const [isSucced, setIsSucceed] = useState(false)
+    /**  define the send message function. The message will be sent via Email.js API.
+     * we're currently using a free tier, with the limitation of 200 monthly requests
+     * per month.*/
+    const sendMessage = (data: HTMLFormElement) => {
+        emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, data, process.env.REACT_APP_PUBLIC_KEY)
+          .then(() => {
+            setIsSucceed(true);
+          }, (error) => {
+            alert(error.text);
+          })
+      }
+    // TODO - need to add logics to handle form submission
     const onSubmit: SubmitHandler<IContactFormInputs> = (
         data: IContactFormInputs
     ) => {
         console.log("data", data);
+        fetch(`https://api.apilayer.com/email_verification/${data.email}`, {
+          method: "GET",
+          headers: {
+            "apikey": APIKEY
+          }
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log("data.isDeliverable", data);
+            if (data.is_deliverable) {
+              sendMessage(data);
+            } else {
+              alert("Please enter a deliverable email")
+            }
+          }
+          )
     };
     return (
         <Grid container sx={styles.grid}>

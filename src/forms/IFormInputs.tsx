@@ -68,3 +68,12 @@ export interface IContactFormInputs {
     subject: string;
     message: string;
 }
+
+export interface IReportFormInputs {
+    postId?: string;
+    userId?: string;
+    commentId?: string;
+    reportedUrl: string;
+    message: string;
+    violationType: string;
+}

@@ -41,3 +41,10 @@ export const contactFormSchema = yup.object().shape({
     subject: yup.string().required(),
     message: yup.string().required(),
 });
+
+// TODO - Define ReportForm validation schema, will be updated later
+export const reportFormSchema = yup.object().shape({
+    reportedUrl: yup.string().required(),
+    message: yup.string().required(),
+    violationType: yup.string().required(),
+});

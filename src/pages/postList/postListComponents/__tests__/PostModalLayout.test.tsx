@@ -15,8 +15,8 @@ describe("Test PostModalLayout component", () => {
         );
     });
 
-    it("should be able to render a COMPOSE button", () => {
-        expect(wrapper.find({ "data-testid": "composeBtn" }).text()).toEqual(
+    it("should be able to render a operation button", () => {
+        expect(wrapper.find({ "data-testid": "operationBtn" }).text()).toEqual(
             "COMPOSE"
         );
     });

@@ -44,6 +44,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@emailjs/browser": "^3.6.2",
         "@emotion/react": "^11.9.3",
         "@emotion/styled": "^11.9.3",
         "@hookform/resolvers": "^2.9.7",

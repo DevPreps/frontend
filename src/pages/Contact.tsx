@@ -25,39 +25,47 @@ interface IMessageProps {
     data: IContactFormInputs;
 }
 const Contact = () => {
-    const [isSucced, setIsSucceed] = useState(false)
+    const [isSucced, setIsSucceed] = useState(false);
     /**  define the send message function. The message will be sent via Email.js API.
      * we're currently using a free tier, with the limitation of 200 monthly requests
      * per month.*/
     const sendMessage = (data: HTMLFormElement) => {
-        emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, data, process.env.REACT_APP_PUBLIC_KEY)
-          .then(() => {
-            setIsSucceed(true);
-          }, (error) => {
-            alert(error.text);
-          })
-      }
+        emailjs
+            .sendForm(
+                process.env.REACT_APP_SERVICE_ID,
+                process.env.REACT_APP_TEMPLATE_ID,
+                data,
+                process.env.REACT_APP_PUBLIC_KEY
+            )
+            .then(
+                () => {
+                    setIsSucceed(true);
+                },
+                (error) => {
+                    alert(error.text);
+                }
+            );
+    };
     // TODO - need to add logics to handle form submission
     const onSubmit: SubmitHandler<IContactFormInputs> = (
         data: IContactFormInputs
     ) => {
         console.log("data", data);
         fetch(`https://api.apilayer.com/email_verification/${data.email}`, {
-          method: "GET",
-          headers: {
-            "apikey": APIKEY
-          }
+            method: "GET",
+            headers: {
+                apikey: APIKEY,
+            },
         })
-          .then(res => res.json())
-          .then(data => {
-            console.log("data.isDeliverable", data);
-            if (data.is_deliverable) {
-              sendMessage(data);
-            } else {
-              alert("Please enter a deliverable email")
-            }
-          }
-          )
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("data.isDeliverable", data);
+                if (data.is_deliverable) {
+                    sendMessage(data);
+                } else {
+                    alert("Please enter a deliverable email");
+                }
+            });
     };
     return (
         <Grid container sx={styles.grid}>
@@ -74,7 +82,12 @@ const Contact = () => {
                             <EmailIcon />
                         </ListItemIcon>
                         <Typography variant="subtitle1">
-                            <Button variant="text" href="mailto:devprep@outlook.com.au" target="blank" sx={styles.button}>
+                            <Button
+                                variant="text"
+                                href="mailto:devprep@outlook.com.au"
+                                target="blank"
+                                sx={styles.button}
+                            >
                                 devprep@outlook.com.au
                             </Button>
                         </Typography>

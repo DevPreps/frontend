@@ -11,15 +11,11 @@ describe("Test ReportForm component", () => {
         reportedUrl: "#",
         message: "",
         violationType: "other",
-    }
+    };
     const onSubmit = (data: IReportFormInputs) => console.log(data);
     const wrapper = shallow(
-    <ReportForm 
-    onSubmit={onSubmit} 
-    formDefaultValues={formDefaultValues}
-    />
+        <ReportForm onSubmit={onSubmit} formDefaultValues={formDefaultValues} />
     );
-    console.log(wrapper.debug());
 
     it("should have a TextFieldInput for name", () => {
         expect(wrapper.find({ name: "reportedUrl" }).length).toBe(1);

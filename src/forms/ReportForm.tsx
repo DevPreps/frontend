@@ -16,7 +16,7 @@ import Grid from "@mui/material/Grid";
 
 // define interface for props
 interface Props {
-    formDefaultValues:IReportFormInputs;
+    formDefaultValues: IReportFormInputs;
     onSubmit: SubmitHandler<IReportFormInputs>;
 }
 
@@ -28,7 +28,7 @@ const ReportForm = ({ onSubmit, formDefaultValues }: Props) => {
     });
     const { handleSubmit } = methods;
     return (
-        // form provider will pass the control and errors to form input and can be used in testing full render of reusable input components 
+        // form provider will pass the control and errors to form input and can be used in testing full render of reusable input components
         <FormProvider {...methods}>
             <Grid
                 item
@@ -38,7 +38,7 @@ const ReportForm = ({ onSubmit, formDefaultValues }: Props) => {
                 sx={styles.gridContainer}
                 noValidate
             >
-            {/* TODO - The url should be pop up automatically */}
+                {/* TODO - The url should be pop up automatically */}
                 <TextFieldInput
                     helperText="The url of the post/comment"
                     name="reportedUrl"
@@ -48,10 +48,8 @@ const ReportForm = ({ onSubmit, formDefaultValues }: Props) => {
                     helperText="Please choose the violation type"
                     name="violationType"
                     options={violationOptions}
-                    defaultValue={
-                        formDefaultValues["violationType"] || "other"
-                    }
-                 />
+                    defaultValue={formDefaultValues["violationType"] || "other"}
+                />
                 <TextFieldInput
                     helperText="
                     Please provide any additional information or context that will help us understand and handle the report."

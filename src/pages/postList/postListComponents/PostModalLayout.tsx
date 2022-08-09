@@ -15,7 +15,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 // define the interface for react props
 interface Props {
-    operation?: "COMPOSE" | "EDIT"|"REPORT";
+    operation?: "COMPOSE" | "EDIT" | "REPORT";
 }
 
 const PostModalLayout: React.FC<Props> = ({
@@ -31,21 +31,22 @@ const PostModalLayout: React.FC<Props> = ({
     return (
         <div>
             {/* render different button according to the operation prop */}
-            {operation==="REPORT" ? 
-                (<Tooltip title="Report the content">
-                        <IconButton aria-label="report" onClick={handleOpen}>
-                    <FlagIcon />
-                </IconButton>
-                </Tooltip>) :
+            {operation === "REPORT" ? (
+                <Tooltip title="Report the content">
+                    <IconButton aria-label="report" onClick={handleOpen}>
+                        <FlagIcon />
+                    </IconButton>
+                </Tooltip>
+            ) : (
                 <Button
-                variant="text"
-                startIcon={<BorderColorIcon />}
-                onClick={handleOpen}
-                data-testid="operationBtn"
-            >
-                {operation}
-            </Button>
-            }
+                    variant="text"
+                    startIcon={<BorderColorIcon />}
+                    onClick={handleOpen}
+                    data-testid="operationBtn"
+                >
+                    {operation}
+                </Button>
+            )}
 
             {/* compose post modal*/}
             <Modal
@@ -55,7 +56,11 @@ const PostModalLayout: React.FC<Props> = ({
             >
                 <Box sx={styles.modal}>
                     {/* close button */}
-                    <IconButton aria-label="close-btn" onClick={handleClose} sx={styles.closeBtn}>
+                    <IconButton
+                        aria-label="close-btn"
+                        onClick={handleClose}
+                        sx={styles.closeBtn}
+                    >
                         <CloseIcon />
                     </IconButton>
                     {/* Modal Title */}

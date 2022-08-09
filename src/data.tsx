@@ -12,9 +12,9 @@ export const violationOptions = [
     "Harassment or hate speech",
     "Inappropriate listings message/category",
     "Rude or vulgar",
-    "Spam or copyright issue",  
-    "other"
-]
+    "Spam or copyright issue",
+    "other",
+];
 // TODO - these values are used for development and test
 export const posts = [
     {

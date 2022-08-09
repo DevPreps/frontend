@@ -22,7 +22,7 @@ describe("Test PostModalLayout component", () => {
     });
 
     it("should be able to render a close button", () => {
-        expect(wrapper.find({ children: "X" }).length).toBe(1);
+        expect(wrapper.find("Memo(ForwardRef(CloseIcon))").length).toBe(1);
     });
 
     it("should be able to render children component", () => {

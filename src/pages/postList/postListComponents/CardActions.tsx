@@ -32,20 +32,20 @@ export const UserCardActions = () => {
             </Avatar>
             <Typography>Username</Typography>
             <Tooltip title="Comment">
-            <IconButton aria-label="add comment" sx={styles.addBtn}>
-                <AddCommentIcon />
-            </IconButton>
+                <IconButton aria-label="add comment" sx={styles.addBtn}>
+                    <AddCommentIcon />
+                </IconButton>
             </Tooltip>
             <Tooltip title="Like the post">
-            <IconButton aria-label="like the post" sx={styles.likeBtn}>
-                <FavoriteBorderIcon />
-            </IconButton>
+                <IconButton aria-label="like the post" sx={styles.likeBtn}>
+                    <FavoriteBorderIcon />
+                </IconButton>
             </Tooltip>
             <span>18</span>
             <Tooltip title="Save the post">
-            <IconButton aria-label="bookmark">
-                <BookmarkAddIcon />
-            </IconButton>
+                <IconButton aria-label="bookmark">
+                    <BookmarkAddIcon />
+                </IconButton>
             </Tooltip>
             <Report />
         </CardActions>

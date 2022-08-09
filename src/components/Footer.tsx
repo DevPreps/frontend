@@ -40,6 +40,16 @@ const Footer = () => {
                         </Grid>
                         <Grid item xs={12} sm={3} lineHeight={2}>
                             <Box sx={styles.bottomLine}>CONTACT</Box>
+                            <Box>
+                                <Link
+                                    href="/contact"
+                                    target="_blank"
+                                    underline="none"
+                                    sx={styles.muiLink}
+                                >
+                                    Contact Us
+                                </Link>
+                            </Box>
                             <Box>Email: devprep@outlook.com.au</Box>
                             <Box>
                                 <Link

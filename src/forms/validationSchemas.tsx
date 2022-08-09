@@ -33,3 +33,11 @@ export const myProfileFormSchema = yup.object().shape({
     github: yup.string(),
     imageUrl: yup.string(),
 });
+
+// TODO - Define ContactForm validation schema, will be updated later
+export const contactFormSchema = yup.object().shape({
+    name: yup.string().required(),
+    email: yup.string().required(),
+    subject: yup.string().required(),
+    message: yup.string().required(),
+});

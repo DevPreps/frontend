@@ -2,9 +2,12 @@ import React from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-// import form data interface and validation schema
+// import form data interface, validation schema 
 import { IContactFormInputs } from "./IFormInputs";
 import { contactFormSchema } from "./validationSchemas";
+
+// import form default values which are needed to fix MUI uncontrolled/controlled component warning and error
+import { contactFormDefaultValues } from "./formDefaultValues";
 
 // import reusable form input components
 import { TextFieldInput } from "./FormInput";
@@ -12,16 +15,20 @@ import { TextFieldInput } from "./FormInput";
 // Import MUI components
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { green } from "@mui/material/colors";
 
 // define interface for props
 interface Props {
+    isSucceed: boolean,
     onSubmit: SubmitHandler<IContactFormInputs>;
 }
 
-const ContactForm = ({ onSubmit }: Props) => {
+const ContactForm = ({ isSucceed, onSubmit }: Props) => {
     // react hook form
     const methods = useForm<IContactFormInputs>({
         resolver: yupResolver(contactFormSchema),
+        defaultValues: contactFormDefaultValues,
     });
     const { handleSubmit } = methods;
     return (
@@ -38,17 +45,14 @@ const ContactForm = ({ onSubmit }: Props) => {
                 <TextFieldInput
                     helperText="Your name"
                     name="name"
-                    required={true}
                 />
                 <TextFieldInput
                     helperText="The subject of your message"
                     name="subject"
-                    required={true}
                 />
                 <TextFieldInput
                     helperText="You email address"
                     name="email"
-                    required={true}
                 />
                 <TextFieldInput
                     helperText="Please leave your message here"
@@ -63,6 +67,12 @@ const ContactForm = ({ onSubmit }: Props) => {
                 >
                     SEND
                 </Button>
+                <Typography 
+                variant="body1"
+                data-testid="successMessage" 
+                sx={isSucceed ? styles.messageSuccess : styles.messageFail}>
+                    Thanks for you message, we will get back to your ASAP.
+                </Typography>
             </Grid>
         </FormProvider>
     );
@@ -72,6 +82,19 @@ const styles = {
         px: 2,
         maxWidth: "800px",
     },
+    messageFail: {
+        p: 2,
+        visibility: "hidden",
+        mt: 2,
+    }, 
+    messageSuccess: {
+        p: 2,
+        mt:2,
+        border: 1,
+        borderColor: green["A700"],
+        borderRadius: 1,
+    }, 
+
     sendButton: { px: 4 },
 } as const;
 

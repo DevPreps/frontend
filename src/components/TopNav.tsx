@@ -59,6 +59,8 @@ export default function TopNav() {
         },
     ]
 
+    const mobileLinks = [...navLinks, ...groupNavLinks];
+    
     return (
         <>
             <AppBar position="sticky" sx={style.overlay}>
@@ -80,29 +82,10 @@ export default function TopNav() {
                         </Box>
                         <ThemeToggler />
                         <SideNav>
-                            {navLinks?.map((link, index) => (
+                            {mobileLinks?.map((link, index) => (
                                 <ListItem disablePadding key={index}>
-                                    <ListItemButton sx={style.textCenter}>
-                                        <ListItemText
-                                            primary={
-                                                <Button key={index} component={Link} to={link.to}>
-                                                    {link.text}
-                                                </Button>
-                                            }
-                                        />
-                                    </ListItemButton>
-                                </ListItem>
-                            ))}
-                            {groupNavLinks?.map((link, index) => (
-                                <ListItem disablePadding key={index}>
-                                    <ListItemButton sx={style.textCenter}>
-                                        <ListItemText
-                                            primary={
-                                                <Button key={index} component={Link} to={link.to}>
-                                                    {link.text}
-                                                </Button>
-                                            }
-                                        />
+                                    <ListItemButton component={Link} to={link.to} sx={style.ListItemButton}>
+                                        <ListItemText sx={style.itemText} primary={link.text}/>    
                                     </ListItemButton>
                                 </ListItem>
                             ))}
@@ -117,8 +100,10 @@ export const style = {
     overlay: {
         zIndex: 1210
     },
-    textCenter: {
+    ListItemButton: {
         textAlign: "center",
+        justifyContent: "center",
+        mb: .4,
     },
     buttonGroup: {
         mx: .4,
@@ -127,6 +112,10 @@ export const style = {
         between: {
             justifyContent: "space-between",
         },
+    },
+    itemText: {
+        pt: .1,
+        pb: .1,
     },
     drawerContent: {
         "& .MuiDrawer-paper": {

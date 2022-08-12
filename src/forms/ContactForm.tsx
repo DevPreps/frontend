@@ -2,7 +2,7 @@ import React from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-// import form data interface, validation schema 
+// import form data interface, validation schema
 import { IContactFormInputs } from "./IFormInputs";
 import { contactFormSchema } from "./validationSchemas";
 
@@ -20,7 +20,7 @@ import { green } from "@mui/material/colors";
 
 // define interface for props
 interface Props {
-    isSucceed: boolean,
+    isSucceed: boolean;
     onSubmit: SubmitHandler<IContactFormInputs>;
 }
 
@@ -42,18 +42,12 @@ const ContactForm = ({ isSucceed, onSubmit }: Props) => {
                 sx={styles.gridContainer}
                 noValidate
             >
-                <TextFieldInput
-                    helperText="Your name"
-                    name="name"
-                />
+                <TextFieldInput helperText="Your name" name="name" />
                 <TextFieldInput
                     helperText="The subject of your message"
                     name="subject"
                 />
-                <TextFieldInput
-                    helperText="You email address"
-                    name="email"
-                />
+                <TextFieldInput helperText="You email address" name="email" />
                 <TextFieldInput
                     helperText="Please leave your message here"
                     name="message"
@@ -67,10 +61,11 @@ const ContactForm = ({ isSucceed, onSubmit }: Props) => {
                 >
                     SEND
                 </Button>
-                <Typography 
-                variant="body1"
-                data-testid="successMessage" 
-                sx={isSucceed ? styles.messageSuccess : styles.messageFail}>
+                <Typography
+                    variant="body1"
+                    data-testid="successMessage"
+                    sx={isSucceed ? styles.messageSuccess : styles.messageFail}
+                >
                     Thanks for you message, we will get back to your ASAP.
                 </Typography>
             </Grid>
@@ -86,14 +81,14 @@ const styles = {
         p: 2,
         visibility: "hidden",
         mt: 2,
-    }, 
+    },
     messageSuccess: {
         p: 2,
-        mt:2,
+        mt: 2,
         border: 1,
         borderColor: green["A700"],
         borderRadius: 1,
-    }, 
+    },
 
     sendButton: { px: 4 },
 } as const;

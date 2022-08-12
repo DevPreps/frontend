@@ -1,12 +1,16 @@
-import { IContactFormInputs, IFormInputs, IMyProfileFormInputs } from "./IFormInputs";
+import {
+    IContactFormInputs,
+    IFormInputs,
+    IMyProfileFormInputs,
+} from "./IFormInputs";
 
 // TODO- these default values might need to be updated
 export const contactFormDefaultValues: IContactFormInputs = {
     name: "",
     email: "",
-    subject:"",
+    subject: "",
     message: "",
-}
+};
 export const generalFormDefaultValues: IFormInputs = {
     category: "general",
     title: "",

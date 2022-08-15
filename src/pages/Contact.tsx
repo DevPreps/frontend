@@ -23,24 +23,30 @@ import SendIcon from "@mui/icons-material/Send";
 
 /**  define the send message function. The message will be sent via Email.js API.
  * we're currently using a free tier, with the limitation of 200 requests per month.*/
-export const sendMessage = async (data: IContactFormInputs) => {
+export const sendMessage = async (
+    data: IContactFormInputs,
+    setIsError: React.Dispatch<React.SetStateAction<boolean>>
+) => {
     try {
-        await emailjs.send(
+        const res = await emailjs.send(
             process.env.REACT_APP_EMAIL_SERVICE_ID,
             process.env.REACT_APP_EMAIL_TEMPLATE_ID,
             { ...data },
             process.env.REACT_APP_EMAIL_PUBLIC_KEY
         );
-        return true;
+        if (res.status === 200) return true;
     } catch (error) {
-        alert("Something went wrong, please try again later");
-        console.log("contact form send message error: ", error);
+        setIsError(true);
+        // console.log("contact form send message error: ", error);
     }
 };
 
 /**  Using APILayer Email Validation API to check if the email address that provided by user is deliverable.
  * we're currently using a free tier, with the limitation of 20 request per day and 100 requests per month. */
-export const verifyEmail = async (data: IContactFormInputs) => {
+export const verifyEmail = async (
+    data: IContactFormInputs,
+    setIsError: React.Dispatch<React.SetStateAction<boolean>>
+) => {
     try {
         const res = await axios.get(
             `https://api.apilayer.com/email_verification/${data.email}`,
@@ -57,19 +63,21 @@ export const verifyEmail = async (data: IContactFormInputs) => {
             return false;
         }
     } catch (error) {
-        console.log("apiLayer email validation error: ", error);
-        alert("Something went wrong, please try again later");
+        // console.log("apiLayer email validation error: ", error);
+        setIsError(true);
     }
 };
 
 export const Contact = () => {
     //TODO - isLoading hasn't been defined yet, as considering isLoading as a global state
     const [isSucceed, setIsSucceed] = useState(false);
+    const [isError, setIsError] = useState(false);
+
     const onSubmit: SubmitHandler<IContactFormInputs> = async (
         data: IContactFormInputs
     ) => {
-        if (await verifyEmail(data)) {
-            if (await sendMessage(data)) {
+        if (await verifyEmail(data, setIsError)) {
+            if (await sendMessage(data, setIsError)) {
                 setIsSucceed(true);
             }
         }
@@ -139,7 +147,11 @@ export const Contact = () => {
                     </ListItem>
                 </List>
             </Grid>
-            <ContactForm onSubmit={onSubmit} isSucceed={isSucceed} />
+            <ContactForm
+                onSubmit={onSubmit}
+                isSucceed={isSucceed}
+                isError={isError}
+            />
         </Grid>
     );
 };

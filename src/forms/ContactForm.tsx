@@ -16,15 +16,16 @@ import { TextFieldInput } from "./FormInput";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { green } from "@mui/material/colors";
+import { green, red } from "@mui/material/colors";
 
 // define interface for props
 interface Props {
+    isError: boolean;
     isSucceed: boolean;
     onSubmit: SubmitHandler<IContactFormInputs>;
 }
 
-const ContactForm = ({ isSucceed, onSubmit }: Props) => {
+const ContactForm = ({ isError, isSucceed, onSubmit }: Props) => {
     // react hook form
     const methods = useForm<IContactFormInputs>({
         resolver: yupResolver(contactFormSchema),
@@ -61,12 +62,19 @@ const ContactForm = ({ isSucceed, onSubmit }: Props) => {
                 >
                     SEND
                 </Button>
+
                 <Typography
                     variant="body1"
                     data-testid="successMessage"
-                    sx={isSucceed ? styles.messageSuccess : styles.messageFail}
+                    sx={
+                        isSucceed || isError
+                            ? styles.showMessage(isError)
+                            : styles.hideMessage
+                    }
                 >
-                    Thanks for you message, we will get back to your ASAP.
+                    {isSucceed &&
+                        "Thanks for you message, we will get back to your ASAP."}
+                    {isError && "Something went wrong, please try again later"}
                 </Typography>
             </Grid>
         </FormProvider>
@@ -77,19 +85,20 @@ const styles = {
         px: 2,
         maxWidth: "800px",
     },
-    messageFail: {
+    hideMessage: {
         p: 2,
         visibility: "hidden",
         mt: 2,
     },
-    messageSuccess: {
-        p: 2,
-        mt: 2,
-        border: 1,
-        borderColor: green["A700"],
-        borderRadius: 1,
+    showMessage(isError: boolean) {
+        return {
+            p: 2,
+            mt: 2,
+            border: 1,
+            borderColor: isError ? red["900"] : green["A700"],
+            borderRadius: 1,
+        };
     },
-
     sendButton: { px: 4 },
 } as const;
 

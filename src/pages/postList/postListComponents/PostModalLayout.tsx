@@ -15,7 +15,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 // define the interface for react props
 interface Props {
-    operation?: "COMPOSE" | "EDIT" | "REPORT";
+    operation?: "COMPOSE" | "EDIT" | "REPORT" | "ERROR";
 }
 
 const PostModalLayout: React.FC<Props> = ({

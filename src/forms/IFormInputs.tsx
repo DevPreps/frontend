@@ -49,6 +49,11 @@ export interface IMyProfileFormInputs {
     github?: string;
 }
 
+export interface ILoginFormInputs {
+    email: string;
+    password: string;
+}
+
 // TODO - post interface, needs to be updated
 export interface IPost {
     postId: string;

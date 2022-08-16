@@ -7,8 +7,7 @@ import { ILoginFormInputs } from "./IFormInputs";
 import { loginFormSchema } from "./validationSchemas";
 
 // import reusable form input components and position data
-import { SelectInput, TextFieldInput } from "./FormInput";
-import { positionOptions } from "../data";
+import { TextFieldInput } from "./FormInput";
 
 // Import MUI components
 import Button from "@mui/material/Button";
@@ -21,12 +20,12 @@ interface Props {
     formDefaultValues: ILoginFormInputs;
 }
 
-const Login = ({ onSubmit, formDefaultValues }: Props) => {
+const LoginForm = ({ onSubmit, formDefaultValues }: Props) => {
     const [isDisabled, setIsDisabled] = useState(true);
     // react hook form
-    const methods = useForm<IMyProfileFormInputs>({
+    const methods = useForm<ILoginFormInputs>({
         defaultValues: formDefaultValues,
-        resolver: yupResolver(myProfileFormSchema),
+        resolver: yupResolver(loginFormSchema),
     });
     const { handleSubmit } = methods;
     return (
@@ -39,79 +38,15 @@ const Login = ({ onSubmit, formDefaultValues }: Props) => {
                 onSubmit={handleSubmit(onSubmit)}
                 sx={styles.gridContainer}
             >
-                <Grid item xs={12} sm={6}>
                     <TextFieldInput
-                        helperText=""
-                        name="firstName"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="lastName"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="username"
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
+                        helperText="Please enter your email"
                         name="email"
-                        disabled={isDisabled}
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
                     <TextFieldInput
-                        helperText=""
-                        name="jobTitle"
-                        required={false}
-                        disabled={isDisabled}
+                        helperText="Please enter your password"
+                        name="password"
+                        type="password"
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <SelectInput
-                        helperText=""
-                        name="position"
-                        options={positionOptions}
-                        required={false}
-                        disabled={isDisabled}
-                        // set defaultValue here to disable MUI warning
-                        defaultValue={formDefaultValues["position"]}
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextFieldInput
-                        helperText=""
-                        name="city"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="linkedIn"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="github"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
                 <Stack spacing={3} sx={{ pl: 3, mt: 3 }}>
                     {/* TODO - should link to the change password route  or open a modal*/}
                     <Button variant="text" href="#">
@@ -162,5 +97,5 @@ const styles = {
     saveButton: { px: 4 },
 } as const;
 
-export default Login;
+export default LoginForm;
 

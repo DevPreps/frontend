@@ -1,6 +1,7 @@
 import {
     IContactFormInputs,
     IFormInputs,
+    ILoginFormInputs,
     IMyProfileFormInputs,
 } from "./IFormInputs";
 
@@ -38,6 +39,11 @@ export const interviewPostDefaultValues: IFormInputs = {
     position: "Front End Developer",
     description: "test content",
     tags: ["frontend", "backend"],
+};
+
+export const loginFormDefaultValues: ILoginFormInputs = {
+    email: "",
+    password:"",
 };
 
 export const myProfileFormDefaultValues: IMyProfileFormInputs = {

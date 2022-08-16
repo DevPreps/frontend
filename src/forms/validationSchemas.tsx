@@ -34,6 +34,13 @@ export const myProfileFormSchema = yup.object().shape({
     imageUrl: yup.string(),
 });
 
+// TODO - Define LoginForm validation schema, should be conform with backend validation schema and will be updated later 
+export const loginFormSchema = yup.object().shape({
+    email: yup.string().email().required(),
+    // Minimum six and maximum 15 characters, at least one uppercase letter, one lowercase letter, one number and one special character
+    password: yup.string().matches(/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[-@$!%?&])[A-Za-z\d-@$!%?&]{6,15}$/) .required(),
+});
+
 // TODO - Define ContactForm validation schema, will be updated later
 export const contactFormSchema = yup.object().shape({
     name: yup.string().required(),

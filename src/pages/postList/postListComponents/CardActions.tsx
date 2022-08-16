@@ -17,6 +17,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 // import MUI colors
 import { red } from "@mui/material/colors";
+import Tooltip from "@mui/material/Tooltip";
+import Report from "./ReportModal";
 
 // define interface for props
 interface Props {
@@ -29,17 +31,23 @@ export const UserCardActions = () => {
                 R
             </Avatar>
             <Typography>Username</Typography>
-            <IconButton aria-label="add comment" sx={styles.addBtn}>
-                <AddCommentIcon />
-            </IconButton>
-
-            <IconButton aria-label="like the post" sx={styles.likeBtn}>
-                <FavoriteBorderIcon />
-            </IconButton>
+            <Tooltip title="Comment">
+                <IconButton aria-label="add comment" sx={styles.addBtn}>
+                    <AddCommentIcon />
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Like the post">
+                <IconButton aria-label="like the post" sx={styles.likeBtn}>
+                    <FavoriteBorderIcon />
+                </IconButton>
+            </Tooltip>
             <span>18</span>
-            <IconButton aria-label="bookmark">
-                <BookmarkAddIcon />
-            </IconButton>
+            <Tooltip title="Save the post">
+                <IconButton aria-label="bookmark">
+                    <BookmarkAddIcon />
+                </IconButton>
+            </Tooltip>
+            <Report />
         </CardActions>
     );
 };

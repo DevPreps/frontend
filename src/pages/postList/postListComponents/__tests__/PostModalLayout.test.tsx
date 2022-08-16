@@ -15,14 +15,14 @@ describe("Test PostModalLayout component", () => {
         );
     });
 
-    it("should be able to render a COMPOSE button", () => {
-        expect(wrapper.find({ "data-testid": "composeBtn" }).text()).toEqual(
+    it("should be able to render a operation button", () => {
+        expect(wrapper.find({ "data-testid": "operationBtn" }).text()).toEqual(
             "COMPOSE"
         );
     });
 
     it("should be able to render a close button", () => {
-        expect(wrapper.find({ children: "X" }).length).toBe(1);
+        expect(wrapper.find("Memo(ForwardRef(CloseIcon))").length).toBe(1);
     });
 
     it("should be able to render children component", () => {

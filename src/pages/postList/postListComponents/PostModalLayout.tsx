@@ -3,16 +3,19 @@ import React, { useState } from "react";
 // Import MUI components
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 
 // import MUI icons
-import AddIcon from "@mui/icons-material/Add";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
+import CloseIcon from "@mui/icons-material/Close";
+import FlagIcon from "@mui/icons-material/Flag";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 // define the interface for react props
 interface Props {
-    operation?: "COMPOSE" | "EDIT";
+    operation?: "COMPOSE" | "EDIT" | "REPORT" | "ERROR";
 }
 
 const PostModalLayout: React.FC<Props> = ({
@@ -27,14 +30,24 @@ const PostModalLayout: React.FC<Props> = ({
 
     return (
         <div>
-            <Button
-                variant="contained"
-                startIcon={<AddIcon />}
-                onClick={handleOpen}
-                data-testid="composeBtn"
-            >
-                {operation}
-            </Button>
+            {/* render different button according to the operation prop */}
+            {operation === "REPORT" ? (
+                <Tooltip title="Report the content">
+                    <IconButton aria-label="report" onClick={handleOpen}>
+                        <FlagIcon />
+                    </IconButton>
+                </Tooltip>
+            ) : (
+                <Button
+                    variant="text"
+                    startIcon={<BorderColorIcon />}
+                    onClick={handleOpen}
+                    data-testid="operationBtn"
+                >
+                    {operation}
+                </Button>
+            )}
+
             {/* compose post modal*/}
             <Modal
                 open={open}
@@ -43,9 +56,13 @@ const PostModalLayout: React.FC<Props> = ({
             >
                 <Box sx={styles.modal}>
                     {/* close button */}
-                    <Grid container justifyContent="flex-end">
-                        <Button onClick={handleClose}>X</Button>
-                    </Grid>
+                    <IconButton
+                        aria-label="close-btn"
+                        onClick={handleClose}
+                        sx={styles.closeBtn}
+                    >
+                        <CloseIcon />
+                    </IconButton>
                     {/* Modal Title */}
                     <Typography
                         id="modal-modal-title"
@@ -64,6 +81,11 @@ const PostModalLayout: React.FC<Props> = ({
 };
 
 const styles = {
+    closeBtn: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+    },
     modal: {
         position: "absolute",
         top: "50%",
@@ -80,7 +102,7 @@ const styles = {
         maxHeight: "85%",
     },
     title: {
-        mb: 2,
+        py: 3,
     },
 } as const;
 

@@ -5,51 +5,18 @@ import React from "react";
 import { shallow } from "enzyme";
 import ThemeHandler from "../components/ThemeHandler";
 
-// test component rendering
-describe("<ThemeHandler /> rendering", () => {
+describe("<themehandler /> rendering", () => {
     const wrapper = shallow(<ThemeHandler />);
     // test if the TopNav component renders
     it("should be able to render <themehandler />", () => {
         wrapper;
     });
-});
+    it("should call setState with initial values on component mount", () => {
+        const mockSetState = jest.spyOn(React, "useState");
 
-const fakeLocalStorage = (function () {
-    let store: any = {};
-
-    return {
-        getItem: function (key: string | number) {
-            return store[key] || null;
-        },
-        setItem: function (
-            key: string | number,
-            value: { toString: () => any }
-        ) {
-            store[key] = value.toString();
-        },
-        removeItem: function (key: string | number) {
-            delete store[key];
-        },
-        clear: function () {
-            store = {};
-        },
-    };
-})();
-
-Object.defineProperty(window, "localStorage", {
-    value: fakeLocalStorage,
-});
-
-describe("storage", () => {
-    beforeAll(() => {
-        Object.defineProperty(window, "localStorage", {
-            value: fakeLocalStorage,
-        });
-    });
-
-    it("Get Localstorage", () => {
-        expect(window.localStorage.getItem("colorMode")).toEqual(
-            window.localStorage.getItem("colorMode") as "light" | "dark"
-        );
+        shallow(<ThemeHandler />);
+    
+        expect(mockSetState).toHaveBeenCalledTimes(1);
+        expect(mockSetState).toHaveBeenCalledWith("dark");
     });
 });

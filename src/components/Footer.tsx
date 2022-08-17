@@ -104,7 +104,7 @@ const styles = {
             xs: 5,
             sm: 5,
         },
-        bgcolor: "#4dabf5",
+        bgcolor: "#4d4d4d",
         color: "white",
     },
     container: {

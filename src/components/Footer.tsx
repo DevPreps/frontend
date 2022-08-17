@@ -42,7 +42,7 @@ const Footer = () => {
                             <Box sx={styles.bottomLine}>CONTACT</Box>
                             <Box>
                                 <RouteLink
-                                    href="/contact"
+                                    to="/contact"
                                     target="_blank"
                                     style={styles.routeLink}
                                 >

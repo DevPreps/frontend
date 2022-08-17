@@ -19,6 +19,9 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
 import { categoryOptions } from "../data";
+import InputAdornment from "@mui/material/InputAdornment";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import IconButton from "@mui/material/IconButton";
 
 // define interface for props
 interface Props<T> extends UseControllerProps<T> {
@@ -31,6 +34,7 @@ interface Props<T> extends UseControllerProps<T> {
     rows?: number;
     tags?: string[];
     type?: string;
+    variant?: "standard" | "outlined" | "filled";
 }
 
 // reusable TextField Input
@@ -42,6 +46,7 @@ export const TextFieldInput = <T extends FieldValues>({
     required = true,
     rows = 1,
     type = "text",
+    variant = "standard",
 }: Props<T>) => {
     const {
         control,
@@ -54,7 +59,7 @@ export const TextFieldInput = <T extends FieldValues>({
             control={control}
             render={({ field }) => (
                 <TextField
-                    variant="standard"
+                    variant={variant}
                     fullWidth
                     error={errors.hasOwnProperty(name)}
                     disabled={disabled}
@@ -67,6 +72,63 @@ export const TextFieldInput = <T extends FieldValues>({
                     type={type}
                     helperText={errors[name]?.message || helperText}
                     sx={styles.marginY}
+                />
+            )}
+        />
+    );
+};
+
+// reusable Password Input
+export const PasswordInput = <T extends FieldValues>({
+    disabled = false,
+    helperText,
+    name,
+    required = true,
+    variant = "standard",
+}: Props<T>) => {
+    const [showPassword, setShowPassword] = useState(true);
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            render={({ field }) => (
+                <TextField
+                    variant={variant}
+                    fullWidth
+                    error={errors.hasOwnProperty(name)}
+                    disabled={disabled}
+                    {...field}
+                    id={`${name}-input`}
+                    label={name}
+                    required={required}
+                    type={showPassword ? "text" : "password"}
+                    helperText={errors[name]?.message || helperText}
+                    sx={styles.marginY}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleShowPassword}
+                                >
+                                    {showPassword ? (
+                                        <VisibilityOff />
+                                    ) : (
+                                        <Visibility />
+                                    )}
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
                 />
             )}
         />
@@ -265,6 +327,6 @@ const styles = {
         left: 0,
     },
     marginY: {
-        my: 2,
+        my: 1,
     },
 } as const;

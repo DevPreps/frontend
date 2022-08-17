@@ -74,6 +74,13 @@ export interface IContactFormInputs {
     message: string;
 }
 
+export interface IRegisterFormInputs {
+    email: string;
+    username: string;
+    password: string;
+    confirmPassword: string;
+}
+
 export interface IReportFormInputs {
     postId?: string;
     userId?: string;

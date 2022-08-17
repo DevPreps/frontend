@@ -1,166 +1,134 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // import form data interface and validation schema
-import { ILoginFormInputs } from "./IFormInputs";
-import { loginFormSchema } from "./validationSchemas";
+import { ILoginFormInputs } from "../forms/IFormInputs";
+import { loginFormSchema } from "../forms/validationSchemas";
 
-// import reusable form input components and position data
-import { SelectInput, TextFieldInput } from "./FormInput";
-import { positionOptions } from "../data";
+// import reusable form input components
+import { PasswordInput, TextFieldInput } from "../forms/FormInput";
 
-// Import MUI components
+// import MUI components
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
-// define interface for props
-interface Props {
-    onSubmit: SubmitHandler<ILoginFormInputs>;
-    formDefaultValues: ILoginFormInputs;
-}
-
-const Login = ({ onSubmit, formDefaultValues }: Props) => {
-    const [isDisabled, setIsDisabled] = useState(true);
+const Login = () => {
     // react hook form
-    const methods = useForm<IMyProfileFormInputs>({
-        defaultValues: formDefaultValues,
-        resolver: yupResolver(myProfileFormSchema),
+    const methods = useForm<ILoginFormInputs>({
+        resolver: yupResolver(loginFormSchema),
     });
     const { handleSubmit } = methods;
+    
+    //TODO - define onSubmit function to handle login
+    const onSubmit: SubmitHandler<ILoginFormInputs> = (
+        data: ILoginFormInputs
+    ) => {
+        console.log(data);
+    };
     return (
-        // form provider will pass the control and errors to form input and can be used in testing full render of reusable input components
-        <FormProvider {...methods}>
-            <Grid
-                container
-                spacing={3}
-                component="form"
-                onSubmit={handleSubmit(onSubmit)}
-                sx={styles.gridContainer}
-            >
-                <Grid item xs={12} sm={6}>
+        <Container maxWidth="xl" sx={styles.pageContainer}>
+            {/* form provider will pass the control and errors to form input and can be used in testing full render of reusable input components */}
+            <FormProvider {...methods}>
+                <Box
+                    component="form"
+                    onSubmit={handleSubmit(onSubmit)}
+                    sx={styles.formContainer}
+                    noValidate
+                >
+                    <Typography variant="h1" sx={styles.title}>
+                        Login
+                    </Typography>
                     <TextFieldInput
-                        helperText=""
-                        name="firstName"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="lastName"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="username"
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
+                        helperText="Please enter your email"
                         name="email"
-                        disabled={isDisabled}
+                        variant="outlined"
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="jobTitle"
-                        required={false}
-                        disabled={isDisabled}
+                    <PasswordInput
+                        helperText="Please enter your password"
+                        name="password"
+                        variant="outlined"
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <SelectInput
-                        helperText=""
-                        name="position"
-                        options={positionOptions}
-                        required={false}
-                        disabled={isDisabled}
-                        // set defaultValue here to disable MUI warning
-                        defaultValue={formDefaultValues["position"]}
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextFieldInput
-                        helperText=""
-                        name="city"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="linkedIn"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextFieldInput
-                        helperText=""
-                        name="github"
-                        required={false}
-                        disabled={isDisabled}
-                    />
-                </Grid>
-                <Stack spacing={3} sx={{ pl: 3, mt: 3 }}>
-                    {/* TODO - should link to the change password route  or open a modal*/}
-                    <Button variant="text" href="#">
-                        CHANGE MY PASSWORD
+                    {/* TODO - should link to the reset/email password route  or open a modal*/}
+                    <Button variant="contained" type="submit">
+                        LOG IN
                     </Button>
-                    {isDisabled ? (
-                        <Button
-                            variant="contained"
-                            type="submit"
-                            color="success"
-                            sx={styles.publishBtn}
-                            onClick={() => setIsDisabled(false)}
-                        >
-                            Edit My Profile
-                        </Button>
-                    ) : (
-                        <Stack
-                            direction="row"
-                            spacing={2}
-                            sx={styles.groupButton}
-                        >
-                            <Button
-                                variant="contained"
-                                type="submit"
-                                sx={styles.saveButton}
-                            >
-                                SAVE
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                onClick={() => setIsDisabled(true)}
-                            >
-                                CANCEL
-                            </Button>
-                        </Stack>
-                    )}
-                </Stack>
-            </Grid>
-        </FormProvider>
+                    <Link href="/" target="_blank" sx={styles.pwLink}>
+                        Forgot password?
+                    </Link>
+                    <Stack direction="row">
+                        <Typography variant="caption" sx={styles.text}>
+                            Don&apos;t have an account yet?
+                        </Typography>
+                        <Link href="/register" target="_blank" sx={styles.link}>
+                            Sign up now
+                        </Link>
+                    </Stack>
+                    <Typography variant="caption" sx={styles.terms}>
+                        By logging in with DevPrep you agree to Devprep&apos;s
+                        {/* TODO - the links for terms and conditions and privacy Policy need to be updated later */}
+                        <Link href="#" target="_blank" sx={styles.link}>
+                            Terms and Conditions.
+                        </Link>
+                        Devprep will handle your personal information in
+                        accordance with its
+                        <Link href="#" target="_blank" sx={styles.link}>
+                            Privacy Policy
+                        </Link>
+                        .
+                    </Typography>
+                </Box>
+            </FormProvider>
+        </Container>
     );
 };
 const styles = {
-    gridContainer: { maxWidth: "800px" },
-    groupButton: { mt: 5, ml: 3 },
-    publishBtn: {
-        mr: 2,
+    formContainer: {
+        boxSizing: "border-box",
+        bgcolor: "background.paper",
+        borderRadius: 2,
+        boxShadow: 3,
+        display: "flex",
+        flexDirection: "Column",
+        justifyContent: "start",
+        width: "100%",
+        maxWidth: "500px",
+        px: {
+            xs: 2,
+            md: 3,
+        },
+        py: 4,
+        my: 4,
     },
-    saveButton: { px: 4 },
+    link: {
+        px: 1,
+        textDecoration: "none",
+    },
+    pageContainer:{
+        px: 0,
+        display: "flex",
+        justifyContent: "center"
+    },
+    pwLink: {
+        fontSize: "14px",
+        py: 2,
+        textDecoration: "none",
+    },
+    text: {
+        pb: 2,
+    },
+    terms: {
+        color: "grey",
+    },
+    title: {
+        fontSize: "30px",
+        fontWeight: "500",
+        textAlign: "center",
+    },
 } as const;
 
 export default Login;
-

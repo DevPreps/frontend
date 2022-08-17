@@ -43,7 +43,7 @@ export const interviewPostDefaultValues: IFormInputs = {
 
 export const loginFormDefaultValues: ILoginFormInputs = {
     email: "",
-    password:"",
+    password: "",
 };
 
 export const myProfileFormDefaultValues: IMyProfileFormInputs = {

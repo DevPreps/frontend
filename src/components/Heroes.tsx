@@ -3,8 +3,9 @@ import React from "react";
 // import MUI components
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
 // import MUI colors
 import {
@@ -36,36 +37,36 @@ const Heroes = () => {
                 <span style={styles.span}>&lt;/p&gt;</span>
             </Typography>
             <Stack direction="row" spacing={2}>
-                <Typography variant="subtitle1" sx={styles.learn}>
+                <Link variant="subtitle1" underline="none" href="/posts/learn" sx={styles.learn}>
                     Learn Tips
-                </Typography>
+                </Link>
                 <Divider
                     orientation="vertical"
                     variant="middle"
                     flexItem
                     sx={styles.divider}
                 />
-                <Typography variant="subtitle1" sx={styles.interview}>
+                <Link variant="subtitle1"  underline="none" href="/posts/interview" sx={styles.interview}>
                     Interview Questions
-                </Typography>
+                </Link>
                 <Divider
                     orientation="vertical"
                     variant="middle"
                     flexItem
                     sx={styles.divider}
                 />
-                <Typography variant="subtitle1" sx={styles.project}>
+                <Link variant="subtitle1" underline="none" href="/posts/project"  sx={styles.project}>
                     Open Source Projects
-                </Typography>
+                </Link>
                 <Divider
                     orientation="vertical"
                     variant="middle"
                     flexItem
                     sx={styles.divider}
                 />
-                <Typography variant="subtitle1" sx={styles.general}>
+                <Link variant="subtitle1" underline="none" href="/posts/general"  sx={styles.general}>
                     Discussions
-                </Typography>
+                </Link>
             </Stack>
         </Container>
     );

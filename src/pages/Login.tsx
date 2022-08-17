@@ -54,14 +54,14 @@ const Login = () => {
                         variant="outlined"
                     />
                     {/* TODO - should link to the reset/email password route  or open a modal*/}
-                    <Button variant="contained" type="submit">
+                    <Button variant="contained" type="submit" color="success">
                         LOG IN
                     </Button>
                     <Link href="/" target="_blank" sx={styles.pwLink}>
                         Forgot password?
                     </Link>
-                    <Stack direction="row">
-                        <Typography variant="caption" sx={styles.text}>
+                    <Stack direction="row" sx={styles.signup}>
+                        <Typography variant="caption">
                             Don&apos;t have an account yet?
                         </Typography>
                         <Link href="/register" target="_blank" sx={styles.link}>
@@ -106,7 +106,6 @@ const styles = {
     },
     link: {
         px: 1,
-        textDecoration: "none",
     },
     pageContainer:{
         px: 0,
@@ -118,8 +117,8 @@ const styles = {
         py: 2,
         textDecoration: "none",
     },
-    text: {
-        pb: 2,
+    signup: {
+        alignItems: "center",
     },
     terms: {
         color: "grey",

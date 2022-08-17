@@ -16,14 +16,15 @@ import {
     red,
     yellow,
 } from "@mui/material/colors";
+import Box from "@mui/material/Box";
 
 const Heroes = () => {
     return (
         <Container maxWidth="xl" sx={styles.container}>
             <Typography variant="h2" sx={styles.title} data-testid="hero-title">
-                <span style={styles.span}>&lt;h1&gt;</span>
+            <Box component="span" sx={styles.span}>&lt;h1&gt;</Box>
                 Devs Help Devs
-                <span style={styles.span}>&lt;/h1&gt;</span>
+                <Box component="span" sx={styles.span}>&lt;/h1&gt;</Box>
             </Typography>
             {/* TODO - the content needs to be changed later */}
             <Typography
@@ -31,12 +32,12 @@ const Heroes = () => {
                 sx={styles.subTitle}
                 data-testid="hero-subtitle"
             >
-                <span style={styles.span}>&lt;p&gt;</span>This is a place where
+                <Box component="span" sx={styles.span}>&lt;p&gt;</Box>This is a place where
                 developers share their learning tips and interview experience to
                 help each other grow, gain new skills and get more job offers
-                <span style={styles.span}>&lt;/p&gt;</span>
+                <Box component="span" sx={styles.span}>&lt;/p&gt;</Box>
             </Typography>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={2} sx={styles.links}>
                 <Link variant="subtitle1" underline="none" href="/posts/learn" sx={styles.learn}>
                     Learn Tips
                 </Link>
@@ -79,6 +80,7 @@ const styles = {
         flexDirection: "column",
         alignItems: "center",
         py: { xs: 5, md: 10 },
+        mx: 0
     },
     divider: {
         borderColor: "white",
@@ -92,12 +94,21 @@ const styles = {
     learn: {
         color: red[600],
     },
+    links: {
+        display: {
+            xs: "none",
+            sm: "flex"
+        }
+    },
     project: {
         color: yellow[600],
     },
     span: {
         color: lightGreen["A700"],
-        fontSize: "20px",
+        fontSize: {
+            xs: "12px",
+            md: "20px"
+        },
     },
     subTitle: {
         color: "white",
@@ -112,8 +123,8 @@ const styles = {
         color: "white",
         fontWeight: 500,
         fontSize: {
-            xs: "35px",
-            md: "60px",
+            xs: "30px",
+            sm: "60px",
         },
         pb: 3,
     },

@@ -75,7 +75,7 @@ const Register = () => {
                         </Link>
                     </Typography>
                     {/* TODO - should link to the reset/email password route  or open a modal*/}
-                    <Button variant="contained" type="submit" sx={styles.submitBtn}>
+                    <Button variant="contained" type="submit" color="success" sx={styles.submitBtn}>
                         JOIN NOW
                     </Button>
                     <Stack direction="row">

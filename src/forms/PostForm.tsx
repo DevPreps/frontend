@@ -69,12 +69,12 @@ const PostForm = ({
                     <Button
                         variant="contained"
                         type="submit"
-                        color="success"
+                        color="info"
                         sx={styles.publishBtn}
                     >
                         PUBLISH
                     </Button>
-                    <Button variant="contained" type="submit">
+                    <Button variant="contained" color="success" type="submit">
                         SAVE AS DRAFT
                     </Button>
                 </Stack>

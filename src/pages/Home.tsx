@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import TopNav from "../components/TopNav";
+import { TopNav } from "../components";
 
 // import MUI components
 import Container from "@mui/material/Container";

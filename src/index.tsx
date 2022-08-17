@@ -1,6 +1,7 @@
 import React from "react";
 import App from "./App";
 import ReactDOM from "react-dom";
+import ThemeHandler from "./theme/ThemeHandler";
 
 // This is the way to render one's react app when using
 // react v17 with react-dom v17 and react-router-dom v6.
@@ -9,7 +10,9 @@ import ReactDOM from "react-dom";
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <ThemeHandler>
+            <App />
+        </ThemeHandler>
     </React.StrictMode>,
     document.getElementById("root")
 );

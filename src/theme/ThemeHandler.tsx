@@ -6,10 +6,10 @@ import { baseTheme } from "./Themes";
 // An interface that defines object parameters
 interface IProps {
     children?: React.ReactNode;
-};
+}
 // getting the localstorage item
 const savedMode = window.localStorage.getItem("colorMode") as "light" | "dark";
-export default function ThemeHandler({ children }:IProps) {
+export default function ThemeHandler({ children }: IProps) {
     // Use localStorage.getItem save the toggle color state
     // When the page is refreshed, it remains the current toggled mode
     const [mode, setMode] = useState(savedMode || "dark");

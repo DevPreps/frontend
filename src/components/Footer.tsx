@@ -41,14 +41,13 @@ const Footer = () => {
                         <Grid item xs={12} sm={3} lineHeight={2}>
                             <Box sx={styles.bottomLine}>CONTACT</Box>
                             <Box>
-                                <Link
+                                <RouteLink
                                     href="/contact"
                                     target="_blank"
-                                    underline="none"
-                                    sx={styles.muiLink}
+                                    style={styles.routeLink}
                                 >
                                     Contact Us
-                                </Link>
+                                </RouteLink>
                             </Box>
                             <Box>Email: devprep@outlook.com.au</Box>
                             <Box>
@@ -57,7 +56,6 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     underline="none"
-                                    sx={styles.muiLink}
                                 >
                                     Github
                                 </Link>
@@ -131,11 +129,8 @@ const styles = {
         },
         color: "black",
     },
-    muiLink: {
-        color: "white",
-    },
     routeLink: {
-        color: "white",
+        color: "#ffffff",
         textDecoration: "none",
     },
 };

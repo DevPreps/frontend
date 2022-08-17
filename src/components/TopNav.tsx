@@ -19,10 +19,10 @@ import Logo from "../theme/LogoNav";
 
 declare module "@mui/material/Button" {
     interface ButtonVariantOverrides {
-           customVariant: true,
-           container: true
+        customVariant: true;
+        container: true;
     }
- }
+}
 
 export default function TopNav() {
     const navLinks = [
@@ -44,7 +44,7 @@ export default function TopNav() {
         },
     ];
 
-    const groupNavLinks = [        
+    const groupNavLinks = [
         {
             to: "/login",
             text: "SignIn",
@@ -57,10 +57,10 @@ export default function TopNav() {
             to: "/my-account/1",
             text: "Profile",
         },
-    ]
+    ];
 
     const mobileLinks = [...navLinks, ...groupNavLinks];
-    
+
     return (
         <>
             <AppBar position="sticky" sx={style.overlay}>
@@ -69,13 +69,25 @@ export default function TopNav() {
                         <Logo />
                         <Box sx={style.desktopView}>
                             {navLinks?.map((link, index) => (
-                                <Button key={index} component={Link} to={link.to}>
+                                <Button
+                                    key={index}
+                                    component={Link}
+                                    to={link.to}
+                                >
                                     {link.text}
                                 </Button>
                             ))}
-                            <Divider orientation="vertical" variant="middle" flexItem />
+                            <Divider
+                                orientation="vertical"
+                                variant="middle"
+                                flexItem
+                            />
                             {groupNavLinks?.map((link, index) => (
-                                <Button key={index} component={Link} to={link.to}>
+                                <Button
+                                    key={index}
+                                    component={Link}
+                                    to={link.to}
+                                >
                                     {link.text}
                                 </Button>
                             ))}
@@ -84,8 +96,15 @@ export default function TopNav() {
                         <SideNav>
                             {mobileLinks?.map((link, index) => (
                                 <ListItem disablePadding key={index}>
-                                    <ListItemButton component={Link} to={link.to} sx={style.ListItemButton}>
-                                        <ListItemText sx={style.itemText} primary={link.text}/>    
+                                    <ListItemButton
+                                        component={Link}
+                                        to={link.to}
+                                        sx={style.ListItemButton}
+                                    >
+                                        <ListItemText
+                                            sx={style.itemText}
+                                            primary={link.text}
+                                        />
                                     </ListItemButton>
                                 </ListItem>
                             ))}
@@ -98,15 +117,15 @@ export default function TopNav() {
 }
 export const style = {
     overlay: {
-        zIndex: 1210
+        zIndex: 1210,
     },
     ListItemButton: {
         textAlign: "center",
         justifyContent: "center",
-        mb: .4,
+        mb: 0.4,
     },
     buttonGroup: {
-        mx: .4,
+        mx: 0.4,
     },
     flexSpace: {
         between: {
@@ -114,8 +133,8 @@ export const style = {
         },
     },
     itemText: {
-        pt: .1,
-        pb: .1,
+        pt: 0.1,
+        pb: 0.1,
     },
     drawerContent: {
         "& .MuiDrawer-paper": {

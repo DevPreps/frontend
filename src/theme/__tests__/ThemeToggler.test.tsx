@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ThemeToggler from "../components/ThemeToggler";
+import ThemeToggler from "../ThemeToggler";
 
 describe("Toggle", () => {
     const wrapper = shallow(<ThemeToggler />);

@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 import React from "react";
-import SideNav from "../components/SideNav";
+import SideNav from "../SideNav";
 
 describe("SideNav", () => {
     const wrapper = shallow(<SideNav />);

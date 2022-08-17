@@ -7,10 +7,9 @@ import DarkMode from "@mui/icons-material/DarkModeOutlined";
 import LightMode from "@mui/icons-material/LightModeOutlined";
 // Theme Switch Icon Changes Based on Theme
 export default function ThemeToggler() {
-    const colorMode = useContext(ColorModeContext).toggleColorMode;
     return (
-        <IconButton className="themeToggle" color="inherit" onClick={() => {colorMode();}}>
-            {useTheme().palette.mode === "dark" ? <DarkMode className="dark" /> : <LightMode className="light" />}
+        <IconButton className="themeToggle" color="inherit" onClick={useContext(ColorModeContext).toggleColorMode}>
+            {useTheme().palette.mode === "dark" ? <LightMode/> : <DarkMode/>}
         </IconButton>
     );
 }

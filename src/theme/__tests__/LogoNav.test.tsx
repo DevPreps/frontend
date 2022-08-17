@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 import React from "react";
-import Logo from "../components/LogoNav";
+import Logo from "../LogoNav";
 
 describe("rendering Typography", () => {
     const wrapper = shallow(<Logo />);

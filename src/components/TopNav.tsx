@@ -13,9 +13,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 
 // Import Navbar Related Components
-import Logo from "./LogoNav";
 import SideNav from "./SideNav";
-import ThemeToggler from "./ThemeToggler";
+import ThemeToggler from "../theme/ThemeToggler";
+import Logo from "../theme/LogoNav";
 
 declare module "@mui/material/Button" {
     interface ButtonVariantOverrides {

@@ -57,6 +57,10 @@ const styles = {
     stack: {
         flexGrow: 1,
         mt: 3,
+        px:{
+            xs:1,
+            sm:2,
+        }
     },
 };
 export default PostListLayout;

@@ -20,12 +20,13 @@ import { green, red } from "@mui/material/colors";
 
 // define interface for props
 interface Props {
+    emailError: null | string;
     isError: boolean;
     isSucceed: boolean;
     onSubmit: SubmitHandler<IContactFormInputs>;
 }
 
-const ContactForm = ({ isError, isSucceed, onSubmit }: Props) => {
+const ContactForm = ({ emailError, isError, isSucceed, onSubmit }: Props) => {
     // react hook form
     const methods = useForm<IContactFormInputs>({
         resolver: yupResolver(contactFormSchema),
@@ -57,12 +58,12 @@ const ContactForm = ({ isError, isSucceed, onSubmit }: Props) => {
                 />
                 <Button
                     variant="contained"
+                    color="success"
                     type="submit"
                     sx={styles.sendButton}
                 >
                     SEND
                 </Button>
-
                 <Typography
                     variant="body1"
                     data-testid="successMessage"
@@ -74,7 +75,9 @@ const ContactForm = ({ isError, isSucceed, onSubmit }: Props) => {
                 >
                     {isSucceed &&
                         "Thanks for you message, we will get back to your ASAP."}
-                    {isError && "Something went wrong, please try again later"}
+                    {isError &&
+                        (emailError ||
+                            "Something went wrong, please try again later")}
                 </Typography>
             </Grid>
         </FormProvider>

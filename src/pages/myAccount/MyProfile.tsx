@@ -31,7 +31,7 @@ const MyProfile = () => {
 
 const styles = {
     box: {
-        py:4,
+        py: 4,
         height: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
         minHeight: "630px",
     },

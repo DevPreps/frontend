@@ -168,11 +168,11 @@ const styles = {
         width: drawerWidth,
         left: 0,
     },
-    container: { 
+    container: {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-     },
+    },
     dividerDrawOpen: {
         height: "100vh",
         position: "absolute",

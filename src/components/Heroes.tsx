@@ -9,10 +9,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 // import MUI colors
-import {
-    grey,
-    lightGreen,
-} from "@mui/material/colors";
+import { grey, lightGreen } from "@mui/material/colors";
 
 const Heroes = () => {
     return (
@@ -51,11 +48,7 @@ const Heroes = () => {
                 >
                     Learn Tips
                 </Link>
-                <Divider
-                    orientation="vertical"
-                    variant="middle"
-                    flexItem
-                />
+                <Divider orientation="vertical" variant="middle" flexItem />
                 <Link
                     variant="subtitle1"
                     underline="none"
@@ -64,11 +57,7 @@ const Heroes = () => {
                 >
                     Interview Questions
                 </Link>
-                <Divider
-                    orientation="vertical"
-                    variant="middle"
-                    flexItem
-                />
+                <Divider orientation="vertical" variant="middle" flexItem />
                 <Link
                     variant="subtitle1"
                     underline="none"
@@ -77,11 +66,7 @@ const Heroes = () => {
                 >
                     Open Source Projects
                 </Link>
-                <Divider
-                    orientation="vertical"
-                    variant="middle"
-                    flexItem
-                />
+                <Divider orientation="vertical" variant="middle" flexItem />
                 <Link
                     variant="subtitle1"
                     underline="none"

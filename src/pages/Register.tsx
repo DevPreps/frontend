@@ -107,7 +107,7 @@ const styles = {
         justifyContent: "start",
         width: "100%",
         maxWidth: "500px",
-        height: "627px", 
+        height: "627px",
         px: {
             xs: 2,
             md: 3,
@@ -121,7 +121,7 @@ const styles = {
     },
     loginLink: {
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
     },
     pageContainer: {
         px: 0,

@@ -5,7 +5,6 @@ import { Link as RouteLink } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import ImageListItem from "@mui/material/ImageListItem";
 
 const Footer = () => {

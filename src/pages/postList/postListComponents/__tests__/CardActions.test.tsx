@@ -9,8 +9,6 @@ import { posts } from "../../../../data";
 // test component rendering
 describe("<AuthorCardActions /> rendering", () => {
     const wrapper = shallow(<AuthorCardActions post={posts[0]} />);
-    console.log(wrapper.debug());
-
     it("should contain UpdatePost Modal />", () => {
         expect(
             wrapper.find(

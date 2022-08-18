@@ -5,7 +5,6 @@ import Login from "../Login";
 // test rendering
 describe("Test Login component", () => {
     const wrapper = shallow(<Login />);
-    console.log(wrapper.debug());
 
     it("should have a TextFieldInput for email", () => {
         expect(wrapper.find({ name: "email" }).length).toBe(1);

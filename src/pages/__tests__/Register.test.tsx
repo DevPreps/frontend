@@ -5,7 +5,6 @@ import Register from "../Register";
 // test rendering
 describe("Test Register component", () => {
     const wrapper = shallow(<Register />);
-    console.log(wrapper.debug());
 
     it("should have a title", () => {
         expect(wrapper.find({ children: "Join Devprep" }).length).toBe(1);

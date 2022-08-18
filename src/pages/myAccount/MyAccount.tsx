@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 // import MUI components
 // import CssBaseline from "@mui/material/CssBaseline";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
@@ -14,6 +15,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 
 // import MUI icons and colors
@@ -23,7 +26,6 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Avatar, Stack, Typography } from "@mui/material";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
@@ -74,7 +76,7 @@ const MyAccount = () => {
                     aria-label="drawer-toggle"
                     onClick={handleDrawerToggle}
                 >
-                    {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
+                    {open ? <ArrowBackIosIcon/> : <ArrowForwardIosIcon />}
                 </Fab>
             </Divider>
 

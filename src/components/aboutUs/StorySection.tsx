@@ -3,23 +3,15 @@ import React from "react";
 //MUI styles
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { createTheme } from "@mui/material/styles";
-
-const theme = createTheme({
-    palette: {
-        success: {
-            main: "#2e7d32",
-        },
-    },
-});
+import Paper from "@mui/material/Paper";
 
 const StorySection = () => {
     return (
         <>
-            <Box sx={styles.bgSection}>
+            <Paper sx={styles.bgSection}>
                 <Typography sx={styles.bgTitle}>Helping each other</Typography>
                 <Typography sx={styles.bgText}>/ DEV PREP /</Typography>
-            </Box>
+            </Paper>
             <Box>
                 <Typography sx={styles.storyTitle}>OurStory</Typography>
                 <Typography sx={styles.storyText}>
@@ -45,7 +37,7 @@ const styles = {
         height: "250px",
         mt: 2,
         bgcolor: {
-            backgroundColor: theme.palette.success.main,
+            backgroundColor: "paper",
         },
     },
 

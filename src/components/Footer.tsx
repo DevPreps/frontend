@@ -6,20 +6,12 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import ImageListItem from "@mui/material/ImageListItem";
-import { createTheme } from "@mui/material/styles";
-
-const theme = createTheme({
-    palette: {
-        success: {
-            main: "#0F301F",
-        },
-    },
-});
+import Paper from "@mui/material/Paper";
 
 const Footer = () => {
     return (
         <footer>
-            <Box sx={styles.footerBox}>
+            <Paper sx={styles.footerBox}>
                 <Container sx={styles.container}>
                     <Grid container spacing={4}>
                         <Grid item xs={12} sm={3}>
@@ -83,7 +75,7 @@ const Footer = () => {
                         Copyright &reg; {new Date().getFullYear()} Devprep, Inc.
                     </Box>
                 </Container>
-            </Box>
+            </Paper>
         </footer>
     );
 };
@@ -101,9 +93,8 @@ const styles = {
             sm: 5,
         },
         bgcolor: {
-            backgroundColor: theme.palette.success.main,
+            backgroundColor: "paper",
         },
-        color: "white",
     },
     container: {
         maxWidth: "lg",
@@ -125,10 +116,8 @@ const styles = {
             xs: 5,
             sm: 0,
         },
-        color: "black",
     },
     routeLink: {
-        color: "#ffffff",
         textDecoration: "none",
     },
 };

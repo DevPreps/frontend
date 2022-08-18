@@ -6,6 +6,15 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import ImageListItem from "@mui/material/ImageListItem";
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+    palette: {
+        success: {
+            main: "#0F301F",
+        },
+    },
+});
 
 const Footer = () => {
     return (
@@ -91,7 +100,9 @@ const styles = {
             xs: 5,
             sm: 5,
         },
-        bgcolor: "#4d4d4d",
+        bgcolor: {
+            backgroundColor: theme.palette.success.main,
+        },
         color: "white",
     },
     container: {

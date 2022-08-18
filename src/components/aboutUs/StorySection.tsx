@@ -3,6 +3,15 @@ import React from "react";
 //MUI styles
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+    palette: {
+        success: {
+            main: "#2e7d32",
+        },
+    },
+});
 
 const StorySection = () => {
     return (
@@ -34,11 +43,11 @@ const styles = {
     bgSection: {
         width: "100%",
         height: "250px",
-        bgcolor: "#e8e8e8",
         mt: 2,
+        bgcolor: {
+            backgroundColor: theme.palette.success.main,
+        },
     },
-
-    storySection: {},
 
     bgTitle: {
         fontSize: "40px",

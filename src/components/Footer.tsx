@@ -49,17 +49,6 @@ const Footer = () => {
                                     Contact Us
                                 </RouteLink>
                             </Box>
-                            <Box>Email: devprep@outlook.com.au</Box>
-                            <Box>
-                                <Link
-                                    href="https://github.com/DevPreps"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    underline="none"
-                                >
-                                    Github
-                                </Link>
-                            </Box>
                         </Grid>
                         <Grid item xs={12} sm={3} lineHeight={2}>
                             <Box sx={styles.bottomLine}>HELP</Box>
@@ -78,7 +67,7 @@ const Footer = () => {
                             <Box>
                                 {/* // TODO - the url will be update later. */}
                                 <RouteLink style={styles.routeLink} to="/">
-                                    Privary
+                                    Privacy
                                 </RouteLink>
                             </Box>
                         </Grid>

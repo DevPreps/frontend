@@ -58,11 +58,13 @@ export const contactFormSchema = yup.object().shape({
 // Define register Form validation schema
 export const registerFormSchema = yup.object().shape({
     email: yup.string().email().required(),
-    username: yup.string()
-    .matches(/^[a-zA-Z0-9]([.-](?![.-])|[a-zA-Z0-9]){4,16}[a-zA-Z0-9]$/,
-    "Minimum 4 and maximum 16 characters, only alphanumeric characters, '.', '-' allowed, and must start and end with alphanumeric characters"
-    )
-    .required(),
+    username: yup
+        .string()
+        .matches(
+            /^[a-zA-Z0-9]([.-](?![.-])|[a-zA-Z0-9]){4,16}[a-zA-Z0-9]$/,
+            "Minimum 4 and maximum 16 characters, only alphanumeric characters, '.', '-' allowed, and must start and end with alphanumeric characters"
+        )
+        .required(),
     // Minimum six and maximum 15 characters, at least one uppercase letter, one lowercase letter, one number and one special character
     password: yup
         .string()
@@ -71,7 +73,10 @@ export const registerFormSchema = yup.object().shape({
             "Minimum 6 and maximum 15 characters, at least one uppercase letter, one lowercase letter, one number and one special character"
         )
         .required(),
-    confirmPassword: yup.string().oneOf([yup.ref("password")], "Passwords must match").required(),
+    confirmPassword: yup
+        .string()
+        .oneOf([yup.ref("password")], "Passwords must match")
+        .required(),
 });
 
 // TODO - Define ReportForm validation schema, will be updated later

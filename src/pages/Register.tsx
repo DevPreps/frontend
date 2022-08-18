@@ -23,7 +23,7 @@ const Register = () => {
         resolver: yupResolver(registerFormSchema),
     });
     const { handleSubmit } = methods;
-    
+
     //TODO - define onSubmit function to handle login
     const onSubmit: SubmitHandler<IRegisterFormInputs> = (
         data: IRegisterFormInputs
@@ -75,7 +75,12 @@ const Register = () => {
                         </Link>
                     </Typography>
                     {/* TODO - should link to the reset/email password route  or open a modal*/}
-                    <Button variant="contained" type="submit" color="success" sx={styles.submitBtn}>
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        color="success"
+                        sx={styles.submitBtn}
+                    >
                         JOIN NOW
                     </Button>
                     <Stack direction="row">
@@ -113,10 +118,10 @@ const styles = {
         px: 1,
         textDecoration: "none",
     },
-    pageContainer:{
+    pageContainer: {
         px: 0,
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     submitBtn: {
         my: 2,

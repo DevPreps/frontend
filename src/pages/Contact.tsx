@@ -8,8 +8,8 @@ import ContactForm from "../forms/ContactForm";
 import { IContactFormInputs } from "../forms/IFormInputs";
 
 // import MUI component
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -34,7 +34,9 @@ export const sendMessage = async (
             { ...data },
             process.env.REACT_APP_EMAIL_PUBLIC_KEY
         );
-        if (res.status === 200) return true;
+        if (res.status !== 200)
+            throw new Error("Couldn't sent message, something went wrong.");
+        return true;
     } catch (error) {
         setIsError(true);
         // console.log("contact form send message error: ", error);
@@ -45,6 +47,7 @@ export const sendMessage = async (
  * we're currently using a free tier, with the limitation of 20 request per day and 100 requests per month. */
 export const verifyEmail = async (
     data: IContactFormInputs,
+    setEmailError: React.Dispatch<React.SetStateAction<string | null>>,
     setIsError: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     try {
@@ -56,12 +59,12 @@ export const verifyEmail = async (
                 },
             }
         );
-        if (res.data.is_deliverable) {
-            return true;
-        } else {
-            alert("Please enter a deliverable email");
-            return false;
+        if (!res.data.is_deliverable) {
+            // setEmailError only be called when
+            setEmailError("Please enter a deliverable email");
+            throw new Error("Email is undeliverable");
         }
+        return true;
     } catch (error) {
         // console.log("apiLayer email validation error: ", error);
         setIsError(true);
@@ -72,15 +75,14 @@ export const Contact = () => {
     //TODO - isLoading hasn't been defined yet, as considering isLoading as a global state
     const [isSucceed, setIsSucceed] = useState(false);
     const [isError, setIsError] = useState(false);
+    const [emailError, setEmailError] = useState<string | null>();
 
     const onSubmit: SubmitHandler<IContactFormInputs> = async (
         data: IContactFormInputs
     ) => {
-        if (await verifyEmail(data, setIsError)) {
-            if (await sendMessage(data, setIsError)) {
-                setIsSucceed(true);
-            }
-        }
+        if (!(await verifyEmail(data, setEmailError, setIsError))) return;
+        if (!(await sendMessage(data, setIsError))) return;
+        setIsSucceed(true);
     };
 
     return (
@@ -97,16 +99,13 @@ export const Contact = () => {
                         <ListItemIcon>
                             <EmailIcon />
                         </ListItemIcon>
-                        <Typography variant="subtitle1">
-                            <Button
-                                variant="text"
-                                href="mailto:devprep@outlook.com.au"
-                                target="blank"
-                                sx={styles.button}
-                            >
-                                devprep@outlook.com.au
-                            </Button>
-                        </Typography>
+                        <Link
+                            href="mailto:devprep@outlook.com.au"
+                            target="blank"
+                            sx={styles.button}
+                        >
+                            devprep@outlook.com.au
+                        </Link>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
@@ -114,13 +113,12 @@ export const Contact = () => {
                         </ListItemIcon>
                         <Typography variant="body1">
                             To report a bug, please create
-                            <Button
-                                variant="text"
+                            <Link
                                 target="blank"
                                 href="https://github.com/DevPreps/frontend/issues"
                             >
                                 a bug report
-                            </Button>{" "}
+                            </Link>{" "}
                             in our GitHub repository
                         </Typography>
                     </ListItem>
@@ -128,14 +126,13 @@ export const Contact = () => {
                         <ListItemIcon>
                             <GitHubIcon />
                         </ListItemIcon>
-                        <Button
-                            variant="text"
+                        <Link
                             target="blank"
                             href="https://github.com/DevPreps"
                             sx={styles.button}
                         >
                             https://github.com/DevPreps
-                        </Button>
+                        </Link>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
@@ -151,6 +148,7 @@ export const Contact = () => {
                 onSubmit={onSubmit}
                 isSucceed={isSucceed}
                 isError={isError}
+                emailError={emailError}
             />
         </Grid>
     );
@@ -159,6 +157,9 @@ export const Contact = () => {
 const styles = {
     button: {
         pl: 0,
+    },
+    errorDisplayer: {
+        display: "none",
     },
     grid: {
         py: 3,

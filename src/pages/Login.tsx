@@ -23,7 +23,7 @@ const Login = () => {
         resolver: yupResolver(loginFormSchema),
     });
     const { handleSubmit } = methods;
-    
+
     //TODO - define onSubmit function to handle login
     const onSubmit: SubmitHandler<ILoginFormInputs> = (
         data: ILoginFormInputs
@@ -79,7 +79,6 @@ const Login = () => {
                         <Link href="#" target="_blank" sx={styles.link}>
                             Privacy Policy
                         </Link>
-                        .
                     </Typography>
                 </Box>
             </FormProvider>
@@ -107,10 +106,10 @@ const styles = {
     link: {
         px: 1,
     },
-    pageContainer:{
+    pageContainer: {
         px: 0,
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     pwLink: {
         fontSize: "14px",

@@ -42,7 +42,6 @@ const Footer = () => {
                             <Box>
                                 <RouteLink
                                     to="/contact"
-                                    target="_blank"
                                     style={styles.routeLink}
                                 >
                                     Contact Us

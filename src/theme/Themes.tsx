@@ -43,7 +43,9 @@ export const baseTheme = (mode: PaletteMode) => {
         palette: {
             mode,
             primary: {
-                main: themeColor.default,
+                // TODO - this color needs to be set, Chris will work on it
+                // main: themeColor.default,
+                main: "#4caf50",
             },
             secondary: {
                 main: themeColor.paper,

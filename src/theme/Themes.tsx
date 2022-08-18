@@ -16,6 +16,8 @@ interface ThemeColor {
 //Toggle the color scheme between light and dark mode
 export const baseTheme = (mode: PaletteMode) => {
     let themeColor: ThemeColor;
+
+    // TODO - will vote for the color palette and change the following colors
     if (mode === "light") {
         themeColor = {
             main: "#0F301F",

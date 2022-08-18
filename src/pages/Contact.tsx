@@ -162,9 +162,6 @@ const styles = {
     button: {
         pl: 0,
     },
-    errorDisplayer: {
-        display: "none",
-    },
     grid: {
         py: 3,
     },

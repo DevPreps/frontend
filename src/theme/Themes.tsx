@@ -4,7 +4,7 @@ import { PaletteMode, ThemeOptions } from "@mui/material"; // TypeScript Types
 interface ThemeColor {
     main: string;
     paper: string; // Component BackGround
-    default: string; // Main BackGround (dark and light green)
+    default: string; // Main BackGround
     contrastText: string; // Text
     blue: string; // Buttons and hight text
     green: string; // Buttons and borders

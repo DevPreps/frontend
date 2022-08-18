@@ -15,6 +15,11 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 jest.mock("@emailjs/browser");
 const mockedEmailjs = emailjs as jest.Mocked<typeof emailjs>;
 
+// clear mocks after each test
+afterEach(() => {
+    jest.resetAllMocks();
+});
+
 // test component rendering
 describe("Test Contact Page rendering", () => {
     const wrapper = shallow(<Contact />);
@@ -50,33 +55,31 @@ describe("Test sendMessage function", () => {
         expect(await sendMessage(testData, setIsError)).toBeTruthy();
     });
 
-    it("should return undefined when receive an error", async () => {
-        mockedEmailjs.send.mockRejectedValueOnce(
-            new Error("Async error message")
-        );
-        expect(await sendMessage(testData, setIsError)).toBeUndefined;
+    it("should not return true and call setIsError when res.status !== 200", async () => {
+        const res = {
+            status: 204,
+            text: "No Content",
+        };
+        mockedEmailjs.send.mockResolvedValue(res);
+        expect(await sendMessage(testData, setIsError)).not.toBeTruthy();
+        expect(setIsError).toBeCalledTimes(1);
     });
 
-    it("should call setIsError when receive an error", async () => {
+    it("should not return true when receive an error, and setIsError should be called", async () => {
         mockedEmailjs.send.mockRejectedValueOnce(
             new Error("Async error message")
         );
-        await sendMessage(testData, setIsError);
-        expect(setIsError).toHaveBeenCalled();
+        const response = await sendMessage(testData, setIsError);
+        expect(response).not.toBeTruthy();
+        expect(setIsError).toBeCalledTimes(1);
     });
 });
 
 // test verifyEmail function
 describe("Test verifyEmail function", () => {
-    const jsdomAlert = window.alert; // remember the jsdom alert
-    beforeAll(() => {
-        window.alert = () => void 0; // provide an empty implementation for window.alert
-    });
-    afterAll(() => {
-        window.alert = jsdomAlert; // restore the jsdom alert
-    });
     // mock setIsError hook
     const setIsError = jest.fn();
+    const setEmailError = jest.fn();
     const testData = {
         name: "tester",
         email: "lisa20210219@gmail.com",
@@ -91,10 +94,12 @@ describe("Test verifyEmail function", () => {
             },
         };
         mockedAxios.get.mockResolvedValueOnce(res);
-        expect(await verifyEmail(testData, setIsError)).toBeTruthy();
+        expect(
+            await verifyEmail(testData, setEmailError, setIsError)
+        ).toBeTruthy();
     });
 
-    it("find should return false when res.data.is_deliverable = false", async () => {
+    it("find should not return true when res.data.is_deliverable != true", async () => {
         const res = {
             data: [
                 {
@@ -106,27 +111,33 @@ describe("Test verifyEmail function", () => {
         expect(
             await verifyEmail(
                 { ...testData, email: "lisa20220219@gmail.com" },
-                setIsError
+                setIsError,
+                setEmailError
             )
-        ).toBe(false);
+        ).not.toBeTruthy();
+        expect(setEmailError).toBeCalledTimes(1);
+        expect(setIsError).toBeCalledTimes(1);
     });
 
-    it("should return undefined when receive an error", async () => {
+    it("should should not return true when catch an error", async () => {
         mockedAxios.get.mockRejectedValueOnce(new Error("Async error message"));
         expect(
             await verifyEmail(
                 { ...testData, email: "lisa20220219@gmail.com" },
+                setEmailError,
                 setIsError
             )
-        ).toBeUndefined;
+        ).not.toBeTruthy();
     });
 
-    it("should call setIsError when receive an error", async () => {
+    it("should call setIsError when receive an error, and setEmailError should not be called", async () => {
         mockedAxios.get.mockRejectedValueOnce(new Error("Async error message"));
         await verifyEmail(
             { ...testData, email: "lisa20220219@gmail.com" },
+            setEmailError,
             setIsError
         );
-        expect(setIsError).toHaveBeenCalled();
+        expect(setEmailError).toBeCalledTimes(0);
+        expect(setIsError).toBeCalledTimes(1);
     });
 });

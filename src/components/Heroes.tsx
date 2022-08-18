@@ -22,9 +22,13 @@ const Heroes = () => {
     return (
         <Container maxWidth="xl" sx={styles.container}>
             <Typography variant="h2" sx={styles.title} data-testid="hero-title">
-            <Box component="span" sx={styles.span}>&lt;h1&gt;</Box>
+                <Box component="span" sx={styles.span}>
+                    &lt;h1&gt;
+                </Box>
                 Devs Help Devs
-                <Box component="span" sx={styles.span}>&lt;/h1&gt;</Box>
+                <Box component="span" sx={styles.span}>
+                    &lt;/h1&gt;
+                </Box>
             </Typography>
             {/* TODO - the content needs to be changed later */}
             <Typography
@@ -32,13 +36,23 @@ const Heroes = () => {
                 sx={styles.subTitle}
                 data-testid="hero-subtitle"
             >
-                <Box component="span" sx={styles.span}>&lt;p&gt;</Box>This is a place where
-                developers share their learning tips and interview experience to
-                help each other grow, gain new skills and get more job offers
-                <Box component="span" sx={styles.span}>&lt;/p&gt;</Box>
+                <Box component="span" sx={styles.span}>
+                    &lt;p&gt;
+                </Box>
+                This is a place where developers share their learning tips and
+                interview experience to help each other grow, gain new skills
+                and get more job offers
+                <Box component="span" sx={styles.span}>
+                    &lt;/p&gt;
+                </Box>
             </Typography>
             <Stack direction="row" spacing={2} sx={styles.links}>
-                <Link variant="subtitle1" underline="none" href="/posts/learn" sx={styles.learn}>
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/learn"
+                    sx={styles.learn}
+                >
                     Learn Tips
                 </Link>
                 <Divider
@@ -47,7 +61,12 @@ const Heroes = () => {
                     flexItem
                     sx={styles.divider}
                 />
-                <Link variant="subtitle1"  underline="none" href="/posts/interview" sx={styles.interview}>
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/interview"
+                    sx={styles.interview}
+                >
                     Interview Questions
                 </Link>
                 <Divider
@@ -56,7 +75,12 @@ const Heroes = () => {
                     flexItem
                     sx={styles.divider}
                 />
-                <Link variant="subtitle1" underline="none" href="/posts/project"  sx={styles.project}>
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/project"
+                    sx={styles.project}
+                >
                     Open Source Projects
                 </Link>
                 <Divider
@@ -65,7 +89,12 @@ const Heroes = () => {
                     flexItem
                     sx={styles.divider}
                 />
-                <Link variant="subtitle1" underline="none" href="/posts/general"  sx={styles.general}>
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/general"
+                    sx={styles.general}
+                >
                     Discussions
                 </Link>
             </Stack>
@@ -80,7 +109,7 @@ const styles = {
         flexDirection: "column",
         alignItems: "center",
         py: { xs: 5, md: 10 },
-        mx: 0
+        mx: 0,
     },
     divider: {
         borderColor: "white",
@@ -97,8 +126,8 @@ const styles = {
     links: {
         display: {
             xs: "none",
-            sm: "flex"
-        }
+            sm: "flex",
+        },
     },
     project: {
         color: yellow[600],
@@ -107,7 +136,7 @@ const styles = {
         color: lightGreen["A700"],
         fontSize: {
             xs: "12px",
-            md: "20px"
+            md: "20px",
         },
     },
     subTitle: {

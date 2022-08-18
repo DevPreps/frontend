@@ -11,9 +11,9 @@ import Box from "@mui/material/Box";
 export interface TeamDetailProps {
     teamDetail: {
         avatar: string;
-        username: string;
+        devActualName: string;
         position: string;
-        describe: string;
+        description: string;
     };
 }
 
@@ -21,9 +21,10 @@ const TeamDetail = () => {
     // It is dummy data and will change
     const teamDetail: TeamDetailProps["teamDetail"] = {
         avatar: "TM",
-        username: "TM",
+        devActualName: "TM",
         position: "Web Developer",
-        describe: "Good at full stack web development, Front-end technologies",
+        description:
+            "Good at full stack web development, Front-end technologies",
     };
 
     return (
@@ -32,10 +33,10 @@ const TeamDetail = () => {
             <Card sx={styles.cardContainer}>
                 <Avatar sx={styles.avatar}>{teamDetail.avatar}</Avatar>
                 <Typography sx={styles.titleText}>
-                    {teamDetail.username}.{teamDetail.position}
+                    {teamDetail.devActualName}.{teamDetail.position}
                 </Typography>
                 <CardContent sx={styles.cardContent}>
-                    <Typography>{teamDetail.describe}</Typography>
+                    <Typography>{teamDetail.description}</Typography>
                 </CardContent>
             </Card>
         </Box>

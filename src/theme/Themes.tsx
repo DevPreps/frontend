@@ -2,7 +2,7 @@ import { PaletteMode, ThemeOptions } from "@mui/material"; // TypeScript Types
 // An interface that defines object parameters
 interface ThemeColor {
     main: string;
-    paper: string; // Component BackGround 
+    paper: string; // Component BackGround
     default: string; // Main BackGround
     contrastText: string; // Text
 }
@@ -13,16 +13,16 @@ export const baseTheme = (mode: PaletteMode) => {
     if (mode === "light") {
         themeColor = {
             main: "#0F301F",
-            paper: "#F3FFDE", 
-            default: "#F3FFDE", 
+            paper: "#F3FFDE",
+            default: "#F3FFDE",
             contrastText: "#291528",
         };
     } else {
         // Defind the dark theme color
         themeColor = {
             main: "#C0F4E6",
-            paper: "#0F301F", 
-            default: "#0F301F", 
+            paper: "#0F301F",
+            default: "#0F301F",
             contrastText: "#F3FFDE",
         };
     }

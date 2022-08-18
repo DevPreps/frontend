@@ -40,7 +40,6 @@ const PostModalLayout: React.FC<Props> = ({
             ) : (
                 <Button
                     variant="text"
-                    color="info"
                     startIcon={<BorderColorIcon />}
                     onClick={handleOpen}
                     data-testid="operationBtn"

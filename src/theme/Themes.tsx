@@ -1,9 +1,10 @@
 import { PaletteMode, ThemeOptions } from "@mui/material"; // TypeScript Types
 // An interface that defines object parameters
 interface ThemeColor {
-    default: string;
-    paper: string;
-    text: string;
+    main: string;
+    paper: string; // Component BackGround 
+    default: string; // Main BackGround
+    contrastText: string; // Text
 }
 
 //Toggle the color scheme between light and dark mode
@@ -11,16 +12,18 @@ export const baseTheme = (mode: PaletteMode) => {
     let themeColor: ThemeColor;
     if (mode === "light") {
         themeColor = {
-            default: "#F3FFDE",
-            paper: "#F3FFDE",
-            text: "#191919",
+            main: "#0F301F",
+            paper: "#F3FFDE", 
+            default: "#F3FFDE", 
+            contrastText: "#291528",
         };
     } else {
         // Defind the dark theme color
         themeColor = {
-            default: "#232726",
-            paper: "#232726",
-            text: "#F3FFDE",
+            main: "#C0F4E6",
+            paper: "#0F301F", 
+            default: "#0F301F", 
+            contrastText: "#F3FFDE",
         };
     }
     // allow configuration using `theme`
@@ -43,19 +46,19 @@ export const baseTheme = (mode: PaletteMode) => {
         palette: {
             mode,
             primary: {
-                main: themeColor.default,
+                main: themeColor.main,
             },
             secondary: {
                 main: themeColor.paper,
             },
             background: {
-                default: themeColor.default,
                 paper: themeColor.paper,
+                default: themeColor.default,
             },
             text: {
-                primary: themeColor.text,
+                primary: themeColor.contrastText,
             },
-            divider: themeColor.text,
+            divider: themeColor.contrastText,
         },
         components: {
             MuiCssBaseline: {
@@ -64,7 +67,7 @@ export const baseTheme = (mode: PaletteMode) => {
                         transition: "all 0.5s ease-in-out",
                     },
                     "header a, .MuiBox-root a": {
-                        color: themeColor.text,
+                        color: themeColor.contrastText,
                         textDecoration: "none",
                         fontWeight: 700,
                     },

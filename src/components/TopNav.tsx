@@ -63,7 +63,7 @@ export default function TopNav() {
     
     return (
         <>
-            <AppBar position="sticky" sx={style.overlay}>
+            <AppBar position="sticky" color="secondary" sx={style.overlay}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters sx={style.flexSpace.between}>
                         <Logo />
@@ -98,7 +98,7 @@ export default function TopNav() {
 }
 export const style = {
     overlay: {
-        zIndex: 1210
+        zIndex: 1210,
     },
     ListItemButton: {
         textAlign: "center",

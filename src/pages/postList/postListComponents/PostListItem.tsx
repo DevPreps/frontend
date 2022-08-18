@@ -8,8 +8,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 
-// import MUI colors
-import { grey } from "@mui/material/colors";
+// import post data interface
 import { IPost } from "./IPost";
 
 interface PostProps {
@@ -70,7 +69,7 @@ const styles = {
         flex: 1,
     },
     date: {
-        color: grey[700],
+        color: "text.secondary",
     },
     image: {
         width: 240,

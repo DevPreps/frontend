@@ -16,7 +16,6 @@ import { TextFieldInput } from "./FormInput";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { green, red } from "@mui/material/colors";
 
 // define interface for props
 interface Props {
@@ -98,7 +97,7 @@ const styles = {
             p: 2,
             mt: 2,
             border: 1,
-            borderColor: isError ? red["900"] : green["A700"],
+            borderColor: isError ? "error.main" : "success.main",
             borderRadius: 1,
         };
     },

@@ -59,6 +59,7 @@ const ReportForm = ({ onSubmit, formDefaultValues }: Props) => {
                 />
                 <Button
                     variant="contained"
+                    color="success"
                     type="submit"
                     sx={styles.sendButton}
                 >

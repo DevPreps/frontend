@@ -77,13 +77,13 @@ const Register = () => {
                     {/* TODO - should link to the reset/email password route  or open a modal*/}
                     <Button
                         variant="contained"
-                        type="submit"
                         color="success"
+                        type="submit"
                         sx={styles.submitBtn}
                     >
                         JOIN NOW
                     </Button>
-                    <Stack direction="row">
+                    <Stack direction="row" sx={styles.loginLink}>
                         <Typography variant="caption">
                             Already have an account?
                         </Typography>
@@ -107,6 +107,7 @@ const styles = {
         justifyContent: "start",
         width: "100%",
         maxWidth: "500px",
+        height: "627px", 
         px: {
             xs: 2,
             md: 3,
@@ -118,10 +119,16 @@ const styles = {
         px: 1,
         textDecoration: "none",
     },
+    loginLink: {
+        display: "flex",
+        alignItems: "center"
+    },
     pageContainer: {
         px: 0,
         display: "flex",
         justifyContent: "center",
+        height: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
+        minHeight: "691px",
     },
     submitBtn: {
         my: 2,

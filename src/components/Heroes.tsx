@@ -1,6 +1,7 @@
 import React from "react";
 
 // import MUI components
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
@@ -9,14 +10,9 @@ import Typography from "@mui/material/Typography";
 
 // import MUI colors
 import {
-    blue,
     grey,
     lightGreen,
-    purple,
-    red,
-    yellow,
 } from "@mui/material/colors";
-import Box from "@mui/material/Box";
 
 const Heroes = () => {
     return (
@@ -59,7 +55,6 @@ const Heroes = () => {
                     orientation="vertical"
                     variant="middle"
                     flexItem
-                    sx={styles.divider}
                 />
                 <Link
                     variant="subtitle1"
@@ -73,7 +68,6 @@ const Heroes = () => {
                     orientation="vertical"
                     variant="middle"
                     flexItem
-                    sx={styles.divider}
                 />
                 <Link
                     variant="subtitle1"
@@ -87,7 +81,6 @@ const Heroes = () => {
                     orientation="vertical"
                     variant="middle"
                     flexItem
-                    sx={styles.divider}
                 />
                 <Link
                     variant="subtitle1"
@@ -111,17 +104,14 @@ const styles = {
         py: { xs: 5, md: 10 },
         mx: 0,
     },
-    divider: {
-        borderColor: "white",
-    },
     general: {
-        color: purple["A100"],
+        color: "success.main",
     },
     interview: {
-        color: blue[200],
+        color: "info.main",
     },
     learn: {
-        color: red[600],
+        color: "error.main",
     },
     links: {
         display: {
@@ -130,7 +120,7 @@ const styles = {
         },
     },
     project: {
-        color: yellow[600],
+        color: "warning.main",
     },
     span: {
         color: lightGreen["A700"],

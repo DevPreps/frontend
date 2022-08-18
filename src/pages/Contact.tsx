@@ -116,9 +116,10 @@ export const Contact = () => {
                             <Link
                                 target="blank"
                                 href="https://github.com/DevPreps/frontend/issues"
+                                sx={styles.bugReport}
                             >
                                 a bug report
-                            </Link>{" "}
+                            </Link>
                             in our GitHub repository
                         </Typography>
                     </ListItem>
@@ -155,6 +156,9 @@ export const Contact = () => {
 };
 
 const styles = {
+    bugReport: {
+        px: 1,
+    },
     button: {
         pl: 0,
     },

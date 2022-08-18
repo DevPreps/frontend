@@ -12,7 +12,6 @@ import Typography from "@mui/material/Typography";
 
 const MyProfile = () => {
     // set defaultValues for the form, so that the form values can be populated when editing a post
-
     const onSubmit: SubmitHandler<IMyProfileFormInputs> = (
         data: IMyProfileFormInputs
     ) => {
@@ -32,8 +31,9 @@ const MyProfile = () => {
 
 const styles = {
     box: {
-        mt: 3,
-        mb: 5,
+        py:4,
+        height: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
+        minHeight: "630px",
     },
 };
 export default MyProfile;

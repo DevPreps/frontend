@@ -24,7 +24,6 @@ import DraftsIcon from "@mui/icons-material/Drafts";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Avatar, Stack, Typography } from "@mui/material";
-import { red } from "@mui/material/colors";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
@@ -71,7 +70,7 @@ const MyAccount = () => {
             >
                 <Fab
                     size="small"
-                    color="primary"
+                    color="success"
                     aria-label="drawer-toggle"
                     onClick={handleDrawerToggle}
                 >
@@ -106,7 +105,7 @@ const MyAccount = () => {
                             <Avatar
                                 sx={styles.avatar}
                                 aria-label="user image"
-                                color={red[500]}
+                                color="error"
                             >
                                 {currentUser.username[0].toUpperCase()}
                             </Avatar>
@@ -150,7 +149,6 @@ const MyAccount = () => {
 const drawerWidth = 240;
 const styles = {
     avatar: {
-        bgcolor: red[500],
         mr: 2,
     },
     boxDrawerClosed: {
@@ -170,7 +168,11 @@ const styles = {
         width: drawerWidth,
         left: 0,
     },
-    container: { display: "flex" },
+    container: { 
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+     },
     dividerDrawOpen: {
         height: "100vh",
         position: "absolute",

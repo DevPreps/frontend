@@ -54,7 +54,7 @@ const Login = () => {
                         variant="outlined"
                     />
                     {/* TODO - should link to the reset/email password route  or open a modal*/}
-                    <Button variant="contained" type="submit" color="success">
+                    <Button variant="contained" color="success" type="submit">
                         LOG IN
                     </Button>
                     <Link href="/" target="_blank" sx={styles.pwLink}>
@@ -96,6 +96,7 @@ const styles = {
         justifyContent: "start",
         width: "100%",
         maxWidth: "500px",
+        height: "462px",
         px: {
             xs: 2,
             md: 3,
@@ -110,6 +111,9 @@ const styles = {
         px: 0,
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
+        height: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
+        minHeight: "526px",
     },
     pwLink: {
         fontSize: "14px",

@@ -33,7 +33,7 @@ const styles = {
     box: {
         display: "flex",
         flexDirection: "column",
-        justifyContent:"center",
+        justifyContent: "center",
         alignItems: "center",
         py: 4,
         height: {

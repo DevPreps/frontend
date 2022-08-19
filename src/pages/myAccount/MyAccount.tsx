@@ -171,7 +171,7 @@ const styles = {
         minWidth: {
             xs: drawerWidth,
             xl: 0,
-        },      
+        },
         height: "543px",
         left: 0,
     },

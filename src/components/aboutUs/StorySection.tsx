@@ -37,6 +37,7 @@ const styles = {
         height: "250px",
         mt: 2,
         bgcolor: {
+            // bg color will changes after site palette is determined
             backgroundColor: "paper",
         },
     },
@@ -45,13 +46,15 @@ const styles = {
         fontSize: "40px",
         textAlign: "center",
         mt: 8,
-        color: "#52a0a8",
+        // Text color will changes after site palette is determined
+        color: "main",
     },
     bgText: {
         fontSize: "35px",
         textAlign: "center",
         fontFamily: "fantasy",
-        color: "#050a30",
+        // Text color will changes after site palette is determined
+        color: "main",
     },
     storyTitle: {
         fontSize: "30px",

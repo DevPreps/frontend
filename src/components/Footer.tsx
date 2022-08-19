@@ -93,6 +93,7 @@ const styles = {
             sm: 5,
         },
         bgcolor: {
+            // bg color will changes after site palette is determined
             backgroundColor: "paper",
         },
     },

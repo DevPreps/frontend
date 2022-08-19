@@ -59,7 +59,8 @@ const styles = {
         m: 2,
     },
     avatar: {
-        bgcolor: "#4d4d4d",
+        // bg color will changes after site palette is determined
+        bgcolor: "main",
         width: 185,
         height: 185,
         m: 5,
@@ -67,7 +68,8 @@ const styles = {
     },
     titleText: {
         textAlign: "center",
-        color: "#0000ff",
+        // Text color will changes after site palette is determined
+        color: "main",
     },
     cardContent: {
         width: "100%",

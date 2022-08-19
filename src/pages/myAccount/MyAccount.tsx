@@ -76,7 +76,7 @@ const MyAccount = () => {
                     aria-label="drawer-toggle"
                     onClick={handleDrawerToggle}
                 >
-                    {open ? <ArrowBackIosIcon/> : <ArrowForwardIosIcon />}
+                    {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
                 </Fab>
             </Divider>
 

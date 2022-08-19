@@ -31,12 +31,15 @@ const MyProfile = () => {
 
 const styles = {
     box: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent:"center",
+        alignItems: "center",
         py: 4,
         height: {
-            lg: "calc(100vh - 64px - 305px)" // 100vh - header height - footer height
-        }, 
+            sm: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
+        },
         minHeight: "630px",
-
     },
 };
 export default MyProfile;

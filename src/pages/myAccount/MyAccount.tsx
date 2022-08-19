@@ -81,7 +81,7 @@ const MyAccount = () => {
             </Divider>
 
             <Box
-                component="nav"
+                // component="nav"
                 sx={open ? styles.boxDrawerOpen : styles.boxDrawerClosed}
                 aria-label="my account folders"
             >
@@ -162,12 +162,17 @@ const styles = {
         left: 0,
     },
     boxDrawerOpen: {
+        boxSizing: "border-box",
         position: {
-            xs: "absolute",
-            md: "static",
-            xl: "absolute",
+            xs: "absolute!important",
+            md: "static!important",
         },
-        width: drawerWidth,
+        display: "flex",
+        minWidth: {
+            xs: drawerWidth,
+            xl: 0,
+        },      
+        height: "543px",
         left: 0,
     },
     container: {
@@ -190,6 +195,7 @@ const styles = {
         left: "-10px",
     },
     drawer: {
+        // flexShrink: 0,
         "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,

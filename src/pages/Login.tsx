@@ -96,7 +96,6 @@ const styles = {
         justifyContent: "start",
         width: "100%",
         maxWidth: "500px",
-        height: "462px",
         px: {
             xs: 2,
             md: 3,

@@ -107,7 +107,6 @@ const styles = {
         justifyContent: "start",
         width: "100%",
         maxWidth: "500px",
-        height: "627px",
         px: {
             xs: 2,
             md: 3,
@@ -127,6 +126,7 @@ const styles = {
         px: 0,
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         height: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
         minHeight: "691px",
     },

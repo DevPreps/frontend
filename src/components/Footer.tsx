@@ -5,13 +5,13 @@ import { Link as RouteLink } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import ImageListItem from "@mui/material/ImageListItem";
+import Paper from "@mui/material/Paper";
 
 const Footer = () => {
     return (
         <footer>
-            <Box sx={styles.footerBox}>
+            <Paper sx={styles.footerBox}>
                 <Container sx={styles.container}>
                     <Grid container spacing={4}>
                         <Grid item xs={12} sm={3}>
@@ -41,26 +41,12 @@ const Footer = () => {
                         <Grid item xs={12} sm={3} lineHeight={2}>
                             <Box sx={styles.bottomLine}>CONTACT</Box>
                             <Box>
-                                <Link
-                                    href="/contact"
-                                    target="_blank"
-                                    underline="none"
-                                    sx={styles.muiLink}
+                                <RouteLink
+                                    to="/contact"
+                                    style={styles.routeLink}
                                 >
                                     Contact Us
-                                </Link>
-                            </Box>
-                            <Box>Email: devprep@outlook.com.au</Box>
-                            <Box>
-                                <Link
-                                    href="https://github.com/DevPreps"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    underline="none"
-                                    sx={styles.muiLink}
-                                >
-                                    Github
-                                </Link>
+                                </RouteLink>
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={3} lineHeight={2}>
@@ -80,7 +66,7 @@ const Footer = () => {
                             <Box>
                                 {/* // TODO - the url will be update later. */}
                                 <RouteLink style={styles.routeLink} to="/">
-                                    Privary
+                                    Privacy
                                 </RouteLink>
                             </Box>
                         </Grid>
@@ -89,7 +75,7 @@ const Footer = () => {
                         Copyright &reg; {new Date().getFullYear()} Devprep, Inc.
                     </Box>
                 </Container>
-            </Box>
+            </Paper>
         </footer>
     );
 };
@@ -106,8 +92,10 @@ const styles = {
             xs: 5,
             sm: 5,
         },
-        bgcolor: "#4dabf5",
-        color: "white",
+        bgcolor: {
+            // bg color will changes after site palette is determined
+            backgroundColor: "paper",
+        },
     },
     container: {
         maxWidth: "lg",
@@ -129,13 +117,8 @@ const styles = {
             xs: 5,
             sm: 0,
         },
-        color: "black",
-    },
-    muiLink: {
-        color: "white",
     },
     routeLink: {
-        color: "white",
         textDecoration: "none",
     },
 };

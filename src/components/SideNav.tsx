@@ -11,9 +11,9 @@ import Typography from "@mui/material/Typography";
 // An interface that defines object parameters
 interface IProps {
     children?: React.ReactNode;
-};
+}
 
-export default function SideNav({ children }:IProps) {
+export default function SideNav({ children }: IProps) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -67,7 +67,7 @@ const style = {
             boxSizing: "border-box",
             width: 180,
         },
-        zIndex: "1250!important"
+        zIndex: "1250!important",
     },
     margin: {
         iconBtn: { ml: 0.5 },

@@ -25,7 +25,7 @@ const links = [
     {
         to: "/posts/project",
         text: "Project",
-    },     
+    },
     {
         to: "/login",
         text: "SignIn",
@@ -49,11 +49,13 @@ describe("<TopNav />", () => {
     });
     // test if there are 9 Link elements
     it("should render 14 Links", () => {
-        expect(wrapper.find(Button).at(0).prop("to")).toHaveLength(14)
+        expect(wrapper.find(Button).at(0).prop("to")).toHaveLength(14);
     });
-    it("should test links", () => {        
-        links.map((link) =>         
-            expect(wrapper.find({ children: link.text }).last().prop("to")).toEqual(link.to)
-        )
-    })
+    it("should test links", () => {
+        links.map((link) =>
+            expect(
+                wrapper.find({ children: link.text }).last().prop("to")
+            ).toEqual(link.to)
+        );
+    });
 });

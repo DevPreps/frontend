@@ -2,8 +2,10 @@ import React from "react";
 import { shallow } from "enzyme";
 import AboutUs from "../AboutUs";
 
-describe("Test AboutUs page", () => {
-    it("should be able to render <AboutUs />", () => {
-        shallow(<AboutUs />);
+// test component rendering
+describe("Test AboutUs component", () => {
+    const wrapper = shallow(<AboutUs />);
+    it("Should be able to render AboutUsView component ", () => {
+        expect(wrapper.find("AboutUsView").children).toHaveLength(1);
     });
 });

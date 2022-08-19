@@ -11,7 +11,6 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 
 //import child components files
-
 import TeamCards from "../components/aboutUs/TeamCards";
 import StorySection from "../components/aboutUs/StorySection";
 

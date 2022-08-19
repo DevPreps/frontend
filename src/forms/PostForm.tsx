@@ -50,10 +50,10 @@ const PostForm = ({
                     <InterviewItems formDefaultValues={formDefaultValues} />
                 )}
 
-                {/* TODO - add rich-text editor for post description */}
+                {/* TODO - add rich-text editor for post content */}
                 <TextFieldInput
                     helperText="Post content"
-                    name="description"
+                    name="content"
                     multiline
                     rows={8}
                 />

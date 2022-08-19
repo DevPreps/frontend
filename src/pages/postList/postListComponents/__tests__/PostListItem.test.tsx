@@ -17,9 +17,9 @@ describe("<PostListItem /> rendering", () => {
         );
     });
     it("should contain post content", () => {
-        expect(
-            wrapper.find({ "data-testid": "post-description" }).text()
-        ).toEqual(posts[0].description);
+        expect(wrapper.find({ "data-testid": "post-content" }).text()).toEqual(
+            posts[0].content
+        );
     });
     it("should contain post image", () => {
         expect(wrapper.find({ alt: "image text" }).prop("image")).toEqual(

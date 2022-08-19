@@ -38,9 +38,9 @@ const PostListItem: React.FC<PostProps> = ({ children, post }) => {
                         <Typography
                             variant="subtitle1"
                             paragraph
-                            data-testid="post-description"
+                            data-testid="post-content"
                         >
-                            {post.description}
+                            {post.content}
                         </Typography>
                     </CardContent>
                     {children}

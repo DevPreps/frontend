@@ -21,9 +21,6 @@ import {
     Register,
 } from "./pages/index";
 
-// Global stylesheet
-import "./globals.css";
-
 export default function App() {
     return (
         <BrowserRouter>

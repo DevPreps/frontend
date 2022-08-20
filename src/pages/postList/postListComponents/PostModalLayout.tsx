@@ -54,7 +54,6 @@ const PostModalLayout: React.FC<Props> = ({
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
                 disableScrollLock //disable MUI default behavior of adds padding to the body tag when a dialog/select menu is opened
-
             >
                 <Box sx={styles.modal}>
                     {/* close button */}

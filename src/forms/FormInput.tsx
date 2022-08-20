@@ -173,6 +173,10 @@ export const SelectInput = <T extends FieldValues>({
                         // set defaultValue here to fix MUI warning
                         defaultValue={defaultValue}
                         {...field}
+                        // add following setting to disable MUI default behavior of adds padding to the body tag when a dialog/select menu is opened
+                        MenuProps={{
+                            disableScrollLock: true,
+                        }}
                     >
                         {options?.map((option) => (
                             <MenuItem key={option} value={option}>
@@ -292,6 +296,10 @@ export const CategoryInput = ({
                 value={category}
                 // set defaultValue here to fix MUI warning
                 // defaultValue={defaultValue}
+                // add following setting to disable MUI default behavior of adds padding to the body tag when a dialog/select menu is opened
+                MenuProps={{
+                    disableScrollLock: true,
+                }}
             >
                 {categoryOptions?.map((option) => (
                     <MenuItem key={option} value={option}>
@@ -322,6 +330,8 @@ const styles = {
                 width: 250,
             },
         },
+        // add following setting to disable MUI default behavior of adds padding to the body tag when a dialog/select menu is opened
+        disableScrollLock: true,
     },
     selectLabel: {
         left: 0,

@@ -162,7 +162,6 @@ const styles = {
         left: 0,
     },
     boxDrawerOpen: {
-        boxSizing: "border-box",
         position: {
             xs: "absolute!important",
             md: "static!important",
@@ -197,7 +196,6 @@ const styles = {
     drawer: {
         // flexShrink: 0,
         "& .MuiDrawer-paper": {
-            boxSizing: "border-box",
             width: drawerWidth,
         },
     },

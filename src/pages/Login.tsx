@@ -87,7 +87,6 @@ const Login = () => {
 };
 const styles = {
     formContainer: {
-        boxSizing: "border-box",
         bgcolor: "background.paper",
         borderRadius: 2,
         boxShadow: 3,

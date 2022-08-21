@@ -178,6 +178,7 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        flexGrow: 1,
     },
     dividerDrawOpen: {
         height: "100vh",

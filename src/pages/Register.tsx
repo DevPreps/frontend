@@ -98,7 +98,6 @@ const Register = () => {
 };
 const styles = {
     formContainer: {
-        boxSizing: "border-box",
         bgcolor: "background.paper",
         borderRadius: 2,
         boxShadow: 3,
@@ -127,8 +126,7 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
-        minHeight: "691px",
+        flexGrow: 1,
     },
     submitBtn: {
         my: 2,

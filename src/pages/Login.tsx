@@ -110,8 +110,7 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
-        minHeight: "526px",
+        flexGrow: 1, 
     },
     pwLink: {
         fontSize: "14px",
@@ -122,7 +121,7 @@ const styles = {
         alignItems: "center",
     },
     terms: {
-        color: "grey",
+        color: "text.secondary",
     },
     title: {
         fontSize: "30px",

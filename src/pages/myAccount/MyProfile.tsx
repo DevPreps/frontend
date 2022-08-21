@@ -36,10 +36,6 @@ const styles = {
         justifyContent: "center",
         alignItems: "center",
         py: 4,
-        height: {
-            sm: "calc(100vh - 64px - 305px)", // 100vh - header height - footer height
-        },
-        minHeight: "630px",
     },
 };
 export default MyProfile;

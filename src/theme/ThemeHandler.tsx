@@ -3,6 +3,19 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ColorModeContext } from "../context/appContext";
 import { baseTheme } from "./Themes";
+
+// add type for neutral so that can set color neutral (grey) in theme palette 
+declare module "@mui/material/styles" {
+    interface Palette {
+      neutral: Palette["primary"];
+    }
+  
+    // allow configuration using “createTheme”
+    interface PaletteOptions {
+      neutral?: PaletteOptions["primary"];
+    }
+  }
+  
 // An interface that defines object parameters
 interface IProps {
     children?: React.ReactNode;
@@ -30,6 +43,7 @@ export default function ThemeHandler({ children }: IProps) {
     );
     // Update the theme only if the mode changes
     const theme = useMemo(() => createTheme(baseTheme(mode)), [mode]);
+
     return (
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>

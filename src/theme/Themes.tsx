@@ -5,6 +5,7 @@ interface ThemeColor {
     main: string;
     paper: string; // Component BackGround
     default: string; // Main BackGround
+    divider: string; // Light grey color for divider
     contrastText: string; // Text
     blue: string; // Buttons and hight text
     green: string; // Buttons and borders
@@ -25,7 +26,8 @@ export const baseTheme = (mode: PaletteMode) => {
             default: "#F3FFDE",
             contrastText: "#291528",
             blue: "#64b5f6", // light blue
-            grey: "#BDBDBD", // light grey
+            divider: "#BDBDBD", // light grey for divider
+            grey: "#212121", // dark grey
             green: "#43a047", // light green
             red: "#d50000", // light red
             yellow: "#fbc02d", // light yellow
@@ -38,8 +40,9 @@ export const baseTheme = (mode: PaletteMode) => {
             default: "#0F301F",
             contrastText: "#F3FFDE",
             blue: "#1565c0", // dark blue
+            divider: "#BDBDBD", // light grey for divider
             green: "#1b5e20", // dark green
-            grey: "#F3FFDE", // dark grey
+            grey: "#424242",// dark grey
             red: "#d32f2f", // bright red
             yellow: "#ffee58", // dark yellow
         };
@@ -81,6 +84,9 @@ export const baseTheme = (mode: PaletteMode) => {
             success: {
                 main: themeColor.green,
             },
+            neutral: {
+                main: themeColor.grey,
+            },
             background: {
                 paper: themeColor.paper,
                 default: themeColor.default,
@@ -88,7 +94,7 @@ export const baseTheme = (mode: PaletteMode) => {
             text: {
                 primary: themeColor.contrastText,
             },
-            divider: themeColor.grey,
+            divider: themeColor.divider,
         },
         components: {
             MuiCssBaseline: {

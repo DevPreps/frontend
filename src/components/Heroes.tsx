@@ -8,9 +8,6 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-// import MUI colors
-import { grey, lightGreen } from "@mui/material/colors";
-
 const Heroes = () => {
     return (
         <Container maxWidth="xl" sx={styles.container}>
@@ -82,7 +79,7 @@ const Heroes = () => {
 
 const styles = {
     container: {
-        background: grey[900],
+        backgroundColor: "neutral.main",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -108,7 +105,7 @@ const styles = {
         color: "warning.main",
     },
     span: {
-        color: lightGreen["A700"],
+        color: "success.main",
         fontSize: {
             xs: "12px",
             md: "20px",

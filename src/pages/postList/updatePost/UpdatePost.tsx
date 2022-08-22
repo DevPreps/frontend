@@ -18,7 +18,7 @@ interface Props {
     post: IPost;
 }
 
-const UpdateGeneralPost = ({ post }: Props) => {
+const UpdatePost = ({ post }: Props) => {
     // handle form submission
     const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
         console.log("data", data);
@@ -51,4 +51,4 @@ const UpdateGeneralPost = ({ post }: Props) => {
     );
 };
 
-export default UpdateGeneralPost;
+export default UpdatePost;

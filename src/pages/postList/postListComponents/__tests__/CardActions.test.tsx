@@ -9,9 +9,8 @@ import { interviewPosts } from "../../../../data";
 // test component rendering
 describe("<AuthorCardActions /> rendering", () => {
     const wrapper = shallow(<AuthorCardActions post={interviewPosts[0]} />);
-    it("should contain UpdatePost Modal />", () => {      
-        expect(
-            wrapper.find("UpdatePost").length).toBe(1);
+    it("should contain UpdatePost Modal />", () => {
+        expect(wrapper.find("UpdatePost").length).toBe(1);
     });
 
     it("should contain a delete button />", () => {

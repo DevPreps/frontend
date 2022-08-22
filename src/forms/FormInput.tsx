@@ -86,7 +86,7 @@ export const PasswordInput = <T extends FieldValues>({
     required = true,
     variant = "standard",
 }: Props<T>) => {
-    const [showPassword, setShowPassword] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
     const {
         control,
         formState: { errors },
@@ -121,9 +121,9 @@ export const PasswordInput = <T extends FieldValues>({
                                     onClick={handleShowPassword}
                                 >
                                     {showPassword ? (
-                                        <VisibilityOff />
-                                    ) : (
                                         <Visibility />
+                                    ) : (
+                                        <VisibilityOff />
                                     )}
                                 </IconButton>
                             </InputAdornment>

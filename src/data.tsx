@@ -18,9 +18,10 @@ export const violationOptions = [
 // these values are used for development and test
 export const buildArray = (length: number, category: string[]) => {
     const arr = new Array(length);
-    const randomPosition = positionOptions[Math.floor(Math.random() * positionOptions.length)]
+    const randomPosition =
+        positionOptions[Math.floor(Math.random() * positionOptions.length)];
     const randomCategory =
-    category[Math.floor(Math.random() * category.length)];
+        category[Math.floor(Math.random() * category.length)];
     const interviewItems = {
         companyName: "NTT",
         city: "Brisbane",
@@ -29,8 +30,8 @@ export const buildArray = (length: number, category: string[]) => {
         jobAdUrl:
             "https://www.seek.com.au/job/58059316?type=standard#sol=c7423890f2350afbfe347e56de445232ab7ebf87",
     };
-    
-    return  arr.fill(null).map((_, index) => {
+
+    return arr.fill(null).map((_, index) => {
         return {
             postId: (index + 1).toString(),
             userId: "11",
@@ -44,7 +45,7 @@ export const buildArray = (length: number, category: string[]) => {
             tags: tagOptions.sort(() => 0.5 - Math.random()).slice(0, 2), // generate 2 random tags for each post item
             ...(randomCategory === "interview" && interviewItems), // only contain interviewItems when category === "interview"
         };
-    });;
+    });
 };
 
 export const posts = buildArray(10, categoryOptions);

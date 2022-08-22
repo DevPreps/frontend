@@ -6,7 +6,7 @@ import PostListLayout from "../postList/postListComponents/PostListLayout";
 // TODO - posts will be changed to used state and fetched from backend.
 import { myDrafts } from "../../data";
 
-const MyDrafts = () => {   
+const MyDrafts = () => {
     return (
         <PostListLayout
             title="My Drafts"

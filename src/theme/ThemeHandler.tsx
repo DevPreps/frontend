@@ -4,18 +4,18 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ColorModeContext } from "../context/appContext";
 import { baseTheme } from "./Themes";
 
-// add type for neutral so that can set color neutral (grey) in theme palette 
+// add type for neutral so that can set color neutral (grey) in theme palette
 declare module "@mui/material/styles" {
     interface Palette {
-      neutral: Palette["primary"];
+        neutral: Palette["primary"];
     }
-  
+
     // allow configuration using “createTheme”
     interface PaletteOptions {
-      neutral?: PaletteOptions["primary"];
+        neutral?: PaletteOptions["primary"];
     }
-  }
-  
+}
+
 // An interface that defines object parameters
 interface IProps {
     children?: React.ReactNode;

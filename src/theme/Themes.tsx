@@ -42,7 +42,7 @@ export const baseTheme = (mode: PaletteMode) => {
             blue: "#1565c0", // dark blue
             divider: "#BDBDBD", // light grey for divider
             green: "#1b5e20", // dark green
-            grey: "#424242",// dark grey
+            grey: "#424242", // dark grey
             red: "#d32f2f", // bright red
             yellow: "#ffee58", // dark yellow
         };

@@ -202,7 +202,7 @@ const styles = {
         "& .MuiDrawer-paperAnchorLeft": {
             borderRight: "none",
         },
-    }, 
+    },
     namebar: {
         pl: 2,
         mt: 5,

@@ -9,7 +9,11 @@ import { learnPosts } from "../../data";
 
 const LearnPostList = () => {
     return (
-        <PostListLayout title="Learn Posts" posts={learnPosts} withSearchBar={true}>
+        <PostListLayout
+            title="Learn Posts"
+            posts={learnPosts}
+            withSearchBar={true}
+        >
             <CreatePost />
         </PostListLayout>
     );

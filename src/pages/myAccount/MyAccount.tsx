@@ -195,11 +195,14 @@ const styles = {
         left: "-10px",
     },
     drawer: {
-        // flexShrink: 0,
+        borderRight: "none",
         "& .MuiDrawer-paper": {
             width: drawerWidth,
         },
-    },
+        "& .MuiDrawer-paperAnchorLeft": {
+            borderRight: "none",
+        },
+    }, 
     namebar: {
         pl: 2,
         mt: 5,

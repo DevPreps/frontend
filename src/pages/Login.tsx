@@ -110,7 +110,7 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        flexGrow: 1, 
+        flexGrow: 1,
     },
     pwLink: {
         fontSize: "14px",

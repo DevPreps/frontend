@@ -15,201 +15,43 @@ export const violationOptions = [
     "Spam or copyright issue",
     "other",
 ];
-// TODO - these values are used for development and test
-export const posts = [
-    {
-        postId: "1",
-        userId: "11",
-        date: "22-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 1",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "2",
-        userId: "11",
-        date: "24-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 2",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "3",
-        userId: "11",
-        date: "26-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 3",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-];
-
-export const learnPosts = [
-    {
-        postId: "1",
-        userId: "11",
-        date: "22-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 1",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "2",
-        userId: "11",
-        date: "24-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 2",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "3",
-        userId: "11",
-        date: "26-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 3",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-];
-export const savedPosts = [
-    {
-        postId: "1",
-        userId: "2",
-        date: "22-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 1",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "2",
-        userId: "3",
-        date: "24-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 2",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "3",
-        userId: "11",
-        date: "26-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 3",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-];
-
-export const myDrafts = [
-    {
-        postId: "1",
-        userId: "1",
-        date: "22-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 1",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "2",
-        userId: "1",
-        date: "24-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 2",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "3",
-        userId: "1",
-        date: "26-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 3",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-];
-
-export const myPosts = [
-    {
-        postId: "1",
-        userId: "1",
-        date: "22-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 1",
-        category: "learn",
-        tags: ["frontend", "backend"],
-    },
-    {
-        postId: "2",
-        userId: "1",
-        date: "24-07-2022",
-        title: "Post Title 2",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        companyName: "test company",
+// these values are used for development and test
+export const buildArray = (length: number, category: string[]) => {
+    const arr = new Array(length);
+    const randomPosition = positionOptions[Math.floor(Math.random() * positionOptions.length)]
+    const randomCategory =
+    category[Math.floor(Math.random() * category.length)];
+    const interviewItems = {
+        companyName: "NTT",
         city: "Brisbane",
-        jobTitle: "test job title",
-        position: "Front End Developer",
-        tags: ["frontend", "backend"],
-        category: "interview",
-    },
-    {
-        postId: "3",
-        userId: "1",
-        date: "26-07-2022",
-        content:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
-        image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
-        imageLabel: "image text",
-        title: "Post Title 3",
-        category: "general",
-        tags: ["frontend", "backend"],
-    },
-];
+        jobTitle: randomPosition,
+        position: randomPosition,
+        jobAdUrl:
+            "https://www.seek.com.au/job/58059316?type=standard#sol=c7423890f2350afbfe347e56de445232ab7ebf87",
+    };
+    
+    return  arr.fill(null).map((_, index) => {
+        return {
+            postId: (index + 1).toString(),
+            userId: "11",
+            date: "24-07-2022",
+            content:
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
+            image: "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
+            imageLabel: "image text",
+            title: `Post Title ${index + 1}`,
+            category: randomCategory,
+            tags: tagOptions.sort(() => 0.5 - Math.random()).slice(0, 2), // generate 2 random tags for each post item
+            ...(randomCategory === "interview" && interviewItems), // only contain interviewItems when category === "interview"
+        };
+    });;
+};
+
+export const posts = buildArray(10, categoryOptions);
+export const savedPosts = buildArray(6, categoryOptions);
+export const learnPosts = buildArray(10, ["learn"]);
+export const interviewPosts = buildArray(10, ["interview"]);
+export const generalPosts = buildArray(10, ["general"]);
+export const projectPosts = buildArray(10, ["project"]);
+export const myDrafts = buildArray(6, categoryOptions);
+export const myPosts = buildArray(6, categoryOptions);

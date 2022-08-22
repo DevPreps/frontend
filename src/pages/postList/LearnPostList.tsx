@@ -5,11 +5,11 @@ import PostListLayout from "./postListComponents/PostListLayout";
 import CreatePost from "./composePost/CreatePost";
 
 // TODO - posts will be changed to used state and fetched from backend.
-import { posts } from "../../data";
+import { learnPosts } from "../../data";
 
 const LearnPostList = () => {
     return (
-        <PostListLayout title="Learn Posts" posts={posts} withSearchBar={true}>
+        <PostListLayout title="Learn Posts" posts={learnPosts} withSearchBar={true}>
             <CreatePost />
         </PostListLayout>
     );

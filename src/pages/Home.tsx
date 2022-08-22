@@ -22,6 +22,6 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
-    }
+    },
 } as const;
 export default Home;

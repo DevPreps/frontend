@@ -32,7 +32,7 @@ const PostListLayout: React.FC<Props> = ({
             <Typography variant="h5">{title}</Typography>
             {withSearchBar && <SearchBar />}
             {/* compose button and sort menu */}
-            <Stack direction="row">
+            <Stack direction="row" sx={styles.toolbar}>
                 {/* compose post modal component */}
                 {children}
                 <SortMenu />
@@ -57,6 +57,15 @@ const styles = {
     stack: {
         flexGrow: 1,
         mt: 3,
+        px: {
+            xs: 1,
+            sm: 2,
+        },
+    },
+    toolbar: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "between",
     },
 };
 export default PostListLayout;

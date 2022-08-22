@@ -5,13 +5,13 @@ import PostListLayout from "./postListComponents/PostListLayout";
 import CreatePost from "./composePost/CreatePost";
 
 // TODO - posts will be changed to used state and fetched from backend.
-import { posts } from "../../data";
+import { generalPosts } from "../../data";
 
 const GeneralPostList = () => {
     return (
         <PostListLayout
             title="General Posts"
-            posts={posts}
+            posts={generalPosts}
             withSearchBar={true}
         >
             <CreatePost />

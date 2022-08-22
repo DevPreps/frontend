@@ -21,7 +21,7 @@ export interface PostDetail {
         username: string;
         date: string;
         jobTitle: string;
-        description: string;
+        content: string;
     };
 }
 
@@ -33,7 +33,7 @@ const PostCard = () => {
         username: "Username",
         date: "July/2022",
         jobTitle: "Post Title",
-        description:
+        content:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     };
 
@@ -63,7 +63,7 @@ const PostCard = () => {
                     </Box>
                     <Box>
                         <Typography sx={styles.contentText}>
-                            {postDetail.description}
+                            {postDetail.content}
                         </Typography>
                     </Box>
                     <Box sx={styles.iconsBtnBox}>

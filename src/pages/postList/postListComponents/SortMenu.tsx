@@ -14,6 +14,10 @@ const SortMenu = () => {
                 id="demo-select-small"
                 label="Sort"
                 defaultValue="latest"
+                // add following setting to disable MUI default behavior of adds padding to the body tag when a dialog/select menu is
+                MenuProps={{
+                    disableScrollLock: true,
+                }}
             >
                 <MenuItem value="latest">
                     <em>Latest</em>

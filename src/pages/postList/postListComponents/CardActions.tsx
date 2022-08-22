@@ -1,24 +1,23 @@
 import React from "react";
 
+// import components and data interface
 import { IPost } from "./IPost";
+import Report from "./ReportModal";
+import UpdatePost from "../updatePost/UpdatePost";
+
 //import MUI components
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
-import UpdatePost from "../updatePost/UpdatePost";
 
 // import MUI Icons
 import AddCommentIcon from "@mui/icons-material/AddComment";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-
-// import MUI colors
-import { red } from "@mui/material/colors";
 import Tooltip from "@mui/material/Tooltip";
-import Report from "./ReportModal";
 
 // define interface for props
 interface Props {
@@ -70,14 +69,14 @@ const styles = {
         ml: "auto",
     },
     avatar: {
-        bgcolor: red[500],
+        bgcolor: "error.main",
         mx: 2,
     },
     deleteBtn: {
-        color: red[800],
+        color: "error.main",
         ml: 2,
     },
     likeBtn: {
-        color: red[700],
+        color: "error.main",
     },
 } as const;

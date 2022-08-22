@@ -4,21 +4,13 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { AuthorCardActions, UserCardActions } from "../CardActions";
-import { posts } from "../../../../data";
+import { interviewPosts } from "../../../../data";
 
 // test component rendering
 describe("<AuthorCardActions /> rendering", () => {
-    const wrapper = shallow(<AuthorCardActions post={posts[0]} />);
-    console.log(wrapper.debug());
-
+    const wrapper = shallow(<AuthorCardActions post={interviewPosts[0]} />);
     it("should contain UpdatePost Modal />", () => {
-        expect(
-            wrapper.find(
-                posts[0].category === "interview"
-                    ? "UpdateInterviewPost"
-                    : "UpdateGeneralPost"
-            ).length
-        ).toBe(1);
+        expect(wrapper.find("UpdatePost").length).toBe(1);
     });
 
     it("should contain a delete button />", () => {

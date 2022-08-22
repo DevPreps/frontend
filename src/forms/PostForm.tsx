@@ -50,10 +50,10 @@ const PostForm = ({
                     <InterviewItems formDefaultValues={formDefaultValues} />
                 )}
 
-                {/* TODO - add rich-text editor for post description */}
+                {/* TODO - add rich-text editor for post content */}
                 <TextFieldInput
                     helperText="Post content"
-                    name="description"
+                    name="content"
                     multiline
                     rows={8}
                 />
@@ -69,12 +69,12 @@ const PostForm = ({
                     <Button
                         variant="contained"
                         type="submit"
-                        color="success"
+                        color="info"
                         sx={styles.publishBtn}
                     >
                         PUBLISH
                     </Button>
-                    <Button variant="contained" type="submit">
+                    <Button variant="contained" color="success" type="submit">
                         SAVE AS DRAFT
                     </Button>
                 </Stack>

@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 // import MUI components
 // import CssBaseline from "@mui/material/CssBaseline";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
@@ -14,6 +15,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 
 // import MUI icons and colors
@@ -23,8 +26,6 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Avatar, Stack, Typography } from "@mui/material";
-import { red } from "@mui/material/colors";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
@@ -71,7 +72,7 @@ const MyAccount = () => {
             >
                 <Fab
                     size="small"
-                    color="primary"
+                    color="success"
                     aria-label="drawer-toggle"
                     onClick={handleDrawerToggle}
                 >
@@ -80,7 +81,7 @@ const MyAccount = () => {
             </Divider>
 
             <Box
-                component="nav"
+                // component="nav"
                 sx={open ? styles.boxDrawerOpen : styles.boxDrawerClosed}
                 aria-label="my account folders"
             >
@@ -106,7 +107,7 @@ const MyAccount = () => {
                             <Avatar
                                 sx={styles.avatar}
                                 aria-label="user image"
-                                color={red[500]}
+                                color="error"
                             >
                                 {currentUser.username[0].toUpperCase()}
                             </Avatar>
@@ -150,7 +151,6 @@ const MyAccount = () => {
 const drawerWidth = 240;
 const styles = {
     avatar: {
-        bgcolor: red[500],
         mr: 2,
     },
     boxDrawerClosed: {
@@ -163,14 +163,23 @@ const styles = {
     },
     boxDrawerOpen: {
         position: {
-            xs: "absolute",
-            md: "static",
-            xl: "absolute",
+            xs: "absolute!important",
+            md: "static!important",
         },
-        width: drawerWidth,
+        display: "flex",
+        minWidth: {
+            xs: drawerWidth,
+            xl: 0,
+        },
+        height: "543px",
         left: 0,
     },
-    container: { display: "flex" },
+    container: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexGrow: 1,
+    },
     dividerDrawOpen: {
         height: "100vh",
         position: "absolute",
@@ -186,9 +195,12 @@ const styles = {
         left: "-10px",
     },
     drawer: {
+        borderRight: "none",
         "& .MuiDrawer-paper": {
-            boxSizing: "border-box",
             width: drawerWidth,
+        },
+        "& .MuiDrawer-paperAnchorLeft": {
+            borderRight: "none",
         },
     },
     namebar: {

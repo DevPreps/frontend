@@ -14,7 +14,7 @@ export const contactFormDefaultValues: IContactFormInputs = {
 export const generalFormDefaultValues: IFormInputs = {
     category: "general",
     title: "",
-    description: "",
+    content: "",
     tags: [],
 };
 
@@ -25,7 +25,7 @@ export const interviewFormDefaultValues: IFormInputs = {
     city: "",
     jobTitle: "",
     position: "Front End Developer",
-    description: "",
+    content: "",
     tags: [],
 };
 
@@ -36,7 +36,7 @@ export const interviewPostDefaultValues: IFormInputs = {
     city: "Brisbane",
     jobTitle: "test job title",
     position: "Front End Developer",
-    description: "test content",
+    content: "test content",
     tags: ["frontend", "backend"],
 };
 

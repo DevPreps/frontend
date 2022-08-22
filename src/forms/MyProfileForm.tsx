@@ -154,7 +154,10 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
     );
 };
 const styles = {
-    gridContainer: { maxWidth: "800px" },
+    gridContainer: {
+        maxWidth: "800px",
+        py: 2,
+    },
     groupButton: { mt: 5, ml: 3 },
     publishBtn: {
         mr: 2,

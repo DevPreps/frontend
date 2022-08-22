@@ -1,28 +1,24 @@
 import React from "react";
 
 // import MUI components
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-
-// import MUI colors
-import {
-    blue,
-    grey,
-    lightGreen,
-    purple,
-    red,
-    yellow,
-} from "@mui/material/colors";
+import Typography from "@mui/material/Typography";
 
 const Heroes = () => {
     return (
         <Container maxWidth="xl" sx={styles.container}>
             <Typography variant="h2" sx={styles.title} data-testid="hero-title">
-                <span style={styles.span}>&lt;h1&gt;</span>
+                <Box component="span" sx={styles.span}>
+                    &lt;h1&gt;
+                </Box>
                 Devs Help Devs
-                <span style={styles.span}>&lt;/h1&gt;</span>
+                <Box component="span" sx={styles.span}>
+                    &lt;/h1&gt;
+                </Box>
             </Typography>
             {/* TODO - the content needs to be changed later */}
             <Typography
@@ -30,42 +26,52 @@ const Heroes = () => {
                 sx={styles.subTitle}
                 data-testid="hero-subtitle"
             >
-                <span style={styles.span}>&lt;p&gt;</span>This is a place where
-                developers share their learning tips and interview experience to
-                help each other grow, gain new skills and get more job offers
-                <span style={styles.span}>&lt;/p&gt;</span>
+                <Box component="span" sx={styles.span}>
+                    &lt;p&gt;
+                </Box>
+                This is a place where developers share their learning tips and
+                interview experience to help each other grow, gain new skills
+                and get more job offers
+                <Box component="span" sx={styles.span}>
+                    &lt;/p&gt;
+                </Box>
             </Typography>
-            <Stack direction="row" spacing={2}>
-                <Typography variant="subtitle1" sx={styles.learn}>
+            <Stack direction="row" spacing={2} sx={styles.links}>
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/learn"
+                    sx={styles.learn}
+                >
                     Learn Tips
-                </Typography>
-                <Divider
-                    orientation="vertical"
-                    variant="middle"
-                    flexItem
-                    sx={styles.divider}
-                />
-                <Typography variant="subtitle1" sx={styles.interview}>
+                </Link>
+                <Divider orientation="vertical" variant="middle" flexItem />
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/interview"
+                    sx={styles.interview}
+                >
                     Interview Questions
-                </Typography>
-                <Divider
-                    orientation="vertical"
-                    variant="middle"
-                    flexItem
-                    sx={styles.divider}
-                />
-                <Typography variant="subtitle1" sx={styles.project}>
+                </Link>
+                <Divider orientation="vertical" variant="middle" flexItem />
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/project"
+                    sx={styles.project}
+                >
                     Open Source Projects
-                </Typography>
-                <Divider
-                    orientation="vertical"
-                    variant="middle"
-                    flexItem
-                    sx={styles.divider}
-                />
-                <Typography variant="subtitle1" sx={styles.general}>
+                </Link>
+                <Divider orientation="vertical" variant="middle" flexItem />
+                <Link
+                    variant="subtitle1"
+                    underline="none"
+                    href="/posts/general"
+                    sx={styles.general}
+                >
                     Discussions
-                </Typography>
+                </Link>
             </Stack>
         </Container>
     );
@@ -73,30 +79,37 @@ const Heroes = () => {
 
 const styles = {
     container: {
-        background: grey[900],
+        backgroundColor: "neutral.main",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         py: { xs: 5, md: 10 },
-    },
-    divider: {
-        borderColor: "white",
+        mx: 0,
     },
     general: {
-        color: purple["A100"],
+        color: "success.main",
     },
     interview: {
-        color: blue[200],
+        color: "info.main",
     },
     learn: {
-        color: red[600],
+        color: "error.main",
+    },
+    links: {
+        display: {
+            xs: "none",
+            sm: "flex",
+        },
     },
     project: {
-        color: yellow[600],
+        color: "warning.main",
     },
     span: {
-        color: lightGreen["A700"],
-        fontSize: "20px",
+        color: "success.main",
+        fontSize: {
+            xs: "12px",
+            md: "20px",
+        },
     },
     subTitle: {
         color: "white",
@@ -111,8 +124,8 @@ const styles = {
         color: "white",
         fontWeight: 500,
         fontSize: {
-            xs: "35px",
-            md: "60px",
+            xs: "30px",
+            sm: "60px",
         },
         pb: 3,
     },

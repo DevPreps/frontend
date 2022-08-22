@@ -3,7 +3,7 @@ export interface IPost {
     postId: string;
     userId: string;
     date: string;
-    description: string;
+    content: string;
     image: string;
     imageLabel: string;
     title: string;

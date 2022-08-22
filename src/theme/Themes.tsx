@@ -1,29 +1,50 @@
 import { PaletteMode, ThemeOptions } from "@mui/material"; // TypeScript Types
+
 // An interface that defines object parameters
 interface ThemeColor {
     main: string;
     paper: string; // Component BackGround
     default: string; // Main BackGround
+    divider: string; // Light grey color for divider
     contrastText: string; // Text
+    blue: string; // Buttons and hight text
+    green: string; // Buttons and borders
+    grey: string; // Divider
+    red: string; // Error massage and borders
+    yellow: string; // Warning etc
 }
 
 //Toggle the color scheme between light and dark mode
 export const baseTheme = (mode: PaletteMode) => {
     let themeColor: ThemeColor;
+
+    // TODO - will vote for the color palette and change the following colors
     if (mode === "light") {
         themeColor = {
             main: "#0F301F",
             paper: "#F3FFDE",
             default: "#F3FFDE",
             contrastText: "#291528",
+            blue: "#64b5f6", // light blue
+            divider: "#BDBDBD", // light grey for divider
+            grey: "#212121", // dark grey
+            green: "#43a047", // light green
+            red: "#d50000", // light red
+            yellow: "#fbc02d", // light yellow
         };
     } else {
-        // Defind the dark theme color
+        // Define the dark theme color
         themeColor = {
             main: "#C0F4E6",
             paper: "#0F301F",
             default: "#0F301F",
             contrastText: "#F3FFDE",
+            blue: "#1565c0", // dark blue
+            divider: "#BDBDBD", // light grey for divider
+            green: "#1b5e20", // dark green
+            grey: "#424242", // dark grey
+            red: "#d32f2f", // bright red
+            yellow: "#ffee58", // dark yellow
         };
     }
     // allow configuration using `theme`
@@ -51,6 +72,21 @@ export const baseTheme = (mode: PaletteMode) => {
             secondary: {
                 main: themeColor.paper,
             },
+            error: {
+                main: themeColor.red,
+            },
+            info: {
+                main: themeColor.blue,
+            },
+            warning: {
+                main: themeColor.yellow,
+            },
+            success: {
+                main: themeColor.green,
+            },
+            neutral: {
+                main: themeColor.grey,
+            },
             background: {
                 paper: themeColor.paper,
                 default: themeColor.default,
@@ -58,7 +94,7 @@ export const baseTheme = (mode: PaletteMode) => {
             text: {
                 primary: themeColor.contrastText,
             },
-            divider: themeColor.contrastText,
+            divider: themeColor.divider,
         },
         components: {
             MuiCssBaseline: {

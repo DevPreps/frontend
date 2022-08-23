@@ -33,10 +33,13 @@ export const UserCardActions = () => {
                 R
             </Avatar>
             <Stack>
-               <Typography>Username</Typography>
-               <Typography variant="caption"> Job Title <Box component="span">·</Box> city</Typography> 
+                <Typography>Username</Typography>
+                <Typography variant="caption">
+                    {" "}
+                    Job Title <Box component="span">·</Box> city
+                </Typography>
             </Stack>
-            
+
             <Tooltip title="Comment">
                 <IconButton aria-label="add comment" sx={styles.addBtn}>
                     <AddCommentIcon />

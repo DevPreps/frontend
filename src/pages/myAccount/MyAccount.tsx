@@ -59,11 +59,9 @@ const MyAccount = () => {
     ];
     const [open, setOpen] = useState(true); // toggle the drawer
     const [selectedIndex, setSelectedIndex] = useState(0); // selected menu/list item
-    
-    const handleListItemClick = (
-      index: number,
-    ) => {
-      setSelectedIndex(index);
+
+    const handleListItemClick = (index: number) => {
+        setSelectedIndex(index);
     };
 
     const handleDrawerToggle = () => {
@@ -81,7 +79,11 @@ const MyAccount = () => {
                     sx={styles.fab}
                     onClick={handleDrawerToggle}
                 >
-                    {open ? <ArrowBackIosIcon sx={styles.toggleIcon}/> : <ArrowForwardIosIcon sx={styles.toggleIcon} />}
+                    {open ? (
+                        <ArrowBackIosIcon sx={styles.toggleIcon} />
+                    ) : (
+                        <ArrowForwardIosIcon sx={styles.toggleIcon} />
+                    )}
                 </Fab>
             </Divider>
 
@@ -216,7 +218,7 @@ const styles = {
     toggleIcon: {
         height: {
             xs: 12,
-            md: 16
+            md: 16,
         },
     },
 } as const;

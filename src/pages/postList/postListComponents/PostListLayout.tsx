@@ -30,9 +30,12 @@ const PostListLayout: React.FC<Props> = ({
     return (
         <Stack spacing={2} sx={styles.stack}>
             {/* the following title just show which page is rendered, will be deleted later */}
-            <Typography variant="h5">{title}
-            <Box component="span" sx={styles.span}>This title will be deleted
-                </Box></Typography>
+            <Typography variant="h5" data-testid="title">
+                {title}
+                <Box component="span" sx={styles.span}>
+                    This title will be deleted
+                </Box>
+            </Typography>
             {withSearchBar && <SearchBar />}
             {/* compose button and sort menu */}
             <Stack direction="row" sx={styles.toolbar}>
@@ -61,7 +64,7 @@ const styles = {
         width: 160,
     },
     // TODO - span will be deleted
-    span: { 
+    span: {
         color: "error.main",
         fontSize: 12,
     },

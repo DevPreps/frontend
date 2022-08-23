@@ -35,7 +35,6 @@ const MyAccount = () => {
         imageUrl:
             "https://cdn.pixabay.com/photo/2016/11/15/19/37/noel-1827278_960_720.jpg",
     };
-    const [open, setOpen] = useState(true);
     const sidebarLinks = [
         {
             to: `/my-account/${currentUser.userId}`,
@@ -58,6 +57,14 @@ const MyAccount = () => {
             icon: <FolderSpecialIcon />,
         },
     ];
+    const [open, setOpen] = useState(true); // toggle the drawer
+    const [selectedIndex, setSelectedIndex] = useState(1); // selected menu/list item
+    
+    const handleListItemClick = (
+      index: number,
+    ) => {
+      setSelectedIndex(index);
+    };
 
     const handleDrawerToggle = () => {
         setOpen(!open);
@@ -66,23 +73,21 @@ const MyAccount = () => {
     return (
         <Container maxWidth="xl" sx={styles.container}>
             {/* <CssBaseline /> */}
-            <Divider
-                orientation="vertical"
-                sx={open ? styles.dividerDrawOpen : styles.dividerDrawClosed}
-            >
+            <Divider orientation="vertical" sx={styles.divider(open)}>
                 <Fab
                     size="small"
                     color="success"
                     aria-label="drawer-toggle"
+                    sx={styles.fab}
                     onClick={handleDrawerToggle}
                 >
-                    {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
+                    {open ? <ArrowBackIosIcon sx={styles.toggleIcon}/> : <ArrowForwardIosIcon sx={styles.toggleIcon} />}
                 </Fab>
             </Divider>
 
             <Box
-                // component="nav"
-                sx={open ? styles.boxDrawerOpen : styles.boxDrawerClosed}
+                component="nav"
+                sx={styles.boxDrawer(open)}
                 aria-label="my account folders"
             >
                 <Drawer
@@ -118,12 +123,14 @@ const MyAccount = () => {
                     </Stack>
                     <Divider />
                     <List>
-                        {sidebarLinks?.map((link) => (
+                        {sidebarLinks?.map((link, index) => (
                             <ListItem key={link.text} disablePadding>
                                 <ListItemButton
                                     component={Link}
                                     to={link.to}
                                     data-testid={link.text}
+                                    selected={selectedIndex === index}
+                                    onClick={() => handleListItemClick(index)}
                                 >
                                     <ListItemIcon>{link.icon}</ListItemIcon>
                                     <ListItemText primary={link.text} />
@@ -153,26 +160,19 @@ const styles = {
     avatar: {
         mr: 2,
     },
-    boxDrawerClosed: {
-        position: {
-            xs: "static",
-            md: "absolute",
-        },
-        width: 0,
-        left: 0,
-    },
-    boxDrawerOpen: {
-        position: {
-            xs: "absolute!important",
-            md: "static!important",
-        },
-        display: "flex",
-        minWidth: {
-            xs: drawerWidth,
-            xl: 0,
-        },
-        height: "543px",
-        left: 0,
+    boxDrawer(open: boolean) {
+        return {
+            position: {
+                xs: open ? "absolute!important" : "static",
+                md: open ? "static!important" : "absolute",
+            },
+            display: "flex",
+            minWidth: {
+                xs: open ? drawerWidth : 20,
+                xl: 0,
+            },
+            left: 0,
+        };
     },
     container: {
         display: "flex",
@@ -180,19 +180,14 @@ const styles = {
         alignItems: "center",
         flexGrow: 1,
     },
-    dividerDrawOpen: {
-        height: "100vh",
-        position: "absolute",
-        top: 0,
-        zIndex: 1201,
-        left: "209px",
-    },
-    dividerDrawClosed: {
-        height: "100vh",
-        position: "absolute",
-        top: 0,
-        zIndex: 1201,
-        left: "-10px",
+    divider(open: boolean) {
+        return {
+            minHeight: "100vh",
+            position: "fixed",
+            top: 0,
+            zIndex: 1201,
+            left: open ? "213px" : "-10px",
+        };
     },
     drawer: {
         borderRight: "none",
@@ -203,12 +198,29 @@ const styles = {
             borderRight: "none",
         },
     },
+    fab: {
+        width: {
+            xs: 24,
+            md: 32},
+        minHeight: {
+            xs: 24,
+            md: 32},
+        height: {
+            xs: 24,
+            md: 32},
+    },
     namebar: {
         pl: 2,
         mt: 5,
         mb: 3,
         display: "flex",
         alignItems: "center",
+    },
+    toggleIcon: {
+        height: {
+            xs: 12,
+            md: 16
+        },
     },
 } as const;
 

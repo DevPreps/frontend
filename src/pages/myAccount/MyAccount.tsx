@@ -58,7 +58,7 @@ const MyAccount = () => {
         },
     ];
     const [open, setOpen] = useState(true); // toggle the drawer
-    const [selectedIndex, setSelectedIndex] = useState(1); // selected menu/list item
+    const [selectedIndex, setSelectedIndex] = useState(0); // selected menu/list item
     
     const handleListItemClick = (
       index: number,
@@ -122,7 +122,7 @@ const MyAccount = () => {
                         </Typography>
                     </Stack>
                     <Divider />
-                    <List>
+                    <List sx={styles.list}>
                         {sidebarLinks?.map((link, index) => (
                             <ListItem key={link.text} disablePadding>
                                 <ListItemButton
@@ -186,7 +186,7 @@ const styles = {
             position: "fixed",
             top: 0,
             zIndex: 1201,
-            left: open ? "213px" : "-10px",
+            left: open ? "218px" : "-10px",
         };
     },
     drawer: {
@@ -199,15 +199,12 @@ const styles = {
         },
     },
     fab: {
-        width: {
-            xs: 24,
-            md: 32},
-        minHeight: {
-            xs: 24,
-            md: 32},
-        height: {
-            xs: 24,
-            md: 32},
+        width: 24,
+        minHeight: 24,
+        height: 24,
+    },
+    list: {
+        py: 0,
     },
     namebar: {
         pl: 2,

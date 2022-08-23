@@ -107,6 +107,27 @@ export const baseTheme = (mode: PaletteMode) => {
                         textDecoration: "none",
                         fontWeight: 700,
                     },
+                    ".ql-snow .ql-picker, .ql-snow .ql-picker-options .ql-picker-item, .ql-snow .ql-stroke, .ql-snow .ql-tooltip:before": {
+                        color: themeColor.contrastText,
+                        stroke: themeColor.contrastText,
+                    },
+                    ".ql-snow .ql-fill,": {
+                        fill: themeColor.contrastText,
+                    },
+                    ".ql-snow .ql-tooltip, .ql-snow .ql-picker-options": {
+                        "background": themeColor.default
+                    },
+                    ".quill > .ql-container > .ql-editor.ql-blank::before": {
+                        color: themeColor.contrastText,
+                    },
+                    ".ql-tooltip.ql-editing, .ql-tooltip": {
+                        left: "0 !important",
+                        zIndex: 2550
+                    },
+                    ".ql-editor": {
+                        height: "250px",
+                        maxHeight: "250px",
+                    }
                 },
             },
         },

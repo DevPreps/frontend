@@ -168,7 +168,7 @@ const styles = {
             },
             display: "flex",
             minWidth: {
-                xs: open ? drawerWidth : 20,
+                xs: open ? drawerWidth : 10,
                 xl: 0,
             },
             left: 0,

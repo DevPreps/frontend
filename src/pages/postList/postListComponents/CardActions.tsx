@@ -17,7 +17,10 @@ import AddCommentIcon from "@mui/icons-material/AddComment";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import Stack from "@mui/material/Stack";
+
 import Tooltip from "@mui/material/Tooltip";
+import Box from "@mui/material/Box";
 
 // define interface for props
 interface Props {
@@ -29,18 +32,23 @@ export const UserCardActions = () => {
             <Avatar sx={styles.avatar} aria-label="Post Item">
                 R
             </Avatar>
-            <Typography>Username</Typography>
+            <Stack>
+               <Typography>Username</Typography>
+               <Typography variant="caption"> Job Title <Box component="span">·</Box> city</Typography> 
+            </Stack>
+            
             <Tooltip title="Comment">
                 <IconButton aria-label="add comment" sx={styles.addBtn}>
                     <AddCommentIcon />
                 </IconButton>
             </Tooltip>
+            <Typography variant="caption">24</Typography>
             <Tooltip title="Like the post">
                 <IconButton aria-label="like the post" sx={styles.likeBtn}>
                     <FavoriteBorderIcon />
                 </IconButton>
             </Tooltip>
-            <span>18</span>
+            <Typography variant="caption">18</Typography>
             <Tooltip title="Save the post">
                 <IconButton aria-label="bookmark">
                     <BookmarkAddIcon />

@@ -5,6 +5,7 @@
     "source": "public/index.html",
     "jest": {
         "verbose": true,
+        "testEnvironment": "jsdom",
         "preset": "ts-jest",
         "transform": {
             "^.+\\.tsx?$": "ts-jest"
@@ -28,7 +29,11 @@
         ],
         "setupFilesAfterEnv": [
             "<rootDir>src/setupTests.ts"
-        ]
+        ],
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+            "\\.(css|less)$": "identity-obj-proxy"
+        }
     },
     "scripts": {
         "start": "parcel public/index.html",
@@ -79,6 +84,7 @@
         "eslint-plugin-n": "^15.2.4",
         "eslint-plugin-promise": "^6.0.0",
         "eslint-plugin-react": "^7.30.1",
+        "identity-obj-proxy": "^3.0.0",
         "jest": "^28.1.2",
         "jest-environment-jsdom": "^28.1.3",
         "prettier": "^2.7.1",

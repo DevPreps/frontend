@@ -127,6 +127,11 @@ export const baseTheme = (mode: PaletteMode) => {
                     ".ql-editor": {
                         height: "250px",
                         maxHeight: "250px",
+                    },
+                    ".ql-snow .ql-editor img": {
+                        display: "block",
+                        margin: "0 auto",
+                        width: "50%"
                     }
                 },
             },

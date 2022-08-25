@@ -60,7 +60,6 @@
         "yup": "^0.32.11"
     },
     "devDependencies": {
-        "@mui/codemod": "^5.9.3",
         "@types/enzyme": "^3.10.12",
         "@types/jest": "^28.1.5",
         "@types/react": "^17.0.47",

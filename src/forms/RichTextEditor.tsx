@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
+import Box from "@mui/material/Box";
 
 const RichTextEditor = () => {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
     const modules = {
         toolbar: [
             [{ size: [false, "large"] }],
@@ -42,17 +48,45 @@ const RichTextEditor = () => {
         "clean",
     ];
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [value, setValue] = useState("");
-
     return (
-        <ReactQuill
-            modules={modules}
-            formats={formats}
-            theme="snow"
-            onChange={setValue}
-            placeholder="Post content"
+        <Controller
+            name="content"
+            control={control}
+            render={({ field }) => (
+                <>
+                    <ReactQuill
+                        {...field}
+                        modules={modules}
+                        formats={formats}
+                        theme="snow"
+                        placeholder="Post content"
+                    />
+                    <Box
+                        component="span"
+                        sx={
+                            errors.content
+                                ? styles.errorMessage
+                                : styles.helperText
+                        }
+                    >
+                        {errors.content
+                            ? errors.content.message
+                            : "Please enter the post content"}
+                    </Box>
+                </>
+            )}
         />
     );
 };
+
+const styles = {
+    errorMessage: {
+        color: "error.main",
+        fontSize: "12px",
+    },
+    helperText: {
+        color: "text.secondary",
+        fontSize: "12px",
+    },
+} as const;
 export default RichTextEditor;

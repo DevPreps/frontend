@@ -54,7 +54,7 @@ const PostForm = ({
                 )}
 
                 {/* TODO - add rich-text editor for post content */}
-                <RichTextEditor/>
+                <RichTextEditor />
 
                 <TagsInput
                     helperText="choose tags for you post"

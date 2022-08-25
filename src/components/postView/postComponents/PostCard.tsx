@@ -1,18 +1,19 @@
 import React from "react";
 
-// MUI UI/UX styles
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import Stack from "@mui/material/Stack";
-
 // MUI icons
-import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { BookmarkAddOutlined, FavoriteBorder } from "@mui/icons-material";
+// MUI UI/UX styles
+import {
+    IconButton,
+    Avatar,
+    Box,
+    Card,
+    CardContent,
+    Stack,
+    Typography,
+} from "@mui/material";
+
 import AddComment from "../../comment/AddComment";
-import { IconButton } from "@mui/material";
 
 // Defined an interface properites
 export interface PostDetail {
@@ -68,10 +69,10 @@ const PostCard = () => {
                     </Box>
                     <Box sx={styles.iconsBtnBox}>
                         <IconButton>
-                            <BookmarkAddOutlinedIcon />
+                            <BookmarkAddOutlined />
                         </IconButton>
                         <IconButton>
-                            <FavoriteBorderIcon />
+                            <FavoriteBorder />
                         </IconButton>
                         <AddComment />
                     </Box>

@@ -2,8 +2,12 @@
  * @jest-environment jsdom
  */
 import React from "react";
+
 import { mount } from "enzyme";
 import { useForm, FormProvider } from "react-hook-form";
+
+import { categoryOptions, tagOptions } from "../../data";
+import { generalFormDefaultValues } from "../formDefaultValues";
 import {
     CategoryInput,
     PasswordInput,
@@ -11,9 +15,7 @@ import {
     TagsInput,
     TextFieldInput,
 } from "../FormInput";
-import { categoryOptions, tagOptions } from "../../data";
 import { IGeneralFormInputs } from "../IFormInputs";
-import { generalFormDefaultValues } from "../formDefaultValues";
 
 const WrapperForm: React.FC = ({ children }) => {
     const methods = useForm<IGeneralFormInputs>({

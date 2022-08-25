@@ -1,21 +1,22 @@
 import React from "react";
+
+import {
+    AppBar,
+    Box,
+    Button,
+    Container,
+    Divider,
+    ListItem,
+    ListItemButton,
+    ListItemText,
+    Toolbar,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 
-// Import MUI Components
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Toolbar from "@mui/material/Toolbar";
-
 // Import Navbar Related Components
-import SideNav from "./SideNav";
-import ThemeToggler from "../theme/ThemeToggler";
 import Logo from "../theme/LogoNav";
+import ThemeToggler from "../theme/ThemeToggler";
+import SideNav from "./SideNav";
 
 declare module "@mui/material/Button" {
     interface ButtonVariantOverrides {

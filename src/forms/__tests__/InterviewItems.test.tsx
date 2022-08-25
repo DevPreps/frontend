@@ -1,7 +1,9 @@
 import React from "react";
+
 import { shallow } from "enzyme";
-import InterviewItems from "../InterviewItems";
+
 import { interviewFormDefaultValues } from "../formDefaultValues";
+import InterviewItems from "../InterviewItems";
 
 // test rendering
 describe("Test InterviewItems component", () => {

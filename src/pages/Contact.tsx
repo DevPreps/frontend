@@ -1,25 +1,22 @@
 import React, { useState } from "react";
-import { SubmitHandler } from "react-hook-form";
+
 import emailjs from "@emailjs/browser";
+// import MUI icons and components
+import { BugReport, Email, GitHub, Send } from "@mui/icons-material";
+import {
+    Grid,
+    Link,
+    List,
+    ListItem,
+    ListItemIcon,
+    Typography,
+} from "@mui/material";
 import axios from "axios";
+import { SubmitHandler } from "react-hook-form";
 
 // import ContactForm and form data interface
 import ContactForm from "../forms/ContactForm";
 import { IContactFormInputs } from "../forms/IFormInputs";
-
-// import MUI component
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Typography from "@mui/material/Typography";
-
-// import MUI icons
-import BugReport from "@mui/icons-material/BugReport";
-import EmailIcon from "@mui/icons-material/Email";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import SendIcon from "@mui/icons-material/Send";
 
 /**  define the send message function. The message will be sent via Email.js API.
  * we're currently using a free tier, with the limitation of 200 requests per month.*/
@@ -97,7 +94,7 @@ export const Contact = () => {
                 <List>
                     <ListItem>
                         <ListItemIcon>
-                            <EmailIcon />
+                            <Email />
                         </ListItemIcon>
                         <Link
                             href="mailto:devprep@outlook.com.au"
@@ -125,7 +122,7 @@ export const Contact = () => {
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                            <GitHubIcon />
+                            <GitHub />
                         </ListItemIcon>
                         <Link
                             target="blank"
@@ -137,7 +134,7 @@ export const Contact = () => {
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                            <SendIcon />
+                            <Send />
                         </ListItemIcon>
                         <Typography variant="body1">
                             Send us a message using the form on this page

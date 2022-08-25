@@ -1,14 +1,12 @@
 import React from "react";
 
+import { Grid } from "@mui/material";
+
+import { positionOptions } from "../data";
 // import reusable form input components
 import { SelectInput, TextFieldInput } from "./FormInput";
-
 // import position options and form data interface
-import { positionOptions } from "../data";
 import { IFormInputs } from "./IFormInputs";
-
-// Import MUI components
-import Grid from "@mui/material/Grid";
 
 // define interface for props
 interface Props {

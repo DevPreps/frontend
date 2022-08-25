@@ -1,17 +1,12 @@
 import React from "react";
 
-// import create post modal
-import PostListItem from "./PostListItem";
-import SortMenu from "./SortMenu";
+import { Box, Button, Stack, Typography } from "@mui/material";
+
 import { AuthorCardActions, UserCardActions } from "./CardActions";
 import { IPost } from "./IPost";
-
-// import MUI components
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import PostListItem from "./PostListItem";
 import SearchBar from "./SearchBar";
+import SortMenu from "./SortMenu";
 
 interface Props {
     posts: IPost[];

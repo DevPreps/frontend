@@ -1,26 +1,27 @@
 import React from "react";
 
+//import MUI icons and components
+import {
+    AddComment,
+    BookmarkAdd,
+    DeleteForever,
+    FavoriteBorder,
+} from "@mui/icons-material";
+import {
+    Avatar,
+    Box,
+    Button,
+    CardActions,
+    IconButton,
+    Stack,
+    Tooltip,
+    Typography,
+} from "@mui/material";
+
 // import components and data interface
+import UpdatePost from "../updatePost/UpdatePost";
 import { IPost } from "./IPost";
 import Report from "./ReportModal";
-import UpdatePost from "../updatePost/UpdatePost";
-
-//import MUI components
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
-
-// import MUI Icons
-import AddCommentIcon from "@mui/icons-material/AddComment";
-import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Stack from "@mui/material/Stack";
-
-import Tooltip from "@mui/material/Tooltip";
-import Box from "@mui/material/Box";
 
 // define interface for props
 interface Props {
@@ -42,19 +43,19 @@ export const UserCardActions = () => {
 
             <Tooltip title="Comment">
                 <IconButton aria-label="add comment" sx={styles.addBtn}>
-                    <AddCommentIcon />
+                    <AddComment />
                 </IconButton>
             </Tooltip>
             <Typography variant="caption">24</Typography>
             <Tooltip title="Like the post">
                 <IconButton aria-label="like the post" sx={styles.likeBtn}>
-                    <FavoriteBorderIcon />
+                    <FavoriteBorder />
                 </IconButton>
             </Tooltip>
             <Typography variant="caption">18</Typography>
             <Tooltip title="Save the post">
                 <IconButton aria-label="bookmark">
-                    <BookmarkAddIcon />
+                    <BookmarkAdd />
                 </IconButton>
             </Tooltip>
             <Report />
@@ -68,7 +69,7 @@ export const AuthorCardActions = ({ post }: Props) => {
     return (
         <CardActions disableSpacing>
             <UpdatePost post={post} />
-            <Button startIcon={<DeleteForeverIcon />} sx={styles.deleteBtn}>
+            <Button startIcon={<DeleteForever />} sx={styles.deleteBtn}>
                 DELETE
             </Button>
         </CardActions>

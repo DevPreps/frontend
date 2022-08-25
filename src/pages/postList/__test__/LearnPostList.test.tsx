@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import LearnPostList from "../LearnPostList";
 // test component rendering
 describe("<LearnPostList /> rendering", () => {

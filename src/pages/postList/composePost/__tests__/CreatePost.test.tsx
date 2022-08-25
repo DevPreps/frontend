@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import CreatePost from "../CreatePost";
 
 describe("Test Compose New Interview Post page", () => {

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import PostCard from "../PostCard";
 
 // test component rendering

@@ -1,12 +1,15 @@
 import React from "react";
+
 // Import MUI Components
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
-import Typography from "@mui/material/Typography";
+import {
+    Box,
+    Divider,
+    Drawer,
+    IconButton,
+    List,
+    Typography,
+} from "@mui/material";
 
 // An interface that defines object parameters
 interface IProps {

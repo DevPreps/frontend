@@ -2,9 +2,11 @@
  * @jest-environment jsdom
  */
 import React from "react";
+
 import { shallow } from "enzyme";
-import ThemeHandler from "../ThemeHandler";
+
 import { ColorModeContext } from "../../context/appContext";
+import ThemeHandler from "../ThemeHandler";
 
 describe("rendering", () => {
     test("enzyme dive for <themehandler />", () => {

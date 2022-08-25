@@ -1,8 +1,6 @@
 import React from "react";
-// Import MUI Components
-import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
+
+import { useTheme, Typography, useMediaQuery } from "@mui/material";
 
 export default function Logo() {
     return (

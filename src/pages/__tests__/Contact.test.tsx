@@ -2,10 +2,12 @@
  * @jest-environment jsdom
  */
 import React from "react";
-import { shallow } from "enzyme";
-import { Contact, sendMessage, verifyEmail } from "../Contact";
-import axios from "axios";
+
 import emailjs from "@emailjs/browser";
+import axios from "axios";
+import { shallow } from "enzyme";
+
+import { Contact, sendMessage, verifyEmail } from "../Contact";
 
 // Mock jest and set the type
 jest.mock("axios");

@@ -1,6 +1,9 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import SortMenu from "../SortMenu";
+
 // test component rendering
 describe("<SortMenu /> rendering", () => {
     const wrapper = shallow(<SortMenu />);

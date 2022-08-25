@@ -1,7 +1,9 @@
 import React from "react";
+
+import { Button } from "@mui/material";
 import { shallow } from "enzyme";
+
 import TopNav from "../TopNav";
-import Button from "@mui/material/Button";
 
 // TODOs: need to figure out the wrapper type before using the following beforeEach code block
 // let wrapper;

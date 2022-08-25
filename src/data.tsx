@@ -34,7 +34,7 @@ export const buildArray = (length: number, category: string[]) => {
     return arr.fill(null).map((_, index) => {
         return {
             postId: (index + 1).toString(),
-            userId: "11",
+            userId: "1",
             date: "24-07-2022",
             content:
                 "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",

@@ -1,7 +1,10 @@
 import React from "react";
+
 import { shallow } from "enzyme";
-import PostListItem from "../PostListItem";
+
 import { posts } from "../../../../data";
+import PostListItem from "../PostListItem";
+
 // test component rendering
 describe("<PostListItem /> rendering", () => {
     const wrapper = shallow(<PostListItem post={posts[0]} />);

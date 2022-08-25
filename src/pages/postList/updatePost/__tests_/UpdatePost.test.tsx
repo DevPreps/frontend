@@ -1,7 +1,9 @@
 import React from "react";
+
 import { shallow } from "enzyme";
-import UpdatePost from "../UpdatePost";
+
 import { posts } from "../../../../data";
+import UpdatePost from "../UpdatePost";
 
 // test rendering
 describe("Test Update Post modal", () => {

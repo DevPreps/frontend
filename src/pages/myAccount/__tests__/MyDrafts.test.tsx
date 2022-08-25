@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import MyDrafts from "../MyDrafts";
 
 // test component rendering

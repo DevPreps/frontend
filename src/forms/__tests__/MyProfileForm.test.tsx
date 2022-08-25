@@ -1,12 +1,12 @@
 import React from "react";
-import { shallow } from "enzyme";
-import MyProfileForm from "../MyProfileForm";
 
-// import form data interface
-import { IMyProfileFormInputs } from "../IFormInputs";
+import { shallow } from "enzyme";
 
 // import form default values
 import { myProfileFormDefaultValues } from "../formDefaultValues";
+// import form data interface
+import { IMyProfileFormInputs } from "../IFormInputs";
+import MyProfileForm from "../MyProfileForm";
 
 // test rendering
 describe("Test MyProfileForm component", () => {

@@ -1,8 +1,10 @@
 import React from "react";
+
 import { shallow } from "enzyme";
-import PostListLayout from "../PostListLayout";
+
 import { posts } from "../../../../data";
 import CreatePost from "../../composePost/CreatePost";
+import PostListLayout from "../PostListLayout";
 
 describe("Test PostListLayout component", () => {
     const wrapper = shallow(

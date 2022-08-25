@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import MyBookmarks from "../MyBookmarks";
 
 // test component rendering

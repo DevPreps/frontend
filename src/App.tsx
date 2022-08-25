@@ -1,5 +1,7 @@
 import React from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { Heroes } from "./components/index";
 import {
     AboutUs,

@@ -1,31 +1,32 @@
 import React, { useState } from "react";
+
+// import MUI icons and components
+import {
+    AccountBox,
+    ArrowBackIos,
+    ArrowForwardIos,
+    Drafts,
+    FolderSpecial,
+    Logout,
+    Inbox,
+} from "@mui/icons-material";
+import {
+    Avatar,
+    Box,
+    Container,
+    Divider,
+    Drawer,
+    Fab,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Stack,
+    Toolbar,
+    Typography,
+} from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
-
-// import MUI components
-// import CssBaseline from "@mui/material/CssBaseline";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import Fab from "@mui/material/Fab";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Toolbar from "@mui/material/Toolbar";
-
-// import MUI icons and colors
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import DraftsIcon from "@mui/icons-material/Drafts";
-import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
-import LogoutIcon from "@mui/icons-material/Logout";
 
 const MyAccount = () => {
     // TODO - currentUser will be changed to a global state
@@ -39,22 +40,22 @@ const MyAccount = () => {
         {
             to: `/my-account/${currentUser.userId}`,
             text: "My Profile",
-            icon: <AccountBoxIcon />,
+            icon: <AccountBox />,
         },
         {
             to: `/my-account/${currentUser.userId}/my-posts`,
             text: "My Posts",
-            icon: <InboxIcon />,
+            icon: <Inbox />,
         },
         {
             to: `/my-account/${currentUser.userId}/my-drafts`,
             text: "My Drafts",
-            icon: <DraftsIcon />,
+            icon: <Drafts />,
         },
         {
             to: `/my-account/${currentUser.userId}/my-bookmarks`,
             text: "My Bookmarks",
-            icon: <FolderSpecialIcon />,
+            icon: <FolderSpecial />,
         },
     ];
     const [open, setOpen] = useState(true); // toggle the drawer
@@ -80,13 +81,12 @@ const MyAccount = () => {
                     onClick={handleDrawerToggle}
                 >
                     {open ? (
-                        <ArrowBackIosIcon sx={styles.toggleIcon} />
+                        <ArrowBackIos sx={styles.toggleIcon} />
                     ) : (
-                        <ArrowForwardIosIcon sx={styles.toggleIcon} />
+                        <ArrowForwardIos sx={styles.toggleIcon} />
                     )}
                 </Fab>
             </Divider>
-
             <Box
                 component="nav"
                 sx={styles.boxDrawer(open)}
@@ -142,7 +142,7 @@ const MyAccount = () => {
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <LogoutIcon />
+                                    <Logout />
                                 </ListItemIcon>
                                 <ListItemText primary="logout" />
                             </ListItemButton>
@@ -171,9 +171,10 @@ const styles = {
             display: "flex",
             minWidth: {
                 xs: open ? drawerWidth : 10,
-                xl: 0,
+                // xl: 0,
             },
             left: 0,
+            flexGrow: { xl: 0 },
         };
     },
     container: {

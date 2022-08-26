@@ -1,9 +1,10 @@
 import React from "react";
+
+import Box from "@mui/material/Box";
 import { Controller, useFormContext } from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
-import Box from "@mui/material/Box";
 
 const RichTextEditor = () => {
     const {

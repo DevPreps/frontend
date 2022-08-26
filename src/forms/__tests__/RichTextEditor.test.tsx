@@ -1,8 +1,10 @@
-import { mount } from "enzyme";
 import React from "react";
+
+import { mount } from "enzyme";
 import { useForm, FormProvider } from "react-hook-form";
-import { IGeneralFormInputs } from "../IFormInputs";
+
 import { generalFormDefaultValues } from "../formDefaultValues";
+import { IGeneralFormInputs } from "../IFormInputs";
 import RichTextEditor from "../RichTextEditor";
 
 const WrapperForm: React.FC = ({ children }) => {

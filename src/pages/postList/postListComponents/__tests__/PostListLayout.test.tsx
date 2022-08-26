@@ -1,8 +1,10 @@
 import React from "react";
+
 import { shallow } from "enzyme";
-import PostListLayout from "../PostListLayout";
+
 import { posts } from "../../../../data";
 import CreatePost from "../../composePost/CreatePost";
+import PostListLayout from "../PostListLayout";
 
 describe("Test PostListLayout component", () => {
     const wrapper = shallow(
@@ -12,7 +14,10 @@ describe("Test PostListLayout component", () => {
     );
 
     it("should be able to render test as title", () => {
-        expect(wrapper.find({ children: "test" }).length).toBe(1);
+        console.log(wrapper.debug());
+        expect(wrapper.find({ "data-testid": "title" }).contains("test")).toBe(
+            true
+        );
     });
     it("should be able to render searchBar", () => {
         expect(wrapper.find("SearchBar").length).toBe(1);
@@ -27,6 +32,6 @@ describe("Test PostListLayout component", () => {
         expect(wrapper.find("PostListItem").exists()).toBe(true);
     });
     it("should be able to render Load More button", () => {
-        expect(wrapper.find({ children: "Load More" }).length).toBe(1);
+        expect(wrapper.find({ children: "Load More Posts" }).length).toBe(1);
     });
 });

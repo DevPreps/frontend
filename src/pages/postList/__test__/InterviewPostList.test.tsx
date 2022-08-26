@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import InterviewPostList from "../InterviewPostList";
 // test component rendering
 describe("<InterviewPostList /> rendering", () => {

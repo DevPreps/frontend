@@ -1,18 +1,11 @@
 import React from "react";
 
-// Link to route
+import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
-//MUI styles
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
-
 //import child components files
-import TeamCards from "../components/aboutUs/TeamCards";
 import StorySection from "../components/aboutUs/StorySection";
+import TeamCards from "../components/aboutUs/TeamCards";
 
 const AboutUs = () => {
     return (

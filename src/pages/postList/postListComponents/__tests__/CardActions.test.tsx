@@ -2,9 +2,11 @@
  * @jest-environment jsdom
  */
 import React from "react";
+
 import { shallow } from "enzyme";
-import { AuthorCardActions, UserCardActions } from "../CardActions";
+
 import { interviewPosts } from "../../../../data";
+import { AuthorCardActions, UserCardActions } from "../CardActions";
 
 // test component rendering
 describe("<AuthorCardActions /> rendering", () => {

@@ -1,12 +1,7 @@
 import React from "react";
-import { Link as RouteLink } from "react-router-dom";
 
-// MUI UI/UX styles
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import ImageListItem from "@mui/material/ImageListItem";
-import Paper from "@mui/material/Paper";
+import { Box, Container, Grid, ImageListItem, Paper } from "@mui/material";
+import { Link as RouteLink } from "react-router-dom";
 
 const Footer = () => {
     return (

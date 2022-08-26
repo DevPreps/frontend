@@ -1,17 +1,16 @@
 import React from "react";
+
 import { SubmitHandler } from "react-hook-form";
 
-// import form data interface and validation schema
+// import form data, interfaces and schemas
+import { CategoryInput } from "../../../forms/FormInput";
 import { IFormInputs, IPost } from "../../../forms/IFormInputs";
+import PostForm from "../../../forms/PostForm";
 import {
     generalFormSchema,
     interviewFormSchema,
 } from "../../../forms/validationSchemas";
-
-// import PostModalLayout and PostForm component
 import PostModalLayout from "../postListComponents/PostModalLayout";
-import PostForm from "../../../forms/PostForm";
-import { CategoryInput } from "../../../forms/FormInput";
 
 // define interface for props
 interface Props {

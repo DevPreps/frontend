@@ -1,10 +1,7 @@
 import React from "react";
 
-// import MUI components
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+
 const SortMenu = () => {
     return (
         <FormControl sx={styles} size="small">

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 
-// Import MUI components
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
-
-// import MUI icons
-import BorderColorIcon from "@mui/icons-material/BorderColor";
-import CloseIcon from "@mui/icons-material/Close";
-import FlagIcon from "@mui/icons-material/Flag";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
+// import MUI icons and components
+import { BorderColor, Close, Flag } from "@mui/icons-material";
+import {
+    Box,
+    Button,
+    IconButton,
+    Modal,
+    Tooltip,
+    Typography,
+} from "@mui/material";
 
 // define the interface for react props
 interface Props {
@@ -34,13 +32,13 @@ const PostModalLayout: React.FC<Props> = ({
             {operation === "REPORT" ? (
                 <Tooltip title="Report the content">
                     <IconButton aria-label="report" onClick={handleOpen}>
-                        <FlagIcon />
+                        <Flag />
                     </IconButton>
                 </Tooltip>
             ) : (
                 <Button
                     variant="text"
-                    startIcon={<BorderColorIcon />}
+                    startIcon={<BorderColor />}
                     onClick={handleOpen}
                     data-testid="operationBtn"
                 >
@@ -62,7 +60,7 @@ const PostModalLayout: React.FC<Props> = ({
                         onClick={handleClose}
                         sx={styles.closeBtn}
                     >
-                        <CloseIcon />
+                        <Close />
                     </IconButton>
                     {/* Modal Title */}
                     <Typography

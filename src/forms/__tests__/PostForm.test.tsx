@@ -1,8 +1,10 @@
 import React from "react";
+
 import { shallow } from "enzyme";
-import PostForm from "../PostForm";
-import { IFormInputs } from "../IFormInputs";
+
 import { interviewFormDefaultValues } from "../formDefaultValues";
+import { IFormInputs } from "../IFormInputs";
+import PostForm from "../PostForm";
 import { interviewFormSchema } from "../validationSchemas";
 
 // test rendering

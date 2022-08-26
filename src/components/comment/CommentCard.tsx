@@ -1,15 +1,16 @@
 import React from "react";
 
-// MUI UI/UX style
-import Avatar from "@mui/material/Avatar";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import { IconButton } from "@mui/material";
-
 // MUI Icons
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
+// MUI UI/UX style
+import {
+    IconButton,
+    Avatar,
+    Box,
+    Card,
+    CardContent,
+    Typography,
+} from "@mui/material";
 
 // import new comment file
 import AddComment from "./AddComment";

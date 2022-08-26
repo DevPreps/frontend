@@ -1,12 +1,8 @@
 import React from "react";
 
-//mui style
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-
 //import Post content and comments list files
+import { Button, Grid, Stack, Typography } from "@mui/material";
+
 import Comments from "../comment/Comments";
 import PostCard from "./postComponents/PostCard";
 

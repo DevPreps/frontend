@@ -1,18 +1,16 @@
 import React from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+
 import { yupResolver } from "@hookform/resolvers/yup";
+// Import MUI components
+import { Button, Grid } from "@mui/material";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 // import form data interface and validation schema
-import { IReportFormInputs } from "./IFormInputs";
-import { reportFormSchema } from "./validationSchemas";
-
+import { violationOptions } from "../data";
 // import reusable form input components
 import { SelectInput, TextFieldInput } from "./FormInput";
-import { violationOptions } from "../data";
-
-// Import MUI components
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import { IReportFormInputs } from "./IFormInputs";
+import { reportFormSchema } from "./validationSchemas";
 
 // define interface for props
 interface Props {

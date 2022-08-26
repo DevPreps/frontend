@@ -1,14 +1,9 @@
 import React from "react";
 
-// mui styles
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import IconButton from "@mui/material/IconButton";
-import TextField from "@mui/material/TextField";
-
 // mui icons
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+// mui styles
+import { Box, Button, IconButton, Modal, TextField } from "@mui/material";
 
 const AddComment = () => {
     const [open, setOpen] = React.useState(false);

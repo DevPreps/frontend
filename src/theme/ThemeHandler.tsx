@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+import { CssBaseline, createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+
 import { ColorModeContext } from "../context/appContext";
 import { baseTheme } from "./Themes";
 

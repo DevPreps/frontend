@@ -1,4 +1,20 @@
 import React, { useState } from "react";
+
+// Import MUI components
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+    Box,
+    Chip,
+    FormControl,
+    FormHelperText,
+    IconButton,
+    InputAdornment,
+    InputLabel,
+    MenuItem,
+    Select,
+    TextField,
+} from "@mui/material";
+import { SelectChangeEvent } from "@mui/material/Select";
 import {
     Controller,
     FieldError,
@@ -8,20 +24,7 @@ import {
     useFormContext,
 } from "react-hook-form";
 
-// Import MUI components
-import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
-import FormControl from "@mui/material/FormControl";
-import FormHelperText from "@mui/material/FormHelperText";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import TextField from "@mui/material/TextField";
-
 import { categoryOptions } from "../data";
-import InputAdornment from "@mui/material/InputAdornment";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import IconButton from "@mui/material/IconButton";
 
 // define interface for props
 interface Props<T> extends UseControllerProps<T> {

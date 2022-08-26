@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import ThemeToggler from "../ThemeToggler";
 
 describe("Toggle", () => {

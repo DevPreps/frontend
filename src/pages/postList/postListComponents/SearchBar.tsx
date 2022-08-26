@@ -1,15 +1,17 @@
 import React from "react";
 
-// import MUI components
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
-import OutlinedInput from "@mui/material/OutlinedInput";
+// import MUI icons and components
+import { Search } from "@mui/icons-material";
+import {
+    Box,
+    FormControl,
+    IconButton,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput,
+} from "@mui/material";
 
 // import MUI icons
-import { Search } from "@mui/icons-material";
 const SearchBar = () => {
     return (
         <Box component="form" sx={styles.form} noValidate autoComplete="off">

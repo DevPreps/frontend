@@ -1,16 +1,12 @@
 import React from "react";
 
-// import create post modal
-import PostListItem from "./PostListItem";
-import SortMenu from "./SortMenu";
+import { Box, Button, Stack, Typography } from "@mui/material";
+
 import { AuthorCardActions, UserCardActions } from "./CardActions";
 import { IPost } from "./IPost";
-
-// import MUI components
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import PostListItem from "./PostListItem";
 import SearchBar from "./SearchBar";
+import SortMenu from "./SortMenu";
 
 interface Props {
     posts: IPost[];
@@ -29,7 +25,12 @@ const PostListLayout: React.FC<Props> = ({
     return (
         <Stack spacing={2} sx={styles.stack}>
             {/* the following title just show which page is rendered, will be deleted later */}
-            <Typography variant="h5">{title}</Typography>
+            <Typography variant="h5" data-testid="title">
+                {title}
+                <Box component="span" sx={styles.span}>
+                    This title will be deleted
+                </Box>
+            </Typography>
             {withSearchBar && <SearchBar />}
             {/* compose button and sort menu */}
             <Stack direction="row" sx={styles.toolbar}>
@@ -48,15 +49,24 @@ const PostListLayout: React.FC<Props> = ({
                 </PostListItem>
             ))}
             {/* load more button */}
-            <Button>Load More</Button>
+            <Button sx={styles.loadMoreBtn}>Load More Posts</Button>
         </Stack>
     );
 };
 
 const styles = {
+    loadMoreBtn: {
+        width: 160,
+    },
+    // TODO - span will be deleted
+    span: {
+        color: "error.main",
+        fontSize: 12,
+    },
     stack: {
         flexGrow: 1,
-        mt: 3,
+        alignItems: "center",
+        my: 3,
         px: {
             xs: 1,
             sm: 2,

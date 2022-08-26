@@ -1,21 +1,14 @@
 import React from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 
-// import form data interface and validation schema
-import { ILoginFormInputs } from "../forms/IFormInputs";
-import { loginFormSchema } from "../forms/validationSchemas";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Box, Button, Container, Link, Stack, Typography } from "@mui/material";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 // import reusable form input components
 import { PasswordInput, TextFieldInput } from "../forms/FormInput";
-
-// import MUI components
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+// import form data interface and validation schema
+import { ILoginFormInputs } from "../forms/IFormInputs";
+import { loginFormSchema } from "../forms/validationSchemas";
 
 const Login = () => {
     // react hook form

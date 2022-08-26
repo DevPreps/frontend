@@ -1,13 +1,13 @@
 import React from "react";
+
+import { Typography } from "@mui/material";
 import { SubmitHandler } from "react-hook-form";
 
 // import form data interface and validation schema
 import { IReportFormInputs } from "../../../forms/IFormInputs";
-
 // import form component and defaultValues
-import PostModalLayout from "./PostModalLayout";
 import ReportForm from "../../../forms/ReportForm";
-import Typography from "@mui/material/Typography";
+import PostModalLayout from "./PostModalLayout";
 
 const ReportModal = () => {
     // TODO, the reportUrl should be updated

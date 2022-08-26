@@ -1,7 +1,6 @@
 import React from "react";
 
-//MUI styles
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 
 //Import team detail child component
 import TeamDetail from "./TeamDetail";

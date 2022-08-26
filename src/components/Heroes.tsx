@@ -1,12 +1,13 @@
 import React from "react";
 
-// import MUI components
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import {
+    Box,
+    Container,
+    Divider,
+    Link,
+    Stack,
+    Typography,
+} from "@mui/material";
 
 const Heroes = () => {
     return (

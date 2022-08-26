@@ -1,7 +1,8 @@
 import React from "react";
-import { shallow } from "enzyme";
-import ContactForm from "../ContactForm";
 
+import { shallow } from "enzyme";
+
+import ContactForm from "../ContactForm";
 // import form data interface
 import { IContactFormInputs } from "../IFormInputs";
 

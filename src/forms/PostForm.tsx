@@ -1,20 +1,16 @@
 import React from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+
 import { yupResolver } from "@hookform/resolvers/yup";
+// import MUI components
+import { Box, Button, Stack } from "@mui/material";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 
-// import form data interface
-import { IFormInputs } from "./IFormInputs";
-// import tags and categories
 import { tagOptions } from "../data";
-
 // import reusable form input components
 import { TagsInput, TextFieldInput } from "./FormInput";
-
-// Import MUI components
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+// import form data interface
+import { IFormInputs } from "./IFormInputs";
 import InterviewItems from "./InterviewItems";
 
 // define interface for props

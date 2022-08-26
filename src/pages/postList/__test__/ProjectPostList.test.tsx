@@ -1,5 +1,7 @@
 import React from "react";
+
 import { shallow } from "enzyme";
+
 import ProjectPostList from "../ProjectPostList";
 // test component rendering
 describe("<ProjectPostList /> rendering", () => {

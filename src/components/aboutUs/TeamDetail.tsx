@@ -1,11 +1,6 @@
 import React from "react";
 
-//MUI styles
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
+import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
 
 // Defined an interface properites
 export interface TeamDetailProps {

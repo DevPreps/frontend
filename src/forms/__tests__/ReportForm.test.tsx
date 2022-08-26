@@ -1,9 +1,10 @@
 import React from "react";
+
 import { shallow } from "enzyme";
-import ReportForm from "../ReportForm";
 
 // import form data interface
 import { IReportFormInputs } from "../IFormInputs";
+import ReportForm from "../ReportForm";
 
 // test rendering
 describe("Test ReportForm component", () => {

@@ -28,11 +28,6 @@ describe("Test PostForm component", () => {
         expect(wrapper.find({ name: "title" }).length).toBe(1);
     });
 
-    // should have input with name "content"
-    it("should have input with name content", () => {
-        expect(wrapper.find({ name: "content" }).length).toBe(1);
-    });
-
     // should have input with name "tags"
     it("should have input with name tags", () => {
         expect(wrapper.find({ name: "tags" }).length).toBe(1);

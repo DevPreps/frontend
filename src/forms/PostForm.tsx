@@ -13,6 +13,9 @@ import { TagsInput, TextFieldInput } from "./FormInput";
 import { IFormInputs } from "./IFormInputs";
 import InterviewItems from "./InterviewItems";
 
+// Import WYSIWYG component
+import RichTextEditor from "./RichTextEditor";
+
 // define interface for props
 interface Props {
     category: string;
@@ -47,12 +50,7 @@ const PostForm = ({
                 )}
 
                 {/* TODO - add rich-text editor for post content */}
-                <TextFieldInput
-                    helperText="Post content"
-                    name="content"
-                    multiline
-                    rows={8}
-                />
+                <RichTextEditor />
 
                 <TagsInput
                     helperText="choose tags for you post"

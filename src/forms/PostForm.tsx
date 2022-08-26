@@ -12,7 +12,6 @@ import { TagsInput, TextFieldInput } from "./FormInput";
 // import form data interface
 import { IFormInputs } from "./IFormInputs";
 import InterviewItems from "./InterviewItems";
-
 // Import WYSIWYG component
 import RichTextEditor from "./RichTextEditor";
 

@@ -9,6 +9,6 @@ describe("<SearchBar /> rendering", () => {
     const wrapper = shallow(<SearchBar />);
     // test if SearchBar component renders
     it("should be able to render <SearchBar />", () => {
-        expect(wrapper.find({ children: "Search" }).length).toBe(1);
+        expect(wrapper.find({ "data-testid": "searchbar" }).length).toBe(1);
     });
 });

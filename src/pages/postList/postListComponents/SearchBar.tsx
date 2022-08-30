@@ -10,15 +10,13 @@ import {
     OutlinedInput,
 } from "@mui/material";
 
-
 // import MUI icons
 const SearchBar = () => {
-
     return (
         <Box component="form" sx={styles.form} noValidate autoComplete="off">
             <FormControl variant="outlined" sx={styles.formControl}>
                 <OutlinedInput
-                    id="outlined-adornment-search"
+                    data-testid="searchbar"
                     autoFocus
                     notched
                     sx={styles.searchBar}
@@ -51,11 +49,12 @@ const styles = {
         maxWidth: 500,
     },
     searchBar: {
-        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "text.secondary",
-            borderWidth: "thin",
-        },
-    }
+        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+            {
+                borderColor: "text.secondary",
+                borderWidth: "thin",
+            },
+    },
 } as const;
 
 export default SearchBar;

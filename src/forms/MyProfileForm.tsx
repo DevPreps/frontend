@@ -151,6 +151,7 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
 };
 const styles = {
     gridContainer: {
+        backgroundColor: "background.paper",
         maxWidth: "800px",
         py: 2,
     },

@@ -9,9 +9,9 @@ export interface IPost {
     title: string;
     category: string;
     tags: string[];
-    companyName?: string,
-    city?: "string",
-    jobTitle?: "string",
-    position?: "string",
-    jobAdUrl?: "string",
+    companyName?: string;
+    city?: string;
+    jobTitle?: string;
+    position?: string;
+    jobAdUrl?: string;
 }

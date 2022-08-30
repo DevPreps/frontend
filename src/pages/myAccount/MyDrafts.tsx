@@ -12,7 +12,7 @@ const MyDrafts = () => {
             title="My Drafts"
             posts={myDrafts}
             withSearchBar={false}
-        ></PostListLayout>
+        />
     );
 };
 

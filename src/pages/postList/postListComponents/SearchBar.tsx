@@ -52,7 +52,7 @@ const styles = {
     },
     searchBar: {
         "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "neutral.main",
+            borderColor: "text.secondary",
             borderWidth: "thin",
         },
     }

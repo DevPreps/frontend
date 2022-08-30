@@ -10,11 +10,13 @@ import { baseTheme } from "./Themes";
 declare module "@mui/material/styles" {
     interface Palette {
         neutral: Palette["primary"];
+        pink: Palette["primary"];
     }
 
     // allow configuration using “createTheme”
     interface PaletteOptions {
         neutral?: PaletteOptions["primary"];
+        pink?: PaletteOptions["primary"];
     }
 }
 

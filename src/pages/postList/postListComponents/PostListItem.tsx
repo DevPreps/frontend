@@ -65,6 +65,7 @@ const styles = {
     },
     card: {
         display: "flex",
+        boxShadow: 3,
     },
     cardContent: {
         flex: 1,

@@ -88,7 +88,7 @@ const styles = {
         mx: 0,
     },
     general: {
-        color: "success.main",
+        color: "pink.main",
     },
     interview: {
         color: "info.main",
@@ -113,7 +113,7 @@ const styles = {
         },
     },
     subTitle: {
-        color: "white",
+        color: "text.secondary",
         width: "85%",
         display: {
             xs: "none",
@@ -122,7 +122,7 @@ const styles = {
         pb: 2,
     },
     title: {
-        color: "white",
+        color: "divider",
         fontWeight: 500,
         fontSize: {
             xs: "30px",

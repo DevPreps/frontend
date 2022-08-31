@@ -30,7 +30,7 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
         <FormProvider {...methods}>
             <Grid
                 container
-                spacing={3}
+                spacing={2}
                 component="form"
                 onSubmit={handleSubmit(onSubmit)}
                 sx={styles.gridContainer}
@@ -157,10 +157,12 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
 const styles = {
     gridContainer: {
         backgroundColor: "background.paper",
+        boxShadow: 3,
         maxWidth: "800px",
-        py: 2,
+        pr: 2,
+        py: 3,
     },
-    groupButton: { mt: 5, ml: 3 },
+    groupButton: { mt: 5 },
     publishBtn: {
         mr: 2,
     },

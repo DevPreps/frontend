@@ -5,7 +5,7 @@ import { Link as RouteLink } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer>
+        <footer style={styles.footer}>
             <Paper sx={styles.footerBox}>
                 <Container sx={styles.container}>
                     <Grid container spacing={4}>
@@ -78,6 +78,9 @@ const Footer = () => {
 export default Footer;
 
 const styles = {
+    footer: {
+        zIndex: 1205,
+    },
     footerBox: {
         px: {
             xs: 3,

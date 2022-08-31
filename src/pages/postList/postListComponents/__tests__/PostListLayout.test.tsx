@@ -14,7 +14,6 @@ describe("Test PostListLayout component", () => {
     );
 
     it("should be able to render test as title", () => {
-        console.log(wrapper.debug());
         expect(wrapper.find({ "data-testid": "title" }).contains("test")).toBe(
             true
         );

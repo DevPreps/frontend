@@ -20,7 +20,6 @@ const MyProfile = () => {
 
     return (
         <Box sx={styles.box}>
-            <Typography variant="h5">My Profile</Typography>
             <MyProfileForm
                 formDefaultValues={myProfileFormDefaultValues}
                 onSubmit={onSubmit}

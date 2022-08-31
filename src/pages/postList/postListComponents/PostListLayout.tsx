@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import { Box, Button, Stack, Typography } from "@mui/material";
 
@@ -9,8 +9,9 @@ import SearchBar from "./SearchBar";
 import SortMenu from "./SortMenu";
 
 interface Props {
-    posts: IPost[];
+    children?: ReactNode;
     title: string;
+    posts: IPost[];
     withSearchBar: boolean;
 }
 

@@ -7,7 +7,6 @@ import {
     FormControl,
     IconButton,
     InputAdornment,
-    InputLabel,
     OutlinedInput,
 } from "@mui/material";
 
@@ -16,12 +15,16 @@ const SearchBar = () => {
     return (
         <Box component="form" sx={styles.form} noValidate autoComplete="off">
             <FormControl variant="outlined" sx={styles.formControl}>
-                <InputLabel htmlFor="outlined-adornment-search">
-                    Search
-                </InputLabel>
                 <OutlinedInput
-                    id="outlined-adornment-search"
-                    // label="Search"
+                    data-testid="searchbar"
+                    autoFocus
+                    notched
+                    sx={styles.searchBar}
+                    startAdornment={
+                        <InputAdornment position="start">
+                            $search&gt;
+                        </InputAdornment>
+                    }
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton edge="end">
@@ -44,6 +47,13 @@ const styles = {
     formControl: {
         width: "100%",
         maxWidth: 500,
+    },
+    searchBar: {
+        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+            {
+                borderColor: "text.secondary",
+                borderWidth: "thin",
+            },
     },
 } as const;
 

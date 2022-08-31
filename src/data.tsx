@@ -16,7 +16,11 @@ export const violationOptions = [
     "other",
 ];
 // these values are used for development and test
-export const buildArray = (length: number, category: string[]) => {
+export const buildArray = (
+    length: number,
+    category: string[],
+    userId = "123"
+) => {
     const arr = new Array(length);
     const randomPosition =
         positionOptions[Math.floor(Math.random() * positionOptions.length)];
@@ -34,7 +38,7 @@ export const buildArray = (length: number, category: string[]) => {
     return arr.fill(null).map((_, index) => {
         return {
             postId: (index + 1).toString(),
-            userId: "1",
+            userId: userId,
             date: "24-07-2022",
             content:
                 "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit odio culpa dignissimos earum sint.",
@@ -54,5 +58,5 @@ export const learnPosts = buildArray(10, ["learn"]);
 export const interviewPosts = buildArray(10, ["interview"]);
 export const generalPosts = buildArray(10, ["general"]);
 export const projectPosts = buildArray(10, ["project"]);
-export const myDrafts = buildArray(6, categoryOptions);
-export const myPosts = buildArray(6, categoryOptions);
+export const myDrafts = buildArray(6, categoryOptions, "1");
+export const myPosts = buildArray(6, categoryOptions, "1");

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Grid, Stack } from "@mui/material";
+import { Button, Grid, Stack, Typography } from "@mui/material";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 import { positionOptions } from "../data";
@@ -30,11 +30,16 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
         <FormProvider {...methods}>
             <Grid
                 container
-                spacing={3}
+                spacing={2}
                 component="form"
                 onSubmit={handleSubmit(onSubmit)}
                 sx={styles.gridContainer}
             >
+                <Grid item xs={12}>
+                    <Typography variant="h5" textAlign="center">
+                        My Profile
+                    </Typography>
+                </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextFieldInput
                         helperText=""
@@ -151,10 +156,13 @@ const MyProfileForm = ({ onSubmit, formDefaultValues }: Props) => {
 };
 const styles = {
     gridContainer: {
+        backgroundColor: "background.paper",
+        boxShadow: 3,
         maxWidth: "800px",
-        py: 2,
+        pr: 2,
+        py: 3,
     },
-    groupButton: { mt: 5, ml: 3 },
+    groupButton: { mt: 5 },
     publishBtn: {
         mr: 2,
     },

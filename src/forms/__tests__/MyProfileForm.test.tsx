@@ -18,6 +18,10 @@ describe("Test MyProfileForm component", () => {
         />
     );
 
+    it("should be able to render title My Profile", () => {
+        expect(wrapper.find({ children: "My Profile" }).length).toBe(1);
+    });
+
     it("should have a TextFieldInput for firstName", () => {
         expect(wrapper.find({ name: "firstName" }).length).toBe(1);
     });

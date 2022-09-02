@@ -107,7 +107,7 @@ export const baseTheme = (mode: PaletteMode) => {
                         fontWeight: 700,
                     },
                     "footer a": {
-                        color: themeColor.contrastText, 
+                        color: themeColor.contrastText,
                     },
                     ".ql-snow .ql-picker, .ql-snow .ql-picker-options .ql-picker-item, .ql-snow .ql-stroke, .ql-snow .ql-tooltip:before":
                         {

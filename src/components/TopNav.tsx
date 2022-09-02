@@ -73,7 +73,11 @@ export default function TopNav() {
                         <Box sx={style.desktopView}>
                             {navLinks?.map((link, index) => (
                                 <Button
-                                    sx={location.pathname === link.to?style.isActive:style.button}
+                                    sx={
+                                        location.pathname === link.to
+                                            ? style.isActive
+                                            : style.button
+                                    }
                                     key={index}
                                     component={Link}
                                     to={link.to}
@@ -89,7 +93,11 @@ export default function TopNav() {
                             />
                             {groupNavLinks?.map((link, index) => (
                                 <Button
-                                    sx={location.pathname === link.to?style.isActive:style.button}
+                                    sx={
+                                        location.pathname === link.to
+                                            ? style.isActive
+                                            : style.button
+                                    }
                                     key={index}
                                     component={Link}
                                     to={link.to}
@@ -105,7 +113,14 @@ export default function TopNav() {
                                     <ListItemButton
                                         component={Link}
                                         to={link.to}
-                                        sx={location.pathname === link.to?{...style.ListItemButton, ...style.isActive}:style.ListItemButton}
+                                        sx={
+                                            location.pathname === link.to
+                                                ? {
+                                                      ...style.ListItemButton,
+                                                      ...style.isActive,
+                                                  }
+                                                : style.ListItemButton
+                                        }
                                     >
                                         <ListItemText
                                             sx={style.itemText}
@@ -124,7 +139,7 @@ export default function TopNav() {
 export const style = {
     isActive: {
         backgroundColor: "primary.main",
-        color: "secondary.main"
+        color: "secondary.main",
     },
     overlay: {
         zIndex: 1210,
@@ -139,10 +154,10 @@ export const style = {
         mb: 0.4,
     },
     divider: {
-        marginLeft: .5,
-        marginRight: .5,
+        marginLeft: 0.5,
+        marginRight: 0.5,
         border: "1px solid",
-        borderRadius: "8px"
+        borderRadius: "8px",
     },
     buttonGroup: {
         mx: 0.4,

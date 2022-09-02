@@ -11,7 +11,7 @@ import {
     ListItemText,
     Toolbar,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // Import Navbar Related Components
 import Logo from "../theme/LogoNav";
@@ -62,6 +62,8 @@ export default function TopNav() {
 
     const mobileLinks = [...navLinks, ...groupNavLinks];
 
+    const location = useLocation();
+
     return (
         <>
             <AppBar position="sticky" color="secondary" sx={style.overlay}>
@@ -71,6 +73,7 @@ export default function TopNav() {
                         <Box sx={style.desktopView}>
                             {navLinks?.map((link, index) => (
                                 <Button
+                                    sx={location.pathname === link.to?style.isActive:style.button}
                                     key={index}
                                     component={Link}
                                     to={link.to}
@@ -82,9 +85,11 @@ export default function TopNav() {
                                 orientation="vertical"
                                 variant="middle"
                                 flexItem
+                                sx={style.divider}
                             />
                             {groupNavLinks?.map((link, index) => (
                                 <Button
+                                    sx={location.pathname === link.to?style.isActive:style.button}
                                     key={index}
                                     component={Link}
                                     to={link.to}
@@ -100,7 +105,7 @@ export default function TopNav() {
                                     <ListItemButton
                                         component={Link}
                                         to={link.to}
-                                        sx={style.ListItemButton}
+                                        sx={location.pathname === link.to?{...style.ListItemButton, ...style.isActive}:style.ListItemButton}
                                     >
                                         <ListItemText
                                             sx={style.itemText}
@@ -117,13 +122,27 @@ export default function TopNav() {
     );
 }
 export const style = {
+    isActive: {
+        backgroundColor: "primary.main",
+        color: "secondary.main"
+    },
     overlay: {
         zIndex: 1210,
     },
+    button: {
+        color: "text.primary",
+    },
     ListItemButton: {
+        color: "text.primary",
         textAlign: "center",
         justifyContent: "center",
         mb: 0.4,
+    },
+    divider: {
+        marginLeft: .5,
+        marginRight: .5,
+        border: "1px solid",
+        borderRadius: "8px"
     },
     buttonGroup: {
         mx: 0.4,

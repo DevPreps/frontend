@@ -154,8 +154,7 @@ export const style = {
         mb: 0.4,
     },
     divider: {
-        marginLeft: 0.5,
-        marginRight: 0.5,
+        mx: 0.5,
         border: "1px solid",
         borderRadius: "8px",
     },

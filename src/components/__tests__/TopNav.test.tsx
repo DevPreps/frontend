@@ -1,7 +1,8 @@
 import React from "react";
 
 import { Button } from "@mui/material";
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import TopNav from "../TopNav";
 
@@ -44,7 +45,11 @@ const links = [
 
 // test component rendering
 describe("<TopNav />", () => {
-    const wrapper = shallow(<TopNav />);
+    const wrapper = mount(
+        <Router>
+            <TopNav />
+        </Router>
+    );
     // test if the TopNav component renders
     it("should be able to render <TopNav />", () => {
         wrapper;
@@ -54,10 +59,8 @@ describe("<TopNav />", () => {
         expect(wrapper.find(Button).at(0).prop("to")).toHaveLength(14);
     });
     it("should test links", () => {
-        links.map((link) =>
-            expect(
-                wrapper.find({ children: link.text }).last().prop("to")
-            ).toEqual(link.to)
+        links.map((link, index) =>
+            expect(wrapper.find("Link").at(index).prop("to")).toEqual(link.to)
         );
     });
 });

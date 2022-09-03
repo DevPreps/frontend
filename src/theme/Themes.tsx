@@ -58,7 +58,7 @@ export const baseTheme = (mode: PaletteMode) => {
         breakpoints: {
             values: {
                 xs: 0,
-                sm: 650,
+                sm: 675,
                 md: 910,
                 lg: 1200,
                 xl: 1536,
@@ -103,9 +103,11 @@ export const baseTheme = (mode: PaletteMode) => {
                         transition: "all 0.5s ease-in-out",
                     },
                     "header a, .MuiBox-root a": {
-                        color: themeColor.contrastText,
                         textDecoration: "none",
                         fontWeight: 700,
+                    },
+                    "footer a": {
+                        color: themeColor.contrastText,
                     },
                     ".ql-snow .ql-picker, .ql-snow .ql-picker-options .ql-picker-item, .ql-snow .ql-stroke, .ql-snow .ql-tooltip:before":
                         {

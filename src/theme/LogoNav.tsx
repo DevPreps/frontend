@@ -25,5 +25,6 @@ const style = {
         fontWeight: 700,
         letterSpacing: ".2rem",
         textDecoration: "none",
+        color: "text.primary",
     },
 };
